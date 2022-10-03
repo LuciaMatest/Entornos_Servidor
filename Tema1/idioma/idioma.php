@@ -7,12 +7,14 @@
     <title>Idiomas</title>
 </head>
 <body>
-    <?
+    <?php
         $es="Hola Mundo";
         $en="Hello worlds";
         $nr="Hei Verden";
         $it="Ciao mondo";
         $de="Hallo welt";
+        $idioma=$_GET['pais'];
+        echo "${idioma}";
     ?>
 </body>
 </html>
