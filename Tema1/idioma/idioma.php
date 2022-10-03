@@ -14,7 +14,7 @@
         $it="Ciao mondo";
         $de="Hallo welt";
         $idioma=$_GET['pais'];
-        echo "${idioma}";
+        echo "${$idioma}";
     ?>
 </body>
 </html>
