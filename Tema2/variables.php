@@ -1,48 +1,81 @@
-<h2>Valor y referencia</h2>
 <?php
-    $var=1;
-    $var1=$var;
-    echo $var . "<br>";
-    echo $var1 . "<br>";
-    $var1=$var1 + 1;
-    echo $var . "<br>";
-    echo $var1 . "<br>";
-
-    echo "<br>";
-
-    $var=1;
-    $var1=&$var;
-    echo $var . "<br>";
-    echo $var1 . "<br>";
-    $var1=$var1 + 1;
-    echo $var . "<br>";
-    echo $var1 . "<br>";
+    include("./index.html");
 ?>
+<h2>Valor y Referencia</h2>
+<?php
+//Por valor
+$var = 1;
+$var1=  $var;
+echo $var . "<br>";
+echo $var1 . "<br>";
+$var1 = $var1 + 1;
+echo $var . "<br>";
+echo $var1 . "<br>";
+
+//Por referencia
+$var = 1;
+$var1=  &$var;
+echo $var . "<br>";
+echo $var1 . "<br>";
+$var1 = $var1 + 1;
+echo $var . "<br>";
+echo $var1 . "<br>";
+?>
+
 <h2>Ambito de las variables</h2>
 <?php
-    $global =1;
-    function cambio($global){
-       // global $global
-        $local = $global;
-        echo "El valor de local es " . $local;
-    }
-    cambio($global);
-    echo "<br>El valor de global es " . $global;
+//Usamos el mismo nombre en local y global
+$global = 1;
+function cambio(){
+    $global = 2;
+    echo "El valor de global dentro de la funcion es " .$global;
+}
+cambio();
+echo "<br>El valor de global es " .$global;
 
-    echo "<h2>Variables Estáticas</h2>";
-
-    //crear variables de funcion
-    function crearCoches(){
-        static $numeroVecesCreado=0;
-        $numeroVecesCreado=$numeroVecesCreado + 1;
-        echo "<br> Ha sido creado un coche";
-        echo "<br> LLevo creados " . $numeroVecesCreado;
-    }
-    crearCoches();
-    crearCoches();
-
-    echo "<h2>Include</h2>";
-    include_once("./prueba.html");
-    
-    echo "<h2>Constantes</h2>";
+//Vamos a intentar usar la misma variable
+$global = 1;
+function cambio2(){
+    global $global;
+    $local = $global;
+    echo "<br>El valor de global dentro de la funcion es " .$local;
+}
+cambio2();
+echo "<br>El valor de global es " .$global;
 ?>
+
+<h2>Variables estaticas</h2>
+<?php
+//crear variables de funcion
+function crearCoches(){
+    static $numeroVecesCreada=0;
+    $numeroVecesCreada = $numeroVecesCreada + 1;
+    echo "<br>Ha sido creado un coche";
+    echo "<br>Llevo creados " .$numeroVecesCreada;
+}
+crearCoches();
+crearCoches();
+?>
+
+<h2>Constantes</h2>
+<?php
+include("./constantes.php");
+echo "Al usuario " .USER. " le gusta el número " .PI;
+?>
+
+<h2>Variables especiales</h2>
+<?php
+echo "<pre>";
+var_dump($_SERVER);
+echo "<pre>";
+var_dump($_GET);
+echo "<pre>";
+var_dump($_POST);
+echo "<pre>";
+var_dump($_REQUEST);
+echo "<pre>";
+var_dump($_COOKIE);
+echo "<pre>";
+var_dump($_FILES);
+echo "<pre>";
+var_dump($_SESSION);
