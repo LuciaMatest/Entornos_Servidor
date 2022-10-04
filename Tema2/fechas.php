@@ -53,7 +53,4 @@
     $intervalo = $fecha2->diff($fecha1);
     echo "<br>";
     echo "<br>años: " .$intervalo->y . " meses: " .$intervalo->m . " dias: " .$intervalo->d;
-    
-
-
 ?>
