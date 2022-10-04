@@ -78,4 +78,6 @@ var_dump($_COOKIE);
 echo "<pre>";
 var_dump($_FILES);
 echo "<pre>";
+session_start();
 var_dump($_SESSION);
+var_dump(getenv());
