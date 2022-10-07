@@ -1,6 +1,6 @@
-<?php
+<!-- <?php
     include("./index.html");
-?>
+?> -->
 <h2>Valor y Referencia</h2>
 <?php
 //Por valor
