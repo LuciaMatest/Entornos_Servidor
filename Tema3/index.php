@@ -21,6 +21,7 @@ echo "<br>";
 var_dump($a >> $b);
 echo "<br>";
 ?>
+
 <h2>Tomas de decision</h2>
 <?
 $a = 2;
@@ -35,3 +36,21 @@ switch ($a) {
         echo "es otro";
         break;
 }
+?>
+
+<h2>Bucles</h2>
+<?
+$b = 10;
+for ($i=0; $i <= $b; $i++) { 
+    echo "<br>" . $i;
+    if ($i==5)
+        break;
+}
+echo "<br>";
+for ($i=0; $i <= $b; $i++) { 
+    if ($i==5)
+        continue;
+    echo "<br>" . $i;
+
+}
+?>
