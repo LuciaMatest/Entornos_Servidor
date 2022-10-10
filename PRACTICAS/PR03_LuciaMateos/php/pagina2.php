@@ -19,12 +19,11 @@
       si es numérico o no y si lo es, si es entero o float.</a>
         <ul>
           <li><?php
-            $v= $_GET["var"];
-        
-            echo "El valor es: ";
-            var_dump($v);
-            echo "Es de tipo: " . gettype($v);
+            $v = $_GET("variable");
 
+            foreach ($v as $value) {
+                echo gettype($value), "\n";
+            }
           ?></li>
         </ul>
       </li>
