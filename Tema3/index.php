@@ -40,6 +40,7 @@ switch ($a) {
 
 <h2>Bucles</h2>
 <?
+//for
 $b = 10;
 for ($i=0; $i <= $b; $i++) { 
     echo "<br>" . $i;
@@ -50,7 +51,20 @@ echo "<br>";
 for ($i=0; $i <= $b; $i++) { 
     if ($i==5)
         continue;
-    echo "<br>" . $i;
+    echo "<br>".$i;
 
 }
+//while
+echo "<br>";
+while ($a <= 10) {
+    echo "<br>".$a;
+    $a++;
+}
+//do 
+echo "<br>";
+$c = 4;
+do {
+    echo "<br>".$c;
+    $c++;
+} while ($c <= 10);
 ?>
