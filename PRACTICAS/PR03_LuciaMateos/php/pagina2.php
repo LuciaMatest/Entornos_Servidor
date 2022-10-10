@@ -18,10 +18,13 @@
       <li><a href="#">Crea una página a la que se le pase por url una variable con el nombre que quieras y muestre el valor de la variable, el tipo, 
       si es numérico o no y si lo es, si es entero o float.</a>
         <ul>
-          <li><?php 
-            $nacimiento = strtotime("1994/10/11");
-            $fecha = time() - strtotime($nacimiento);
-            $edad = floor($fecha / 31556926);
+          <li><?php
+            $v= $_GET["var"];
+        
+            echo "El valor es: ";
+            var_dump($v);
+            echo "Es de tipo: " . gettype($v);
+
           ?></li>
         </ul>
       </li>
