@@ -11,17 +11,14 @@
         echo '<link rel="stylesheet" href="../../../style.css">';
     ?>
     <header>
-        <h1>PR03</h1>
+        <h1>PR04</h1>
     </header>
     <main>
     <ul class="menú">
-      <li><a href="#">Crea una página en la que se le pase como parámetros en la URL (ano, mes y día) y muestre el día de la semana de dicho día. 
-        (Por defecto, dale el valor de 12/09/2022)</a>
-        <ul>
-          <li><?php 
-          
-          ?></li>
-        </ul>
+      <li><a href="#">Relieve</a>
+        <?php 
+        
+        ?>
       </li>
       <li><a href="../index.html">Volver</a></li>
     </ul>

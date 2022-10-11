@@ -15,9 +15,18 @@
     </header>
     <main>
     <ul class="menú">
-      <li><a href="#">Realiza un programa utilizando bucles que muestre una piramide</a>
+      <li><a href="#">Piramide</a>
         <?php 
-         
+          $a = 5;
+          for ($i=1; $i <= $a; $i++) { 
+              for ($j=1; $j <= $a - $i; $j++) { 
+                  echo '&nbsp;&nbsp;';
+              }
+              for ($h=1; $h <= 2*$i - 1; $h++) { 
+                  echo '*';
+              }
+              echo '<br>';
+          }
         ?>
       </li>
       <li><a href="../index.html">Volver</a></li>

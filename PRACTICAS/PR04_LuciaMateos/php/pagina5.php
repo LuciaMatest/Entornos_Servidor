@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina 2</title>
+    <title>Pagina 5</title>
 </head>
 <body>
     <?php
@@ -15,18 +15,9 @@
     </header>
     <main>
     <ul class="menú">
-      <li><a href="#">Rombo</a>
+      <li><a href="#">Bisiesto</a>
         <?php 
-          $a = 5;
-          for ($i=1; $i <= $a; $i++) { 
-              for ($j=1; $j <= $a - $i; $j++) { 
-                  echo '&nbsp;&nbsp;';
-              }
-              for ($h=1; $h <= 2*$i - 1; $h++) { 
-                  echo '*';
-              }
-              echo '<br>';
-          }
+        
         ?>
       </li>
       <li><a href="../index.html">Volver</a></li>

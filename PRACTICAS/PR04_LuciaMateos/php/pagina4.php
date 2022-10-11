@@ -11,17 +11,14 @@
         echo '<link rel="stylesheet" href="../../../style.css">';
     ?>
     <header>
-        <h1>PR03</h1>
+        <h1>PR04</h1>
     </header>
     <main>
     <ul class="menú">
-      <li><a href="#">Crea una página en la que se le pase como parámetros en la URL (ano, mes y día) de dos personas y 
-        muestre las fechas de nacimiento de ambos y la diferencia de edad en años.</a>
-        <ul>
-          <li><?php 
-          
-          ?></li>
-        </ul>
+      <li><a href="#">Monedas</a>
+        <?php 
+
+        ?>
       </li>
       <li><a href="../index.html">Volver</a></li>
     </ul>
