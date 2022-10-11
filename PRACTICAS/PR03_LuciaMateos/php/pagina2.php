@@ -18,14 +18,15 @@
       <li><a href="#">Mostrar valor y tipo de una variable (si es numérico o no y si lo es, si es entero o float)</a>
         <?php
             $variable = implode($_GET);
-            echo $variable;
+            echo "La variables es " . $variable;
+            echo "<br>";
             foreach ($_GET as $value) {
                 if (is_numeric($value)) {
-                  echo "La variable es numerica";
+                  echo "Es numerica ";
                   if (strpos($value, '.') != false) {
-                    echo "La variable es de tipo FLOAT";
+                    echo "y es de tipo FLOAT";
                   } else {
-                    echo "La variable es de tipo ENTERO";
+                    echo "y es de tipo ENTERO";
                   }
                 } else {
                   echo gettype($value);
