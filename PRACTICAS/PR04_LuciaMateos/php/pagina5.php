@@ -17,7 +17,7 @@
     <ul class="menú">
       <li><a href="#">Bisiesto</a>
         <?php 
-        
+        //Escribe un programa que pida un año y que escriba si es bisiesto o no. Los años bisiestos son multiplos de 4 pero los multiplos de 100 no lo son , aunque los multiplos de 400 si
         ?>
       </li>
       <li><a href="../index.html">Volver</a></li>

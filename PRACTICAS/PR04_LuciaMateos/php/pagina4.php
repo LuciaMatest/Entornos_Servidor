@@ -17,7 +17,7 @@
     <ul class="menú">
       <li><a href="#">Monedas</a>
         <?php 
-
+//Realiza un programa que le introduzca un valor de un producto con 2 decimales y posteriormente un valor con el que pagar po encima(valor del producto 6.33€ y ha pagado con 10€). Muestra el numero minimo de monedas con las que puedes devolver el cambio
         ?>
       </li>
       <li><a href="../index.html">Volver</a></li>
