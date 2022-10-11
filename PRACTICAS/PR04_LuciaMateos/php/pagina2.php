@@ -17,7 +17,7 @@
     <ul class="menú">
       <li><a href="#">Rombo</a>
         <?php 
-          $a = 5;
+          $a = $_GET["filas"];
           for ($i=1; $i <= $a; $i++) { 
               for ($j=1; $j <= $a - $i; $j++) { 
                   echo '&nbsp;&nbsp;';
@@ -26,6 +26,16 @@
                   echo '*';
               }
               echo '<br>';
+          }
+          $a--;
+          for ($i=1; $i <= $a; $i++) { 
+            for ($j=1; $j <= $i; $j++) { 
+                echo '&nbsp;&nbsp;';
+            }
+            for ($h=1; $h <= ($a-$i)*2 +1; $h++) { 
+                echo '*';
+            }
+            echo '<br>';
           }
         ?>
       </li>

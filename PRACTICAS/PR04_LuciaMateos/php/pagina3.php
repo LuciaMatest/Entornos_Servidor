@@ -17,7 +17,26 @@
     <ul class="menú">
       <li><a href="#">Relieve</a>
         <?php 
-        
+          $a = $_GET["filas"];
+          for ($i=1; $i <= $a; $i++) { 
+              for ($j=1; $j <= $a - $i; $j++) { 
+                  echo '&nbsp;&nbsp;';
+              }
+              for ($h=1; $h <= 2*$i - 1; $h++) { 
+                  echo '*';
+              }
+              echo '<br>';
+          }
+          $a--;
+          for ($i=1; $i <= $a; $i++) { 
+            for ($j=1; $j <= $i; $j++) { 
+                echo '&nbsp;&nbsp;';
+            }
+            for ($h=1; $h <= ($a-$i)*2 +1; $h++) { 
+                echo '*';
+            }
+            echo '<br>';
+          }
         ?>
       </li>
       <li><a href="../index.html">Volver</a></li>
