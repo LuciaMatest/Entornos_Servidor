@@ -76,6 +76,9 @@ ul.menú li a:hover {
     color: #fff;
 }
 
+ul.menú li ul.scroll {
+    overflow: scroll;
+}
 
 footer {
     background-color: #074749;

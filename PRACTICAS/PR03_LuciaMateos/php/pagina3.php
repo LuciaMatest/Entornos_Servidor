@@ -15,11 +15,24 @@
     </header>
     <main>
     <ul class="menú">
-      <li><a href="#">Crea una página en la que se le pase como parámetros en la URL (ano, mes y día) y muestre el día de la semana de dicho día. 
-        (Por defecto, dale el valor de 12/09/2022)</a>
-        <ul>
-          <li><?php 
-          
+      <li><a href="#">Pasa como parámetros en la URL (año, mes y día) y muestre el día.(Por defecto, 12/09/2022)</a>
+      <?php 
+          $d = $_GET["dia"];
+          $m = $_GET["mes"];
+          $a = $_GET["anio"];
+          $fecha = $d . "/" . $m . "/" . $a;
+          echo $fecha;
+          echo "<br>";
+          $fecha = new dateTime($fecha);
+          echo "La fecha coincide con el dia: ";
+          echo date_format($fecha, "l");
+
+      ?>
+      </li>
+      <li><a href="#">Código</a>
+        <ul class="scroll">
+          <li><?php
+          highlight_file("pagina3.php");
           ?></li>
         </ul>
       </li>

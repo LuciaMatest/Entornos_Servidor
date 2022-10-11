@@ -15,11 +15,25 @@
     </header>
     <main>
     <ul class="menú">
-      <li><a href="#">Crea una página en la que se le pase como parámetros en la URL (ano, mes y día) de dos personas y 
-        muestre las fechas de nacimiento de ambos y la diferencia de edad en años.</a>
-        <ul>
-          <li><?php 
-          
+      <li><a href="#">Pasa como parámetros (ano, mes y día) de dos personas, muestre las fechas de nacimiento y la diferencia de edad en años.</a>
+            <?php 
+              $d1 = $_GET["dia1"];
+              $m1 = $_GET["mes1"];
+              $a1 = $_GET["anio1"];
+              $d2 = $_GET["dia2"];
+              $m2 = $_GET["mes2"];
+              $a2 = $_GET["anio2"];
+              $f1 = $d1 . "/" . $m1 . "/" . $a1;
+              $f2 = $d2 . "/" . $m2 . "/" . $a2;
+              echo "Juan nacio en: " .$f1;
+              echo "<br>";
+              echo "Sofia nacio en: " .$f2;
+            ?>
+      </li>
+      <li><a href="#">Código</a>
+        <ul class="scroll">
+          <li><?php
+          highlight_file("pagina4.php");
           ?></li>
         </ul>
       </li>

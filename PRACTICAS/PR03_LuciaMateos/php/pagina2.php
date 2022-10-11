@@ -35,8 +35,13 @@
             }
         ?>
       </li>
-      <!-- <li><a href="../index.html">Volver</a></li> -->
-
+      <li><a href="#">Código</a>
+        <ul class="scroll">
+          <li><?php
+          highlight_file("pagina2.php");
+          ?></li>
+        </ul>
+      </li>
       <li><a href="../index.html">Volver</a></li>
     </ul>
   </main>

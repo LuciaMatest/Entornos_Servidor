@@ -48,6 +48,13 @@
           echo date("d/m/Y", strtotime("+ 60 days"));
         ?>
       </li>
+      <li><a href="#">Código</a>
+        <ul class="scroll">
+          <li><?php
+          highlight_file("pagina1.php");
+          ?></li>
+        </ul>
+      </li>
       <li><a href="../index.html">Volver</a></li>
     </ul>
   </main>
