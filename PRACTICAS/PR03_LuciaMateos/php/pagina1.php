@@ -16,9 +16,8 @@
     <main>
     <ul class="menú">
       <li><a href="#">Muestra el nombre del fichero que se está ejecutando</a>
-        <ul>
-          <li><?php echo (__FILE__); ?></li>
-        </ul>
+        <?php echo (__FILE__); ?>
+
       </li>
       <li><a href="#">Muestra la dirección IP del equipo desde el que estás accediendo</a>
         <ul>
