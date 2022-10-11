@@ -28,6 +28,12 @@
               echo "Juan nacio en: " .$f1;
               echo "<br>";
               echo "Sofia nacio en: " .$f2;
+              echo "<br>";
+              echo "Entre Juan y Sofia se llevan ";
+              $f1 = new dateTime($f1);
+              $f2 = new dateTime($f2);
+              $diferencia = $f2->diff($f1);
+              echo $diferencia->y . " años ";
             ?>
       </li>
       <li><a href="#">Código</a>
