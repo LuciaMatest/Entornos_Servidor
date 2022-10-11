@@ -22,8 +22,12 @@
               for ($j=1; $j <= $a - $i; $j++) { 
                   echo '&nbsp;&nbsp;';
               }
-              for ($h=1; $h <= 2*$i - 1; $h++) { 
+              for ($h=1; $h <= 2*$i - 1; $h++) {
+                if ($h == 1 || $h == 2*$i - 1) {
                   echo '*';
+                } else {
+                  echo '&nbsp;&nbsp;';
+                }
               }
               echo '<br>';
           }
@@ -33,7 +37,11 @@
                 echo '&nbsp;&nbsp;';
             }
             for ($h=1; $h <= ($a-$i)*2 +1; $h++) { 
+              if ($h == 1 || $h == ($a-$i)*2 +1) {
                 echo '*';
+              } else {
+                echo '&nbsp;&nbsp;';
+              }
             }
             echo '<br>';
           }
