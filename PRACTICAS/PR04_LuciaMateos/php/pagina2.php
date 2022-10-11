@@ -23,7 +23,7 @@
                   echo '&nbsp;&nbsp;';
               }
               for ($h=1; $h <= 2*$i - 1; $h++) { 
-                  echo '*';
+                  echo ' * ';
               }
               echo '<br>';
           }
@@ -33,7 +33,7 @@
                 echo '&nbsp;&nbsp;';
             }
             for ($h=1; $h <= ($a-$i)*2 +1; $h++) { 
-                echo '*';
+                echo ' * ';
             }
             echo '<br>';
           }
