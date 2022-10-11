@@ -17,55 +17,36 @@
     <ul class="menú">
       <li><a href="#">Muestra el nombre del fichero que se está ejecutando</a>
         <?php echo (__FILE__); ?>
-
       </li>
       <li><a href="#">Muestra la dirección IP del equipo desde el que estás accediendo</a>
-        <ul>
-          <li><?php echo $_SERVER['REMOTE_ADDR']; ?></li>
-        </ul>
+        <?php echo $_SERVER['REMOTE_ADDR']; ?>
       </li>
       <li><a href="#">Muestra el path donde se encuentra el fichero que se está ejecutando</a>
-        <ul>
-          <li><?php echo $_SERVER['SCRIPT_NAME']; ?></li>
-        </ul>
+        <?php echo $_SERVER['SCRIPT_NAME']; ?>
       </li>
       <li><a href="#">Muestra la fecha y hora actual formateada en 2022-09-4 19:17:18</a>
-        <ul>
-          <li>
-            <?php
-                date_default_timezone_set('Europe/Madrid');
-                echo date("d/m/Y - h:i:s", strtotime("now")); 
-            ?>
-          </li>
-        </ul>
+        <?php
+          echo date("Y-m-d  h:i:s", strtotime("now")); 
+        ?>
       </li>
-      <li><a href="#">Muestra la fecha y hora actual en Oporto formateada en (día de la semana, día de mes de año, hh:mm:ss , Zona horaria)</a>
-        <ul>
-          <li>
-            <?php
-                $f1 = strtotime("1994/10/11");
-                echo "Timestamp:".$f1;
-                echo "<br/>";
-                $f2 = date("11/10/1994");
-                echo "Fecha:".$f2;
-            ?>
-          </li>
-        </ul>
+      <li><a href="#">Muestra la fecha y hora actual en Oporto formateada (día de la semana , día de mes de año, hh:mm:ss, Zona horaria)</a>
+        <?php
+          date_default_timezone_set('Europe/Lisbon');
+          echo date("l d h:i:s", strtotime("now")) . date_default_timezone_get();
+        ?>
       </li>
       <li><a href="#">Inicializa y muestra una variable en timestamp y en fecha con formato dd/mm/yyyy de tu cumpleaños</a>
-        <ul>
-          <li><?php echo $_SERVER['REMOTE_ADDR']; ?></li>
-        </ul>
+        <?php 
+          $f1 = strtotime("1994/10/11");
+          $f2 = date("11/10/1994");
+          echo "Timestamp:".$f1. " Fecha:".$f2;
+        ?>
       </li>
       <li><a href="#">Calcular la fecha y el día de la semana de dentro de 60 días</a>
-        <ul>
-          <li>
-            <?php
-                $ahora = date("d/m/Y");
-                echo date("d/m/Y", strtotime("+ 60 days"));
-            ?>
-          </li>
-        </ul>
+        <?php
+          $ahora = date("d/m/Y");
+          echo date("d/m/Y", strtotime("+ 60 days"));
+        ?>
       </li>
       <li><a href="../index.html">Volver</a></li>
     </ul>
