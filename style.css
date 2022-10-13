@@ -19,6 +19,7 @@ ul.menú * {
     margin: 0;
     padding: 0;
     border: 0;
+    overflow: auto;
 }
 
 ul.menú {
@@ -77,7 +78,7 @@ ul.menú li a:hover {
 }
 
 ul.menú li ul.scroll {
-    overflow: scroll;
+    overflow: auto;
 }
 
 footer {
