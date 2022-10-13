@@ -17,6 +17,7 @@
     <ul class="menú">
       <li><a href="#">Monedas</a>
         <?php
+         $valor = 6.33;
          
         ?>
       </li>
