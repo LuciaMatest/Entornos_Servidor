@@ -26,7 +26,6 @@
           $fecha = new dateTime($fecha);
           echo "La fecha coincide con el dia: ";
           echo date_format($fecha, "l");
-
       ?>
       </li>
       <li><a href="#">Código</a>
