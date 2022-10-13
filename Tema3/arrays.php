@@ -59,6 +59,7 @@
     }
 
     echo "<br><br>";
+    array_push($meses, "Agosto");
     foreach ($meses as $key) {
         echo $key. "<br>";
     }
