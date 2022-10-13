@@ -58,7 +58,8 @@
         echo $meses[$i];
     }
 
-    foreach ($variable as $key) {
-        
+    echo "<br><br>";
+    foreach ($meses as $key) {
+        echo $key. "<br>";
     }
 ?>
