@@ -17,13 +17,74 @@
     <ul class="menú">
       <li><a href="#">Monedas</a>
         <?php
-         $valor = 6.33;
-         $billete = 10;
+         $valor = 6.33*100;
+         $billete = 10*100;
          $devolver = $billete - $valor;
-        
-         while ($devolver != 0) {
-          
+         $moneda1 = 200;
+         $moneda2 = 100;
+         $moneda3 = 50;
+         $moneda4 = 20;
+         $moneda5 = 10;
+         $moneda6 = 5;
+         $moneda7 = 2;
+         $moneda8 = 1;
+
+         $numeroMonedas1 = 0;
+         while ($devolver > $moneda1) {
+          $devolver -= $moneda1;
+          $numeroMonedas1++; 
          }
+         $numeroMonedas2 = 0;
+         while ($devolver > $moneda2) {
+          $devolver -= $moneda2;
+          $numeroMonedas2++; 
+         }
+         $numeroMonedas3 = 0;
+         while ($devolver > $moneda3) {
+          $devolver -= $moneda3;
+          $numeroMonedas3++;
+         }
+         $numeroMonedas4 = 0;
+         while ($devolver > $moneda4) {
+          $devolver -= $moneda4;
+          $numeroMonedas4++;
+         }
+         $numeroMonedas5 = 0;
+         while ($devolver > $moneda5) {
+          $devolver -= $moneda5;
+          $numeroMonedas5++;
+         }
+         $numeroMonedas6 = 0;
+         while ($devolver > $moneda6) {
+          $devolver -= $moneda6;
+          $numeroMonedas6++;
+         }
+         $numeroMonedas7 = 0;
+         while ($devolver >= $moneda7) {
+          $devolver -= $moneda7;
+          $numeroMonedas7++;
+         }
+         $numeroMonedas8 = 0;
+         while ($devolver >= $moneda8) {
+          $devolver -= $moneda8;
+          $numeroMonedas8++;
+         }
+
+         echo "El numero de monedas de 2€ es ". $numeroMonedas1;
+         echo "<br>";
+         echo "El numero de monedas de 1€ es ". $numeroMonedas2;
+         echo "<br>";
+         echo "El numero de monedas de 0.50€ es ". $numeroMonedas3;
+         echo "<br>";
+         echo "El numero de monedas de 0.20€ es ". $numeroMonedas4;
+         echo "<br>";
+         echo "El numero de monedas de 0.10€ es ". $numeroMonedas5;
+         echo "<br>";
+         echo "El numero de monedas de 0.05€ es ". $numeroMonedas6;
+         echo "<br>";
+         echo "El numero de monedas de 0.02€ es ". $numeroMonedas7;
+         echo "<br>";
+         echo "El numero de monedas de 0.01€ es ". $numeroMonedas8;
          //calcular cual es la devolucion
          // a partir de esta variable restar
          // mirar las monedas de mayor a menos
