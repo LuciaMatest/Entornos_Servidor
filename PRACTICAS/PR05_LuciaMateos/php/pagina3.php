@@ -17,7 +17,12 @@
     <ul class="menú">
       <li><a href="#">Matriz</a>
         <?php 
-          
+          $filas = array();
+          for ($i = 0; $i <= 1; $i++) {
+            for ($j = 0; $j <= 1; $j++) {
+                echo '$filas['.$i."][".$j."] =  ".$filas[$i][$j]."</br>";
+            }
+          }
         ?>
       </li>
       <li><a href="../index.html">Volver</a></li>
