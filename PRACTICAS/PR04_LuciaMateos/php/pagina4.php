@@ -18,7 +18,20 @@
       <li><a href="#">Monedas</a>
         <?php
          $valor = 6.33;
-         
+         $billete = 10;
+         $devolver = $billete - $valor;
+        
+         while ($devolver != 0) {
+          
+         }
+         //calcular cual es la devolucion
+         // a partir de esta variable restar
+         // mirar las monedas de mayor a menos
+         //puedo devolver una moneda de 2??
+         // si devuelvo se resta de la devolucion
+         // puedo devolver otra de 2€ 
+         // puedo deolver una de 1€
+         // hasta que la devolucion sea 0
         ?>
       </li>
       <li><a href="../index.html">Volver</a></li>
