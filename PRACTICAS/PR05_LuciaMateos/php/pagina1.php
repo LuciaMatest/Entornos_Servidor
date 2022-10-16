@@ -21,10 +21,10 @@
           $datos = array(2,5,9,7,6,3,1,5,4,8,3,2,6,9,3,5,1,2,3);
           sort($datos);
 
-          echo "<h3>Array ordenada</h3>";
-          echo "<pre>";
-          echo var_dump($datos);
-          echo "</pre>";
+          echo "<h3>Array ordenado:</h3>";
+          foreach ($datos as $value) {
+            echo $value . "&nbsp;&nbsp;";
+          }
 
           $aux=0;
           $final=array();
@@ -36,11 +36,11 @@
             }
           }
 
-          echo "<h3>Array sin elementos repetidos</h3>";
-          // $final = array_unique($datos);
-          echo "<pre>";
-          echo var_dump($final);
-          echo "</pre>";
+          echo "<h3>Array sin elementos repetidos:</h3>";
+          foreach ($final as $value) {
+            echo $value . "&nbsp;&nbsp;";
+          }
+
         ?>
         </div>
       </li>

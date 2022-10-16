@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,10 +17,12 @@
     <ul class="menú">
       <li><a href="#">Matriz</a>
         <?php 
-          $filas = array();
-          for ($i = 0; $i <= 1; $i++) {
-            for ($j = 0; $j <= 1; $j++) {
-                echo '$filas['.$i."][".$j."] =  ".$filas[$i][$j]."</br>";
+          $x = 4;
+          $y = 4;
+          $matriz = array();
+          for($i=0; $i<$x; $i++) {
+            for($j=0; $j<$y; $j++) {
+                echo $i.'-'.$j;
             }
           }
         ?>
