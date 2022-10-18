@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <style>
+    <style>
         table, th, td {
             border: 1px solid black;
             border-collapse: collapse;
         }
-    </style> -->
+    </style>
 </head>
 <body>
     <h1>Liga</h1>
@@ -69,7 +69,6 @@
             //primera fila
             foreach ($liga as $key => $value) {
                 echo("<th>&nbsp;" .$key. "&nbsp;</th>");
-                
             }
             echo("</tr>");
             //columna
@@ -87,7 +86,12 @@
                     $colum++;
                     //puntos
                     foreach ($equipo as $key => $valor) {
-                        echo("&nbsp;".$valor);
+                        if($key == "Resultado"){
+                            echo("<p>&nbsp;" .$valor. "&nbsp;</p>");
+                        }
+                        else{                          
+                            echo("&nbsp;".$valor);                   
+                        } 
                     }
                     echo("</td>");
                 }
