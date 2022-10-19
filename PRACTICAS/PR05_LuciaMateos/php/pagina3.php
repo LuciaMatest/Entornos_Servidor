@@ -17,13 +17,15 @@
     <ul class="menú">
       <li><a href="#">Matriz</a>
         <?php 
-          $x = 4;
-          $y = 4;
-          $matriz = array();
-          for($i=0; $i<$x; $i++) {
-            for($j=0; $j<$y; $j++) {
-                echo $i.'-'.$j;
-            }
+          $lado=4;
+          $matriz=array();
+  
+          for ($i=0; $i < $lado; $i++) { 
+              for ($j=0; $j < $lado; $j++) { 
+              }
+          }
+          foreach ($matriz as $key ) {
+              echo $key . "&nbsp;&nbsp;";
           }
         ?>
       </li>
