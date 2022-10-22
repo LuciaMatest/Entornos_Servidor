@@ -104,43 +104,64 @@
     <table>
     <h2>Clasificación</h2>
     <?php
-        //array con los nuevos datos
-        $marcador = array();
-            foreach ($equipos as $key => $value) {
-                $marcador [$value] = array("Puntos" => 0, "Goles a favor" => 0, "Goles en contra" => 0);
-            }
+        // $marcador = array();
+        // foreach ($equipos as $key => $value) {
+        //     $marcador [$value] = array("Puntos" => 0, "Goles a favor" => 0, "Goles en contra" => 0);
+        // }
+        $marcador=array(
+            "Zamora" => array(
+                "Puntos"=>0, "Goles a favor"=>0, "Goles en contra"=>0
+            ),
+            "Salamanca" => array(
+                "Puntos"=>0, "Goles a favor"=>0, "Goles en contra"=>0
+            ),
+            "Avila" => array(
+                "Puntos"=>0, "Goles a favor"=>0, "Goles en contra"=>0
+            ),
+            "Valladolid" => array(
+                "Puntos"=>0, "Goles a favor"=>0, "Goles en contra"=>0
+            ),
 
-            echo("<tr>");
-            echo ("<th>Equipos</th>");
-            echo ("<th>Puntos</th>");
-            echo ("<th>Goles a favor</th>");
-            echo ("<th>Goles en contra</th></tr>");
-            foreach ($liga as $nombre => $partidos) {
-                foreach ($partidos as $valor => $resultado) {               
-                    list($favor,$contra)=explode("-", $resultado["Resultado"]);
-                    $marcador[$nombre]["Goles a favor"]+=$favor;
-                    $marcador[$valor]["Goles en contra"]+=$favor;
-                    $marcador[$nombre]["Goles en contra"]+=$contra;
-                    $marcador[$valor]["Goles a favor"]+=$contra;
-                    if ($favor>$contra){
-                        $marcador[$nombre]["Puntos"]+=3;
-                    }elseif ($favor==$contra) {
-                        $marcador[$nombre]["Puntos"]+=1;                
-                        $marcador[$valor]["Puntos"]+=1;                
-                    }else {
-                        $marcador[$valor]["Puntos"]+=3;
-                        
-                    }
+        );
+
+        echo "<table border=1><tr>";
+        echo "<th>Equipos</th>";
+        echo "<th>Puntos</th>";
+        echo "<th>Goles a favor</th>";
+        echo "<th>Goles en contra</th></tr>";
+
+        foreach ($liga as $local => $partidos) {
+            foreach ($partidos as $visitante => $resultado) {    
+                //asignamos variables a los goles y separamos resultado de la matriz
+                list($favor,$contra) = explode("-", $resultado["Resultado"]);
+
+                //sumar todos los goles pasando por toda la matriz
+                $marcador[$local]["Goles a favor"]+=$favor;
+                $marcador[$visitante]["Goles en contra"]+=$favor;
+
+                $marcador[$visitante]["Goles a favor"]+=$contra;
+                $marcador[$local]["Goles en contra"]+=$contra;
+                
+                //por partido ganado se sumará 3 puntos y por partido empatado 1.
+                if ($favor>$contra){
+                    $marcador[$local]["Puntos"]+=3;
+                }elseif ($favor==$contra) {
+                    $marcador[$local]["Puntos"]+=1;                
+                    $marcador[$visitante]["Puntos"]+=1;                
+                }else {
+                    $marcador[$visitante]["Puntos"]+=3; 
                 }
             }
-    
-            foreach ($marcador as $local => $resultado) {
-                echo "<tr><td>" . $local . "</td>";
-                foreach ($resultado as $valor) {
-                  echo "<td>". $valor . "</td>" ; 
-                }
-                echo "</tr>";
+        }
+
+        //visualizar clasificacion
+        foreach ($marcador as $key => $resultado) {
+            echo "<tr><th>" . $key . "</th>";
+            foreach ($resultado as $value) {
+              echo "<td>". $value . "</td>" ; 
             }
+            echo "</tr>";
+        }
     ?>
     </table>
 </body>

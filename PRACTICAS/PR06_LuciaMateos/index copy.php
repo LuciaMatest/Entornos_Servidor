@@ -4,20 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-    </style>
+    <title>LaLiga</title>
 </head>
 <body>
-    <h1>Array multidimensional y asociativo</h1>
-    <h2>Liga</h2>
-    <table>
     <?php
-        $liga = array(
+        $liga =
+        array(
             "Zamora" =>  array(
                 "Salamanca" => array(
                     "Resultado" => "3-2", "Roja" => 1, "Amarilla" => 0, "Penalti" => 0
@@ -63,85 +55,85 @@
                 )
             ),
         );
-        
-        //tabla fila nombres equipos 
-        echo("<tr><th>Equipos</th>");
-        $equipos = array();
-        foreach ($liga as $local => $equipo) {
-            echo("<th>&nbsp;" .$local. "&nbsp;</th>");
-            array_push($equipos, $local);
+
+        echo "<table border='1'><tr><th>Equipos</th>";
+        $equiposLocales=array();       
+        $equiposVisitantes=array();        
+
+        foreach ($liga as $locales => $equipo) {
+            echo "<th>" . $locales . "</th>"; 
+            array_push($equiposLocales, $locales);
         }
-        echo("</tr>");
 
-        $filas = 0;
-        $colum = 0;
-           
-        foreach ($liga as $local => $visitante) {
-            echo("<tr><th>&nbsp;" .$local. "&nbsp;</th>");
-            foreach ($visitante as $puntos => $nombre) {
-                if ($filas==$colum) {
-                    echo("<td></td>");
-                }
-                echo("<td>");
-                $colum++;
-                
-                foreach ($nombre as $key => $valor) {
-                    if($key == "Resultado"){
-                        echo("<p>&nbsp;" .$valor. "&nbsp;</p>");
-                    }
-                    else{                          
-                        echo("&nbsp;".$valor);                   
-                    } 
-                }
-                echo("</td>");
-            }
-            echo("</tr>");
-            $colum = 0;
-            $filas++;
-            }
-        ?>
-    </table>
-    <br>
-    <table>
-        <?php
-            $marcador = array();
-            foreach ($equipos as $key => $value) {
-                $marcador [$value] = array("Puntos" => 0, "Goles a favor" => 0, "Goles en contra" => 0);
-            }
+        echo "</tr>";
 
-            echo("<tr>");
-            echo ("<th>Equipos</th>");
-            echo ("<th>Puntos</th>");
-            echo ("<th>Goles a favor</th>");
-            echo ("<th>Goles en contra</th></tr>");
-            foreach ($liga as $nombre => $partidos) {
-                foreach ($partidos as $valor => $resultado) {               
-                    list($gf,$gc)=explode("-", $resultado["Resultado"]);
-                    $marcador[$nombre]["Goles a favor"]+=$gf;
-                    $marcador[$valor]["Goles en contra"]+=$gf;
-                    $marcador[$nombre]["Goles en contra"]+=$gc;
-                    $marcador[$valor]["Goles a favor"]+=$gc;
-                    if ($gf>$gc){
-                        $marcador[$nombre]["Puntos"]+=3;
-                    }elseif ($gf==$gc) {
-                        $marcador[$nombre]["Puntos"]+=1;                
-                        $marcador[$valor]["Puntos"]+=1;                
-                    }else {
-                        $marcador[$valor]["Puntos"]+=3;
+        foreach ($liga as $locales => $visitantes) {
+            $i=0;
+            echo "<tr><td>" . $locales . "</td>";
+            foreach ($visitantes as $equipo => $dato) {
+                if ($locales==$equiposLocales[$i++]) {
+                    echo "<td>&nbsp;</td>";
+                } 
+                echo "<td>";
+                foreach ($dato as $clave => $valor) {
+                    echo "<p>" . $valor . "</p>"; 
                         
-                    }
+                }
+                echo "</td>";
+            }
+            echo "</tr>";
+        } 
+
+        echo "</table><br><br>";
+
+        $clasificacion=array(
+            "Zamora" => array(
+                "Puntos"=>0, "GolesFavor"=>0, "GolesContra"=>0
+            ),
+            "Salamanca" => array(
+                "Puntos"=>0, "GolesFavor"=>0, "GolesContra"=>0
+            ),
+            "Avila" => array(
+                "Puntos"=>0, "GolesFavor"=>0, "GolesContra"=>0
+            ),
+            "Valladolid" => array(
+                "Puntos"=>0, "GolesFavor"=>0, "GolesContra"=>0
+            ),
+
+        );
+
+        echo "<table border=1><tr>";
+        echo "<th>Equipos</th>";
+        echo "<th>Puntos</th>";
+        echo "<th>Goles a favor</th>";
+        echo "<th>Goles en contra</th></tr>";
+
+        foreach ($liga as $locales => $partidos) {
+            foreach ($partidos as $visitante => $resultado) {               
+                list($gf,$gc)=explode("-", $resultado["Resultado"]);
+                $clasificacion[$locales]["GolesFavor"]+=$gf;
+                $clasificacion[$visitante]["GolesContra"]+=$gf;
+                $clasificacion[$locales]["GolesContra"]+=$gc;
+                $clasificacion[$visitante]["GolesFavor"]+=$gc;
+                if ($gf>$gc){
+                    $clasificacion[$locales]["Puntos"]+=3;
+                }elseif ($gf==$gc) {
+                    $clasificacion[$locales]["Puntos"]+=1;                
+                    $clasificacion[$visitante]["Puntos"]+=1;                
+                }else {
+                    $clasificacion[$visitante]["Puntos"]+=3;
+                    
                 }
             }
-    
-            foreach ($marcador as $local => $resultado) {
-                echo "<tr><td>" . $local . "</td>";
-                foreach ($resultado as $valor) {
-                  echo "<td>". $valor . "</td>" ; 
-                }
-                echo "</tr>";
+        }
+
+        foreach ($clasificacion as $local => $resultado) {
+            echo "<tr><td>" . $local . "</td>";
+            foreach ($resultado as $valor) {
+              echo "<td>". $valor . "</td>" ; 
             }
-        ?>
-    </table>
+            echo "</tr>";
+        } 
+    ?>
 </body>
 </html>
-
