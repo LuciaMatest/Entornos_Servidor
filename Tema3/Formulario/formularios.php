@@ -1,3 +1,6 @@
+<?php
+    require("./validarformulario.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,20 +10,44 @@
     <title>Formulario</title>
 </head>
 <body>
-    <form action="./recibe.php" method="post" enctype="multipart/form-data">
+    <form action="./formularios.php" method="post" enctype="multipart/form-data">
         <p>
             <label for="idNombre">Nombre</label>
             <input type="text" name="nombre" id="idNombre" placeholder="Nombre">
+            <?
+                //comprobar que no este vacio, si lo está pongo un error
+                if (vacio("nombre") && enviado()){
+                    ?>
+                    <span style="color:red">Debe rellenar el nombre</span>
+                    <?
+                }
+            ?>
         </p>
         <p>
             <label for="idContraseña">Contraseña</label>
             <input type="password" name="pass" id="idContraseña">
+            <?
+                //comprobar que no este vacio, si lo está pongo un error
+                if (vacio("pass") && enviado()){
+                    ?>
+                    <span style="color:red">Debe rellenar el nombre</span>
+                    <?
+                }
+            ?>
         </p>
         <p>
             <label for="idMasculino">Hombre</label>
             <input type="radio" name="genero" id="idMasculino" value="masculino">
             <label for="idFemenino">Mujer</label>
             <input type="radio" name="genero" id="idFemenino" value="feminio">
+            <?
+                //comprobar que no este vacio, si lo está pongo un error
+                if (vacio("genero") && enviado()){
+                    ?>
+                    <span style="color:red">Debe elegir género</span>
+                    <?
+                }
+            ?>
         </p>
         <p><b>Asignaturas</b>
             <br>
@@ -41,7 +68,7 @@
         <p>
             <input type="file" name="fichero" id="idFichero">
         </p>
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Enviar" name="enviar">
     </form>
 </body>
 </html>
