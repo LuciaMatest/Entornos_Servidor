@@ -7,16 +7,14 @@
     }
 
     function enviado(){
-        if (isset($_REQUEST['enviar'])) {
+        if (isset($_REQUEST['enviar']))
             return true;
-        }
         return false;
     }
 
     function existe($nombre){
-        if (empty($_REQUEST[$nombre])) {
+        if (isset($_REQUEST[$nombre]))
             return true;
-        }
         return false;
     }
 ?>
