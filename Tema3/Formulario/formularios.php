@@ -13,7 +13,12 @@
     <form action="./formularios.php" method="post" enctype="multipart/form-data">
         <p>
             <label for="idNombre">Nombre</label>
-            <input type="text" name="nombre" id="idNombre" placeholder="Nombre">
+            <input type="text" name="nombre" id="idNombre" placeholder="Nombre" 
+            value="<?
+                if (enviado() && !vacio("nombre")) {
+                    echo $_REQUEST["nombre"];
+                }
+            ?>">
             <?
                 //comprobar que no este vacio, si lo está pongo un error
                 if (vacio("nombre") && enviado()){
@@ -25,7 +30,12 @@
         </p>
         <p>
             <label for="idContraseña">Contraseña</label>
-            <input type="password" name="pass" id="idContraseña">
+            <input type="password" name="pass" id="idContraseña"
+            value="<?
+                if (enviado() && !vacio("pass")) {
+                    echo $_REQUEST["pass"];
+                }
+            ?>">
             <?
                 //comprobar que no este vacio, si lo está pongo un error
                 if (vacio("pass") && enviado()){
