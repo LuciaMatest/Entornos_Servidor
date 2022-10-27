@@ -88,7 +88,8 @@
         </p>
         <p>
             <label for="idFechaOp">Fecha Opcional</label>
-            <input type="date" name="fecha" id="idFechaOp" placeholder="dd/mm/aaaa">
+            <input type="date" name="fecha" id="idFechaOp" placeholder="dd/mm/aaaa"
+            >
         </p>
         <p>
             <label for="idRadio">Radio Obligatorio</label><br>
@@ -125,37 +126,128 @@
                 <option value="4">DAW</option>
                 <option value="5">EIE</option>
             </select> 
+            <?php
+                if(existe('cursos') && $_REQUEST['cursos']==0){
+                    echo "<p style='color: red'> Seleccione una opción</p>";
+                }
+            ?>
         </p>
         <p>
             <label for="idCheck">Elige al menos 1 y maximo 3:</label><br>
-            <input type="checkbox" id="idCheck" name="check" value="Check 1">
+            <input type="checkbox" id="idCheck" name="check" value="Check 1"
+            <?php
+                if(enviado() && existe('check') && in_array("Check 1",$_REQUEST['check'])){
+                    echo "checked";
+                }
+            ?>>
             <label for="check">Check 1</label>
-            <input type="checkbox" id="idCheck" name="check" value="Check 2">
+            <input type="checkbox" id="idCheck" name="check" value="Check 2"
+            <?php
+                if(enviado() && existe('check') && in_array("Check 2",$_REQUEST['check'])){
+                    echo "checked";
+                }
+            ?>>
             <label for="check">Check 2</label>
-            <input type="checkbox" id="idCheck" name="check" value="Check 3">
+            <input type="checkbox" id="idCheck" name="check" value="Check 3"
+            <?php
+                if(enviado() && existe('check') && in_array("Check 3",$_REQUEST['check'])){
+                    echo "checked";
+                }
+            ?>>
             <label for="check">Check 3</label>
-            <input type="checkbox" id="idCheck" name="check" value="Check 4">
+            <input type="checkbox" id="idCheck" name="check" value="Check 4"
+            <?php
+                if(enviado() && existe('check') && in_array("Check 4",$_REQUEST['check'])){
+                    echo "checked";
+                }
+            ?>>
             <label for="check">Check 4</label>
-            <input type="checkbox" id="idCheck" name="check" value="Check 5">
+            <input type="checkbox" id="idCheck" name="check" value="Check 5"
+            <?php
+                if(enviado() && existe('check') && in_array("Check 5",$_REQUEST['check'])){
+                    echo "checked";
+                }
+            ?>>
             <label for="check">Check 5</label>
-            <input type="checkbox" id="idCheck" name="check" value="Check 6">
+            <input type="checkbox" id="idCheck" name="check" value="Check 6"
+            <?php
+                if(enviado() && existe('check') && in_array("Check 6",$_REQUEST['check'])){
+                    echo "checked";
+                }
+            ?>>
             <label for="check">Check 6</label>
         </p>
         <p>
             <label for="idTelefono">Nº de teléfono:</label>
-            <input type="tel" name="telefono" id="idTelefono" placeholder="654987321">
+            <input type="tel" name="telefono" id="idTelefono" placeholder="654987321"
+            value="<?
+                //Mantener el texto introducido en el campo de texto 
+                if (enviado() && !vacio("telefono")) {
+                    echo $_REQUEST["telefono"];
+                }
+            ?>">
+            <?
+                //comprobar que no este vacio, si lo está pongo un error
+                if (vacio("telefono") && enviado()){
+                    ?>
+                    <span style="color:red"> <-- Debe introducir un teléfono!!</span>
+                    <?
+                }
+            ?>
         </p>
         <p>
             <label for="idEmail">Email</label>
-            <input type="email" name="email" id="idEmail">
+            <input type="email" name="email" id="idEmail"
+            value="<?
+                //Mantener el texto introducido en el campo de texto 
+                if (enviado() && !vacio("email")) {
+                    echo $_REQUEST["email"];
+                }
+            ?>">
+            <?
+                //comprobar que no este vacio, si lo está pongo un error
+                if (vacio("email") && enviado()){
+                    ?>
+                    <span style="color:red"> <-- Debe introducir un email!!</span>
+                    <?
+                }
+            ?>
         </p>
         <p>
             <label for="idContraseña">Contraseña</label>
-            <input type="password" name="contraseña" id="idContraseña">
+            <input type="password" name="contraseña" id="idContraseña"
+            value="<?
+                //Mantener el texto introducido en el campo de texto 
+                if (enviado() && !vacio("contraseña")) {
+                    echo $_REQUEST["contraseña"];
+                }
+            ?>">
+            <?
+                //comprobar que no este vacio, si lo está pongo un error
+                if (vacio("contraseña") && enviado()){
+                    ?>
+                    <span style="color:red"> <-- Debe introducir una contraseña!!</span>
+                    <?
+                }
+            ?>
         </p>
         <p>
             <label for="idSubir">Subir documento</label>
-            <input type="file" name="archivo" id="idSubir">
+            <input type="file" name="archivo" id="idSubir"
+            value="<?
+                //Mantener el texto introducido en el campo de texto 
+                if (enviado() && !vacio("archivo")) {
+                    echo $_REQUEST["archivo"];
+                }
+            ?>">
+            <?
+                //comprobar que no este vacio, si lo está pongo un error
+                if (vacio("archivo") && enviado()){
+                    ?>
+                    <span style="color:red"> <-- Debe seleccionar un archivo!!</span>
+                    <?
+                }
+            ?>
         </p>
         <input type="submit" value="Enviar" name="enviar" id="boton">
     </form>
