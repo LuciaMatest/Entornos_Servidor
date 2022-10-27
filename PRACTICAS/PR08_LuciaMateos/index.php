@@ -7,11 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        h2, p {
-            color: #4B4B4B;
-        }
-    </style>
+    <link rel="stylesheet" href="./estilo.css">
     <title>Formulario</title>
 </head>
 <body>
@@ -145,7 +141,23 @@
             <input type="checkbox" id="idCheck" name="check" value="Check 6">
             <label for="check">Check 6</label>
         </p>
-        <input type="submit" value="Enviar" name="enviar">
+        <p>
+            <label for="idTelefono">Nº de teléfono:</label>
+            <input type="tel" name="telefono" id="idTelefono" placeholder="654987321">
+        </p>
+        <p>
+            <label for="idEmail">Email</label>
+            <input type="email" name="email" id="idEmail">
+        </p>
+        <p>
+            <label for="idContraseña">Contraseña</label>
+            <input type="password" name="contraseña" id="idContraseña">
+        </p>
+        <p>
+            <label for="idSubir">Subir documento</label>
+            <input type="file" name="archivo" id="idSubir">
+        </p>
+        <input type="submit" value="Enviar" name="enviar" id="boton">
     </form>
 </body>
 </html>
