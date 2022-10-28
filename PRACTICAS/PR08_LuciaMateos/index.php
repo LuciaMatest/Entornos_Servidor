@@ -78,8 +78,8 @@
             <input type="date" name="fecha" id="idFecha" placeholder="dd/mm/aaaa"
             value="<?
                 //Mantener el texto introducido en el campo de texto 
-                if (enviado() && !vacio("apellidoOp")) {
-                    echo $_REQUEST["apellidoOp"];
+                if (enviado() && !vacio("fecha")) {
+                    echo $_REQUEST["fecha"];
                 }
             ?>">
             <?
@@ -123,6 +123,7 @@
             <label for="Opción 3">Opción 3</label>
         </p>
         <p>
+            <!-- OPCIONES -->
             <label for="idCurso">Elige una opción:</label>
 
             <select name="cursos" id="idCurso">
@@ -140,6 +141,7 @@
             ?>
         </p>
         <p>
+            <!-- CHECK OBLIGATORIOS DE 1 A 3 -->
             <label for="idCheck">Elige al menos 1 y maximo 3:</label><br>
             <input type="checkbox" id="idCheck1" name="check[]" value="Check 1"
             <?php
@@ -184,6 +186,7 @@
             ?>>
             <label for="idCheck6">Check 6</label>
 
+            <!-- Comprobar que se seleccionan de 1 a 3 opciones -->
             <?php
                 if (!existe('check') && enviado()) {
                     echo "<p style='color: red'> Introduce al menos una opción</p>";
@@ -193,6 +196,7 @@
             ?>
         </p>
         <p>
+            <!-- TELÉFONO NUMERICO OBLIGATORIO -->
             <label for="idTelefono">Nº de teléfono:</label>
             <input type="tel" name="telefono" id="idTelefono" placeholder="654987321"
             value="<?
@@ -216,6 +220,7 @@
             ?>
         </p>
         <p>
+            <!-- EMAIL -->
             <label for="idEmail">Email</label>
             <input type="email" name="email" id="idEmail"
             value="<?
@@ -234,6 +239,7 @@
             ?>
         </p>
         <p>
+            <!-- CONTRASEÑA -->
             <label for="idContraseña">Contraseña</label>
             <input type="password" name="contraseña" id="idContraseña"
             value="<?
@@ -252,6 +258,7 @@
             ?>
         </p>
         <p>
+            <!-- SUBIR ARCHIVO -->
             <label for="idSubir">Subir documento</label>
             <input type="file" name="archivo" id="idSubir"
             value="<?
