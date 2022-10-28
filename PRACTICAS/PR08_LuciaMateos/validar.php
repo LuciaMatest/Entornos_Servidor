@@ -18,10 +18,10 @@ function existe($nombre){
     return false;
 }
 
-// function selecciona($array){
-//     if (count($_REQUEST[$array])>3){
-//         return true;
-//     }
-//     return false;
-// }
+function selecciona($array){
+    if (count($_REQUEST[$array])>3){
+        return true;
+    }
+    return false;
+}
 ?>

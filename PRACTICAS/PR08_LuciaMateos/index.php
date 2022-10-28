@@ -143,35 +143,54 @@
             <label for="idCheck">Elige al menos 1 y maximo 3:</label><br>
             <input type="checkbox" id="idCheck1" name="check[]" value="Check 1"
             <?php
-                
+                if(enviado() && existe('check') && in_array("Check 1",$_REQUEST['check'])){
+                    echo "checked";
+                }
             ?>>
             <label for="idCheck1">Check 1</label>
             <input type="checkbox" id="idCheck2" name="check[]" value="Check 2"
             <?php
-                
+                if(enviado() && existe('check') && in_array("Check 2",$_REQUEST['check'])){
+                    echo "checked";
+                }
             ?>>
             <label for="idCheck2">Check 2</label>
             <input type="checkbox" id="idCheck3" name="check[]" value="Check 3"
             <?php
-                
+                if(enviado() && existe('check') && in_array("Check 3",$_REQUEST['check'])){
+                    echo "checked";
+                }
             ?>>
             <label for="idCheck3">Check 3</label>
             <input type="checkbox" id="idCheck4" name="check[]" value="Check 4"
             <?php
-                
+                if(enviado() && existe('check') && in_array("Check 4",$_REQUEST['check'])){
+                    echo "checked";
+                }
             ?>>
             <label for="idCheck4">Check 4</label>
             <input type="checkbox" id="idCheck5" name="check[]" value="Check 5"
             <?php
-                
+                if(enviado() && existe('check') && in_array("Check 5",$_REQUEST['check'])){
+                    echo "checked";
+                }
             ?>>
             <label for="idCheck5">Check 5</label>
             <input type="checkbox" id="idCheck6" name="check[]" value="Check 6"
             <?php
-                
+                if(enviado() && existe('check') && in_array("Check 6",$_REQUEST['check'])){
+                    echo "checked";
+                }
             ?>>
             <label for="idCheck6">Check 6</label>
 
+            <?php
+                if (!existe('check') && enviado()) {
+                    echo "<p style='color: red'> Introduce al menos una opción</p>";
+                }else if(selecciona('check')){
+                    echo "<p style='color: red'> Introduce máximo 3 opciones</p>";
+                }
+            ?>
         </p>
         <p>
             <label for="idTelefono">Nº de teléfono:</label>
