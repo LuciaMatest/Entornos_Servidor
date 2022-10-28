@@ -18,9 +18,10 @@ function existe($nombre){
     return false;
 }
 
-// function obligado(){
-//     if (empty($_POST[$nombre]))
+// function selecciona($array){
+//     if (count($_REQUEST[$array])>3){
 //         return true;
+//     }
 //     return false;
 // }
 ?>

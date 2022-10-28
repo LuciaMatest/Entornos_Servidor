@@ -14,6 +14,7 @@
     <h2>Formulario de registro</h2>
     <form action="./index.php" method="post" enctype="multipart/form-data">
         <p>
+            <!-- NOMBRE OBLIGATORIO -->
             <label for="idNombre">Alfabetico</label>
             <input type="text" name="nombre" id="idNombre" placeholder="Nombre"
             value="<?
@@ -32,6 +33,7 @@
             ?>
         </p>
         <p>
+            <!-- NOMBRE OPCIONAL -->
             <label for="idNombreOp">Alfabetico Opcional</label>
             <input type="text" name="nombreOp" id="idNombreOp" placeholder="Nombre" 
             value="<?
@@ -41,6 +43,7 @@
             ?>">
         </p>
         <p>
+            <!-- APELLIDO OBLIGATORIO -->
             <label for="idApellido">Alfanumérico</label>
             <input type="text" name="apellido" id="idApellido" placeholder="Apellido"
             value="<?
@@ -59,6 +62,7 @@
             ?>
         </p>
         <p>
+            <!-- APELLIDO OPCIONAL -->
             <label for="idApellidoOp">Alfanumérico Opcional</label>
             <input type="text" name="apellidoOp" id="idApellidoOp" placeholder="Apellido"
             value="<?
@@ -69,6 +73,7 @@
             ?>">
         </p>
         <p>
+            <!-- FECHA OBLIGATORIA -->
             <label for="idFecha">Fecha</label>
             <input type="date" name="fecha" id="idFecha" placeholder="dd/mm/aaaa"
             value="<?
@@ -87,11 +92,13 @@
             ?>
         </p>
         <p>
+            <!-- FECHA OPCIONAL -->
             <label for="idFechaOp">Fecha Opcional</label>
             <input type="date" name="fecha" id="idFechaOp" placeholder="dd/mm/aaaa"
             >
         </p>
         <p>
+            <!-- BOTONES OBLIGATORIOS -->
             <label for="idRadio">Radio Obligatorio</label><br>
             <input type="radio" id="idRadio" name="opcion" value="Opción 1"
             <?
@@ -134,48 +141,37 @@
         </p>
         <p>
             <label for="idCheck">Elige al menos 1 y maximo 3:</label><br>
-            <input type="checkbox" id="idCheck" name="check" value="Check 1"
+            <input type="checkbox" id="idCheck1" name="check[]" value="Check 1"
             <?php
-                if(enviado() && existe('check') && in_array("Check 1",$_REQUEST['check'])){
-                    echo "checked";
-                }
+                
             ?>>
-            <label for="check">Check 1</label>
-            <input type="checkbox" id="idCheck" name="check" value="Check 2"
+            <label for="idCheck1">Check 1</label>
+            <input type="checkbox" id="idCheck2" name="check[]" value="Check 2"
             <?php
-                if(enviado() && existe('check') && in_array("Check 2",$_REQUEST['check'])){
-                    echo "checked";
-                }
+                
             ?>>
-            <label for="check">Check 2</label>
-            <input type="checkbox" id="idCheck" name="check" value="Check 3"
+            <label for="idCheck2">Check 2</label>
+            <input type="checkbox" id="idCheck3" name="check[]" value="Check 3"
             <?php
-                if(enviado() && existe('check') && in_array("Check 3",$_REQUEST['check'])){
-                    echo "checked";
-                }
+                
             ?>>
-            <label for="check">Check 3</label>
-            <input type="checkbox" id="idCheck" name="check" value="Check 4"
+            <label for="idCheck3">Check 3</label>
+            <input type="checkbox" id="idCheck4" name="check[]" value="Check 4"
             <?php
-                if(enviado() && existe('check') && in_array("Check 4",$_REQUEST['check'])){
-                    echo "checked";
-                }
+                
             ?>>
-            <label for="check">Check 4</label>
-            <input type="checkbox" id="idCheck" name="check" value="Check 5"
+            <label for="idCheck4">Check 4</label>
+            <input type="checkbox" id="idCheck5" name="check[]" value="Check 5"
             <?php
-                if(enviado() && existe('check') && in_array("Check 5",$_REQUEST['check'])){
-                    echo "checked";
-                }
+                
             ?>>
-            <label for="check">Check 5</label>
-            <input type="checkbox" id="idCheck" name="check" value="Check 6"
+            <label for="idCheck5">Check 5</label>
+            <input type="checkbox" id="idCheck6" name="check[]" value="Check 6"
             <?php
-                if(enviado() && existe('check') && in_array("Check 6",$_REQUEST['check'])){
-                    echo "checked";
-                }
+                
             ?>>
-            <label for="check">Check 6</label>
+            <label for="idCheck6">Check 6</label>
+
         </p>
         <p>
             <label for="idTelefono">Nº de teléfono:</label>
@@ -191,6 +187,11 @@
                 if (vacio("telefono") && enviado()){
                     ?>
                     <span style="color:red"> <-- Debe introducir un teléfono!!</span>
+                    <?
+                //comprobar que es un numero
+                } elseif (!is_numeric( $_REQUEST["telefono"])) {
+                    ?>
+                    <span style="color:red"> <-- Debe introducir un número</span>
                     <?
                 }
             ?>
