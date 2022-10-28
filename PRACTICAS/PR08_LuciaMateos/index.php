@@ -214,7 +214,7 @@
                     <?
                 } 
                 //comprobar que es un numero
-                if (!is_numeric( $_REQUEST["telefono"])) {
+                else if (!is_numeric( $_REQUEST["telefono"])) {
                     ?>
                     <span style="color:red"> <-- Debe introducir un número</span>
                     <?
