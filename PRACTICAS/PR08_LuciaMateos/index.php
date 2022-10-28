@@ -191,9 +191,8 @@
             <?php
                 if (!existe('check') && enviado()) {
                     echo "<p style='color: red'> Introduce al menos una opción</p>";
-                    if(selecciona('check')){
-                        echo "<p style='color: red'> Introduce máximo 3 opciones</p>";
-                    }
+                }elseif (selecciona('check')){
+                    echo "<p style='color: red'> Introduce máximo 3 opciones</p>";
                 }
             ?>
         </p>
@@ -213,13 +212,13 @@
                     ?>
                     <span style="color:red"> <-- Debe introducir un teléfono!!</span>
                     <?
-                    //comprobar que es un numero
-                    if (!is_numeric( $_REQUEST["telefono"])) {
-                        ?>
-                        <span style="color:red"> <-- Debe introducir un número</span>
-                        <?
-                    }
                 } 
+                //comprobar que es un numero
+                if (!is_numeric( $_REQUEST["telefono"])) {
+                    ?>
+                    <span style="color:red"> <-- Debe introducir un número</span>
+                    <?
+                }
             ?>
         </p>
         <p>
