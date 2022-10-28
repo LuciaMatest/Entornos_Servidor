@@ -148,6 +148,7 @@
                 if(enviado() && existe('check') && in_array("Check 1",$_REQUEST['check'])){
                     echo "checked";
                 }
+                
             ?>>
             <label for="idCheck1">Check 1</label>
             <input type="checkbox" id="idCheck2" name="check[]" value="Check 2"
@@ -190,8 +191,9 @@
             <?php
                 if (!existe('check') && enviado()) {
                     echo "<p style='color: red'> Introduce al menos una opción</p>";
-                }else if(selecciona('check')){
-                    echo "<p style='color: red'> Introduce máximo 3 opciones</p>";
+                    if(selecciona('check')){
+                        echo "<p style='color: red'> Introduce máximo 3 opciones</p>";
+                    }
                 }
             ?>
         </p>
@@ -211,12 +213,13 @@
                     ?>
                     <span style="color:red"> <-- Debe introducir un teléfono!!</span>
                     <?
-                //comprobar que es un numero
-                } elseif (!is_numeric( $_REQUEST["telefono"])) {
-                    ?>
-                    <span style="color:red"> <-- Debe introducir un número</span>
-                    <?
-                }
+                    //comprobar que es un numero
+                    if (!is_numeric( $_REQUEST["telefono"])) {
+                        ?>
+                        <span style="color:red"> <-- Debe introducir un número</span>
+                        <?
+                    }
+                } 
             ?>
         </p>
         <p>
