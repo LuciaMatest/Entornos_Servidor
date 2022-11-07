@@ -255,7 +255,7 @@
                         ?>
                             <span style="color:red"> <-- Debe introducir un número</span>
                         <?
-                    } else if (cantidadDigitos("telefono")) {
+                    } else if (!cantidadDigitos("telefono")) {
                         ?>
                             <span style="color:red"> <-- Número erroneo, verifique</span>
                         <?
