@@ -17,7 +17,7 @@
 </head>
 <body>
     <?php
-        echo '<link rel="stylesheet" href="../../style.css">';
+        echo '<link rel="stylesheet" href="./style.css">';
     ?>
     <header>
         <h1>PR08</h1>
@@ -122,6 +122,7 @@
                 <label for="idRadio">Radio Obligatorio</label><br>
                 <input type="radio" id="idRadio" name="opcion" value="Opción 1"
                 <?
+                // Para mantener la eleccion elegida
                     if (enviado() && existe("opcion") && $_REQUEST["opcion"] == "Opción 1") {
                         echo"checked";
                     }
@@ -156,6 +157,7 @@
                     <option value="0">Seleccione</option>
                     <option value="DWES"
                     <?php
+                    // Para mantener la eleccion elegida
                     if(enviado() && existe('cursos') && $_REQUEST['cursos']== "DWES"){
                         ?>
                             selected
@@ -201,6 +203,7 @@
                 <label>Elige al menos 1 y maximo 3:</label><br>
                 <input type="checkbox" name="check[]" id="idCheck1" value="Check 1"
                 <?php
+                // Para mantener la eleccion elegida
                     if(enviado() && existe("check") && in_array("Check 1", $_REQUEST["check"]))
                     echo "checked";
                 ?>>
@@ -265,7 +268,7 @@
                     }
                 ?>">
                 <?
-                    //comprobar que no este vacio, si lo está pongo un error
+                    //comprobar que no este vacio, que sea un numero y que tenga la longitud adecuada, si no cumple estos requisitos pongo un error
                     if (enviado()) {
                         if (vacio("telefono")) {
                             ?>
@@ -328,14 +331,17 @@
                 
             </p>
             <!-- BOTÓN Y VALIDACIÓN -->
-            <input type="submit" value="Enviar" name="enviar" id="boton" class="validarBtn">
+            <input type="submit" value="Enviar" name="enviar" id="boton">
         </form>
         <?php
         }
         ?>
         <ul class="menú">
-            <li><a href="codigoprincipal.php" class="validarBtn">Código principal</a></li>
-            <li><a href="codigovalidar.php" class="validarBtn">Código funciones</a></li>
+            <!-- Codigos PHP -->
+            <li><a href="codigoprincipal.php">Código principal</a></li>
+            <li><a href="codigovalidar.php">Código funciones</a></li>
+
+            
             <li><a href="../../index.html">Volver</a></li></ul>
     </main>
 </body>
