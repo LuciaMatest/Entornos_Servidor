@@ -94,7 +94,7 @@
         <p>
             <!-- FECHA OPCIONAL -->
             <label for="idFechaOp">Fecha Opcional</label>
-            <input type="date" name="fecha" id="idFechaOp" placeholder="dd/mm/aaaa"
+            <input type="date" name="fecha2" id="idFechaOp" placeholder="dd/mm/aaaa"
             >
         </p>
         <p>
