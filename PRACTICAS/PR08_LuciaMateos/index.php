@@ -126,14 +126,50 @@
             <!-- OPCIONES -->
             <label for="idCurso">Elige una opción:</label>
 
-            <select name="cursos" id="idCurso">
+            <select name="cursos" id="idCurso" 
+            value="<?
+                //Mantener el texto introducido en el campo de texto 
+                if (enviado() && !vacio("cursos")) {
+                    echo $_REQUEST["cursos"];
+                }
+            ?>">
                 <option value="0">Seleccione</option>
-                <option value="1">DWES</option>
-                <option value="2">DWEC</option>
-                <option value="3">DIW</option>
-                <option value="4">DAW</option>
-                <option value="5">EIE</option>
-            </select> 
+                <option value="1"
+                <?php
+                if(enviado() && existe('cursos') && $_REQUEST['cursos']==1){
+                    ?>
+                        selected
+                    <?
+                }?>>DWES</option>
+                <option value="2"
+                <?php
+                if(enviado() && existe('cursos') && $_REQUEST['cursos']==2){
+                    ?>
+                        selected
+                    <?
+                }?>>DWEC</option>
+                <option value="3"
+                <?php
+                if(enviado() && existe('cursos') && $_REQUEST['cursos']==3){
+                    ?>
+                        selected
+                    <?
+                }?>>DIW</option>
+                <option value="4"
+                <?php
+                if(enviado() && existe('cursos') && $_REQUEST['cursos']==4){
+                    ?>
+                        selected
+                    <?
+                }?>>DAW</option>
+                <option value="5"
+                <?php
+                if(enviado() && existe('cursos') && $_REQUEST['cursos']==5){
+                    ?>
+                        selected
+                    <?
+                }?>>EIE</option>
+            </select>
             <?php
                 if(existe('cursos') && $_REQUEST['cursos']==0){
                     echo "<p style='color: red'> Seleccione una opción</p>";
