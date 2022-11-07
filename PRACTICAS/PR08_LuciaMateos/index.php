@@ -29,7 +29,7 @@
         <!-- <h2>Formulario de registro</h2> -->
         <?php
         if (verificar()){
-            imprimirInfo();
+            mostrar();
         }else{
         ?>
         <form action="./index.php" method="post" enctype="multipart/form-data">
@@ -55,7 +55,7 @@
             <p>
                 <!-- NOMBRE OPCIONAL -->
                 <label for="idNombreOp">Alfabetico Opcional</label>
-                <input type="text" name="nombreOp" id="idNombreOp" placeholder="Nombre" 
+                <input type="text" name="nombreOp" id="idNombreOp" placeholder="NombreOp" 
                 value="<?
                     if (enviado() && !vacio("nombreOp")) {
                         echo $_REQUEST["nombreOp"];
@@ -84,7 +84,7 @@
             <p>
                 <!-- APELLIDO OPCIONAL -->
                 <label for="idApellidoOp">Alfanumérico Opcional</label>
-                <input type="text" name="apellidoOp" id="idApellidoOp" placeholder="Apellido"
+                <input type="text" name="apellidoOp" id="idApellidoOp" placeholder="ApellidoOp"
                 value="<?
                     //Mantener el texto introducido en el campo de texto 
                     if (enviado() && !vacio("apellidoOp")) {
@@ -114,7 +114,7 @@
             <p>
                 <!-- FECHA OPCIONAL -->
                 <label for="idFechaOp">Fecha Opcional</label>
-                <input type="date" name="fecha2" id="idFechaOp" placeholder="dd/mm/aaaa"
+                <input type="date" name="fechaOp" id="idFechaOp" placeholder="dd/mm/aaaa"
                 >
             </p>
             <p>
@@ -154,37 +154,37 @@
                     }
                 ?>">
                     <option value="0">Seleccione</option>
-                    <option value="1"
+                    <option value="DWES"
                     <?php
-                    if(enviado() && existe('cursos') && $_REQUEST['cursos']==1){
+                    if(enviado() && existe('cursos') && $_REQUEST['cursos']== "DWES"){
                         ?>
                             selected
                         <?
                     }?>>DWES</option>
-                    <option value="2"
+                    <option value="DWEC"
                     <?php
-                    if(enviado() && existe('cursos') && $_REQUEST['cursos']==2){
+                    if(enviado() && existe('cursos') && $_REQUEST['cursos']== "DWEC"){
                         ?>
                             selected
                         <?
                     }?>>DWEC</option>
-                    <option value="3"
+                    <option value="DIW"
                     <?php
-                    if(enviado() && existe('cursos') && $_REQUEST['cursos']==3){
+                    if(enviado() && existe('cursos') && $_REQUEST['cursos']=="DIW"){
                         ?>
                             selected
                         <?
                     }?>>DIW</option>
-                    <option value="4"
+                    <option value="DAW"
                     <?php
-                    if(enviado() && existe('cursos') && $_REQUEST['cursos']==4){
+                    if(enviado() && existe('cursos') && $_REQUEST['cursos']== "DAW"){
                         ?>
                             selected
                         <?
                     }?>>DAW</option>
-                    <option value="5"
+                    <option value="EIE"
                     <?php
-                    if(enviado() && existe('cursos') && $_REQUEST['cursos']==5){
+                    if(enviado() && existe('cursos') && $_REQUEST['cursos']== "EIE"){
                         ?>
                             selected
                         <?
