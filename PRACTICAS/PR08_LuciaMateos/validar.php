@@ -18,9 +18,10 @@ function existe($nombre){
     return false;
 }
 
-function selecciona($array){
-    if (count($_REQUEST[$array])>3){
-        return true;
+function selecciona($nombre){
+    if(isset($_REQUEST[$nombre]))
+        if(count($_REQUEST[$nombre]) > 3){
+            return true;
     }
     return false;
 }

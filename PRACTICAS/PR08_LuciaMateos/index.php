@@ -142,13 +142,11 @@
         </p>
         <p>
             <!-- CHECK OBLIGATORIOS DE 1 A 3 -->
-            <label for="idCheck">Elige al menos 1 y maximo 3:</label><br>
-            <input type="checkbox" id="idCheck1" name="check[]" value="Check 1"
+            <label>Elige al menos 1 y maximo 3:</label><br>
+            <input type="checkbox" name="check[]" id="idCheck1" value="Check 1"
             <?php
-                if(enviado() && existe('check') && in_array("Check 1",$_REQUEST['check'])){
-                    echo "checked";
-                }
-                
+                if(enviado() && existe("check") && in_array("Check 1", $_REQUEST["check"]))
+                echo "checked";
             ?>>
             <label for="idCheck1">Check 1</label>
             <input type="checkbox" id="idCheck2" name="check[]" value="Check 2"
@@ -190,9 +188,13 @@
             <!-- Comprobar que se seleccionan de 1 a 3 opciones -->
             <?php
                 if (!existe('check') && enviado()) {
-                    echo "<p style='color: red'> Introduce al menos una opción</p>";
+                    ?>
+                        <span style="color: red;">Elige 1 opcion como minimo</span>
+                    <?
                 }elseif (selecciona('check')){
-                    echo "<p style='color: red'> Introduce máximo 3 opciones</p>";
+                    ?>
+                        <span style="color: red;">Elige menos de 3 opciones</span>
+                    <?
                 }
             ?>
         </p>
@@ -208,16 +210,16 @@
             ?>">
             <?
                 //comprobar que no este vacio, si lo está pongo un error
-                if (vacio("telefono") && enviado()){
-                    ?>
-                    <span style="color:red"> <-- Debe introducir un teléfono!!</span>
-                    <?
-                } 
-                //comprobar que es un numero
-                else if (!is_numeric( $_REQUEST["telefono"])) {
-                    ?>
-                    <span style="color:red"> <-- Debe introducir un número</span>
-                    <?
+                if (enviado()) {
+                    if (vacio("telefono")) {
+                        ?>
+                            <span style="color:red"> <-- Debe introducir un teléfono!!</span>
+                        <?
+                    } else if(!is_numeric( $_REQUEST["telefono"])){
+                        ?>
+                            <span style="color:red"> <-- Debe introducir un número</span>
+                        <?
+                    }
                 }
             ?>
         </p>
