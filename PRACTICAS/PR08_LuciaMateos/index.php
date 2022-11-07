@@ -7,11 +7,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./estilo.css">
+    <style>
+        #boton {
+            width: 150px;
+            height: 25px;
+        }
+    </style>
     <title>Formulario</title>
 </head>
 <body>
-    <h2>Formulario de registro</h2>
+    <?php
+        echo '<link rel="stylesheet" href="../../style.css">';
+    ?>
+    <header>
+        <h1>PR08</h1>
+    </header>
+    <main>
+        <ul class="menú">
+        <li><a href="#">Formulario de registro</a></li>
+        </ul>
+    <!-- <h2>Formulario de registro</h2> -->
     <form action="./index.php" method="post" enctype="multipart/form-data">
         <p>
             <!-- NOMBRE OBLIGATORIO -->
@@ -304,23 +319,20 @@
         <p>
             <!-- SUBIR ARCHIVO -->
             <label for="idSubir">Subir documento</label>
-            <input type="file" name="archivo" id="idSubir"
-            value="<?
-                //Mantener el texto introducido en el campo de texto 
-                if (enviado() && !vacio("archivo")) {
-                    echo $_REQUEST["archivo"];
-                }
-            ?>">
-            <?
-                //comprobar que no este vacio, si lo está pongo un error
-                if (vacio("archivo") && enviado()){
-                    ?>
-                    <span style="color:red"> <-- Debe seleccionar un archivo!!</span>
-                    <?
-                }
-            ?>
+            <input type="file" name="archivo" id="idSubir">
         </p>
         <input type="submit" value="Enviar" name="enviar" id="boton">
     </form>
+    <ul class="menú">
+        <li><a href="#">Código</a>
+            <ul class="scroll">
+            <li><?php
+            highlight_file("index.php");
+            ?></li>
+            </ul>
+        </li>
+        <li><a href="../../index.html">Volver</a></li></ul>
+    </main>
+
 </body>
 </html>
