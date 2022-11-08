@@ -26,6 +26,11 @@
         <ul class="menú">
             <li><a href="#">Formulario y expresiones regulares</a></li>
         </ul>
+        <?php
+        if (verificar()){
+            mostrar();
+        }else{
+        ?>
         <form action="./index.php" method="post" enctype="multipart/form-data">
             <p>
                 <!-- NOMBRE OBLIGATORIO -->
@@ -106,11 +111,15 @@
             <!-- BOTÓN Y VALIDACIÓN -->
             <input type="submit" value="Enviar" name="enviar" id="boton">
         </form>
+        <?php
+        }
+        ?>
         <ul class="menú">
-            <!-- Codigos PHP
+            <!-- Codigos PHP -->
             <li><a href="codigoprincipal.php">Código principal</a></li>
-            <li><a href="codigovalidar.php">Código funciones</a></li> -->
+            <li><a href="codigovalidar.php">Código funciones</a></li>
 
+            
             <li><a href="../../index.html">Volver</a></li></ul>
     </main>
 </body>
