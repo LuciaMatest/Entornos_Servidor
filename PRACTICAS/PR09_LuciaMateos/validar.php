@@ -18,32 +18,74 @@ function existe($nombre){
     return false;
 }
 
-function selecciona($nombre){
-    if(isset($_REQUEST[$nombre]))
-        if(count($_REQUEST[$nombre]) > 3){
-            return true;
+function patronNombre(){
+    $patron = '/\D{3,}$/';
+    if (preg_match($patron, $_REQUEST['nombre'])==1) {
+        return true;
     }
     return false;
 }
 
-function cantidadDigitos($nombre){
-    if(isset($_REQUEST[$nombre]))
-        if(strlen($_REQUEST[$nombre]) == 9){
+function patronApellido(){
+    $patron = '/\D{3,}\s\D{3,}/';
+    if (preg_match($patron, $_REQUEST['apellido'])==1) {
+        return true;
+    }
+    return false;
+}
+
+function patronFecha(){
+    $patron = '/^([0-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/([0-9]{1,4})$/';
+    if (preg_match($patron, $_REQUEST['fecha'])==1) {
+        $partes = explode('/', $_REQUEST['fecha']);
+        if (checkdate($partes[1],$partes[0],$partes[2])) {
             return true;
+        }
+    }
+    return false;
+}
+
+function mayoriaEdad(){
+    if (existe('fecha')){
+        $fecha= DateTime::createFromFormat('d/m/Y', $_REQUEST['fecha']);
+        $actual= new dateTime();
+        $diferecia= $actual->diff($fecha);
+        if ($diferecia->y >=18){
+            return true;
+        }
+    }
+    return false;
+}
+
+function patronDNI(){
+    $patron = '/\d{8}[T|R|W|A|G|M|Y|F|P|D|X|B|N|J|Z|S|Q|V|H|L|C|K|E]$/';
+    if (preg_match($patron, $_REQUEST['dni'])==1) {
+        $letra = 'TRWAGMYFPDXBNJZSQVHLCKE';
+        $numeros = substr($_REQUEST['dni'],0,8);
+        $dni = $_REQUEST['dni'];
+        if ($dni[8] == $letra[$numeros%23]){
+            return true;
+        }
+    }
+    return false;
+}
+
+function patronEmail(){
+    $patron = '/^.{1,}@.{1,}\..{2,}/';
+    if (preg_match($patron, $_REQUEST['email'])==1) {
+        return true;
     }
     return false;
 }
 
 function verificar(){
-    if (enviado()) {
-        if (!vacio("nombre") && !is_numeric($_REQUEST["nombre"])) {
-            if (!vacio("apellido")) {
-                if (!vacio("fecha")) {
-                    if (existe("opcion") && $_REQUEST["opcion"]!=0) {
-                        if (existe("check") && !selecciona("check")) {
-                            if (!vacio("telefono")  && cantidadDigitos('telefono')) {
-                                return true;
-                            }
+    if (enviado()){
+        if (!vacio('nombre') && patronNombre()) {
+            if (vacio('apelido') && patronApellido()) {
+                if (!vacio('fecha') && patronFecha() && mayoriaEdad()) {
+                    if (!vacio('dni') && patronDNI()) {
+                        if (!vacio('email') && patronEmail()) {
+                            return true;
                         }
                     }
                 }
@@ -54,42 +96,10 @@ function verificar(){
 }
 
 function mostrar(){
-    echo "<p>Alfabético: ". $_REQUEST["nombre"] . "</p>";
-
-    if(isset($_REQUEST["nombreOp"])){
-        echo "<p>Alfabético opcional: ". $_REQUEST["nombreOp"] ."</p>";
-    }
-
-    echo "<p>Alfanumérico: ". $_REQUEST["apellido"] . "</p>";
-
-    if(isset($_REQUEST["apellidoOp"])){
-        echo "<p>Alfanumérico opcional: ". $_REQUEST["apellidoOp"] . "</p>";
-    }
-
+    echo "<p>Nombre: ". $_REQUEST["nombre"] . "</p>";
+    echo "<p>Apellidos: ". $_REQUEST["apellido"] . "</p>";
     echo "<p>Fecha: ". $_REQUEST["fecha"] . "</p>";
-
-    if(isset($_REQUEST["fechaOp"])){
-        echo "<p>Fecha opcional: ". $_REQUEST["fechaOp"] . "</p>";
-    }
-
-    echo "<p>Elegiste la opción: ". $_REQUEST["opcion"] . "</p>";
-
-    echo "<p>Seleccionaste: ". $_REQUEST["cursos"] . "</p>";
-
-    echo "<p> Elegiste: ";
-        foreach($_REQUEST["check"] as $valor){
-            echo "->  $valor ";
-        }
-    echo "</p>";
-
-    echo "<p>Teléfono: ". $_REQUEST["telefono"] . "</p>";
-
+    echo "<p>DNI: ". $_REQUEST["dni"] . "</p>";
     echo "<p>Email: ". $_REQUEST["email"] . "</p>";
-
-    echo "<p>Contraseña: ". $_REQUEST["contraseña"] . "</p>";
-
-    echo "<p> Documento: ";
-        echo $_FILES["archivo"]["name"];
-    echo "</p>";
 }
 ?>

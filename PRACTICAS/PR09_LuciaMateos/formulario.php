@@ -31,10 +31,10 @@
             mostrar();
         }else{
         ?>
-        <form action="./index.php" method="post" enctype="multipart/form-data">
+        <form action="./formulario.php" method="post" enctype="multipart/form-data">
             <p>
                 <!-- NOMBRE OBLIGATORIO -->
-                <label for="idNombre">Alfabetico</label>
+                <label for="idNombre">Nombre:</label>
                 <input type="text" name="nombre" id="idNombre" placeholder="Nombre"
                 value="<?
                     //Mantener el texto introducido en el campo de texto 
@@ -43,17 +43,23 @@
                     }
                 ?>">
                 <?
-                    //comprobar que no este vacio, si lo está pongo un error
-                    if (vacio("nombre") && enviado()){
-                        ?>
-                        <span style="color:red"> <-- Debe introducir un nombre!!</span>
-                        <?
+                    //comprobar que no este vacio y que cumple los requisitos, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("nombre")){
+                            ?>
+                            <span style="color:brown"> Introduce nombre</span>
+                            <?
+                        } elseif (!patronNombre()) {
+                            ?>
+                            <span style="color:brown"> Nombre incorrecto, revise</span>
+                            <?
+                        }
                     }
                 ?>
             </p>
             <p>
                 <!-- APELLIDO OBLIGATORIO -->
-                <label for="idApellido">Alfanumérico</label>
+                <label for="idApellido">Apellidos:</label>
                 <input type="text" name="apellido" id="idApellido" placeholder="Apellido"
                 value="<?
                     //Mantener el texto introducido en el campo de texto 
@@ -63,17 +69,23 @@
                 ?>">
                 <?
                     //comprobar que no este vacio, si lo está pongo un error
-                    if (vacio("apellido") && enviado()){
-                        ?>
-                        <span style="color:red"> <-- Debe introducir un apellido!!</span>
-                        <?
+                    if (enviado()) {
+                        if (vacio("apellido")){
+                            ?>
+                            <span style="color:brown"> Introduce apellidos</span>
+                            <?
+                        } elseif (!patronApellido()) {
+                            ?>
+                            <span style="color:brown"> Apellidos no válidos, revise</span>
+                            <?
+                        }
                     }
                 ?>
             </p>
             <p>
                 <!-- FECHA OBLIGATORIA -->
                 <label for="idFecha">Fecha</label>
-                <input type="date" name="fecha" id="idFecha" placeholder="dd/mm/aaaa"
+                <input type="text" name="fecha" id="idFecha" placeholder="dd/mm/aaaa"
                 value="<?
                     //Mantener el texto introducido en el campo de texto 
                     if (enviado() && !vacio("fecha")) {
@@ -82,17 +94,48 @@
                 ?>">
                 <?
                     //comprobar que no este vacio, si lo está pongo un error
-                    if (vacio("fecha") && enviado()){
-                        ?>
-                        <span style="color:red"> <-- Debe introducir una fecha!!</span>
-                        <?
+                    if (enviado()) {
+                        if (vacio("fecha")){
+                            ?>
+                            <span style="color:brown"> Introduce fecha</span>
+                            <?
+                        } elseif (!patronFecha()) {
+                            ?>
+                            <span style="color:brown"> Fecha no válida, revise</span>
+                            <?
+                        } elseif (mayoriaEdad()) {
+                            ?>
+                            <span style="color:brown"> No es mayor de edad</span>
+                            <?
+                        }
                     }
                 ?>
             </p>
             <p>
+                <!-- DNI -->
+                <label for="idDNI">DNI:</label>
+                <input type="text" name="dni" id="idDNI" placeholder="DNI/NIF"
+                value="<?
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("dni")) {
+                        echo $_REQUEST["dni"];
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio, si lo está pongo un error
+                    if (enviado()){
+                        if (vacio("dni") && !patronDNI()) {
+                            ?>
+                            <span style="color:brown"> DNI no válido, revise</span>
+                            <?
+                        }
+                    } 
+                ?>
+            </p>
+            <p>
                 <!-- EMAIL -->
-                <label for="idEmail">Email</label>
-                <input type="email" name="email" id="idEmail"
+                <label for="idEmail">Correo electrónico:</label>
+                <input type="text" name="email" id="idEmail"
                 value="<?
                     //Mantener el texto introducido en el campo de texto 
                     if (enviado() && !vacio("email")) {
@@ -101,10 +144,16 @@
                 ?>">
                 <?
                     //comprobar que no este vacio, si lo está pongo un error
-                    if (vacio("email") && enviado()){
-                        ?>
-                        <span style="color:red"> <-- Debe introducir un email!!</span>
-                        <?
+                    if (enviado()) {
+                        if (vacio("email")){
+                            ?>
+                            <span style="color:brown"> Introduce email</span>
+                            <?
+                        } elseif (!patronEmail()) {
+                            ?>
+                            <span style="color:brown"> Email no válida, revise</span>
+                            <?
+                        }
                     }
                 ?>
             </p>
@@ -116,8 +165,8 @@
         ?>
         <ul class="menú">
             <!-- Codigos PHP -->
-            <li><a href="codigoprincipal.php">Código principal</a></li>
-            <li><a href="codigovalidar.php">Código funciones</a></li>
+            <li><a href="formulario.php">Código principal</a></li>
+            <li><a href="validar.php">Código funciones</a></li>
 
             
             <li><a href="../../index.html">Volver</a></li></ul>
