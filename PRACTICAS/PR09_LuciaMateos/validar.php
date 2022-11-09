@@ -1,4 +1,5 @@
 <?php
+//Comprobaciones
 function vacio($nombre){
     if (empty($_REQUEST[$nombre])) {
         return true;
@@ -18,6 +19,8 @@ function existe($nombre){
     return false;
 }
 
+
+//Patrones
 function patronNombre(){
     $patron = '/\D{3,}$/';
     if (preg_match($patron, $_REQUEST['nombre'])==1) {
@@ -78,6 +81,7 @@ function patronEmail(){
     return false;
 }
 
+//Verificar datos
 function verificar(){
     if (enviado()){
         if (!vacio('nombre') && patronNombre()) {
@@ -95,6 +99,7 @@ function verificar(){
     return false;
 }
 
+//Mostrar los datos introducidos
 function mostrar(){
     echo "<p>Nombre: ". $_REQUEST["nombre"] . "</p>";
     echo "<p>Apellidos: ". $_REQUEST["apellido"] . "</p>";

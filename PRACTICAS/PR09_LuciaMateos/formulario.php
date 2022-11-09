@@ -68,7 +68,7 @@
                     }
                 ?>">
                 <?
-                    //comprobar que no este vacio, si lo está pongo un error
+                    //comprobar que no este vacio y que tenga dos apellidos con espacio entre ellos, si lo está pongo un error
                     if (enviado()) {
                         if (vacio("apellido")){
                             ?>
@@ -93,7 +93,7 @@
                     }
                 ?>">
                 <?
-                    //comprobar que no este vacio, si lo está pongo un error
+                    //comprobar que no este vacio, que sea fecha correcta y que sea mayor de edad, si lo está pongo un error
                     if (enviado()) {
                         if (vacio("fecha")){
                             ?>
@@ -103,7 +103,7 @@
                             ?>
                             <span style="color:brown"> Fecha no válida, revise</span>
                             <?
-                        } elseif (mayoriaEdad()) {
+                        } elseif (!mayoriaEdad()) {
                             ?>
                             <span style="color:brown"> No es mayor de edad</span>
                             <?
@@ -122,7 +122,7 @@
                     }
                 ?>">
                 <?
-                    //comprobar que no este vacio, si lo está pongo un error
+                    //comprobar que no este vacio y es correcto, si lo está pongo un error
                     if (enviado()){
                         if (vacio("dni") && !patronDNI()) {
                             ?>
@@ -143,7 +143,7 @@
                     }
                 ?>">
                 <?
-                    //comprobar que no este vacio, si lo está pongo un error
+                    //comprobar que no este vacio y valido, si lo está pongo un error
                     if (enviado()) {
                         if (vacio("email")){
                             ?>
@@ -165,8 +165,8 @@
         ?>
         <ul class="menú">
             <!-- Codigos PHP -->
-            <li><a href="formulario.php">Código principal</a></li>
-            <li><a href="validar.php">Código funciones</a></li>
+            <li><a href="verCodigo.php?fichero=formulario.php">Código principal</a></li>
+            <li><a href="verCodigo.php?fichero=validar.php">Código funciones</a></li>
 
             
             <li><a href="../../index.html">Volver</a></li></ul>
