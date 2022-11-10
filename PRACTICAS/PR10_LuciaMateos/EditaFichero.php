@@ -23,15 +23,12 @@ require("./validar.php");
             <li><a href="#">Ficheros</a></li>
         </ul>
         <form action="./EditaFichero.php" method="post" enctype="multipart/form-data">
-            <label for="idNombre">Nombre</label>
             <textarea id="idTexto" name="texto" rows="4" cols="50"></textarea>
         </form>
-        <?php
-
-
-        ?>
+        <input type="button" value="Modificar">
+        <a href="./LeeFichero.php"><input type="button" value="Guardar"></a>
         <ul class="menú">
-            <li><a href="../../index.html">Volver</a></li>
+            <li><a href="./EligeFichero.php">Volver</a></li>
         </ul>
     </main>
 </body>

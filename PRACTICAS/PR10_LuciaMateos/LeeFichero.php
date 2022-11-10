@@ -20,23 +20,12 @@
         <ul class="menú">
             <li><a href="#">Ficheros</a></li>
         </ul>
-        <form action="./index.php" method="post" enctype="multipart/form-data">
-            <label for="idNombre">Nombre</label>
-            <input type="text" name="nombre" id="idNombre" placeholder="fichero.txt">
-            <?
-                //comprobar que no este vacio, si lo está pongo un error
-                if (vacio("nombre") && enviado()){
-                    ?><span style="color:gray"> No existe </span><?
-                }
-            ?>
-            <input type="submit" value="Editar" name="editar" id="btnEditar">
-            <input type="submit" value="Leer" name="leer" id="btnLeer">
+        <form action="./LeeFichero.php" method="post" enctype="multipart/form-data">
+            <textarea id="idTexto" name="texto" rows="4" cols="50" readonly></textarea>
         </form>
-        <?php
+        <a href="./EditaFichero.php"><input type="button" value="Editar"></a>
 
-
-        ?>
-        <ul class="menú"><li><a href="../../index.html">Volver</a></li></ul>
+        <ul class="menú"><li><a href="./EligeFichero.php">Volver</a></li></ul>
     </main>
 </body>
 </html>
