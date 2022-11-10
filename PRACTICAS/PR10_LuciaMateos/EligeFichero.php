@@ -29,8 +29,8 @@
                     ?><span style="color:gray"> No existe </span><?
                 }
             ?>
-            <input type="submit" value="Editar" name="editar" id="btnEditar">
-            <input type="submit" value="Leer" name="leer" id="btnLeer">
+            <input type="submit" value="Editar" name="editar" id="btnEditar"><a href="EditaFichero.php?fichero=fichero.txt"></a>
+            <input type="submit" value="Leer" name="leer" id="btnLeer"><a href="LeeFichero.php?fichero=fichero.txt"></a>
         </form>
         <?php
 
