@@ -22,7 +22,7 @@ require("./validar.php");
         <ul class="menú">
             <li><a href="#">Ficheros</a></li>
         </ul>
-        <form action="./index.php" method="post" enctype="multipart/form-data">
+        <form action="./EditaFichero.php" method="post" enctype="multipart/form-data">
             <label for="idNombre">Nombre</label>
             <textarea id="idTexto" name="texto" rows="4" cols="50"></textarea>
         </form>

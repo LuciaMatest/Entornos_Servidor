@@ -20,7 +20,7 @@
         <ul class="menú">
             <li><a href="#">Ficheros</a></li>
         </ul>
-        <form action="./index.php" method="post" enctype="multipart/form-data">
+        <form action="./EligeFichero.php" method="post" enctype="multipart/form-data">
             <label for="idNombre">Nombre</label>
             <input type="text" name="nombre" id="idNombre" placeholder="fichero.txt">
             <?
@@ -29,13 +29,10 @@
                     ?><span style="color:gray"> No existe </span><?
                 }
             ?>
-            <input type="submit" value="Editar" name="editar" id="btnEditar"><a href="EditaFichero.php?fichero=fichero.txt"></a>
-            <input type="submit" value="Leer" name="leer" id="btnLeer"><a href="LeeFichero.php?fichero=fichero.txt"></a>
         </form>
-        <?php
-
-
-        ?>
+        <a href="./EditaFichero.php"><input type="submit" value="Editar" name="editar" id="btnEditar"></a>
+        <a href="./LeeFichero.php"><input type="submit" value="Leer" name="leer" id="btnLeer"></a>
+        
         <ul class="menú"><li><a href="../../index.html">Volver</a></li></ul>
     </main>
 </body>
