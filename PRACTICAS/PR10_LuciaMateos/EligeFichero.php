@@ -22,7 +22,7 @@
         </ul>
         <form action="./index.php" method="post" enctype="multipart/form-data">
             <label for="idNombre">Nombre</label>
-            <input type="text" name="nombre" id="idNombre" placeholder="Nombre">
+            <input type="text" name="nombre" id="idNombre" placeholder="fichero.txt">
             <?
                 //comprobar que no este vacio, si lo está pongo un error
                 if (vacio("nombre") && enviado()){

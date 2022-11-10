@@ -12,13 +12,4 @@ function enviado(){
     return false;
 }
 
-// if (isset($_REQUEST['enviar'])) {
-//     if (isset($_REQUEST['fichero'])) {
-//         if(file_exists($_REQUEST['fichero'])){
-//             //redirigir a otra pagina
-//             header('Location: ./leer.php=fichero'.$_REQUEST['fichero']);
-//             exit();
-//         }
-//     }
-// }
 ?>
