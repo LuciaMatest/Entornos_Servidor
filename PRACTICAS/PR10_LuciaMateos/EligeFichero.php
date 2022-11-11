@@ -17,34 +17,30 @@
         <h1>PR10</h1>
     </header>
     <?php
-        if(enviado()){
-            if(existe("fichero")){
-                if(existe("editar")){
-                        header("location: ./EditaFichero.php?Fichero=".$_REQUEST["fichero"]);
-                } else if(existe("leer")) {
-                    if(file_exists($_REQUEST["fichero"])){
-                        header("location: ./LeeFichero.php?Fichero=".$_REQUEST["fichero"]);
-                    }else {
-                        echo "<span style:'color: brown;'>No existe</span>";
-                    }
-                }
-            }    
-        }
+         if (enviado()) {
+             if (existe('leer')) {
+                 if (file_exists($_REQUEST['fichero'])){
+                     header('Location: ./LeeFichero.php?fichero='. $_REQUEST['fichero']);
+                     exit();
+                 }
+             }elseif (existe('editar')) {
+                 header('Location: ./EditaFichero.php?fichero='. $_REQUEST['fichero']);
+                 exit();
+             }
+         }
     ?>
     <main>
         <ul class="menú">
             <li><a href="#">Ficheros</a></li>
         </ul>
-        <form action="./EligeFichero.php" method="post" enctype="multipart/form-data">
+        <form action="./EligeFichero.php">
             <label for="idNombre">Nombre</label>
-            <input type="text" name="fichero" id="idNombre" placeholder="fichero.txt"
-            value="<?
-                    //Mantener el texto introducido en el campo de texto 
-                    if (enviado() && !vacio("fichero")) {
-                        echo $_REQUEST["fichero"];
-                    }
-            ?>">
-            
+            <input type="text" name="fichero" id="idNombre" placeholder="fichero.txt">
+            <?php
+                if (!file_exists($_REQUEST['fichero']) && existe('leer')) {
+                    echo "<p style='color: brown;'>Este fichero no existe</p>";
+                }
+            ?>
         </form>
         <input type="submit" value="Editar" name="editar">
         <input type="submit" value="Leer" name="leer">
