@@ -21,11 +21,9 @@
              if (existe('leer')) {
                  if (file_exists($_REQUEST['fichero'])){
                      header('Location: ./LeeFichero.php?fichero='. $_REQUEST['fichero']);
-                     exit();
                  }
              }elseif (existe('editar')) {
                  header('Location: ./EditaFichero.php?fichero='. $_REQUEST['fichero']);
-                 exit();
              }
          }
     ?>
@@ -37,7 +35,7 @@
             <label for="idFichero">Nombre: </label>
             <input type="text" name="fichero" id="idFichero">
             <?php
-                if (!file_exists($_REQUEST['fichero']) && !existe('leer')) {
+                if (!existe('fichero')) {
                     echo "<p style='color: brown;'>Este fichero no existe</p>";
                 }
             ?>
