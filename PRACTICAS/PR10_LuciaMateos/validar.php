@@ -1,6 +1,6 @@
 <?php
 function vacio($nombre){
-    if (empty($_REQUEST[$nombre])) {
+    if(isset($_REQUEST['editar']) || isset($_REQUEST['leer'])){
         return true;
     }
     return false;
@@ -12,4 +12,3 @@ function enviado(){
     return false;
 }
 
-?>

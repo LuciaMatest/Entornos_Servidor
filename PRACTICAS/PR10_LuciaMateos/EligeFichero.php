@@ -16,22 +16,38 @@
     <header>
         <h1>PR10</h1>
     </header>
+    <?php
+        if(enviado()){
+            if(existe("fichero")){
+                if(existe("editar")){
+                        header("location: ./EditaFichero.php?Fichero=".$_REQUEST["fichero"]);
+                } else if(existe("leer")) {
+                    if(file_exists($_REQUEST["fichero"])){
+                        header("location: ./LeeFichero.php?Fichero=".$_REQUEST["fichero"]);
+                    }else {
+                        echo "<span style:'color: brown;'>No existe</span>";
+                    }
+                }
+            }    
+        }
+    ?>
     <main>
         <ul class="menú">
             <li><a href="#">Ficheros</a></li>
         </ul>
         <form action="./EligeFichero.php" method="post" enctype="multipart/form-data">
             <label for="idNombre">Nombre</label>
-            <input type="text" name="nombre" id="idNombre" placeholder="fichero.txt">
-            <?
-                //comprobar que no este vacio, si lo está pongo un error
-                if (vacio("nombre") && enviado()){
-                    ?><span style="color:gray"> No existe </span><?
-                }
-            ?>
+            <input type="text" name="fichero" id="idNombre" placeholder="fichero.txt"
+            value="<?
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("fichero")) {
+                        echo $_REQUEST["fichero"];
+                    }
+            ?>">
+            
         </form>
-        <a href="./EditaFichero.php"><input type="submit" value="Editar" name="editar" id="btnEditar"></a>
-        <a href="./LeeFichero.php"><input type="submit" value="Leer" name="leer" id="btnLeer"></a>
+        <input type="submit" value="Editar" name="editar">
+        <input type="submit" value="Leer" name="leer">
         
         <ul class="menú"><li><a href="../../index.html">Volver</a></li></ul>
     </main>
