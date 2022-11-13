@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <?php
+        echo '<link rel="stylesheet" href="./style.css">';
+    ?>
+    <header>
+        <h1>Edición</h1>
+    </header>
+    <textarea name="texto" id="idTexto" cols="30" rows="10"></textarea>
+    <input type="submit" value="Editar" name="editar">
+    <input type="submit" value="Leer" name="leer">
+    <ul class="menú"><li><a href="../../index.html">Volver</a></li></ul>
 </body>
 </html>

@@ -20,10 +20,10 @@
          if (enviado()) {
              if (existe('leer')) {
                  if (file_exists($_REQUEST['fichero'])){
-                     header('Location: ./LeeFichero.php?fichero='. $_REQUEST['fichero']);
+                     header('Location: ./LeeFichero.php?Fichero='. $_REQUEST['fichero']);
                  }
              }elseif (existe('editar')) {
-                 header('Location: ./EditaFichero.php?fichero='. $_REQUEST['fichero']);
+                 header('Location: ./EditaFichero.php?Fichero='. $_REQUEST['fichero']);
              }
          }
     ?>
@@ -31,14 +31,25 @@
         <ul class="menú">
             <li><a href="#">Ficheros</a></li>
         </ul>
-        <form action="./EligeFichero.php">
+        <form action="./EligeFichero.php"  method="post" enctype="multipart/form-data">
             <label for="idFichero">Nombre: </label>
-            <input type="text" name="fichero" id="idFichero">
-            <?php
-                if (!existe('fichero')) {
-                    echo "<p style='color: brown;'>Este fichero no existe</p>";
-                }
-            ?>
+            <input type="text" name="fichero" id="idFichero"
+            value="<?
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("fichero")) {
+                        echo $_REQUEST["fichero"];
+                    }
+                ?>">
+            <?
+                    //comprobar que existe, si lo está pongo un error
+                    if (enviado()) {
+                        if (!file_exists($_FILES['fichero'] && existe('leer'))) {
+                            ?>
+                            <span style="color:brown"> No existe fichero</span>
+                            <?
+                        } 
+                    }
+                ?>
         </form>
         <input type="submit" value="Editar" name="editar">
         <input type="submit" value="Leer" name="leer">
