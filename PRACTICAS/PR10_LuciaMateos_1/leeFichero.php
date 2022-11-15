@@ -10,24 +10,31 @@
     <title>Tarea 010</title>
 </head>
 <body>
+    <?php
+        if (enviado()) {
+            header('Location: ./editaFichero.php?fichero='. $_REQUEST['fichero']);
+            exit();
+        }
+    ?>
     <header><h1>PR10</h1></header>
     <main>
         <ul class="menú"><li><a href="#">Lectura</a></li></ul>
-            <form action="./eligeFichero.php" method="post">
-                <label for="idFichero">Nombre: </label>
-                <input type="text" name="fichero" id="idFichero">
-                <!-- Comprobamos si existe el fichero -->
-                <?php
-                    if (enviado()) {
-                        if (!file_exists($_REQUEST['fichero']) && existe('leer')){
-                            ?>
-                            <span style="color:brown"> No existe fichero, revise</span>
-                            <?
+            <form action="./leeFichero.php" method="post">
+                <textarea name="areaEditable" id="idEditable" cols="30" rows="10" readonly><?php
+                        //Comprobamos que el fichero existe
+                        if($opened = fopen($_REQUEST['fichero'], 'r')) {
+                                //Comprobamos si esta vacio
+                                if (filesize($_REQUEST['fichero'])==0){
+                                    echo "Vacio";
+                                }else {
+                                    //Mientras escribimos se va rellenando el area de texto
+                                    while ($text = fgets($opened,filesize($_REQUEST['fichero']))) {
+                                        echo $text;
+                                    }
+                                } fclose($opened);
                         }
-                    }
-                ?>
+                    ?></textarea>
                 <input type="submit" value="Editar" name="editar">
-                <input type="submit" value="Leer" name="leer">
             </form>
     </main>
 </body>
