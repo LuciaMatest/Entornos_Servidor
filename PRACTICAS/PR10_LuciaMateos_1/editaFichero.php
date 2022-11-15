@@ -54,7 +54,7 @@
             </form>
         <ul class="menú">
             <!-- Codigos PHP -->
-            <li><a href="verCodigo.php?fichero=editaFichero.php">Código principal</a></li>
+            <li><a href="verCodigo.php?fichero=editaFichero.php">Código editar</a></li>
 
             <li><a href="./eligeFichero.php">Volver</a></li>
         </ul>

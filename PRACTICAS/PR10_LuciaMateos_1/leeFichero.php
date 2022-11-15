@@ -40,7 +40,7 @@
             </form>
         <ul class="menú">
             <!-- Codigos PHP -->
-            <li><a href="verCodigo.php?fichero=leeFichero.php">Código principal</a></li>
+            <li><a href="verCodigo.php?fichero=leeFichero.php">Código leer</a></li>
             
             <li><a href="./eligeFichero.php">Volver</a></li></ul>
     </main>
