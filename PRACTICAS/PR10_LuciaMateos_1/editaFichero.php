@@ -2,7 +2,7 @@
     require('validar.php');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +29,7 @@
     <main>
         <ul class="menú"><li><a href="#">Editable</a></li></ul>
             <form action="./editaFichero.php" method="post">
-                <textarea name="areaEditable" id="idEditable" cols="30" rows="10"><?php
+                <textarea name="areaEditable" id="idEditable" cols="30" rows="10" style="resize: none;"><?php
                         //Comprobamos que el fichero existe
                         if (!file_exists($_REQUEST['fichero'])) {
                             //Si esta abierto lo cerramos
