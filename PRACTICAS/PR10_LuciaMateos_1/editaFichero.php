@@ -29,8 +29,7 @@
     <main>
         <ul class="menú"><li><a href="#">Editable</a></li></ul>
             <form action="./editaFichero.php" method="post">
-                <textarea name="areaEditable" id="idEditable" cols="30" rows="10">
-                    <?php
+                <textarea name="areaEditable" id="idEditable" cols="30" rows="10"><?php
                         //Comprobamos que el fichero existe
                         if (!file_exists($_REQUEST['fichero'])) {
                             //Si esta abierto lo cerramos
@@ -50,8 +49,7 @@
                                 } fclose($opened);
                             }
                         }
-                    ?>
-                </textarea>
+                    ?></textarea>
                 <input type="submit" value="Modificar" name="modificar">
             </form>
     </main>
