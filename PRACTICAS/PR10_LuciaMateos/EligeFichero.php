@@ -16,17 +16,6 @@
     <header>
         <h1>PR10</h1>
     </header>
-    <?php
-         if (enviado()) {
-             if (existe('leer')) {
-                 if (file_exists($_REQUEST['fichero'])){
-                     header('Location: ./LeeFichero.php?Fichero='. $_REQUEST['fichero']);
-                 }
-             }elseif (existe('editar')) {
-                 header('Location: ./EditaFichero.php?Fichero='. $_REQUEST['fichero']);
-             }
-         }
-    ?>
     <main>
         <ul class="menú">
             <li><a href="#">Ficheros</a></li>
@@ -51,8 +40,8 @@
                     }
                 ?>
         </form>
-        <input type="submit" value="Editar" name="editar">
-        <input type="submit" value="Leer" name="leer">
+        <input type="submit" value="Editar" name="editado">
+        <input type="submit" value="Leer" name="leido">
         
         <ul class="menú"><li><a href="../../index.html">Volver</a></li></ul>
     </main>
