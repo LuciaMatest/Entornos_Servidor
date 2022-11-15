@@ -13,7 +13,7 @@
     <header><h1>PR10</h1></header>
     <main>
         <ul class="menú"><li><a href="#">Lectura</a></li></ul>
-            <form action="./eligeFichero" method="post">
+            <form action="./eligeFichero.php" method="post">
                 <label for="idFichero">Nombre: </label>
                 <input type="text" name="fichero" id="idFichero">
                 <!-- Comprobamos si existe el fichero -->

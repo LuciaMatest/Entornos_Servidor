@@ -14,7 +14,7 @@
     <?php
         if (enviado()) {
             //Abrimos el fichero en el cual podremos escribir
-            if ($open = fopen($_REQUEST['fichero'], 'w')) {
+            if ($open = fopen($_REQUEST['fichero'], 'c')) {
                 //escribimos
                 $write = $_REQUEST['areaEditable'];
                 fwrite($open,$write,strlen($write));
@@ -28,17 +28,17 @@
     <header><h1>PR10</h1></header>
     <main>
         <ul class="menú"><li><a href="#">Editable</a></li></ul>
-            <form action="./editaFichero" method="post">
+            <form action="./editaFichero.php" method="post">
                 <textarea name="areaEditable" id="idEditable" cols="30" rows="10">
                     <?php
                         //Comprobamos que el fichero existe
                         if (!file_exists($_REQUEST['fichero'])) {
                             //Si esta abierto lo cerramos
-                            if ($opened = fopen($_REQUEST['fichero'], 'w')) {
+                            if ($opened = fopen($_REQUEST['fichero'], 'c')) {
                                 fclose($opened);
                             }
                         }else {
-                            if ($opened = fopen($_REQUEST['fichero'], 'r+')) {
+                            if ($opened = fopen($_REQUEST['fichero'], 'c+')) {
                                 //Comprobamos si esta vacio
                                 if (filesize($_REQUEST['fichero'])==0){
                                     echo "Vacio";
