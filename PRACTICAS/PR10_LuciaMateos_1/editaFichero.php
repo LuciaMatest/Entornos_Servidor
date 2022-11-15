@@ -14,7 +14,7 @@
     <?php
         if (enviado()) {
             //Abrimos el fichero en el cual podremos escribir
-            if ($open = fopen($_REQUEST['fichero'], 'c')) {
+            if ($open = fopen($_REQUEST['fichero'], 'w')) {
                 //escribimos
                 $write = $_REQUEST['areaEditable'];
                 fwrite($open,$write,strlen($write));
@@ -34,11 +34,11 @@
                         //Comprobamos que el fichero existe
                         if (!file_exists($_REQUEST['fichero'])) {
                             //Si esta abierto lo cerramos
-                            if ($opened = fopen($_REQUEST['fichero'], 'c')) {
+                            if ($opened = fopen($_REQUEST['fichero'], 'w')) {
                                 fclose($opened);
                             }
                         }else {
-                            if ($opened = fopen($_REQUEST['fichero'], 'c+')) {
+                            if ($opened = fopen($_REQUEST['fichero'], 'r+')) {
                                 //Comprobamos si esta vacio
                                 if (filesize($_REQUEST['fichero'])==0){
                                     echo "Vacio";
