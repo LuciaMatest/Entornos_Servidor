@@ -50,7 +50,7 @@
                             }
                         }
                     ?></textarea>
-                <input type="submit" value="Modificar" name="modificar">
+                <input type="submit" value="Leer" name="leer">
             </form>
         <ul class="menú">
             <!-- Codigos PHP -->
