@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Tarea 010</title>
 </head>
 <body>
@@ -22,20 +23,26 @@
             <form action="./leeFichero.php" method="post">
                 <textarea name="areaEditable" id="idEditable" cols="30" rows="10" readonly><?php
                         //Comprobamos que el fichero existe
-                        if($opened = fopen($_REQUEST['fichero'], 'r')) {
-                                //Comprobamos si esta vacio
-                                if (filesize($_REQUEST['fichero'])==0){
-                                    echo "Vacio";
-                                }else {
-                                    //Mientras escribimos se va rellenando el area de texto
-                                    while ($text = fgets($opened,filesize($_REQUEST['fichero']))) {
-                                        echo $text;
-                                    }
-                                } fclose($opened);
+                        if($opened=fopen($_REQUEST['fichero'],'r')){
+                            //Comprobamos si esta vacio
+                            if (filesize($_REQUEST['fichero'])==0){
+                                echo "Vacio";
+                            }else{
+                                //Mientras escribimos se va rellenando el area de texto
+                                while($texto=fgets($opened,filesize($_REQUEST['fichero']))){
+                                    echo $texto;
+                                }
+                            }
+                            fclose($opened);
                         }
                     ?></textarea>
                 <input type="submit" value="Editar" name="editar">
             </form>
+        <ul class="menú">
+            <!-- Codigos PHP -->
+            <li><a href="verCodigo.php?fichero=leeFichero.php">Código principal</a></li>
+            
+            <li><a href="./eligeFichero.php">Volver</a></li></ul>
     </main>
 </body>
 </html>

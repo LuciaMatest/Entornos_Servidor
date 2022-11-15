@@ -44,6 +44,14 @@
                 <input type="submit" value="Editar" name="editar">
                 <input type="submit" value="Leer" name="leer">
             </form>
+        <ul class="menú">
+            <!-- Codigos PHP -->
+            <li><a href="verCodigo.php?fichero=eligeFichero.php">Código principal</a></li>
+            <li><a href="verCodigo.php?fichero=validar.php">Código funciones</a></li>
+
+            
+            <li><a href="../../index.html">Volver</a></li>
+        </ul>
     </main>
 </body>
 </html>
