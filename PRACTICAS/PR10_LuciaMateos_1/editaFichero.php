@@ -29,6 +29,9 @@
     <main>
         <ul class="menú"><li><a href="#">Editable</a></li></ul>
             <form action="./editaFichero.php" method="post">
+                <input type="hidden" name="fichero" value="<?php
+                    echo $_REQUEST['fichero'];
+                ?>">
                 <textarea name="areaEditable" id="idEditable" cols="30" rows="10" style="resize: none;"><?php
                         //Comprobamos que el fichero existe
                         if (!file_exists($_REQUEST['fichero'])) {

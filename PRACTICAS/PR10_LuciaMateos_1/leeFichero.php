@@ -21,6 +21,9 @@
     <main>
         <ul class="menú"><li><a href="#">Lectura</a></li></ul>
             <form action="./leeFichero.php" method="post">
+                <input type="hidden" name="fichero" value="<?php
+                    echo $_REQUEST['fichero'];
+                ?>">
                 <textarea name="areaEditable" id="idEditable" cols="30" rows="10" readonly><?php
                         //Comprobamos que el fichero existe
                         if($opened=fopen($_REQUEST['fichero'],'r')){
