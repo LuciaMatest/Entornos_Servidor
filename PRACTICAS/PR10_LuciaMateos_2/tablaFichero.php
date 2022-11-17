@@ -11,13 +11,9 @@
 </head>
 
 <body>
-    <header>
-        <h1>PR10</h1>
-    </header>
+    <header><h1>PR10</h1></header>
     <main>
-        <ul class="menú">
-            <li><a href="#">Notas</a></li>
-        </ul>
+        <ul class="menú"><li><a href="#">Notas</a></li> </ul>
 
         <table align="center">
             <tr>
