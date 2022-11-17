@@ -94,7 +94,7 @@ div.normal{
 }
 
 table,tr {
-    border: 1px solid black;
+    border: 2px solid black;
     border-collapse: collapse;
     width:90%;
     text-align: center;

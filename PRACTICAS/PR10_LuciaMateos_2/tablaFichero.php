@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header><h1>PR10</h1></header>
+    <header><h1>PR10_2</h1></header>
     <main>
         <ul class="menú"><li><a href="#">Notas</a></li> </ul>
 
@@ -40,7 +40,7 @@
                     //cuando recorre todo el archivo se crea otra celda donde tendremos el boton de editar
                     echo '<td>';
             ?>
-                    <form action="./validar.php" method="post">
+                    <form action="./editaFichero.php" method="post">
                         <input type="submit" value="Editar">
                     </form>
             <?
@@ -56,7 +56,7 @@
         <ul class="menú">
             <!-- Codigos PHP -->
             <li><a href="verCodigo.php?fichero=tablaFichero.php">Código principal</a></li>
-            <li><a href="verCodigo.php?fichero=validar.php">Código funciones</a></li>
+            <li><a href="verCodigo.php?fichero=validar.php">Código validación</a></li>
 
 
             <li><a href="../../index.html">Volver</a></li>
