@@ -19,7 +19,7 @@
             <li><a href="#">Notas</a></li>
         </ul>
 
-        <table style="width:100%">
+        <table align="center">
             <tr>
                 <th>Alumno</th>
                 <th>Nota 1</th>
@@ -27,16 +27,9 @@
                 <th>Nota 3</th>
                 <th>Editar</th>
             </tr>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-            </tr>
-            <tr>
-                <td>Centro comercial Moctezuma</td>
-                <td>Francisco Chang</td>
-                <td>Mexico</td>
-            </tr>
+            <?php
+
+            ?>
         </table>
 
 
