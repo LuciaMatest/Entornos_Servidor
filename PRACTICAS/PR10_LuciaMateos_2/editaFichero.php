@@ -10,19 +10,34 @@
     <title>tabla notas</title>
 </head>
 
-<body>
-    <header><h1>PR10_2</h1></header>
+<body>    
+    <header>
+        <h1>PR10_2</h1>
+    </header>
     <main>
-        <ul class="menú"><li><a href="#">Editar notas</a></li> </ul>
-        
-        
-        <label for="idNota1">Nota 1:</label>
-        <input type="text" name="nota1" id="idNota1">
-        <label for="idNota2">Nota 2:</label>
-        <input type="text" name="nota2" id="idNota2">
-        <label for="idNota3">Nota 3:</label>
-        <input type="text" name="nota3" id="idNota3">
-        
+        <ul class="menú">
+            <li><a href="#">Editar notas</a></li>
+        </ul>
+        <?php
+        $filas = 0;
+        if (($open = fopen('notas.csv', 'r')) !== FALSE) {
+            while (($datos = fgetcsv($open, 0, ";")) !== FALSE) {
+            }
+            fclose($open);
+        }
+        ?>
+        <form action="./tablaFichero.php" method="post">
+            <label for="idNombre">Nombre:</label>
+            <input type="text" name="nombre" id="idNombre" readonly>
+            <label for="idNota1">Nota 1:</label>
+            <input type="text" name="nota1" id="idNota1">
+            <label for="idNota2">Nota 2:</label>
+            <input type="text" name="nota2" id="idNota2">
+            <label for="idNota3">Nota 3:</label>
+            <input type="text" name="nota3" id="idNota3">
+
+            <input type="submit" value="Guardar">
+        </form>
         <ul class="menú">
             <!-- Codigos PHP -->
             <li><a href="verCodigo.php?fichero=editaFichero.php">Código edición</a></li>
