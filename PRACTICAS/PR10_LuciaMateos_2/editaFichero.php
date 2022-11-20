@@ -49,6 +49,17 @@
                 header('Location: ./tablaFichero.php');
                 exit();
             }else{
+                $mostrarDatos;
+                if (($open = fopen('notas.csv', 'r')) !== FALSE) {
+                    while (($datos = fgetcsv($open, 0, ";")) !== FALSE) {
+                        foreach ($notas as $key) {
+                            if ($notas[0]==$nombre) {
+                                $mostrarDatos=$notas;
+                            }
+                        }
+                    }
+                    fclose($open);
+                }
         ?>
         <form action="./editaFichero.php" method="post">
             <?echo '<pre>',print_r($array_datos),'</pre>'?>
@@ -59,12 +70,17 @@
                     //Mantener el texto introducido en el campo de texto 
                     if (enviado() && !vacio("nombre")) {
                         echo $_REQUEST["nombre"];
-                    }
+                    } else {
+                        echo $mostrarDatos[0];
                 ?>">
 
                 <label for="idNota1">Nota 1:</label>
                 <input type="text" name="nota1" id="idNota1" value="<?php
-                    echo $array_datos[$_REQUEST['filas']][1];
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("nombre")) {
+                        echo $_REQUEST["nombre"];
+                    } else {
+                        echo $mostrarDatos[0];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
