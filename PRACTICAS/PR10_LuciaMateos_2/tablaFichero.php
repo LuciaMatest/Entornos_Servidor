@@ -45,7 +45,7 @@
                     echo '<td>';
             ?>
                     <form action="./editaFichero.php" method="post">
-                        <input type="submit" value="Editar">
+                        <input type="submit" value="Editar" name="editar">
                     </form>
             <?
                     echo '</td>';

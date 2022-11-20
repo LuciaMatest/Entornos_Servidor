@@ -10,7 +10,7 @@
     <title>tabla notas</title>
 </head>
 
-<body>    
+<body>
     <header>
         <h1>PR10_2</h1>
     </header>
@@ -20,23 +20,41 @@
         </ul>
         <?php
         $filas = 0;
+        $array_datos = array();
         if (($open = fopen('notas.csv', 'r')) !== FALSE) {
             while (($datos = fgetcsv($open, 0, ";")) !== FALSE) {
+                array_push($array_datos, $datos);
             }
             fclose($open);
         }
+        
+            if ($open = fopen('notas.csv', 'w')) {
+                foreach ($array_datos as $key) {
+                    fputcsv($open, $key, ";");
+                }
+                fclose($open);
+            }
+        
         ?>
         <form action="./tablaFichero.php" method="post">
             <label for="idNombre">Nombre:</label>
-            <input type="text" name="nombre" id="idNombre" readonly>
+            <input type="text" name="nombre" id="idNombre" readonly value="<?php
+                echo $array_datos[0];
+            ?>">
             <label for="idNota1">Nota 1:</label>
-            <input type="text" name="nota1" id="idNota1">
+            <input type="text" name="nota1" id="idNota1" value="<?php
+                echo $array_datos[1];
+            ?>">
             <label for="idNota2">Nota 2:</label>
-            <input type="text" name="nota2" id="idNota2">
+            <input type="text" name="nota2" id="idNota2" value="<?php
+                echo $array_datos[2];
+            ?>">
             <label for="idNota3">Nota 3:</label>
-            <input type="text" name="nota3" id="idNota3">
+            <input type="text" name="nota3" id="idNota3" value="<?php
+                echo $array_datos[3];
+            ?>">
 
-            <input type="submit" value="Guardar">
+            <input type="submit" value="Guardar" name="guardar">
         </form>
         <ul class="menú">
             <!-- Codigos PHP -->
