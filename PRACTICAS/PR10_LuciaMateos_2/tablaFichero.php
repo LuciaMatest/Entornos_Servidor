@@ -28,11 +28,13 @@
                 <th>Editar</th>
             </tr>
             <?php
+            $filas=0;
             //abrimos el archivo notas para recoger los datos
             if (($open = fopen('notas.csv', 'r')) !== FALSE) {
                 //fgetcsv — Obtiene una línea de un puntero a un fichero y la analiza en busca de campos CSV
                 while (($datos = fgetcsv($open, 0, ";")) !== FALSE) {
                     echo '<tr>';
+                    $filas++;
                     //Usamos foreach para recorrer las filas y poner los datos en cada celda
                     foreach ($datos as $key => $celda) {
                         echo '<td>';

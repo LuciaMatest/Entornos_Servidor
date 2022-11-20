@@ -16,9 +16,10 @@
 <body>
     <?php
         $array_datos = array();
+        $nombre = $_REQUEST['nombre'];
         //Abrimos para leer el archivo
-        if (($open = fopen('notas.csv', 'r'))) {
-            while ($datos = fgetcsv($open, 0, ";")) {
+        if (($open = fopen('notas.csv', 'r')) !== FALSE) {
+            while (($datos = fgetcsv($open, 0, ";")) !== FALSE) {
                 array_push($array_datos, $datos);
             }
             fclose($open);
@@ -31,13 +32,17 @@
         <ul class="menú"><li><a href="#">Editar notas</a></li></ul>
         <?php
             if (verificar()){
-                $array_datos[1]=$_REQUEST['nota1'];
-                $array_datos[2]=$_REQUEST['nota2'];
-                $array_datos[3]=$_REQUEST['nota3'];
                 //Volvemos a abrir el archivo para escribir 
-                if ($open = fopen('notas.csv', 'w')) {
-                    foreach ($array_datos as $celda) {
-                        fputcsv($open, $celda, ";");
+                if (($open = fopen('notas.csv', 'w')) !== FALSE) {
+                    foreach ($array_datos as $celda => $celda_valor) {
+                        if ($celda_valor[0]==$nombre) {
+                            $celda_valor[1] = $_REQUEST['nota1'];
+                            $celda_valor[2] = $_REQUEST['nota2'];
+                            $celda_valor[3] = $_REQUEST['nota3'];
+                            fputcsv($open, $celda_valor, ";");
+                        } else {
+                            fputcsv($open, $celda_valor, ";");
+                        }
                     }
                 }
                 fclose($open);
@@ -46,15 +51,20 @@
             }else{
         ?>
         <form action="./editaFichero.php" method="post">
+            <?echo '<pre>',print_r($array_datos),'</pre>'?>
+        
             <p>
                 <label for="idNombre">Nombre:</label>
                 <input type="text" name="nombre" id="idNombre" readonly value="<?php
-                    echo $celda[0];
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("nombre")) {
+                        echo $_REQUEST["nombre"];
+                    }
                 ?>">
 
                 <label for="idNota1">Nota 1:</label>
                 <input type="text" name="nota1" id="idNota1" value="<?php
-                    echo $celda[1];
+                    echo $array_datos[$_REQUEST['filas']][1];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
@@ -69,7 +79,7 @@
 
                 <label for="idNota2">Nota 2:</label>
                 <input type="text" name="nota2" id="idNota2" value="<?php
-                    echo $celda[2];
+                    echo $array_datos[$_REQUEST['filas']][2];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
@@ -84,7 +94,7 @@
 
                 <label for="idNota3">Nota 3:</label>
                 <input type="text" name="nota3" id="idNota3" value="<?php
-                   echo $celda[3];
+                   echo $array_datos[$_REQUEST['filas']][3];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
@@ -113,4 +123,3 @@
 </body>
 
 </html>
-
