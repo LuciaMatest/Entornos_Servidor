@@ -49,12 +49,12 @@
             <p>
                 <label for="idNombre">Nombre:</label>
                 <input type="text" name="nombre" id="idNombre" readonly value="<?php
-                    echo $array_datos[0];
+                    echo $celda[0];
                 ?>">
 
                 <label for="idNota1">Nota 1:</label>
                 <input type="text" name="nota1" id="idNota1" value="<?php
-                    echo $array_datos[1];
+                    echo $celda[1];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
@@ -69,7 +69,7 @@
 
                 <label for="idNota2">Nota 2:</label>
                 <input type="text" name="nota2" id="idNota2" value="<?php
-                    echo $array_datos[2];
+                    echo $celda[2];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
@@ -84,7 +84,7 @@
 
                 <label for="idNota3">Nota 3:</label>
                 <input type="text" name="nota3" id="idNota3" value="<?php
-                   echo $array_datos[3];
+                   echo $celda[3];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
@@ -113,3 +113,4 @@
 </body>
 
 </html>
+
