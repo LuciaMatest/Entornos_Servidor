@@ -16,7 +16,6 @@
 <body>
     <?php
         $array_datos = array();
-        $nombre = $_REQUEST['nombre'];
         //Abrimos para leer el archivo
         if (($open = fopen('notas.csv', 'r')) !== FALSE) {
             while (($datos = fgetcsv($open, 0, ";")) !== FALSE) {
@@ -32,57 +31,40 @@
         <ul class="menú"><li><a href="#">Editar notas</a></li></ul>
         <?php
             if (verificar()){
+                //Guardando las notas que modificamos
+                $array_datos[$_REQUEST['indice']][1]=$_REQUEST['nota1'];
+                $array_datos[$_REQUEST['indice']][2]=$_REQUEST['nota2'];
+                $array_datos[$_REQUEST['indice']][3]=$_REQUEST['nota3'];
+
                 //Volvemos a abrir el archivo para escribir 
                 if (($open = fopen('notas.csv', 'w')) !== FALSE) {
-                    foreach ($array_datos as $celda => $celda_valor) {
-                        if ($celda_valor[0]==$nombre) {
-                            $celda_valor[1] = $_REQUEST['nota1'];
-                            $celda_valor[2] = $_REQUEST['nota2'];
-                            $celda_valor[3] = $_REQUEST['nota3'];
-                            fputcsv($open, $celda_valor, ";");
-                        } else {
-                            fputcsv($open, $celda_valor, ";");
-                        }
+                    foreach ($array_datos as $celda) {
+                            fputcsv($open, $celda, ";");
                     }
                 }
                 fclose($open);
+
                 header('Location: ./tablaFichero.php');
                 exit();
             }else{
-                $mostrarDatos;
-                if (($open = fopen('notas.csv', 'r')) !== FALSE) {
-                    while (($datos = fgetcsv($open, 0, ";")) !== FALSE) {
-                        foreach ($notas as $key) {
-                            if ($notas[0]==$nombre) {
-                                $mostrarDatos=$notas;
-                            }
-                        }
-                    }
-                    fclose($open);
-                }
+                
         ?>
         <form action="./editaFichero.php" method="post">
-            <?echo '<pre>',print_r($array_datos),'</pre>'?>
-        
+            <!-- <?echo '<pre>',print_r($array_datos),'</pre>'?> -->
+            <!-- Nos ayuda a guardar la nueva informacion -->
+            <input type="hidden" name="indice" value="<?php
+                    echo $_REQUEST['indice'];
+            ?>">
             <p>
                 <label for="idNombre">Nombre:</label>
-                <input type="text" name="nombre" id="idNombre" readonly value="<?php
-                    //Mantener el texto introducido en el campo de texto 
-                    if (enviado() && !vacio("nombre")) {
-                        echo $_REQUEST["nombre"];
-                    } else {
-                        echo $mostrarDatos[0];
-                    }
-                ?>">
+                <?php
+                    echo "<p>" . $array_datos[$_REQUEST['indice']][0] . "</p>";
+                ?>
+            </p>
 
                 <label for="idNota1">Nota 1:</label>
                 <input type="text" name="nota1" id="idNota1" value="<?php
-                    //Mantener el texto introducido en el campo de texto 
-                    if (enviado() && !vacio("nota1")) {
-                        echo $_REQUEST["nota1"];
-                    } else {
-                        echo $mostrarDatos[1];
-                    }
+                    echo $array_datos[$_REQUEST['indice']][1]
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
@@ -97,7 +79,7 @@
 
                 <label for="idNota2">Nota 2:</label>
                 <input type="text" name="nota2" id="idNota2" value="<?php
-                    echo $array_datos[$_REQUEST['filas']][2];
+                    echo $array_datos[$_REQUEST['indice']][2];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
@@ -112,7 +94,7 @@
 
                 <label for="idNota3">Nota 3:</label>
                 <input type="text" name="nota3" id="idNota3" value="<?php
-                   echo $array_datos[$_REQUEST['filas']][3];
+                   echo $array_datos[$_REQUEST['indice']][3];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error

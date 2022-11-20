@@ -13,11 +13,15 @@
         return false;
     }
 
+    function patronNotas(){
+
+    }
+
     function verificar(){
         if (enviado()) {
             if (!vacio('nota1')) {
                 if (!vacio('nota2')) {
-                    if (vacio('nota3')) {
+                    if (!vacio('nota3')) {
                         return true;
                     }
                 }
