@@ -1,3 +1,6 @@
+<?php
+    require('validar.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,33 +30,22 @@
             }
             fclose($open);
         }
-        
-            if ($open = fopen('notas.csv', 'w')) {
-                foreach ($array_datos as $key) {
-                    fputcsv($open, $key, ";");
-                }
-                fclose($open);
-            }
-        
         ?>
-        <form action="./tablaFichero.php" method="post">
+        <form action="./editaFichero.php" method="post">
             <label for="idNombre">Nombre:</label>
             <input type="text" name="nombre" id="idNombre" readonly value="<?php
-                echo $array_datos[0];
+            echo reset($array_datos);
             ?>">
+           
             <label for="idNota1">Nota 1:</label>
-            <input type="text" name="nota1" id="idNota1" value="<?php
-                echo $array_datos[1];
-            ?>">
+            <input type="text" name="nota1" id="idNota1">
+            
             <label for="idNota2">Nota 2:</label>
-            <input type="text" name="nota2" id="idNota2" value="<?php
-                echo $array_datos[2];
-            ?>">
+            <input type="text" name="nota2" id="idNota2">
+           
             <label for="idNota3">Nota 3:</label>
-            <input type="text" name="nota3" id="idNota3" value="<?php
-                echo $array_datos[3];
-            ?>">
-
+            <input type="text" name="nota3" id="idNota3">
+            
             <input type="submit" value="Guardar" name="guardar">
         </form>
         <ul class="menú">
