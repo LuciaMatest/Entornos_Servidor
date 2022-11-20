@@ -2,7 +2,7 @@
     require('validar.php');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -14,40 +14,93 @@
 </head>
 
 <body>
-    <header>
-        <h1>PR10_2</h1>
-    </header>
-    <main>
-        <ul class="menú">
-            <li><a href="#">Editar notas</a></li>
-        </ul>
-        <?php
-        $filas = 0;
+    <?php
         $array_datos = array();
+        //Abrimos para leer el archivo
         if (($open = fopen('notas.csv', 'r')) !== FALSE) {
             while (($datos = fgetcsv($open, 0, ";")) !== FALSE) {
                 array_push($array_datos, $datos);
             }
             fclose($open);
         }
+    ?>
+    <header>
+        <h1>PR10_2</h1>
+    </header>
+    <main>
+        <ul class="menú"><li><a href="#">Editar notas</a></li></ul>
+        <?php
+            if (verificar()){
+                $array_datos[$_REQUEST['indice']][1]=$_REQUEST['nota1'];
+                $array_datos[$_REQUEST['indice']][2]=$_REQUEST['nota2'];
+                $array_datos[$_REQUEST['indice']][3]=$_REQUEST['nota3'];
+                //Volvemos a abrir el archivo para escribir 
+                if ($open = fopen('notas.csv', 'w')) {
+                    foreach ($array_datos as $celda) {
+                        fputcsv($open, $celda, ";");
+                    }
+                }
+                fclose($open);
+                header('Location: ./tablaFichero.php');
+                exit();
+            }else{
         ?>
         <form action="./editaFichero.php" method="post">
-            <label for="idNombre">Nombre:</label>
-            <input type="text" name="nombre" id="idNombre" readonly value="<?php
-            echo reset($array_datos);
-            ?>">
-           
-            <label for="idNota1">Nota 1:</label>
-            <input type="text" name="nota1" id="idNota1">
-            
-            <label for="idNota2">Nota 2:</label>
-            <input type="text" name="nota2" id="idNota2">
-           
-            <label for="idNota3">Nota 3:</label>
-            <input type="text" name="nota3" id="idNota3">
+            <p>
+                <label for="idNombre">Nombre:</label>
+                <input type="text" name="nombre" id="idNombre" readonly>
+
+                <label for="idNota1">Nota 1:</label>
+                <input type="text" name="nota1" id="idNota1" value="<?php
+                    echo $array_datos[$_REQUEST['indice']][1];
+                ?>">
+                <?
+                    //comprobar que no este vacio y es correcto, si lo está pongo un error
+                    if (enviado()){
+                        if (vacio("nota1")) {
+                            ?>
+                            <span style="color:brown"> Nota no introducida, revise</span>
+                            <?
+                        }
+                    } 
+                ?>
+
+                <label for="idNota2">Nota 2:</label>
+                <input type="text" name="nota2" id="idNota2" value="<?php
+                    
+                ?>">
+                <?
+                    //comprobar que no este vacio y es correcto, si lo está pongo un error
+                    if (enviado()){
+                        if (vacio("nota2")) {
+                            ?>
+                            <span style="color:brown"> Nota no introducida, revise</span>
+                            <?
+                        }
+                    } 
+                ?>
+
+                <label for="idNota3">Nota 3:</label>
+                <input type="text" name="nota3" id="idNota3" value="<?php
+                   
+                ?>">
+                <?
+                    //comprobar que no este vacio y es correcto, si lo está pongo un error
+                    if (enviado()){
+                        if (vacio("nota3")) {
+                            ?>
+                            <span style="color:brown"> Nota no introducida, revise</span>
+                            <?
+                        }
+                    } 
+                ?>
+            </p>
             
             <input type="submit" value="Guardar" name="guardar">
         </form>
+        <?php
+        }
+        ?>
         <ul class="menú">
             <!-- Codigos PHP -->
             <li><a href="verCodigo.php?fichero=editaFichero.php">Código edición</a></li>
