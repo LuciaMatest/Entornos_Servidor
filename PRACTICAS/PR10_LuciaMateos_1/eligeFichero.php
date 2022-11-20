@@ -35,9 +35,7 @@
                 <?php
                     if (enviado()) {
                         if (!file_exists($_REQUEST['fichero']) && existe('leer')){
-                            ?>
-                            <span style="color:brown"> No existe fichero, revise</span>
-                            <?
+                            ?><span style="color:brown"> No existe fichero, revise</span><?
                         }
                     }
                 ?>
