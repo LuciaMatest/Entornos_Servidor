@@ -41,11 +41,11 @@
                     }
                     //cuando recorre todo el archivo se crea otra celda donde tendremos el boton de editar
                     echo '<td>';
-            ?>
+                    ?>
                     <form action="./editaFichero.php" method="post">
                         <input type="submit" value="Editar" name="editar">
                     </form>
-            <?
+                    <?
                     echo '</td>';
                     echo '</tr>';
                 }
