@@ -17,8 +17,8 @@
     <?php
         $array_datos = array();
         //Abrimos para leer el archivo
-        if (($open = fopen('notas.csv', 'r')) !== FALSE) {
-            while (($datos = fgetcsv($open, 0, ";")) !== FALSE) {
+        if (($open = fopen('notas.csv', 'r'))) {
+            while ($datos = fgetcsv($open, 0, ";")) {
                 array_push($array_datos, $datos);
             }
             fclose($open);
@@ -31,9 +31,9 @@
         <ul class="menú"><li><a href="#">Editar notas</a></li></ul>
         <?php
             if (verificar()){
-                $array_datos[$_REQUEST['indice']][1]=$_REQUEST['nota1'];
-                $array_datos[$_REQUEST['indice']][2]=$_REQUEST['nota2'];
-                $array_datos[$_REQUEST['indice']][3]=$_REQUEST['nota3'];
+                $array_datos[1]=$_REQUEST['nota1'];
+                $array_datos[2]=$_REQUEST['nota2'];
+                $array_datos[3]=$_REQUEST['nota3'];
                 //Volvemos a abrir el archivo para escribir 
                 if ($open = fopen('notas.csv', 'w')) {
                     foreach ($array_datos as $celda) {
@@ -48,11 +48,13 @@
         <form action="./editaFichero.php" method="post">
             <p>
                 <label for="idNombre">Nombre:</label>
-                <input type="text" name="nombre" id="idNombre" readonly>
+                <input type="text" name="nombre" id="idNombre" readonly value="<?php
+                    echo $array_datos[0];
+                ?>">
 
                 <label for="idNota1">Nota 1:</label>
                 <input type="text" name="nota1" id="idNota1" value="<?php
-                    echo $array_datos[$_REQUEST['indice']][1];
+                    echo $array_datos[1];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
@@ -67,7 +69,7 @@
 
                 <label for="idNota2">Nota 2:</label>
                 <input type="text" name="nota2" id="idNota2" value="<?php
-                    
+                    echo $array_datos[2];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
@@ -82,7 +84,7 @@
 
                 <label for="idNota3">Nota 3:</label>
                 <input type="text" name="nota3" id="idNota3" value="<?php
-                   
+                   echo $array_datos[3];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
