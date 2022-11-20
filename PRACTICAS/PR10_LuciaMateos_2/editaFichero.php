@@ -72,15 +72,17 @@
                         echo $_REQUEST["nombre"];
                     } else {
                         echo $mostrarDatos[0];
+                    }
                 ?>">
 
                 <label for="idNota1">Nota 1:</label>
                 <input type="text" name="nota1" id="idNota1" value="<?php
                     //Mantener el texto introducido en el campo de texto 
-                    if (enviado() && !vacio("nombre")) {
-                        echo $_REQUEST["nombre"];
+                    if (enviado() && !vacio("nota1")) {
+                        echo $_REQUEST["nota1"];
                     } else {
-                        echo $mostrarDatos[0];
+                        echo $mostrarDatos[1];
+                    }
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error

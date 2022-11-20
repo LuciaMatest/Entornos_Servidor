@@ -28,17 +28,19 @@
                 <th>Editar</th>
             </tr>
             <?php
-            $filas=0;
             //abrimos el archivo notas para recoger los datos
             if (($open = fopen('notas.csv', 'r')) !== FALSE) {
                 //fgetcsv — Obtiene una línea de un puntero a un fichero y la analiza en busca de campos CSV
                 while (($datos = fgetcsv($open, 0, ";")) !== FALSE) {
                     echo '<tr>';
-                    $filas++;
                     //Usamos foreach para recorrer las filas y poner los datos en cada celda
                     foreach ($datos as $key => $celda) {
                         echo '<td>';
-                        echo $celda;
+                        if ($key==0) {
+                            echo "<a href='editaFichero.php?alumno=".$celda."'>".$celda."</a>";
+                        } else {
+                            echo $celda;
+                        }
                         echo '</td>';
                     }
                     //cuando recorre todo el archivo se crea otra celda donde tendremos el boton de editar
