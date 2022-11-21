@@ -56,9 +56,8 @@
                     echo $_REQUEST['indice'];
             ?>">
             <p>
-                <label for="idNombre">Nombre:</label>
-                <?php
-                    echo "<p>" . $array_datos[$_REQUEST['indice']][0] . "</p>";
+                <label for="idNombre">Nombre:</label><?php 
+                echo "<p>" . $array_datos[$_REQUEST['indice']][0] . "</p>";
                 ?>
             </p>
 
@@ -72,6 +71,10 @@
                         if (vacio("nota1")) {
                             ?>
                             <span style="color:brown"> Nota no introducida, revise</span>
+                            <?
+                        } elseif (!patronNotas('nota1')) {
+                            ?>
+                            <span style="color:brown"> Nota incorrecta, revise</span>
                             <?
                         }
                     } 
@@ -88,6 +91,10 @@
                             ?>
                             <span style="color:brown"> Nota no introducida, revise</span>
                             <?
+                        } elseif (!patronNotas('nota2')) {
+                            ?>
+                            <span style="color:brown"> Nota incorrecta, revise</span>
+                            <?
                         }
                     } 
                 ?>
@@ -102,6 +109,10 @@
                         if (vacio("nota3")) {
                             ?>
                             <span style="color:brown"> Nota no introducida, revise</span>
+                            <?
+                        } elseif (!patronNotas('nota3')) {
+                            ?>
+                            <span style="color:brown"> Nota incorrecta, revise</span>
                             <?
                         }
                     } 
