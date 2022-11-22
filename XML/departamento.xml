@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Departamentos>
+  <Departamento>
+    <CodDepartamento>INF</CodDepartamento>
+    <DescDepartamento>Informática</DescDepartamento>
+  </Departamento>
+  <Departamento>
+    <CodDepartamento>FOL</CodDepartamento>
+    <DescDepartamento>Formacion y Orientacion</DescDepartamento>
+  </Departamento>
+</Departamentos>
