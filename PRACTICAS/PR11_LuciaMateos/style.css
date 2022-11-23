@@ -92,3 +92,20 @@ div.normal{
     font-size: 15px;
 
 }
+
+table,tr {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width:90%;
+    text-align: center;
+}
+
+th {
+    background-color: #490716;
+    color: white;
+    padding: 15px;
+}
+
+td{
+    padding: 10px;
+}
