@@ -14,37 +14,16 @@
 </head>
 
 <body>
-    <?php
-        $array_datos = array();
-        //Abrimos para leer el archivo
-        if (($open = fopen('notas.csv', 'r')) !== FALSE) {
-            while (($datos = fgetcsv($open, 0, ";")) !== FALSE) {
-                array_push($array_datos, $datos);
-            }
-            fclose($open);
-        }
-    ?>
     <header>
-        <h1>PR10_2</h1>
+        <h1>PR11</h1>
     </header>
     <main>
-        <ul class="menú"><li><a href="#">Editar notas</a></li></ul>
+        <ul class="menú"><li><a href="#">XML - Editar notas</a></li></ul>
         <?php
             if (verificar()){
-                //Guardando las notas que modificamos
-                $array_datos[$_REQUEST['indice']][1]=$_REQUEST['nota1'];
-                $array_datos[$_REQUEST['indice']][2]=$_REQUEST['nota2'];
-                $array_datos[$_REQUEST['indice']][3]=$_REQUEST['nota3'];
-
-                //Volvemos a abrir el archivo para escribir 
-                if (($open = fopen('notas.csv', 'w')) !== FALSE) {
-                    foreach ($array_datos as $celda) {
-                            fputcsv($open, $celda, ";");
-                    }
-                }
-                fclose($open);
-
-                header('Location: ./tablaFichero.php');
+                $notas = simplexml_load_file('notas.xml');
+                
+                header('Location: ./leeFichero.php');
                 exit();
             }else{
                 
