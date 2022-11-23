@@ -14,12 +14,10 @@ $equipo->appendChild($dom->createElement("Nombre","Francia"));
 $equipo->appendChild($dom->createElement("Entrenador","Dechams"));
 
 // guardamos el DOM en un documento
-if ($dom->save('mundial.xml')) {
+if ($dom->save('mundial3.xml')) {
     echo "Todo bien";
 }else{
     echo "Fatal";
 }
-
-
 
 ?>
