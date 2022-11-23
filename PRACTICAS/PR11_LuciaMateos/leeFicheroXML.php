@@ -1,3 +1,6 @@
+<?php
+    require('validar.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,30 +26,19 @@
                 <th>Editar</th>
             </tr>
             <?php
-            //abrimos el archivo notas para recoger los datos
-            if (($open = fopen('notas.csv', 'r')) !== FALSE) {
                 $contador = 0;
-                //fgetcsv — Obtiene una línea de un puntero a un fichero y la analiza en busca de campos CSV
-                while (($datos = fgetcsv($open, 0, ";")) !== FALSE) {
-                    echo '<tr>';
-                    //Usamos foreach para recorrer las filas y poner los datos en cada celda
-                    foreach ($datos as $key => $celda) {
-                        echo '<td>';
-                        echo $celda;
-                        echo '</td>';
-                    }
-                    echo "<td><a href='editaFichero.php?indice=".$contador++."'> Editar </a></td>";
-                    echo '</tr>';
+                $tablaNotas = simplexml_load_file('notas.xml');
+
+                foreach ($tablaNotas as $celdas) {
+                    $celdas->children()[0];
+                    $celdas->children()[1];
                 }
-                //Siempre se cierra
-                fclose($open);
-            }
             ?>
         </table>
         <ul class="menú">
             <!-- Codigos PHP -->
             <li><a href="verCodigo.php?fichero=leeFicheroXML.php">Código</a></li>
-            <li><a href="./tablaFichero.php">Volver</a></li>
+            <li><a href="./transformaFichero.php">Volver</a></li>
         </ul>
     </main>
 </body>
