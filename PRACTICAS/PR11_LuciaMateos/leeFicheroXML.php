@@ -2,7 +2,7 @@
     require('validar.php');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,11 +27,16 @@
             </tr>
             <?php
                 $contador = 0;
-                $tablaNotas = simplexml_load_file('notas.xml');
-
-                foreach ($tablaNotas as $celdas) {
-                    $celdas->children()[0];
-                    $celdas->children()[1];
+                $notas = simplexml_load_file('notas.xml');
+                
+                foreach ($notas as $celdas) {
+                    echo '<tr>';
+                    echo '<td>' .$celdas->children()[0]. '</td>';
+                    echo '<td>' .$celdas->children()[1]. '</td>';
+                    echo '<td>' .$celdas->children()[2]. '</td>';
+                    echo '<td>' .$celdas->children()[3]. '</td>';
+                    echo "<td><a href='editaFichero.php?indice=".$contador++."'> Editar </a></td>";
+                    echo '</tr>';
                 }
             ?>
         </table>
