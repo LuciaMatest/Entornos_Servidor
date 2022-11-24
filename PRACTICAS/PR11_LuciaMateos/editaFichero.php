@@ -20,13 +20,22 @@
     <main>
         <ul class="menú"><li><a href="#">XML - Editar notas</a></li></ul>
         <?php
+            //Interpreta un fichero XML en un objeto 
+            $notas = simplexml_load_file('notas.xml');
+            //Encuentra los hijos del nodo dado, 
+            $alumnos= $notas->children()[intval($_REQUEST['indice'])];
+
             if (verificar()){
-                $notas = simplexml_load_file('notas.xml');
-                
-                header('Location: ./leeFichero.php');
+                $alumnos->nota1 = $_REQUEST['nota1'];
+                $alumnos->nota2 = $_REQUEST['nota2'];
+                $alumnos->nota3 = $_REQUEST['nota3'];
+
+                // Retorna un string XML correcto basado en un elemento SimpleXML 
+                $notas->asXML('notas.xml');
+
+                header('Location: ./leeFicheroXML.php');
                 exit();
-            }else{
-                
+            }else{ 
         ?>
         <form action="./editaFichero.php" method="post">
             <!-- <?echo '<pre>',print_r($array_datos),'</pre>'?> -->
@@ -36,13 +45,13 @@
             ?>">
             <p>
                 <label for="idNombre">Nombre:</label><?php 
-                echo "<p>" . $array_datos[$_REQUEST['indice']][0] . "</p>";
+                echo "<p>" . $notas->children()[intval($_REQUEST['indice'])]->children()[0] . "</p>";
                 ?>
             </p>
 
                 <label for="idNota1">Nota 1:</label>
                 <input type="text" name="nota1" id="idNota1" value="<?php
-                    echo $array_datos[$_REQUEST['indice']][1]
+                    echo  $notas->children()[intval($_REQUEST['indice'])]->children()[1];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
@@ -61,7 +70,7 @@
 
                 <label for="idNota2">Nota 2:</label>
                 <input type="text" name="nota2" id="idNota2" value="<?php
-                    echo $array_datos[$_REQUEST['indice']][2];
+                    echo  $notas->children()[intval($_REQUEST['indice'])]->children()[2];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
@@ -80,7 +89,7 @@
 
                 <label for="idNota3">Nota 3:</label>
                 <input type="text" name="nota3" id="idNota3" value="<?php
-                   echo $array_datos[$_REQUEST['indice']][3];
+                   echo  $notas->children()[intval($_REQUEST['indice'])]->children()[3];
                 ?>">
                 <?
                     //comprobar que no este vacio y es correcto, si lo está pongo un error
