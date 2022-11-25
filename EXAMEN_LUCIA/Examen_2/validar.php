@@ -48,4 +48,18 @@ function primeraComprobación(){
     return false;
 } 
 
+function segundaComprobación(){
+    if (enviado()) {
+        if (!vacio('nombre') && patronNombre()){
+            if (!vacio('exp') && patronExpediente()) {
+                if ($_REQUEST['oculto']!="no") {
+                    if (!existe('asignarturas')) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
 ?>

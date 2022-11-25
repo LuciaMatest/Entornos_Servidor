@@ -28,6 +28,12 @@
         "2DAW" => array("DWES", "DWEC", "DIW", "EIE")
     );
     ?>
+    <?php
+        if (segundaComprobación()){
+            header('Location: ./Mostrar.php?nombre='.  $_REQUEST['nombre'] . '&exp=' . $_REQUEST['exp'] . '&curso=' . $_REQUEST['oculto'] . "&asignaturas=" . $_REQUEST['asignaturas']);
+            exit();
+        }else{
+        ?>
     <form action="./Examen2.php" method="post">
         <label for="nombre">Nombre y apellidos:</label> <input type="text" name="nombre" id="nombre" 
         value="<?
@@ -96,7 +102,7 @@
             ?>
         </select>
         <br>
-        <input type="hidden" name="curso" value="<?php 
+        <input type="hidden" name="oculto" value="<?php 
             if (enviado()) {
                 $_REQUEST["curso"];
             }           
@@ -118,6 +124,9 @@
         ?>
         <input type="submit" name="Enviado" value="Enviar">
     </form>
+    <?php
+        }
+    ?>
 </body>
 
 </html>
