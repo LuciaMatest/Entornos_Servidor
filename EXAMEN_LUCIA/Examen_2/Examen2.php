@@ -29,7 +29,7 @@
 
     ?>
     <form action="./Examen2.php" method="post">
-        <p><label for="nombre">Nombre y apellidos:</label> <input type="text" name="nombre" id="nombre" 
+        <label for="nombre">Nombre y apellidos:</label> <input type="text" name="nombre" id="nombre" 
         value="<?
             //Mantener el texto introducido en el campo de texto 
             if (enviado() && !vacio("nombre")) {
@@ -50,8 +50,7 @@
                 }
             }
         ?>
-        </p>
-        <p> <label for="exp">Expediente</label> <input type="text" name="exp" id="exp" 
+        <br><label for="exp">Expediente</label> <input type="text" name="exp" id="exp" 
         value="<?
             //Mantener el texto introducido en el campo de texto 
             if (enviado() && !vacio("exp")) {
@@ -72,46 +71,35 @@
                 }
             }
         ?>
-        </p>
-        <p>
+        <br>
             <!-- OPCIONES -->
             <label for="curso">Curso:</label> 
-            <select name="curso" id="curso"
-            value="<?
-                //Mantener el texto introducido en el campo de texto 
-                if (enviado() && !vacio("curso")) {
-                    echo $_REQUEST["curso"];
-                }
-            ?>">
+            <select name="curso" id="curso">
                 <option value="no">Selecione una opcion</option>
-                <option value="1DAM"
                 <?php
-                // Para mantener la eleccion elegida
-                if(enviado() && existe('curso') && $_REQUEST['curso']== "1DAM"){
-                    ?>
-                        selected
-                    <?
-                }?>>1DAM</option>
-                <option value="2DAM"
-                <?php
-                // Para mantener la eleccion elegida
-                if(enviado() && existe('curso') && $_REQUEST['curso']== "2DAM"){
-                    ?>
-                        selected
-                    <?
-                }?>>2DAM</option>
-                <option value="2DAW"
-                <?php
-                // Para mantener la eleccion elegida
-                if(enviado() && existe('curso') && $_REQUEST['curso']== "2DAW"){
-                    ?>
-                        selected
-                    <?
-                }?>>2DAW</option>
+                    foreach ($array as $ciclos => $curso) {
+                        echo "<option value='" . $ciclos . "'>" . $ciclos . "</option>";
+                    }
+                ?>
             </select>
-        </p>
-        <input type="hidden" name="curso" value="">
-        <br><input type="submit" name="Enviado" value="Enviar">
+            <?php
+                //comprobación
+                if (enviado()){
+                    if ($_REQUEST['curso']=="no"){
+                        ?>
+                        <span style="color:brown"> No seleccionado</span>
+                        <?                    
+                    }
+                }
+            ?>
+        <br>
+        <input type="hidden" name="curso" value="<?php 
+            if (enviado()) {
+                $_REQUEST['curso'];
+            }           
+        ?>">
+        
+        <input type="submit" name="Enviado" value="Enviar">
     </form>
 
 

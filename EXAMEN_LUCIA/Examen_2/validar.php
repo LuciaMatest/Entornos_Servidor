@@ -1,4 +1,10 @@
 <?php
+function enviado(){
+    if (isset($_REQUEST['Enviado']))
+        return true;
+    return false;
+}
+
 function vacio($nombre){
     if(empty($_REQUEST['nombre'])) {
         return true;
@@ -6,18 +12,11 @@ function vacio($nombre){
     return false;
 }
 
-function enviado(){
-    if (isset($_REQUEST['Enviado']))
-        return true;
-    return false;
-}
-
 function existe($nombre){
     if (isset($_REQUEST[$nombre]))
         return true;
-    return false;
+        return true;
 }
-
 
 //Patrones
 function patronNombre(){
@@ -32,6 +31,19 @@ function patronExpediente(){
     $patron = '/^(\d{2}[A-Z]{3})\/(\d{2})$/';
     if (preg_match($patron, $_REQUEST['exp'])==1) {
         return true;
+    }
+    return false;
+}
+
+function primeraComprobación(){
+    if (enviado()){
+        if (!vacio('nombre') && patronNombre()) {
+            if (vacio('exp') && patronExpediente()) {
+                if ($_REQUEST['curso']=="no"){
+                    return true;
+                }
+            }
+        }
     }
     return false;
 }
