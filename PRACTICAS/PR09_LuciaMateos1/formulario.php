@@ -1,4 +1,4 @@
- <?php
+<?php
     require("./validar.php");
 ?>
 <!DOCTYPE html>
