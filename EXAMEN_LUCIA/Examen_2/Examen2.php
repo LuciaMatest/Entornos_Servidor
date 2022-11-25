@@ -72,41 +72,44 @@
                 }
             }
         ?>
-        </p> 
-        <label for="curso">Curso:</label> 
-        <select name="curso" id="curso"
-        value="<?
-            //Mantener el texto introducido en el campo de texto 
-            if (enviado() && !vacio("curso")) {
-                echo $_REQUEST["curso"];
-            }
-        ?>">
-            <option value="no">Selecione una opcion</option>
-            <option value="1DAM"
-            <?php
-            // Para mantener la eleccion elegida
-            if(enviado() && existe('curso') && $_REQUEST['curso']== "1DAM"){
-                ?>
-                    selected
-                <?
-            }?>>1DAM</option>
-            <option value="2DAM"
-            <?php
-            // Para mantener la eleccion elegida
-            if(enviado() && existe('curso') && $_REQUEST['curso']== "2DAM"){
-                ?>
-                    selected
-                <?
-            }?>>2DAM</option>
-            <option value="2DAW"
-            <?php
-            // Para mantener la eleccion elegida
-            if(enviado() && existe('curso') && $_REQUEST['curso']== "2DAM"){
-                ?>
-                    selected
-                <?
-            }?>>2DAW</option>
-        </select>
+        </p>
+        <p>
+            <!-- OPCIONES -->
+            <label for="curso">Curso:</label> 
+            <select name="curso" id="curso"
+            value="<?
+                //Mantener el texto introducido en el campo de texto 
+                if (enviado() && !vacio("curso")) {
+                    echo $_REQUEST["curso"];
+                }
+            ?>">
+                <option value="no">Selecione una opcion</option>
+                <option value="1DAM"
+                <?php
+                // Para mantener la eleccion elegida
+                if(enviado() && existe('curso') && $_REQUEST['curso']== "1DAM"){
+                    ?>
+                        selected
+                    <?
+                }?>>1DAM</option>
+                <option value="2DAM"
+                <?php
+                // Para mantener la eleccion elegida
+                if(enviado() && existe('curso') && $_REQUEST['curso']== "2DAM"){
+                    ?>
+                        selected
+                    <?
+                }?>>2DAM</option>
+                <option value="2DAW"
+                <?php
+                // Para mantener la eleccion elegida
+                if(enviado() && existe('curso') && $_REQUEST['curso']== "2DAW"){
+                    ?>
+                        selected
+                    <?
+                }?>>2DAW</option>
+            </select>
+        </p>
         <input type="hidden" name="curso" value="">
         <br><input type="submit" name="Enviado" value="Enviar">
     </form>

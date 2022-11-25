@@ -18,6 +18,7 @@ function existe($nombre){
     return false;
 }
 
+
 //Patrones
 function patronNombre(){
     $patron = '/^([A-Z][a-z]{3,}\s[A-Z][a-z]{3,}\s[A-Z][a-z]{3,})$/';
