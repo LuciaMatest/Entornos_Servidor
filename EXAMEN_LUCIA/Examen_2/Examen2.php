@@ -30,7 +30,7 @@
     ?>
     <?php
         if (primeraComprobación()){
-            mostrar();
+            // mostrar();
         }else{
     ?>
     <form action="./Examen2.php" method="post">
@@ -77,33 +77,47 @@
             }
         ?>
         <br>
-            <!-- OPCIONES -->
-            <label for="curso">Curso:</label> 
-            <select name="curso" id="curso">
-                <option value="no">Selecione una opcion</option>
-                <?php
-                    foreach ($array as $ciclos => $curso) {
-                        echo "<option value='" . $ciclos . "'>" . $ciclos . "</option>";
-                    }
-                ?>
-            </select>
+        <!-- OPCIONES -->
+        <label for="curso">Curso:</label> 
+        <select name="curso" id="curso">
+            <option value="no">Selecione una opcion</option>
             <?php
-                //comprobación
-                if (enviado()){
-                    if ($_REQUEST['curso']=="no"){
-                        ?>
-                        <span style="color:brown"> No seleccionado</span>
-                        <?                    
-                    }
+                foreach ($array as $ciclos => $curso) {
+                    echo "<option value='" . $ciclos . "'>" . $ciclos . "</option>";
+        
                 }
             ?>
+            <?php
+                //comprobación
+                if ($_REQUEST['curso']=="no"){
+                    ?>
+                        <span style="color:brown"> No seleccionado </span>
+                    <?                    
+                }
+                
+            ?>
+        </select>
         <br>
         <input type="hidden" name="curso" value="<?php 
             if (enviado()) {
-                $_REQUEST['curso'];
+                $_REQUEST["curso"];
             }           
         ?>">
-    
+        <?php
+            //Si la primera comprobacion es correcta mostraremos la seleccion de los cursos que tiene cada ciclo
+            if (primeraComprobación()) {
+                echo "<p>Asignaturas:</p>";
+                foreach ($array as $curso => $value) {
+                    if ($curso==$_REQUEST['curso']){
+                        //Creamos la checkbox donde almacenamos cada uno de los cursos
+                        foreach ($value as $key) {
+                            echo '<input type="checkbox" name="check[]" id="' . $key .'" value="' . $key .'">';
+                            echo "<label for='" . $key . "'>" . $key . "</label>";
+                        }
+                    }
+                }
+            }
+        ?>
         <input type="submit" name="Enviado" value="Enviar">
     </form>
     <?php
