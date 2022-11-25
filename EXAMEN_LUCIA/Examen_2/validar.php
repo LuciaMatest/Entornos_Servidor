@@ -48,9 +48,4 @@ function primeraComprobación(){
     return false;
 } 
 
-function mostrar(){
-    echo "<label for='nombre'>Nombre y apellidos:</label>";
-    echo "<label for='exp'>Expediente</label>";
-    echo "<label for='curso'>Curso:</label>";
-}
 ?>

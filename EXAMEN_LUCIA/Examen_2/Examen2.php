@@ -28,11 +28,6 @@
         "2DAW" => array("DWES", "DWEC", "DIW", "EIE")
     );
     ?>
-    <?php
-        if (primeraComprobación()){
-            // mostrar();
-        }else{
-    ?>
     <form action="./Examen2.php" method="post">
         <label for="nombre">Nombre y apellidos:</label> <input type="text" name="nombre" id="nombre" 
         value="<?
@@ -83,8 +78,11 @@
             <option value="no">Selecione una opcion</option>
             <?php
                 foreach ($array as $ciclos => $curso) {
-                    echo "<option value='" . $ciclos . "'>" . $ciclos . "</option>";
-        
+                    if ($_REQUEST['curso'] == $ciclos){
+                        echo "<option value='" . $ciclos . "' selected>" . $ciclos . " </option>";
+                    } else {
+                        echo "<option value='" . $ciclos . "'>" . $ciclos . " </option>";
+                    }
                 }
             ?>
             <?php
@@ -120,9 +118,6 @@
         ?>
         <input type="submit" name="Enviado" value="Enviar">
     </form>
-    <?php
-        }
-    ?>
 </body>
 
 </html>
