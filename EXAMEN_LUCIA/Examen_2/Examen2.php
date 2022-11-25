@@ -1,5 +1,7 @@
+<?php
+    require("./validar.php");
+?>
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
@@ -49,10 +51,61 @@
             }
         ?>
         </p>
-        <br> <label for="exp">Expediente</label> <input type="text" name="exp" id="exp" value="">
-        <br> <label for="curso">Curso:</label> <select name="curso" id="curso">
+        <p> <label for="exp">Expediente</label> <input type="text" name="exp" id="exp" 
+        value="<?
+            //Mantener el texto introducido en el campo de texto 
+            if (enviado() && !vacio("exp")) {
+                echo $_REQUEST["exp"];
+            }
+        ?>">
+        <?
+            //comprobar que no este vacio y que cumple los requisitos, si lo está pongo un error
+            if (enviado()) {
+                if (vacio("exp")){
+                    ?>
+                    <span style="color:brown"> Introduce numero de expediente</span>
+                    <?
+                } elseif (!patronExpediente()) {
+                    ?>
+                    <span style="color:brown"> Debe escribir 00MMM/00</span>
+                    <?
+                }
+            }
+        ?>
+        </p> 
+        <label for="curso">Curso:</label> 
+        <select name="curso" id="curso"
+        value="<?
+            //Mantener el texto introducido en el campo de texto 
+            if (enviado() && !vacio("curso")) {
+                echo $_REQUEST["curso"];
+            }
+        ?>">
             <option value="no">Selecione una opcion</option>
-
+            <option value="1DAM"
+            <?php
+            // Para mantener la eleccion elegida
+            if(enviado() && existe('curso') && $_REQUEST['curso']== "1DAM"){
+                ?>
+                    selected
+                <?
+            }?>>1DAM</option>
+            <option value="2DAM"
+            <?php
+            // Para mantener la eleccion elegida
+            if(enviado() && existe('curso') && $_REQUEST['curso']== "2DAM"){
+                ?>
+                    selected
+                <?
+            }?>>2DAM</option>
+            <option value="2DAW"
+            <?php
+            // Para mantener la eleccion elegida
+            if(enviado() && existe('curso') && $_REQUEST['curso']== "2DAM"){
+                ?>
+                    selected
+                <?
+            }?>>2DAW</option>
         </select>
         <input type="hidden" name="curso" value="">
         <br><input type="submit" name="Enviado" value="Enviar">
