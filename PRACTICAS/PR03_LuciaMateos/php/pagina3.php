@@ -17,15 +17,15 @@
     <ul class="menú">
       <li><a href="#">Pasa como parámetros en la URL (año, mes y día) y muestre el día.(Por defecto, 12/09/2022)</a>
       <?php 
-          $d = $_GET["dia"];
-          $m = $_GET["mes"];
-          $a = $_GET["anio"];
+          $d = $_REQUEST["dia"];
+          $m = $_REQUEST["mes"];
+          $a = $_REQUEST["anio"];
           $fecha = $d . "/" . $m . "/" . $a;
           echo $fecha;
           echo "<br>";
-          $fecha = new dateTime($fecha);
+          $f = new dateTime($fecha);
           echo "La fecha coincide con el dia: ";
-          echo date_format($fecha, "l");
+          echo date_format($f, "l");
       ?>
       </li>
       <li><a href="#">Código</a>

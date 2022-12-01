@@ -17,10 +17,10 @@
     <ul class="menú">
       <li><a href="#">Mostrar valor y tipo de una variable (si es numérico o no y si lo es, si es entero o float)</a>
         <?php
-            $variable = implode($_GET);
+            $variable = $_REQUEST['variable'];
             echo "La variables es " . $variable;
             echo "<br>";
-            foreach ($_GET as $value) {
+            foreach ($_REQUEST as $value) {
                 if (is_numeric($value)) {
                   echo "Es numerica ";
                   if (strpos($value, '.') != false) {
