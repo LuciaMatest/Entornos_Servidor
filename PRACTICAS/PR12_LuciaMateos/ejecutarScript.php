@@ -1,5 +1,5 @@
 <?php
-require('./Seguro/conexion.php');
+require('./Seguro/conexionBD.php');
 try{
         $conexion= mysqli_connect($_SERVER['SERVER_ADDR'],USER,PASS);
         $script = file_get_contents('./musica.sql');
