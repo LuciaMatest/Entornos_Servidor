@@ -25,7 +25,7 @@
             //Cuando pulsamos el boton de enviar
             if (enviado()) {
                 //Si se modifica algo
-                if ($_REQUEST['opciones'] == 'modifica') {
+                if ($_REQUEST['opcion'] == 'modifica') {
                     try {
                         $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
                         $actualiza = "update canciones set id='" .$_REQUEST['id']. "',fecha='" .$_REQUEST['fecha']. "',cancion='" .$_REQUEST['cancion']. "',duracion='" .$_REQUEST['duracion']. "' where id='" . $_REQUEST['claveID'] . "';" ;
@@ -33,21 +33,21 @@
                         //cerrar conexion
                         mysqli_close($conexion);
                     } catch (Exception $ex) {
-                        if ($ex->getCode()==2002) {
-                            echo 'Fallo de conexión';
+                        if ($ex->getCode() == 2002) {
+                            echo '<span style="color:brown"> Fallo de conexión </span>';
                         }
-                        if ($ex->getCode()==1049){
-                            echo 'Base de datos desconocida';
+                        if ($ex->getCode() == 1049) {
+                            echo '<span style="color:brown"> Base de datos desconocida </span>';
                         }
-                        if ($ex->getCode()==1045){
-                            echo 'Datos incorrectos';
+                        if ($ex->getCode() == 1045) {
+                            echo '<span style="color:brown"> Datos incorrectos </span>';
                         }
                     }
                     //Actualizada la base de datos se redigirá a la tabla.
                     header("Location: ./tablaMusica.php");
                 }
                 //Si se inserta algo
-                elseif ($_REQUEST['opciones'] == 'inserta') {
+                elseif ($_REQUEST['opcion'] == 'inserta') {
                     try {
                         $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
                         $inserta = "insert into canciones values ('" .$_REQUEST['id']. "','" .$_REQUEST['fecha']. "','" .$_REQUEST['cancion']. "','" .$_REQUEST['duracion']. "');" ;
@@ -55,14 +55,14 @@
                         //cerrar conexion
                         mysqli_close($conexion);
                     } catch (Exception $ex) {
-                        if ($ex->getCode()==2002) {
-                            echo 'Fallo de conexión';
+                        if ($ex->getCode() == 2002) {
+                            echo '<span style="color:brown"> Fallo de conexión </span>';
                         }
-                        if ($ex->getCode()==1049){
-                            echo 'Base de datos desconocida';
+                        if ($ex->getCode() == 1049) {
+                            echo '<span style="color:brown"> Base de datos desconocida </span>';
                         }
-                        if ($ex->getCode()==1045){
-                            echo 'Datos incorrectos';
+                        if ($ex->getCode() == 1045) {
+                            echo '<span style="color:brown"> Datos incorrectos </span>';
                         }
                     }
                     //Actualizada la base de datos se redigirá a la tabla.
@@ -70,34 +70,35 @@
                 }
             }
             //Si se elimina algo
-            elseif ($_REQUEST['opcion'] == 'elige') {
+            elseif ($_REQUEST['opcion'] == 'elimina') {
                 try {
                     $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
-                    $elimina = "delete from canciones where id='" .$_REQUEST['claveID']. "';" ;
+                    $elimina = "delete from canciones where id='" .$_REQUEST['clave']. "';" ;
                     mysqli_query($conexion, $elimina);
                     //cerrar conexion
                     mysqli_close($conexion);
                 } catch (Exception $ex) {
-                    if ($ex->getCode()==2002) {
-                        echo 'Fallo de conexión';
+                    if ($ex->getCode() == 2002) {
+                        echo '<span style="color:brown"> Fallo de conexión </span>';
                     }
-                    if ($ex->getCode()==1049){
-                        echo 'Base de datos desconocida';
+                    if ($ex->getCode() == 1049) {
+                        echo '<span style="color:brown"> Base de datos desconocida </span>';
                     }
-                    if ($ex->getCode()==1045){
-                        echo 'Datos incorrectos';
+                    if ($ex->getCode() == 1045) {
+                        echo '<span style="color:brown"> Datos incorrectos </span>';
                     }
                 }
                 //Actualizada la base de datos se redigirá a la tabla.
                 header("Location: ./tablaMusica.php");
             }
-
-
+        ?>
+        <?
+            //Mostraremos la informacion que queremos modificar dependiendo de que 'boton' seleccionemos
             try {
                 $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
-                if ($_REQUEST['opcion'] == 'modificacion') {
-                    //Seleccionamos todos los datos que tiene la tabla de canciones
-                    $sql="select * from canciones where id='" . $_REQUEST['claveID'] . "';";
+                if ($_REQUEST['opcion'] == 'modifica') {
+                    //Seleccionamos todos los datos de una de la opciones que tenemos en la lista
+                    $sql="select * from canciones where id='" . $_REQUEST['clave'] . "';";
                     $resultado = mysqli_query($conexion, $sql);
                     //Recorremos la tabla
                     while ($row = $resultado->fetch_array()) {
@@ -110,68 +111,70 @@
                 //cerrar conexion
                 mysqli_close($conexion);
             } catch (Exception $ex) {
-                if ($ex->getCode()==2002) {
-                    echo 'Fallo de conexión';
+                if ($ex->getCode() == 2002) {
+                    echo '<span style="color:brown"> Fallo de conexión </span>';
                 }
-                if ($ex->getCode()==1049){
-                    echo 'Base de datos desconocida';
+                if ($ex->getCode() == 1049) {
+                    echo '<span style="color:brown"> Base de datos desconocida </span>';
                 }
-                if ($ex->getCode()==1045){
-                    echo 'Datos incorrectos';
+                if ($ex->getCode() == 1045) {
+                    echo '<span style="color:brown"> Datos incorrectos </span>';
                 }
             }
         ?>
+        <!-- Formulario -->
         <form action="./modificarBBDD.php" method="post">
-            <input type="hidden" name="opciones"
+            <!-- input oculto para mantener un seguimiento de que registros de la base de datos necesitan actualizarse cuando un formulario de actualización es remitido -->
+            <input type="hidden" name="opcion"
             value="<?
                 echo $_REQUEST['opcion'];
             ?>">
-
+            <!-- input oculto para recordar el ID del registro que ha sido editado -->
             <input type="hidden" name="claveID" value="<?
                 if ($_REQUEST['opcion']=='modifica') {
-                    echo $_REQUEST['claveID'];
+                    echo $_REQUEST['clave'];
                 }
             ?>">
-
+            <!-- ID -->
             <label for="id">ID:</label>
             <input type="text" name="id" id="id" placeholder="id"
             value="<?
-                if ($_REQUEST['opcion'] == 'modificacion') {
+                if ($_REQUEST['opcion'] == 'modifica') {
                     echo $id;
                 }
             ?>">
-
+            <!-- Fecha -->
             <label for="idFecha">Fecha:</label>
             <input type="text" name="fecha" id="idFecha" placeholder="Fecha"
             value="<?
-                if ($_REQUEST['opcion'] == 'modificacion') {
+                if ($_REQUEST['opcion'] == 'modifica') {
                     echo $fecha;
                 }
             ?>">
-
+            <!-- Canción -->
             <label for="idCancion">Canción:</label>
             <input type="text" name="cancion" id="idCancion" placeholder="Cancion"
             value="<?
-                if ($_REQUEST['opcion'] == 'modificacion') {
+                if ($_REQUEST['opcion'] == 'modifica') {
                     echo $cancion;
                 }
             ?>">
-
+            <!-- Duración -->
             <label for="idDuracion">Duración:</label>
             <input type="text" name="duracion" id="idDuracion" placeholder="Duracion"
             value="<?
-                if ($_REQUEST['opcion'] == 'modificacion') {
+                if ($_REQUEST['opcion'] == 'modifica') {
                     echo $duracion;
                 }
             ?>">
-
-            <input type="submit" value="Modificar" name="enviar">
+            <!-- Botón con el que insertamos o modificamos uno o varios datos -->
+            <input type="submit" value="Modificar/Insertar" name="enviar">
         </form>
         <ul class="menú">
             <!-- Codigos PHP -->
             <li><a href="verCodigo.php?fichero=modificarBBDD.php">Código</a></li>
 
-            <li><a href="../../index.html">Volver</a></li>
+            <li><a href="index.php">Volver</a></li>
         </ul>
     </main>
 </body>

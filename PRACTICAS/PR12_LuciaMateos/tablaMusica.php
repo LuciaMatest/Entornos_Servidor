@@ -43,9 +43,9 @@
                     echo '<td>' . $row['cancion'] . '</td>';
                     echo '<td>' . $row['duracion'] . '</td>';
                     echo "<td>";
-                    echo "<a class='colorin' href='modificarBBDD.php?opcion=elige&claveID=" . $row['id'] . "'> Borrar </a>";
+                    echo "<a class='colorin' href='modificarBBDD.php?opcion=elige&clave=" . $row['id'] . "'> Borrar </a>";
                     echo "/";
-                    echo "<a class='colorin' href='modificarBBDD.php?opcion=modifica&claveID=" . $row['id'] . "'> Modificar </a>";
+                    echo "<a class='colorin' href='modificarBBDD.php?opcion=modifica&clave=" . $row['id'] . "'> Modificar </a>";
                     echo "</td>";
                     echo '</tr>';
                 }
@@ -53,19 +53,19 @@
                 mysqli_close($conexion);
             } catch (Exception $ex) {
                 if ($ex->getCode() == 2002) {
-                    echo 'Fallo de conexión';
+                    echo '<span style="color:brown"> Fallo de conexión </span>';
                 }
                 if ($ex->getCode() == 1049) {
-                    echo 'Base de datos desconocida';
+                    echo '<span style="color:brown"> Base de datos desconocida </span>';
                 }
                 if ($ex->getCode() == 1045) {
-                    echo 'Datos incorrectos';
+                    echo '<span style="color:brown"> Datos incorrectos </span>';
                 }
             }
             ?>
         </table>
-        <a href='modificarBBDD.php?opcion=inserta'> <input type="button" value="Insertar" /> </a>
         <ul class="menú">
+            <li><a href='modificarBBDD.php?opcion=inserta'> Insertar nuevo registro </a></li>
             <!-- Codigos PHP -->
             <li><a href="verCodigo.php?fichero=tablaMusica.php">Código</a></li>
 

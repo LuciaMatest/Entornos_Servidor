@@ -24,8 +24,9 @@
             //Cuando pulsamos en crear
             if (crearBBDD()) {
                 $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS);
-                $script = file_get_contents('./BBDD/musica.sql');
+                $script = usarBBDD();
                 mysqli_multi_query($conexion, $script);
+                mysqli_close($conexion);
             }
         ?>
             <form action="./index.php" method="post" enctype="multipart/form-data">
@@ -33,27 +34,29 @@
                 try {
                     $conexion2 = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
 
-                    echo "<a href='tablaMusica.php'> Leer </a>";
-                    echo "<a href='modificarBBDD.php?opcion=inserta'> Insertar </a>";
+                    echo "<a href='tablaMusica.php'> Ver tabla </a><br>";
+                    echo "<a href='modificarBBDD.php?opcion=inserta'> Insertar nuevos datos </a>";
 
                     //mysqli_close($conexion2);
                 } catch (Exception $ex) {
                     if ($ex->getCode() == 2002) {
-                        echo 'Fallo de conexión';
+                        echo '<span style="color:brown"> Fallo de conexión </span>';
                     }
                     if ($ex->getCode() == 1049) {
-                        echo 'Base de datos desconocida<br>';
+                        echo '<span style="color:brown"> Base de datos desconocida </span>';
                         echo '<input type="submit" value="Crear" name="crear">';
                     }
                     if ($ex->getCode() == 1045) {
-                        echo 'Datos incorrectos';
+                        echo '<span style="color:brown"> Datos incorrectos </span>';
                     }
                 }
                 ?>
             </form>
+
         <ul class="menú">
             <!-- Codigos PHP -->
             <li><a href="verCodigo.php?fichero=index.php">Código</a></li>
+            <li><a href="verCodigo.php?fichero=./Funciones/funcionesBD.php">Código funciones</a></li>
 
             <li><a href="../../index.html">Volver</a></li>
         </ul>

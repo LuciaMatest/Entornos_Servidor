@@ -17,4 +17,8 @@ function crearBBDD(){
     return true;
     return false;
 }
+
+function usarBBDD(){
+    return file_get_contents('./BBDD/musica.sql');
+}
 ?>
