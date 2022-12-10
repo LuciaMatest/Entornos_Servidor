@@ -43,9 +43,9 @@
                     echo '<td>' . $row['cancion'] . '</td>';
                     echo '<td>' . $row['duracion'] . '</td>';
                     echo "<td>";
-                    echo "<a class='colorin' href='modificarBBDD.php?opcion=elige&clave=" . $row['id'] . "'> Borrar </a>";
+                    echo "<a href='modificarBBDD.php?opcion=elige&clave=" . $row['id'] . "'>Borrar</a>";
                     echo "/";
-                    echo "<a class='colorin' href='modificarBBDD.php?opcion=modifica&clave=" . $row['id'] . "'> Modificar </a>";
+                    echo "<a href='modificarBBDD.php?opcion=modifica&clave=" . $row['id'] . "'>Modificar</a>";
                     echo "</td>";
                     echo '</tr>';
                 }
