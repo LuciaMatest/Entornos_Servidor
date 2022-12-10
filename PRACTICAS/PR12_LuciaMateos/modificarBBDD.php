@@ -21,29 +21,14 @@
         <?php
             require('./Conexion/conexionBD.php');
             require('./Funciones/funcionesBD.php');
-            if ($_REQUEST['opcion'] == 'elige') {
-                try {
-                    //code...
-                } catch (Exception $ex) {
-                    if ($ex->getCode()==2002) {
-                        echo 'Fallo de conexión';
-                    }
-                    if ($ex->getCode()==1049){
-                        echo 'Base de datos desconocida';
-                    }
-                    if ($ex->getCode()==1045){
-                        echo 'Datos incorrectos';
-                    }
-                }
-                header("Location: ./tablaMusica.php");
-            } 
+ 
             //Cuando pulsamos el boton de enviar
             if (enviado()) {
                 //Si se modifica algo
                 if ($_REQUEST['opcion'] == 'modifica') {
                     try {
                         $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
-                        $actualiza = "update canciones set fecha='" .$_REQUEST['fecha']. "', cancion='" .$_REQUEST['cancion']. "', duracion='" .$_REQUEST['duracion'];
+                        $actualiza = "update canciones set fecha='" .$_REQUEST['fecha']. "', cancion='" .$_REQUEST['cancion']. "', duracion='" .$_REQUEST['duracion']. "' where id='" . $_REQUEST['id'] . "';" ;
                         mysqli_multi_query($conexion, $actualiza);
                         //cerrar conexion
                         mysqli_close($conexion);
@@ -62,9 +47,13 @@
                     header("Location: ./tablaMusica.php");
                 }
                 //Si se inserta algo
-                if ($_REQUEST['opcion'] == 'inserta') {
+                elseif ($_REQUEST['opcion'] == 'inserta') {
                     try {
-                        //code...
+                        $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
+                        $inserta = "insert into canciones values ('" .$_REQUEST['fecha']. "','" .$_REQUEST['cancion']. "','" .$_REQUEST['duracion']. "');" ;
+                        mysqli_multi_query($conexion, $inserta);
+                        //cerrar conexion
+                        mysqli_close($conexion);
                     } catch (Exception $ex) {
                         if ($ex->getCode()==2002) {
                             echo 'Fallo de conexión';
@@ -80,7 +69,30 @@
                     header("Location: ./tablaMusica.php");
                 }
             }
+            //Si se elimina algo
+            elseif ($_REQUEST['opcion'] == 'elige') {
+                try {
+                    $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
+                    $elimina = "delete from canciones where id='" .$_REQUEST['id']. "';" ;
+                    mysqli_multi_query($conexion, $elimina);
+                    //cerrar conexion
+                    mysqli_close($conexion);
+                } catch (Exception $ex) {
+                    if ($ex->getCode()==2002) {
+                        echo 'Fallo de conexión';
+                    }
+                    if ($ex->getCode()==1049){
+                        echo 'Base de datos desconocida';
+                    }
+                    if ($ex->getCode()==1045){
+                        echo 'Datos incorrectos';
+                    }
+                }
+                //Actualizada la base de datos se redigirá a la tabla.
+                header("Location: ./tablaMusica.php");
+            }
 
+            
             try {
                 $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
                 if ($_REQUEST['opcion'] == 'modifica') {
@@ -89,6 +101,7 @@
                     mysqli_multi_query($conexion, $sql);
                     //Recorremos la tabla
                     while ($row = $resultado->fetch_array()) {
+                        $id = $row['id'];
                         $fecha = $row['fecha'];
                         $cancion = $row['cancion'];
                         $duracion = $row['duracion'];
@@ -114,10 +127,10 @@
                 echo $_REQUEST['opcion'];
             ?>">
 
-            <input type="hidden" name="clave1"
+            <input type="hidden" name="id"
             value="<?
                 if ($_REQUEST['opcion'] == 'modifica') {
-                    echo $_REQUEST['clave'];
+                    echo $id;
                 }
             ?>">
 
