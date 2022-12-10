@@ -44,6 +44,7 @@
                     }
                     if ($ex->getCode() == 1049) {
                         echo '<span style="color:brown"> Base de datos desconocida </span>';
+                        //Si no hubiera base de datos, habilitar botón con un script de creación
                         echo '<input type="submit" value="Crear" name="crear">';
                     }
                     if ($ex->getCode() == 1045) {

@@ -143,6 +143,20 @@
                     echo $id;
                 }
             ?>">
+            <?
+                //comprobar que no este vacio y valido, si lo está pongo un error
+                if (enviado()) {
+                    if (vacio("id")){
+                        ?>
+                        <span style="color:brown"> Introduce id</span>
+                        <?
+                    } elseif (!patronID()) {
+                        ?>
+                        <span style="color:brown"> iD no válida, revise</span>
+                        <?
+                    }
+                }
+            ?>
             <!-- Fecha -->
             <label for="idFecha">Fecha:</label>
             <input type="text" name="fecha" id="idFecha" placeholder="Fecha"
@@ -151,6 +165,20 @@
                     echo $fecha;
                 }
             ?>">
+            <?
+                //comprobar que no este vacio y valido, si lo está pongo un error
+                if (enviado()) {
+                    if (vacio("fecha")){
+                        ?>
+                        <span style="color:brown"> Introduce fecha</span>
+                        <?
+                    } elseif (!patronFecha()) {
+                        ?>
+                        <span style="color:brown"> Fecha no válida, revise</span>
+                        <?
+                    }
+                }
+            ?>
             <!-- Canción -->
             <label for="idCancion">Canción:</label>
             <input type="text" name="cancion" id="idCancion" placeholder="Cancion"
@@ -159,6 +187,16 @@
                     echo $cancion;
                 }
             ?>">
+            <?
+                //comprobar que no este vacio y valido, si lo está pongo un error
+                if (enviado()) {
+                    if (vacio("cancion")){
+                        ?>
+                        <span style="color:brown"> Introduce cancion</span>
+                        <?
+                    }
+                }
+            ?>
             <!-- Duración -->
             <label for="idDuracion">Duración:</label>
             <input type="text" name="duracion" id="idDuracion" placeholder="Duracion"
@@ -167,6 +205,20 @@
                     echo $duracion;
                 }
             ?>">
+            <?
+                //comprobar que no este vacio y valido, si lo está pongo un error
+                if (enviado()) {
+                    if (vacio("duracion")){
+                        ?>
+                        <span style="color:brown"> Introduce duracion</span>
+                        <?
+                    } elseif (!patronDuracion()) {
+                        ?>
+                        <span style="color:brown"> Duracion no válida, revise</span>
+                        <?
+                    }
+                }
+            ?>
             <!-- Botón con el que insertamos o modificamos uno o varios datos -->
             <input type="submit" value="Modificar/Insertar" name="enviar">
         </form>
