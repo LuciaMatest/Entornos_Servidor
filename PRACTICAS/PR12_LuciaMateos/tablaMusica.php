@@ -25,7 +25,7 @@
                 <th>Fecha</th>
                 <th>Canción</th>
                 <th>Duración</th>
-                <th>Modificar/Borrar</th>
+                <th>Borrar/Modificar</th>
             </tr>
             <?php
             require('./Conexion/conexionBD.php');
@@ -34,7 +34,7 @@
                 $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
                 //Seleccionamos todos los datos que tiene la tabla de canciones
                 $sql = 'select * from canciones';
-                mysqli_multi_query($conexion, $sql);
+                $resultado = mysqli_query($conexion, $sql);
                 //Recorremos la tabla para ir incorporando cada dato a la tabla en el lugar correspondiente
                 while ($row = $resultado->fetch_array()) {
                     echo '<tr>';
@@ -43,8 +43,9 @@
                     echo '<td>' . $row['cancion'] . '</td>';
                     echo '<td>' . $row['duracion'] . '</td>';
                     echo "<td>";
-                    echo "<a class='colorin' href='modificarBBDD.php?opcion=elige=" . $row['id'] . "'> Borrar </a>";
-                    echo "<a class='colorin' href='modificarBBDD.php?opcion=modifica=" . $row['id'] . "'> Modificar </a>";
+                    echo "<a class='colorin' href='modificarBBDD.php?opcion=elige&claveID=" . $row['id'] . "'> Borrar </a>";
+                    echo "/";
+                    echo "<a class='colorin' href='modificarBBDD.php?opcion=modifica&claveID=" . $row['id'] . "'> Modificar </a>";
                     echo "</td>";
                     echo '</tr>';
                 }

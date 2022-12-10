@@ -25,11 +25,11 @@
             //Cuando pulsamos el boton de enviar
             if (enviado()) {
                 //Si se modifica algo
-                if ($_REQUEST['opcion'] == 'modifica') {
+                if ($_REQUEST['opciones'] == 'modifica') {
                     try {
                         $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
-                        $actualiza = "update canciones set fecha='" .$_REQUEST['fecha']. "', cancion='" .$_REQUEST['cancion']. "', duracion='" .$_REQUEST['duracion']. "' where id='" . $_REQUEST['id'] . "';" ;
-                        mysqli_multi_query($conexion, $actualiza);
+                        $actualiza = "update canciones set id='" .$_REQUEST['id']. "',fecha='" .$_REQUEST['fecha']. "',cancion='" .$_REQUEST['cancion']. "',duracion='" .$_REQUEST['duracion']. "' where id='" . $_REQUEST['claveID'] . "';" ;
+                        mysqli_query($conexion, $actualiza);
                         //cerrar conexion
                         mysqli_close($conexion);
                     } catch (Exception $ex) {
@@ -47,11 +47,11 @@
                     header("Location: ./tablaMusica.php");
                 }
                 //Si se inserta algo
-                elseif ($_REQUEST['opcion'] == 'inserta') {
+                elseif ($_REQUEST['opciones'] == 'inserta') {
                     try {
                         $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
                         $inserta = "insert into canciones values ('" .$_REQUEST['id']. "','" .$_REQUEST['fecha']. "','" .$_REQUEST['cancion']. "','" .$_REQUEST['duracion']. "');" ;
-                        mysqli_multi_query($conexion, $inserta);
+                        mysqli_query($conexion, $inserta);
                         //cerrar conexion
                         mysqli_close($conexion);
                     } catch (Exception $ex) {
@@ -73,8 +73,8 @@
             elseif ($_REQUEST['opcion'] == 'elige') {
                 try {
                     $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
-                    $elimina = "delete from canciones where id='" .$_REQUEST['id']. "';" ;
-                    mysqli_multi_query($conexion, $elimina);
+                    $elimina = "delete from canciones where id='" .$_REQUEST['claveID']. "';" ;
+                    mysqli_query($conexion, $elimina);
                     //cerrar conexion
                     mysqli_close($conexion);
                 } catch (Exception $ex) {
@@ -95,10 +95,10 @@
 
             try {
                 $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
-                if ($_REQUEST['opcion'] == 'modifica') {
+                if ($_REQUEST['opcion'] == 'modificacion') {
                     //Seleccionamos todos los datos que tiene la tabla de canciones
-                    $sql = 'select * from canciones';
-                    mysqli_multi_query($conexion, $sql);
+                    $sql="select * from canciones where id='" . $_REQUEST['claveID'] . "';";
+                    $resultado = mysqli_query($conexion, $sql);
                     //Recorremos la tabla
                     while ($row = $resultado->fetch_array()) {
                         $id = $row['id'];
@@ -127,10 +127,16 @@
                 echo $_REQUEST['opcion'];
             ?>">
 
+            <input type="hidden" name="claveID" value="<?
+                if ($_REQUEST['opcion']=='modifica') {
+                    echo $_REQUEST['claveID'];
+                }
+            ?>">
+
             <label for="id">ID:</label>
             <input type="text" name="id" id="id" placeholder="id"
             value="<?
-                if ($_REQUEST['opcion'] == 'modifica') {
+                if ($_REQUEST['opcion'] == 'modificacion') {
                     echo $id;
                 }
             ?>">
@@ -138,7 +144,7 @@
             <label for="idFecha">Fecha:</label>
             <input type="text" name="fecha" id="idFecha" placeholder="Fecha"
             value="<?
-                if ($_REQUEST['opcion'] == 'modifica') {
+                if ($_REQUEST['opcion'] == 'modificacion') {
                     echo $fecha;
                 }
             ?>">
@@ -146,7 +152,7 @@
             <label for="idCancion">Canción:</label>
             <input type="text" name="cancion" id="idCancion" placeholder="Cancion"
             value="<?
-                if ($_REQUEST['opcion'] == 'modifica') {
+                if ($_REQUEST['opcion'] == 'modificacion') {
                     echo $cancion;
                 }
             ?>">
@@ -154,7 +160,7 @@
             <label for="idDuracion">Duración:</label>
             <input type="text" name="duracion" id="idDuracion" placeholder="Duracion"
             value="<?
-                if ($_REQUEST['opcion'] == 'modifica') {
+                if ($_REQUEST['opcion'] == 'modificacion') {
                     echo $duracion;
                 }
             ?>">

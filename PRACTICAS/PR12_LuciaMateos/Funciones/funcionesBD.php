@@ -12,13 +12,9 @@ function enviado(){
     return false;
 }
 
-function usarBBDD(){
-    return file_get_contents('./musica.sql');
-}
-
 function crearBBDD(){
     if (isset($_REQUEST['crear']))
-        return true;
+    return true;
     return false;
 }
 ?>

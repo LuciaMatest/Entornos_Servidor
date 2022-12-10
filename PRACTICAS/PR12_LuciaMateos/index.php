@@ -21,11 +21,11 @@
         <?php
             require('./Conexion/conexionBD.php');
             require('./Funciones/funcionesBD.php');
-            if (usarBBDD()) {
+            //Cuando pulsamos en crear
+            if (crearBBDD()) {
                 $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS);
-                $script = crearBBDD();
-                mysqli_multi_query($conexion1, $script);
-                mysqli_close($conexion);
+                $script = file_get_contents('./BBDD/musica.sql');
+                mysqli_multi_query($conexion, $script);
             }
         ?>
             <form action="./index.php" method="post" enctype="multipart/form-data">
@@ -36,13 +36,13 @@
                     echo "<a href='tablaMusica.php'> Leer </a>";
                     echo "<a href='modificarBBDD.php?opcion=inserta'> Insertar </a>";
 
-                    mysqli_close($conexion2);
+                    //mysqli_close($conexion2);
                 } catch (Exception $ex) {
                     if ($ex->getCode() == 2002) {
                         echo 'Fallo de conexión';
                     }
                     if ($ex->getCode() == 1049) {
-                        echo 'Base de datos desconocida';
+                        echo 'Base de datos desconocida<br>';
                         echo '<input type="submit" value="Crear" name="crear">';
                     }
                     if ($ex->getCode() == 1045) {
