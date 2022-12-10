@@ -28,40 +28,42 @@
                 <th>Modificar/Borrar</th>
             </tr>
             <?php
-                require('./Conexion/conexionBD.php');
-                //Transaccion
-                try {
-                    $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
-                    //Seleccionamos todos los datos que tiene la tabla de canciones
-                    $sql = 'select * from canciones';
-                    mysqli_multi_query($conexion, $sql);
-                    //Recorremos la tabla para ir incorporando cada dato a la tabla en el lugar correspondiente
-                    while ($row = $resultado->fetch_array()) {
-                        echo '<tr>';
-                        echo '<td>'.$row['id'].'</td>';
-                        echo '<td>'.$row['fecha'].'</td>';
-                        echo '<td>'.$row['cancion'].'</td>';
-                        echo '<td>'.$row['duracion'].'</td>';
-                        // echo "<td><a href='editaFichero.php?indice=".$contador++."'> Modificar </a></td>";
-                        // echo "<td><a href='editaFichero.php?indice=".$contador++."'> Borrar </a></td>";
-                        echo '</tr>';
-                    }
-                    //cerrar conexion
-                    mysqli_close($conexion);
-                } catch (Exception $ex) {
-                    if ($ex->getCode()==2002) {
-                        echo 'Fallo de conexión';
-                    }
-                    if ($ex->getCode()==1049){
-                        echo 'Base de datos desconocida';
-                    }
-                    if ($ex->getCode()==1045){
-                        echo 'Datos incorrectos';
-                    }
+            require('./Conexion/conexionBD.php');
+            //Transaccion
+            try {
+                $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
+                //Seleccionamos todos los datos que tiene la tabla de canciones
+                $sql = 'select * from canciones';
+                mysqli_multi_query($conexion, $sql);
+                //Recorremos la tabla para ir incorporando cada dato a la tabla en el lugar correspondiente
+                while ($row = $resultado->fetch_array()) {
+                    echo '<tr>';
+                    echo '<td>' . $row['id'] . '</td>';
+                    echo '<td>' . $row['fecha'] . '</td>';
+                    echo '<td>' . $row['cancion'] . '</td>';
+                    echo '<td>' . $row['duracion'] . '</td>';
+                    echo "<td>";
+                    echo "<a class='colorin' href='modificarBBDD.php?opcion=elige=" . $row['id'] . "'> Borrar </a>";
+                    echo "<a class='colorin' href='modificarBBDD.php?opcion=modifica=" . $row['id'] . "'> Modificar </a>";
+                    echo "</td>";
+                    echo '</tr>';
                 }
+                //cerrar conexion
+                mysqli_close($conexion);
+            } catch (Exception $ex) {
+                if ($ex->getCode() == 2002) {
+                    echo 'Fallo de conexión';
+                }
+                if ($ex->getCode() == 1049) {
+                    echo 'Base de datos desconocida';
+                }
+                if ($ex->getCode() == 1045) {
+                    echo 'Datos incorrectos';
+                }
+            }
             ?>
         </table>
-        <a href='editaFichero.php?indice=".$contador++."'> <input type="button" value="Insertar" /> </a>
+        <a href='modificarBBDD.php?opcion=inserta'> <input type="button" value="Insertar" /> </a>
         <ul class="menú">
             <!-- Codigos PHP -->
             <li><a href="verCodigo.php?fichero=tablaMusica.php">Código</a></li>

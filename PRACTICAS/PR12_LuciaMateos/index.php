@@ -21,22 +21,22 @@
         <?php
             require('./Conexion/conexionBD.php');
             require('./Funciones/funcionesBD.php');
-            // if (usarBBDD()) {
-            //     $conexion2 = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS);
-            //     $script = crearBBDD();
-            //     mysqli_multi_query($conexion2, $script);
-            //     mysqli_close($conexion2);
-            // }
+            if (usarBBDD()) {
+                $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS);
+                $script = crearBBDD();
+                mysqli_multi_query($conexion1, $script);
+                mysqli_close($conexion);
+            }
         ?>
             <form action="./index.php" method="post" enctype="multipart/form-data">
                 <?php
                 try {
-                    $conexion1 = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, 'musica');
+                    $conexion2 = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
 
                     echo "<a href='tablaMusica.php'> Leer </a>";
-                    // echo "<a href=''> Insertar </a>";
+                    echo "<a href='modificarBBDD.php?opcion=inserta'> Insertar </a>";
 
-                    mysqli_close($conexion1);
+                    mysqli_close($conexion2);
                 } catch (Exception $ex) {
                     if ($ex->getCode() == 2002) {
                         echo 'Fallo de conexión';

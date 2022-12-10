@@ -50,7 +50,7 @@
                 elseif ($_REQUEST['opcion'] == 'inserta') {
                     try {
                         $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
-                        $inserta = "insert into canciones values ('" .$_REQUEST['fecha']. "','" .$_REQUEST['cancion']. "','" .$_REQUEST['duracion']. "');" ;
+                        $inserta = "insert into canciones values ('" .$_REQUEST['id']. "','" .$_REQUEST['fecha']. "','" .$_REQUEST['cancion']. "','" .$_REQUEST['duracion']. "');" ;
                         mysqli_multi_query($conexion, $inserta);
                         //cerrar conexion
                         mysqli_close($conexion);
@@ -92,7 +92,7 @@
                 header("Location: ./tablaMusica.php");
             }
 
-            
+
             try {
                 $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
                 if ($_REQUEST['opcion'] == 'modifica') {
@@ -127,7 +127,8 @@
                 echo $_REQUEST['opcion'];
             ?>">
 
-            <input type="hidden" name="id"
+            <label for="id">ID:</label>
+            <input type="text" name="id" id="id" placeholder="id"
             value="<?
                 if ($_REQUEST['opcion'] == 'modifica') {
                     echo $id;
