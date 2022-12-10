@@ -16,7 +16,7 @@
     </header>
     <main>
         <ul class="menú">
-            <li><a href="#">Música</a></li>
+            <li><a href="#">BBDD Música</a></li>
         </ul>
         <!-- Creamos la tabla -->
         <table align="center">
@@ -25,6 +25,7 @@
                 <th>Fecha</th>
                 <th>Canción</th>
                 <th>Duración</th>
+                <th>Modificar/Borrar</th>
             </tr>
             <?php
                 require('./Conexion/conexionBD.php');
@@ -35,27 +36,37 @@
                     $sql = 'select * from canciones';
                     mysqli_multi_query($conexion, $sql);
                     //Recorremos la tabla para ir incorporando cada dato a la tabla en el lugar correspondiente
-                    while ($a <= 10) {
+                    while ($row = $resultado->fetch_array()) {
                         echo '<tr>';
-                        echo '<td>';
-                        echo $celda;
-                        echo '</td>';
-                        echo "<td><a href='editaFichero.php?indice=".$contador++."'> Editar </a></td>";
+                        echo '<td>'.$row['id'].'</td>';
+                        echo '<td>'.$row['fecha'].'</td>';
+                        echo '<td>'.$row['cancion'].'</td>';
+                        echo '<td>'.$row['duracion'].'</td>';
+                        // echo "<td><a href='editaFichero.php?indice=".$contador++."'> Modificar </a></td>";
+                        // echo "<td><a href='editaFichero.php?indice=".$contador++."'> Borrar </a></td>";
                         echo '</tr>';
                     }
                     //cerrar conexion
                     mysqli_close($conexion);
                 } catch (Exception $ex) {
-                    
+                    if ($ex->getCode()==2002) {
+                        echo 'Fallo de conexión';
+                    }
+                    if ($ex->getCode()==1049){
+                        echo 'Base de datos desconocida';
+                    }
+                    if ($ex->getCode()==1045){
+                        echo 'Datos incorrectos';
+                    }
                 }
             ?>
         </table>
-
+        <a href='editaFichero.php?indice=".$contador++."'> <input type="button" value="Insertar" /> </a>
         <ul class="menú">
             <!-- Codigos PHP -->
-            <li><a href="verCodigo.php?fichero=tablaMusica.php">Código principal</a></li>
+            <li><a href="verCodigo.php?fichero=tablaMusica.php">Código</a></li>
 
-            <li><a href="../../index.html">Volver</a></li>
+            <li><a href="./index.php">Volver</a></li>
         </ul>
     </main>
 </body>
