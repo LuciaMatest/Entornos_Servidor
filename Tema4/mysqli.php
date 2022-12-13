@@ -121,24 +121,24 @@
 
 //Transacciones
 // Conjunto de instrucciones SQL, agrupadas lógicamente, que o bien se ejecutan todas sobre la base de datos o bien no se ejecuta ninguna. Una transferencia bancaria entre dos cuentas supone un ejemplo claro para ilustrar el concepto de transacción.
-try{
-    $conexion= mysqli_connect($_SERVER['SERVER_ADDR'],USER,PASS, 'mundial');
+// try{
+//     $conexion= mysqli_connect($_SERVER['SERVER_ADDR'],USER,PASS, 'mundial');
 
-    //Insertar tres equipos y el ultimo ponemos mal la id
-    mysqli_autocommit($conexion, false);
-    $sql = 'insert into equipo values(4, \'Alemania\');';
-    $sql1 = 'insert into equipo values(5, \'Rusia\');';
-    $sql2 = 'insert into equipo values(5, \'Brasil\');';
-    mysqli_query($conexion, $sql);
-    mysqli_query($conexion, $sql1);
-    //mysqli_query($conexion, $sql2);
-    mysqli_commit($conexion);
-}catch(Exception $ex){
-    echo mysqli_connect_errno();
-    echo mysqli_connect_error();
-    echo $ex->getMessage();
-    mysqli_rollback($conexion);
-}finally{
-    mysqli_close($conexion);
-}
+//     //Insertar tres equipos y el ultimo ponemos mal la id
+//     mysqli_autocommit($conexion, false);
+//     $sql = 'insert into equipo values(4, \'Alemania\');';
+//     $sql1 = 'insert into equipo values(5, \'Rusia\');';
+//     $sql2 = 'insert into equipo values(5, \'Brasil\');';
+//     mysqli_query($conexion, $sql);
+//     mysqli_query($conexion, $sql1);
+//     //mysqli_query($conexion, $sql2);
+//     mysqli_commit($conexion);
+// }catch(Exception $ex){
+//     echo mysqli_connect_errno();
+//     echo mysqli_connect_error();
+//     echo $ex->getMessage();
+//     mysqli_rollback($conexion);
+// }finally{
+//     mysqli_close($conexion);
+// }
 ?>
