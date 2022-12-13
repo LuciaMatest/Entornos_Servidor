@@ -50,26 +50,26 @@ function patronFecha(){
 }
 
 function patronDuracion(){
-    $patron = '/^(\d{1,3})\.(\d{,2})$/';
+    $patron = '/^(\d{1,3})\.(\d{2})$/';
     if (preg_match($patron, $_REQUEST['duracion'])==1) {
         return true;
     }
     return false;
 }
 
-//Verificar datos
-function verificar(){
-    if (enviado()){
-        if (!vacio('id') && patronID('id')) {
-            if (!vacio('fecha') && patronFecha('fecha')) {
-                if (!vacio('cancion')) {
-                    if (!vacio('duracion') && patronDuracion('duracion')) {
-                         return true;  
-                    }
-                }
-            }
-        }
-    }
-    return false;
-}
+// //Verificar datos
+// function verificar(){
+//     if (enviado()){
+//         if (!vacio('id') && patronID('id')) {
+//             if (!vacio('fecha') && patronFecha('fecha')) {
+//                 if (!vacio('cancion')) {
+//                     if (!vacio('duracion') && patronDuracion('duracion')) {
+//                          return true;  
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     return false;
+// }
 ?>

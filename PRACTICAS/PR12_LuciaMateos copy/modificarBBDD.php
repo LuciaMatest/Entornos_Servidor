@@ -23,7 +23,7 @@
             require('./Funciones/funcionesBD.php');
  
             //Cuando pulsamos el boton de enviar
-            if (verificar()) {
+            if (enviado()) {
                 //Si se modifica algo
                 if ($_REQUEST['opcion'] == 'modifica') {
                     try {
