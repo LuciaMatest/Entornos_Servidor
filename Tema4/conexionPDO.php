@@ -106,24 +106,24 @@ require('./Seguro/conexion.php');
 //     unset($conexion);
 // }
 //Consultas preparadas SELECT
-try{
-    $conexion = new PDO('mysql:host='.HOST.';dbname='.BBDD, USER, PASS);
-    echo "Conexion correcta";
-    $sql= "select * from equipo where nombre like :nombre";
-    $consulta = $conexion->prepare($sql);
-    //todo nombre que tenga na 
-    $array = array(':nombre'=>'%na%');
-    $consulta->execute($array);
-    //insertar en variables
-    $consulta->bindColumn(1,$id);
-    $consulta->bindColumn(2,$nombre);
-    while($row = $consulta->fetch(PDO::FETCH_BOUND)){
-        echo '<br>' .$id. ' : '.$nombre;
-    }
-}catch(Exception $ex){
-    echo "Error:";
-    print_r($ex);
-}finally{
-    unset($conexion);
-}
+// try{
+//     $conexion = new PDO('mysql:host='.HOST.';dbname='.BBDD, USER, PASS);
+//     echo "Conexion correcta";
+//     $sql= "select * from equipo where nombre like :nombre";
+//     $consulta = $conexion->prepare($sql);
+//     //todo nombre que tenga na 
+//     $array = array(':nombre'=>'%na%');
+//     $consulta->execute($array);
+//     //insertar en variables
+//     $consulta->bindColumn(1,$id);
+//     $consulta->bindColumn(2,$nombre);
+//     while($row = $consulta->fetch(PDO::FETCH_BOUND)){
+//         echo '<br>' .$id. ' : '.$nombre;
+//     }
+// }catch(Exception $ex){
+//     echo "Error:";
+//     print_r($ex);
+// }finally{
+//     unset($conexion);
+// }
 ?>
