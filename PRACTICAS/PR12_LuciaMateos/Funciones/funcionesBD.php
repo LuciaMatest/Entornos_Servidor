@@ -39,18 +39,15 @@ function patronID(){
 }
 
 function patronFecha(){
-    $patron = '/^([0-2][0-9]|3[0-1])-(0[1-9]|1[0-2])-([0-9]{1,4})$/';
-    if (preg_match($patron, $_REQUEST['fecha'])==1) {
-        $partes = explode('-', $_REQUEST['fecha']);
-        if (checkdate($partes[1],$partes[0],$partes[2])) {
-            return true;
-        }
+    $patron = '/^(\d{4})\-(0[1-9]|1[0-2])\-([0-2][0-9]|3[0-1])$/';
+    if(preg_match($patron, $_REQUEST['fecha'])==1){
+        return true;
     }
     return false;
 }
 
 function patronDuracion(){
-    $patron = '/^(\d{1,3})\.(\d{,2})$/';
+    $patron = '/^(\d{1,3})\.(\d{2})$/';
     if (preg_match($patron, $_REQUEST['duracion'])==1) {
         return true;
     }

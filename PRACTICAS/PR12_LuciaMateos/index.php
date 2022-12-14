@@ -29,7 +29,7 @@
                 mysqli_close($conexion);
             }
         ?>
-            <form action="./index.php" method="post" enctype="multipart/form-data">
+            <form action="./index.php" method="post">
                 <?php
                 try {
                     $conexion2 = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
