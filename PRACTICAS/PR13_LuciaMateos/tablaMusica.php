@@ -31,12 +31,12 @@
             require('./Conexion/conexionBD.php');
             //Transaccion
             try {
-                $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
+                $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
                 //Seleccionamos todos los datos que tiene la tabla de canciones
                 $sql = 'select * from canciones';
-                $resultado = mysqli_query($conexion, $sql);
+                $resultado=$conexion->query($sql);
                 //Recorremos la tabla para ir incorporando cada dato a la tabla en el lugar correspondiente
-                while ($row = $resultado->fetch_array()) {
+                while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
                     echo '<tr>';
                     echo '<td>' . $row['id'] . '</td>';
                     echo '<td>' . $row['fecha'] . '</td>';
@@ -49,8 +49,6 @@
                     echo "</td>";
                     echo '</tr>';
                 }
-                //cerrar conexion
-                mysqli_close($conexion);
             } catch (Exception $ex) {
                 if ($ex->getCode() == 2002) {
                     echo '<span style="color:brown"> Fallo de conexión </span>';
@@ -61,6 +59,8 @@
                 if ($ex->getCode() == 1045) {
                     echo '<span style="color:brown"> Datos incorrectos </span>';
                 }
+            }finally{
+                unset($conexion);
             }
             ?>
         </table>

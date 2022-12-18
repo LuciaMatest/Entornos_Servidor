@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <h1>PR12</h1>
+        <h1>PR13</h1>
     </header>
     <main>
         <ul class="menú">
@@ -23,21 +23,19 @@
             require('./Funciones/funcionesBD.php');
             //Cuando pulsamos en crear
             if (crearBBDD()) {
-                $conexion = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS);
+                $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
                 $script = usarBBDD();
-                mysqli_multi_query($conexion, $script);
-                mysqli_close($conexion);
+                $conexion->query($sql);
             }
         ?>
             <form action="./index.php" method="post">
                 <?php
                 try {
-                    $conexion2 = mysqli_connect($_SERVER['SERVER_ADDR'], USER, PASS, BBDD);
+                    $conexion2 = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
 
                     echo "<a href='tablaMusica.php'> Ver tabla </a><br>";
                     echo "<a href='modificarBBDD.php?opcion=inserta'> Insertar nuevos datos </a>";
-
-                    //mysqli_close($conexion2);
+                    
                 } catch (Exception $ex) {
                     if ($ex->getCode() == 2002) {
                         echo '<span style="color:brown"> Fallo de conexión </span>';
