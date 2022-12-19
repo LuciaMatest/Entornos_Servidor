@@ -64,7 +64,3 @@ insert into accede (codigoPerfil,codigoPagina) values ('P0002','PAG03');
 insert into accede (codigoPerfil,codigoPagina) values ('P0002','PAG04');
 insert into accede (codigoPerfil,codigoPagina) values ('P0002','PAG05');
 insert into accede (codigoPerfil,codigoPagina) values ('P0002','PAG06');
-
-
-
-
