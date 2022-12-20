@@ -14,6 +14,6 @@ if (validarUser($user, $pass)) {
     }
 } else {
     header('Location: ../login.php');
-        exit;
+    exit;
 }
 ?>
