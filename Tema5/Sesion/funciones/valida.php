@@ -7,11 +7,11 @@ $pass = $_REQUEST['pass'];
 
 if (empty($user)) {
     $_SESSION['error'] = 'Debe rellenar el nombre';
-    header('Location : ../login.php');
+    header('Location: ../login.php');
     exit;
 }elseif (empty($pass)) {
     $_SESSION['error'] = 'Debe rellenar el contraseña';
-    header('Location : ../login.php');
+    header('Location: ../login.php');
     exit;
 } else {
     if (validarUser($user, $pass)) {
