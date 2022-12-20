@@ -45,7 +45,7 @@
                     echo "<td>";
                     echo "<a href='admin/borrarDatos.php?opcion=elimina&clave=" . $row['id'] . "'>Borrar</a>";
                     echo "/";
-                    echo "<a href='user/modficarDatos.php?opcion=modifica&clave=" . $row['id'] . "'>Modificar</a>";
+                    echo "<a href='user/modificarDatos.php?opcion=modifica&clave=" . $row['id'] . "'>Modificar</a>";
                     echo "</td>";
                     echo '</tr>';
                 }
@@ -65,7 +65,7 @@
             ?>
         </table>
         <ul class="menú">
-            <li><a href='user/modficarDatos.php?opcion=inserta'> Insertar nuevo registro </a></li>
+            <li><a href='user/modificarDatos.php?opcion=inserta'> Insertar nuevo registro </a></li>
             <!-- Codigos PHP -->
             <li><a href="verCodigo.php?fichero=tablaMusica.php">Código</a></li>
 
