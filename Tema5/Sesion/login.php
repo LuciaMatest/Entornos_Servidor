@@ -9,9 +9,9 @@
 <body>
     <form action="./funciones/valida.php" method="post">
         <label for="user">Usuario</label>
-        <input type="text" name="user" id="user">
+        <input type="text" name="user" id="user"><br><br>
         <label for="pass">Contraseña</label>
-        <input type="password" name="pass" id="pass">
+        <input type="password" name="pass" id="pass"><br><br>
         <input type="submit" value="Enviar" name="enviar">
     </form>
 </body>
