@@ -9,7 +9,7 @@ function validarUser($user,$pass){
         //minimo sha512
         $pass_encriptada = sha1($pass);
         $array = array($user, $pass_encriptada);
-        $sql_preparada = execute($array);
+        $sql_preparada->execute($array);
         //si devuelve algo hacemos el login
         if ($sql_preparada->rowCount() == 1) {
             session_start();
