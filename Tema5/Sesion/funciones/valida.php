@@ -18,7 +18,7 @@ if (empty($user)) {
             exit;
         }
     } else {
-        $_SESSION['error'] = 'No existe el usuario';
+        $_SESSION['error'] = 'No existe el usuario o contraseña';
         header('Location: ../login.php');
         exit;
     }
