@@ -22,4 +22,5 @@ function esModerador(){
     }
     return false;
 }
+
 ?>
