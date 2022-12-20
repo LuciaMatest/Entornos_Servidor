@@ -34,7 +34,7 @@
                     $conexion2 = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
 
                     echo "<a href='tablaMusica.php'> Ver tabla </a><br>";
-                    echo "<a href='modificarBBDD.php?opcion=inserta'> Insertar nuevos datos </a>";
+                    echo "<a href='acceso.php?opcion=inserta'> Insertar nuevos datos </a>";
                     
                 } catch (Exception $ex) {
                     if ($ex->getCode() == 2002) {

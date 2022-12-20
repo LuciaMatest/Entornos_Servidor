@@ -231,7 +231,7 @@
             <!-- Codigos PHP -->
             <li><a href="verCodigo.php?fichero=modificarBBDD.php">Código</a></li>
 
-            <li><a href="index.php">Volver</a></li>
+            <li><a href="tablaMusica.php">Volver</a></li>
         </ul>
     </main>
 </body>
