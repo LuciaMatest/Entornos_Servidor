@@ -3,13 +3,13 @@ require '../seguro/conexion.php';
 
 function validarUser($user,$pass){
     try {
-        $conexion = new PDO('mysql:host =' .HOST. ';dbname= ' .BBDD, USER, PASS);
+        $conexion = new PDO('mysql:host =' .HOST. ';dbname=' .BBDD, USER, PASS);
         $sql = 'select * from usuarios where usuario = ? and clave = ?';
         $sql_preparada=$conexion->prepare($sql);
         //minimo sha512
         $pass_encriptada = sha1($pass);
         $array = array($user, $pass_encriptada);
-        $sql_preparada = execute();
+        $sql_preparada = execute($array);
         //si devuelve algo hacemos el login
         if ($sql_preparada->rowCount() == 1) {
             session_start();
