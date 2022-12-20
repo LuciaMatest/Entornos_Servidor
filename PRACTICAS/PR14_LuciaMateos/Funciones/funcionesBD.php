@@ -53,4 +53,64 @@ function patronDuracion(){
     }
     return false;
 }
+
+function modificarDatos(){
+    try {
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+        $actualiza = "update canciones set id='" .$_REQUEST['id']. "',fecha='" .$_REQUEST['fecha']. "',cancion='" .$_REQUEST['cancion']. "',duracion='" .$_REQUEST['duracion']. "' where id='" . $_REQUEST['clave'] . "';" ;
+        $conexion->exec($actualiza);
+    } catch (Exception $ex) {
+        if ($ex->getCode() == 2002) {
+            echo '<span style="color:brown"> Fallo de conexión </span>';
+        }
+        if ($ex->getCode() == 1049) {
+            echo '<span style="color:brown"> Base de datos desconocida </span>';
+        }
+        if ($ex->getCode() == 1045) {
+            echo '<span style="color:brown"> Datos incorrectos </span>';
+        }
+    }finally{
+        unset($conexion);
+    }
+}
+
+function insetarDatos(){
+    try {
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+        $inserta = "insert into canciones values ('" .$_REQUEST['id']. "','" .$_REQUEST['fecha']. "','" .$_REQUEST['cancion']. "','" .$_REQUEST['duracion']. "');" ;
+        $conexion->exec($inserta);
+    } catch (Exception $ex) {
+        if ($ex->getCode() == 2002) {
+            echo '<span style="color:brown"> Fallo de conexión </span>';
+        }
+        if ($ex->getCode() == 1049) {
+            echo '<span style="color:brown"> Base de datos desconocida </span>';
+        }
+        if ($ex->getCode() == 1045) {
+            echo '<span style="color:brown"> Datos incorrectos </span>';
+        }
+    }finally{
+        unset($conexion);
+    }
+}
+
+function eliminarDatos(){
+    try {
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+        $elimina = "delete from canciones where id='" .$_REQUEST['clave']. "';" ;
+        $conexion->exec($elimina);
+    } catch (Exception $ex) {
+        if ($ex->getCode() == 2002) {
+            echo '<span style="color:brown"> Fallo de conexión </span>';
+        }
+        if ($ex->getCode() == 1049) {
+            echo '<span style="color:brown"> Base de datos desconocida </span>';
+        }
+        if ($ex->getCode() == 1045) {
+            echo '<span style="color:brown"> Datos incorrectos </span>';
+        }
+    }finally{
+        unset($conexion);
+    }
+}
 ?>
