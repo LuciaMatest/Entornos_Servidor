@@ -1,0 +1,26 @@
+Ampliar espacio de la maquina virtual
+Archivo>Administrador de medios virtuales
+Seleccionamos el servidor y ampliamos el tamaño de 10 a 15GB
+
+fdisk -l
+sudo parted /dev/sda
+<parted>print
+<parted>resizepart 3 100%
+<parted>print
+010
+
+Mecanismo de autentificación
+Crear un fichero en un lugar no accesible por los usuarios del servidor web
+ruta /etc/apache2/
+sudo htpasswd -c users dwes
+(-c solo el primer usuario)
+ususario dwes
+contraseña lucia
+Crear otro usuario sin usar -c
+Para indicar al apache las restricciones
+AuthName (mensaje) "Contenido restringido"
+AuthType (tipo de autorizacion) Basic
+AuthuserFile (url) /etc/apache2/users
+require valid-user
+(configurar fichero apache2.conf -
+/var/www - AllowOverride All)
