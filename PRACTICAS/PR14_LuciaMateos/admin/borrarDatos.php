@@ -4,4 +4,5 @@
 
     eliminarDatos();
     header("Location: ../tablaMusica.php");
+    //admin admin
 ?>

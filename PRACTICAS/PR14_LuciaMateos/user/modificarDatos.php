@@ -4,3 +4,5 @@
     }elseif ($_REQUEST['opcion']=='inserta') {
         header('Location: ../modificarBBDD.php?opcion='.$_REQUEST['opcion']);
     }
+    //admin lucia
+    //lucia lucia
