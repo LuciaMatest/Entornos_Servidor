@@ -12,9 +12,9 @@ create table usuarios (
 	nombre VARCHAR(75) NOT NULL,
 	correo VARCHAR(75) NOT NULL,
     fecha DATE NOT NULL,
-	roles CHAR(5) NOT NULL,
-	index (roles),
-	foreign key (roles) references roles (codigo)
+	rol CHAR(5) NOT NULL,
+	index (rol),
+	foreign key (rol) references roles (codigo)
 ) engine=innodb;
 
 CREATE TABLE productos (
