@@ -11,6 +11,10 @@
     require('Funciones/funcionesBD.php');
     require('Conexion/conexionBD.php');
     ?>
+    <header>
+
+    </header>
     
+
 </body>
 </html>
