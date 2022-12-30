@@ -7,10 +7,9 @@ ul {
     list-style: none;
 }
 
-a{
-    text-decoration:none;
+a {
+    text-decoration: none;
 }
-
 
 body {
     background-color: rgb(240, 240, 240);
@@ -19,7 +18,7 @@ body {
     padding: 0;
 }
 
-header{
+header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -27,26 +26,30 @@ header{
     padding: 20px;
 }
 
-.logo img{
+.logo img {
     width: 200px;
 }
 
-.botones i{
+.botones i {
     padding-right: 5px;
     padding-left: 5px;
     font-size: 20px;
-    color: rgb(190, 144, 27);
+    color: #be901b;
 }
 
-.botones i:hover{
+.botones i:hover {
     color: rgb(65, 48, 10);
 }
 
-nav{
+nav {
     background-color: rgb(212, 212, 212);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav ul{
+nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -55,7 +58,7 @@ nav ul{
     font-size: 12px;
 }
 
-nav ul li a{
+nav ul li a {
     padding: 20px;
     display: block;
     color: #333;
@@ -63,6 +66,68 @@ nav ul li a{
     font-size: large;
 }
 
-nav ul li a:hover{
+nav ul li a:hover {
     background: whitesmoke;
+}
+
+.barra {
+    display: flex;
+    position: relative;
+    padding-right: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.barra input {
+    border-style: none;
+    color: #555;
+    padding: 10px;
+    font-size: 17px;
+}
+
+.barra button {
+    border-style: none;
+    background: #444 center;
+    width: 40px;
+    height: 40px;
+}
+
+.barra button i {
+    color: whitesmoke;
+}
+
+.barra button:hover {
+    background: #555;
+}
+
+main div {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+main div .imagenes{
+    display: flex;
+    flex-direction: row;
+}
+
+main div .imagenes img{
+    width: 50%;
+    padding: 5px;
+}
+
+main div .rectangulo {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(190, 144, 27, 1) 18%, rgba(198, 157, 54, 1) 80%, rgba(224, 202, 146, 0) 100%);
+}
+
+main div .rectangulo h2{
+    color: whitesmoke;
+}
+
+main div .imagenes .img1{
+    transform: scaleX(-1);
 }
