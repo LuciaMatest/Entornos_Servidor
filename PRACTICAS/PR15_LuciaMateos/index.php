@@ -17,11 +17,23 @@
         <div class="logo">
             <img src="imagen/logo.png" alt="logo" class="icono_logo">
         </div>
-        <nav class="botones">
-            <i class="fa-solid fa-cart-arrow-down"><a href="#"> Carrito</a></i>
-        </nav>
+        <div class="botones">
+            <i class="fa-solid fa-user"><a href=""></a></i>
+            <i class="fa-solid fa-cart-arrow-down"><a href="#"></a></i>
+        </div>
     </header>
-    
+    <nav>
+        <ul>
+            <li><a href="index.php">Inicio</a></li>
+            <li><a href="">Productos</a></li>
+            <li><a href="">Marcas</a></li>
+            <li><a href="">Ofertas</a></li>
+        </ul>
+        <div class="buscador">
+            <input type="text" name="Buscar" id="buscador">
+            <input type="search" name="lupa" id="lupa">
+        </div>
+    </nav>
 
 </body>
 </html>
