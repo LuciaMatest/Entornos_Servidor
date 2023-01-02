@@ -100,6 +100,7 @@ nav ul li a:hover {
     background: #555;
 }
 
+/* Principal */
 main{
     padding-top: 10px;
 }
@@ -135,6 +136,9 @@ main div .rectangulo h2 {
 main div .imagenes .img1 {
     transform: scaleX(-1);
 }
+
+/* Productos */
+
 
 footer {
     background-color: #d4d4d4;
