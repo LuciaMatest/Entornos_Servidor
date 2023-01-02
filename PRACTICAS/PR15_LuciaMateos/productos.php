@@ -12,14 +12,33 @@
     <?php
     require('Funciones/funcionesBD.php');
     require('Conexion/conexionBD.php');
+
+    // try {
+    //     $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+    //     $sql = 'select * from productos';
+    //     $resultado=$conexion->query($sql);
+
+    // } catch (Exception $ex) {
+    //     if ($ex->getCode() == 2002) {
+    //         echo '<span style="color:brown"> Fallo de conexión </span>';
+    //     }
+    //     if ($ex->getCode() == 1049) {
+    //         $conexion2 = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+    //         $script = usarBBDD();
+    //         $conexion2->query($script);        
+    //     }
+    //     if ($ex->getCode() == 1045) {
+    //         echo '<span style="color:brown"> Datos incorrectos </span>';
+    //     }
+    // }
     ?>
     <header>
         <div class="logo">
             <img src="imagen/logo.png" alt="logo" class="icono_logo">
         </div>
         <div class="botones">
-            <i class="fa-solid fa-user"><a href=""></a></i>
-            <i class="fa-solid fa-cart-arrow-down"><a href="#"></a></i>
+            <a href="login.php"><i class="fa-solid fa-user"></i></a>
+            <a href="#"><i class="fa-solid fa-cart-arrow-down"></i></a>
         </div>
     </header>
     <nav>
@@ -35,15 +54,7 @@
         </form>
     </nav>
     <main>
-        <h1>Mi cuenta</h1>
-        <h3>Acceder</h3>
-        <form action="./login.php" method="post">
-            <label for="idNombre">Nombre de usuario o correo electrónico *</label>
-            <input type="text" name="nombre" id="idNombre">
-            <label for="idContraseña">Contraseña *</label>
-            <input type="password" name="contraseña" id="idContraseña">
-        </form>
-        <h3>Registrarse</h3>
+        
     </main>
     <footer>
         <div class="politicas">

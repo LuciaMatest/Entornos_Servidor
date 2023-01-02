@@ -9,25 +9,21 @@
     <title>Tienda</title>
 </head>
 <body>
-    <?php
-    require('Funciones/funcionesBD.php');
-    require('Conexion/conexionBD.php');
-    ?>
     <header>
         <div class="logo">
             <img src="imagen/logo.png" alt="logo" class="icono_logo">
         </div>
         <div class="botones">
-            <i class="fa-solid fa-user"><a href="login.php"></a></i>
-            <i class="fa-solid fa-cart-arrow-down"><a href="#"></a></i>
+            <a href="login.php"><i class="fa-solid fa-user"></i></a>
+            <a href="#"><i class="fa-solid fa-cart-arrow-down"></i></a>
         </div>
     </header>
     <nav>
         <ul>
             <li><a href="index.php">Inicio</a></li>
-            <li><a href="">Tienda</a></li>
-            <li><a href="">Contacto</a></li>
-            <li><a href="">Ofertas</a></li>
+            <li><a href="productos.php">Tienda</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Ofertas</a></li>
         </ul>
         <form class="barra">
             <input type="search" name="buscador" placeholder="Buscar" id="buscador">
@@ -46,7 +42,10 @@
         </div>
     </main>
     <footer>
-        <p>Esto es el <footer></footer></p>
+        <div class="politicas">
+            <a href="">Politica de Cookies</a>
+            <a href="">Politica de Privacidad</a>
+        </div>
     </footer>
 </body>
 </html>
