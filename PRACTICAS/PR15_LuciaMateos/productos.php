@@ -74,9 +74,9 @@
     <nav>
         <ul>
             <li><a href="index.php">Inicio</a></li>
-            <li><a href="">Tienda</a></li>
-            <li><a href="">Contacto</a></li>
-            <li><a href="">Ofertas</a></li>
+            <li><a href="productos.php">Tienda</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Ofertas</a></li>
         </ul>
         <form class="barra">
             <input type="search" name="buscador" placeholder="Buscar" id="buscador">
@@ -87,33 +87,22 @@
         <section>
             <?
                 foreach ($array_productos as $key) {
-                    # code...
+                    echo "<article>";
+                            echo '<img src="'. $key['imagen'].'" alt="productos_pelu">';
+                            echo '<h3>'. $key['nombre']. '</h3>';
+                            echo '<h6>' . $key['cod_producto']. '</h6>';
+                            echo '<p>' . $key['descripcion']. '</p>';
+                            echo '<p>'.$key['precio'].'€</p>';
+                            echo '<a href="#" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';                        
+                    echo "</article>"; 
                 }
             ?>
-            <article>
-                <img class="ordenador" src="multimedia/ordenador1.jpg">
-                <h3>CHUWI HeroBook Pro</h3>
-                <p>Portátil equipado con DDR4 de 8GB hace que el procesamiento multitarea sea más eficiente, SSD 256GB tiene una alta velocidad de lectura y escritura,...</p>
-                <a href="#">Leer más</a>
-            </article>
-            <article>
-                <img class="ordenador" src="multimedia/ordenador2.jpg">
-                <h3>PC All in One HP Pavilion</h3>
-                <p>Este PC All-in-One contiene un 15% de plásticos reciclados posconsumo y lo equivalente a tres botellas de plástico destinado a acabar en los océanos²...</p>
-                <a href="#">Leer más</a>
-            </article>
-            <article>
-                <img class="ordenador" src="multimedia/ordenador3.jpg">
-                <h3 class="rojo">ASUS Flip C433TA</h3>
-                <p>El impresionante ASUS Chromebook Flip C433 hace gala de un estilo contemporáneo, dimensiones compactas y una selección de componentes pensada para que hagas lo que te propongas sin complicaciones...</p>
-                <a href="#">Leer más</a>
-            </article>
         </section>
     </main>
     <footer>
         <div class="politicas">
-            <a href="">Politica de Cookies</a>
-            <a href="">Politica de Privacidad</a>
+            <a href="#">Politica de Cookies</a>
+            <a href="#">Politica de Privacidad</a>
         </div>
     </footer>
 </body>
