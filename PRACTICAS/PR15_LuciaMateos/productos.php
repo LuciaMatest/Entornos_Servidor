@@ -90,9 +90,8 @@
                     echo "<article>";
                             echo '<img src="'. $key['imagen'].'" alt="productos_pelu">';
                             echo '<h3>'. $key['nombre']. '</h3>';
-                            echo '<h6>' . $key['cod_producto']. '</h6>';
-                            echo '<p>' . $key['descripcion']. '</p>';
-                            echo '<p>'.$key['precio'].'€</p>';
+                            echo '<p><b>Cod.'. $key['cod_producto']. '</b>: ' . $key['descripcion']. '</p>';
+                            echo '<p class="precio"><b>'.$key['precio'].'€</b></p>';
                             echo '<a href="#" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';                        
                     echo "</article>"; 
                 }

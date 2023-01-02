@@ -23,7 +23,7 @@ CREATE TABLE productos (
     nombre CHAR(30) NOT NULL,
     descripcion CHAR(140) NOT NULL,
     precio NUMERIC(5,2) NOT NULL,
-    stock INT(3) NOT NULL,
+    stock INT(3) NOT NULL
 ) engine=innodb;
 
 insert into roles (codigo, descripcion) values ('ADM01','Administrador');
@@ -32,10 +32,10 @@ insert into roles (codigo, descripcion) values ('U0001','Usuario');
 
 insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('1117','./imagen/1.png','Tahe Botanic','Mascarilla Aceite de Árgan, Aceite de Amapola y Aceite de Palo de Rosa 700 ml','21.80','7');
 insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('2596','./imagen/2.png','Tahe Natural Hair','Champu Dermorelax Essence 1000 ml','19.95','10');
-insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('3030','./imagen/3.png','Postquam','Champú de hierbas 1000 ml','6.90','4');
-insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('3152','./imagen/4.png','Crawford','Champú nutrición 1000 ml','10.61','12');
+insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('3030','./imagen/3.jpg','Postquam','Champú de hierbas 1000 ml','6.90','4');
+insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('3152','./imagen/4.jpg','Crawford','Champú nutrición 1000 ml','10.61','12');
 insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('3319','./imagen/5.png','Revlon','Champú Micellar Equave hidratante con queratina 250 ml','13.81','6');
-insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('4497','./imagen/6.png','Postquam','Emulsión Suavizante Cabellos Teñidos 1000 ml','8.90','2');
+insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('4497','./imagen/6.jpg','Postquam','Emulsión Suavizante Cabellos Teñidos 1000 ml','8.90','2');
 
 create table ventas (
     id_ventas INT PRIMARY KEY AUTO_INCREMENT,

@@ -138,8 +138,62 @@ main div .imagenes .img1 {
 }
 
 /* Productos */
+main{
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
+main > section {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    background-color: white;
+}
 
+main > section > article{
+    position: relative;
+    float: left;
+    width: 400px;
+    padding: 15px;
+    margin: 20px 20px 50px;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+main > section > article > img{
+    padding: 30px;
+}
+
+main > section > article > h3{
+    color:#303030;
+}
+
+main > section > article > p{
+    color:#555;
+}
+
+main > section > article > .precio{
+    color:#444;
+    font-size: x-large;
+}
+
+main > section > article > .boton{
+    background-color: #555;
+    padding: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-size: x-large;
+    color: whitesmoke;
+}
+
+main > section > article > .boton:hover{
+    color: #555;
+    background-color: whitesmoke;
+}
+
+/* Pie de pagina */
 footer {
     background-color: #d4d4d4;
     position: fixed;
