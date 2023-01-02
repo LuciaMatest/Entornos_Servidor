@@ -1,14 +1,42 @@
 <?php
+// BBDD
 function usarBBDD(){
     return file_get_contents('./BBDD/peluqueria.sql');
 }
 
-// function existe($nombre){
-//     if (isset($_REQUEST[$nombre]))
-//         return true;
-//     return false;
-// }
+// Perfiles
+function estaValidado(){
+    if (isset($_SESSION['validado'])) {
+        return true;
+    }
+    return false;
+}
 
+function esAdmin(){
+    if (isset($_SESSION['perfil'])) {
+        if ($_SESSION['perfil'] == 'ADM01')
+            return true;
+    }
+    return false;
+}
+
+function esModerador(){
+    if (isset($_SESSION['perfil'])) {
+        if ($_SESSION['perfil'] == 'M0001')
+            return true;
+    }
+    return false;
+}
+
+function esUsuario(){
+    if (isset($_SESSION['perfil'])) {
+        if ($_SESSION['perfil'] == 'U0001')
+            return true;
+    }
+    return false;
+}
+
+// Comprobaciones
 function vacio($nombre){
     if (empty($_REQUEST[$nombre])) {
         return true;
@@ -23,15 +51,34 @@ function enviado(){
     return false;
 }
 
-// function crearBBDD(){
-//     if (isset($_REQUEST['crear']))
-//     return true;
-//     return false;
-// }
+function existe($nombre){
+    if (isset($_REQUEST[$nombre]))
+        return true;
+    return false;
+}
 
 //Patrones
-function patronContraseña(){
+function validarNombre(){
+    if(validaSoloUser($_REQUEST['nombre'])){
+        return true;
+    }
+    return false;
+}
 
+function patronEmail(){
+    $patron = '/^.{1,}@.{1,}\..{2,}/';
+    if (preg_match($patron, $_REQUEST['email'])==1) {
+        return true;
+    }
+    return false;
+}
+
+function patronContraseña(){
+    $patron='/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d){8,}/';
+    if(preg_match($patron, $_REQUEST['contraseña']) == 1){
+        return true;
+    }
+    return false;
 }
 
 function patronFecha(){
@@ -42,64 +89,19 @@ function patronFecha(){
     return false;
 }
 
-
-// function modificarDatos(){
-//     try {
-//         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-//         $actualiza = "update canciones set id='" .$_REQUEST['id']. "',fecha='" .$_REQUEST['fecha']. "',cancion='" .$_REQUEST['cancion']. "',duracion='" .$_REQUEST['duracion']. "' where id='" . $_REQUEST['clave'] . "';" ;
-//         $conexion->exec($actualiza);
-//     } catch (Exception $ex) {
-//         if ($ex->getCode() == 2002) {
-//             echo '<span style="color:brown"> Fallo de conexión </span>';
-//         }
-//         if ($ex->getCode() == 1049) {
-//             echo '<span style="color:brown"> Base de datos desconocida </span>';
-//         }
-//         if ($ex->getCode() == 1045) {
-//             echo '<span style="color:brown"> Datos incorrectos </span>';
-//         }
-//     }finally{
-//         unset($conexion);
-//     }
-// }
-
-// function insetarDatos(){
-//     try {
-//         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-//         $inserta = "insert into canciones values ('" .$_REQUEST['id']. "','" .$_REQUEST['fecha']. "','" .$_REQUEST['cancion']. "','" .$_REQUEST['duracion']. "');" ;
-//         $conexion->exec($inserta);
-//     } catch (Exception $ex) {
-//         if ($ex->getCode() == 2002) {
-//             echo '<span style="color:brown"> Fallo de conexión </span>';
-//         }
-//         if ($ex->getCode() == 1049) {
-//             echo '<span style="color:brown"> Base de datos desconocida </span>';
-//         }
-//         if ($ex->getCode() == 1045) {
-//             echo '<span style="color:brown"> Datos incorrectos </span>';
-//         }
-//     }finally{
-//         unset($conexion);
-//     }
-// }
-
-// function eliminarDatos(){
-//     try {
-//         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-//         $elimina = "delete from canciones where id='" .$_REQUEST['clave']. "';" ;
-//         $conexion->exec($elimina);
-//     } catch (Exception $ex) {
-//         if ($ex->getCode() == 2002) {
-//             echo '<span style="color:brown"> Fallo de conexión </span>';
-//         }
-//         if ($ex->getCode() == 1049) {
-//             echo '<span style="color:brown"> Base de datos desconocida </span>';
-//         }
-//         if ($ex->getCode() == 1045) {
-//             echo '<span style="color:brown"> Datos incorrectos </span>';
-//         }
-//     }finally{
-//         unset($conexion);
-//     }
-// }
+//Verificar datos
+function verificar(){
+    if (enviado()){
+        if (!vacio('nombre') && validarNombre()) {
+            if(!vacio("contraseña") && !vacio('contraseña2') && patronContraseña() && $_REQUEST['contraseña']==$_REQUEST['contraseña2']){
+                if (!vacio('email') && patronEmail()) {
+                    if (!vacio('fecha') && patronFecha()) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
 ?>

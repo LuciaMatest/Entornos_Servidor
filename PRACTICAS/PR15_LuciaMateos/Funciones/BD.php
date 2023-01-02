@@ -1,5 +1,5 @@
 <?php
-require '../seguro/conexion.php';
+require '../Conexion/conexionBD.php';
 
 function validarUser($user,$pass){
     try {
@@ -18,7 +18,7 @@ function validarUser($user,$pass){
             $row = $sql_preparada->fetch();
             $_SESSION['user'] = $user;
             $_SESSION['nombre'] = $row['nombre'];
-            $_SESSION['perfil'] = $row['perfil'];
+            $_SESSION['perfil'] = $row['roles'];
             unset($conexion);
             return true;
         }

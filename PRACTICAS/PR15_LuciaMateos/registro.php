@@ -43,24 +43,31 @@
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </nav>
-    <main class="login">
+    <main>
+        <?php
+            if (verificar()){
+                
+            }else{
+        
+        ?>
         <h1>Mi cuenta</h1>
-        <div class="acceso">
-            <h2>Acceder</h2>
-            <form action="./login.php" method="post">
-                <p>
-                    <label for="idNombre">Nombre de usuario o correo electrónico *</label>
-                    <input type="text" name="nombre" id="idNombre">
-                </p>
-                <p>
-                    <label for="idContraseña">Contraseña *</label>
-                    <input type="password" name="contraseña" id="idContraseña">
-                </p>
-                <input type="submit" value="Acceder" name="enviar" class="boton">
-                <a href="registro.php">Crear una cuenta</a>
-
-            </form>
-        </div>
+        <h3>Registrarse</h3>
+        <form action="./registro.php" method="post">
+            <label for="idNombre">Nombre de usuario *</label>
+            <input type="text" name="nombre" id="nombre">
+            <label for="idContraseña">Contraseña *</label>
+            <input type="password" name="contraseña" id="contraseña">
+            <label for="idContraseña2">Repite la contraseña *</label>
+            <input type="password" name="contraseña2" id="contraseña2">
+            <label for="idEmail">Email *</label>
+            <input type="email" name="correo" id="idEmail">
+            <label for="idFecha">Fecha de nacimiento *(aaaa-mm-dd)</label>
+            <input type="date" name="fecha" id="fecha">
+            <input type="submit" value="Registrarse" name="enviar">
+        </form>
+        <?php
+            }
+        ?>
     </main>
     <footer>
         <div class="politicas">
