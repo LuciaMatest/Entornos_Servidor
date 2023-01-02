@@ -18,7 +18,7 @@
             <img src="imagen/logo.png" alt="logo" class="icono_logo">
         </div>
         <div class="botones">
-            <i class="fa-solid fa-user"><a href=""></a></i>
+            <i class="fa-solid fa-user"><a href="login.php"></a></i>
             <i class="fa-solid fa-cart-arrow-down"><a href="#"></a></i>
         </div>
     </header>
@@ -45,5 +45,8 @@
             </div>
         </div>
     </main>
+    <footer>
+        <p>Esto es el <footer></footer></p>
+    </footer>
 </body>
 </html>
