@@ -18,6 +18,7 @@ body {
     padding: 0;
 }
 
+/* Encabezado */
 header {
     display: flex;
     flex-direction: row;
@@ -41,6 +42,7 @@ header {
     color: #41300a;
 }
 
+/* Navegador */
 nav {
     background-color: #d4d4d4;
     display: flex;

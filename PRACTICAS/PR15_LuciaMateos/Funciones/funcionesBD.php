@@ -9,49 +9,39 @@ function usarBBDD(){
 //     return false;
 // }
 
-// function vacio($nombre){
-//     if (empty($_REQUEST[$nombre])) {
-//         return true;
-//     }
-//     return false;
-// }
+function vacio($nombre){
+    if (empty($_REQUEST[$nombre])) {
+        return true;
+    }
+    return false;
+}
 
-// function enviado(){
-//     if (isset($_REQUEST['enviar'])) {
-//         return true;
-//     }
-//     return false;
-// }
+function enviado(){
+    if (isset($_REQUEST['enviar'])) {
+        return true;
+    }
+    return false;
+}
 
 // function crearBBDD(){
 //     if (isset($_REQUEST['crear']))
 //     return true;
 //     return false;
 // }
+
 //Patrones
-// function patronID(){
-//     $patron = '/\d{1,}$/';
-//     if (preg_match($patron, $_REQUEST['id'])==1) {
-//         return true;
-//     }
-//     return false;
-// }
+function patronContraseña(){
 
-// function patronFecha(){
-//     $patron = '/^(\d{4})\-(0[1-9]|1[0-2])\-([0-2][0-9]|3[0-1])$/';
-//     if(preg_match($patron, $_REQUEST['fecha'])==1){
-//         return true;
-//     }
-//     return false;
-// }
+}
 
-// function patronDuracion(){
-//     $patron = '/^(\d{1,3})\.(\d{2})$/';
-//     if (preg_match($patron, $_REQUEST['duracion'])==1) {
-//         return true;
-//     }
-//     return false;
-// }
+function patronFecha(){
+    $patron = '/^(\d{4})\-(0[1-9]|1[0-2])\-([0-2][0-9]|3[0-1])$/';
+    if(preg_match($patron, $_REQUEST['fecha'])==1){
+        return true;
+    }
+    return false;
+}
+
 
 // function modificarDatos(){
 //     try {

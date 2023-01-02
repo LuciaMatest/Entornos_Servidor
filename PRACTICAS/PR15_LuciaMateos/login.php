@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
+    <?php
+        session_start();
+    ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +15,12 @@
     <?php
     require('Funciones/funcionesBD.php');
     require('Conexion/conexionBD.php');
+    ?>
+    <?php
+        if (isset($_SESSION['error'])) {
+            echo $_SESSION['error'];
+        }
+        unset($_SESSION['error']);
     ?>
     <header>
         <div class="logo">
@@ -42,8 +51,22 @@
             <input type="text" name="nombre" id="idNombre">
             <label for="idContraseña">Contraseña *</label>
             <input type="password" name="contraseña" id="idContraseña">
+            <input type="submit" value="Acceder" name="acceder">
         </form>
         <h3>Registrarse</h3>
+        <form action="./login.php" method="post">
+            <label for="idNombre">Nombre de usuario o correo electrónico *</label>
+            <input type="text" name="nombre" id="idNombre">
+            <label for="idContraseña">Contraseña *</label>
+            <input type="password" name="contraseña" id="idContraseña">
+            <label for="idContraseña2">Repite la contraseña *</label>
+            <input type="password" name="contraseña2" id="idContraseña2">
+            <label for="idEmail">Email *</label>
+            <input type="email" name="correo" id="idEmail">
+            <label for="idFecha">Fecha de nacimiento *</label>
+            <input type="date" name="fecha" id="idFecha">
+            <input type="submit" value="Registrarse" name="registrar">
+        </form>
     </main>
     <footer>
         <div class="politicas">
