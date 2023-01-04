@@ -43,7 +43,7 @@
         ?>
         <h1>Mi cuenta</h1>
         <div class="registrarse">
-            <h3>Registrarse</h3>
+            <h2>Registrarse</h2>
             <form action="./registro.php" method="post">
                 <p>
                 <label for="idUser">Nombre de usuario *</label>
