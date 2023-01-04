@@ -92,7 +92,7 @@
                             echo '<h3>'. $key['nombre']. '</h3>';
                             echo '<p><b>Cod.'. $key['cod_producto']. '</b>: ' . $key['descripcion']. '</p>';
                             echo '<p class="precio"><b>'.$key['precio'].'€</b></p>';
-                            echo '<a href="#" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';                        
+                            echo '<a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';                        
                     echo "</article>"; 
                 }
             ?>
