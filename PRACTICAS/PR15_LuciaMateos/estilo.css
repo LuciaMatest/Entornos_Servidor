@@ -203,6 +203,7 @@ main > section > article > .boton:hover{
 
 .login h1{
     color: #444;
+    margin: 5px;
 }
 
 .login div form{
@@ -257,6 +258,7 @@ main > section > article > .boton:hover{
 
 .registro h1{
     color: #444;
+    margin: 5px;
 }
 
 .registro div form{
@@ -271,7 +273,7 @@ main > section > article > .boton:hover{
 }
 
 .registro div form p{
-    padding: 5px;
+    padding: 3px;
     margin: 0 0 6px;
 }
 
