@@ -6,11 +6,11 @@ $user = $_REQUEST['user'];
 $pass = $_REQUEST['contraseña'];
 
 if (empty($user)) {
-    $_SESSION['error'] = 'Debe rellenar el nombre';
+    $_SESSION['error'] = '<span style="color:brown"> Debe rellenar el nombre</span>';
     header('Location: ../login.php');
     exit;
 }elseif (empty($pass)) {
-    $_SESSION['error'] = 'Debe rellenar el contraseña';
+    $_SESSION['error'] = '<span style="color:brown"> Debe rellenar el contraseña</span>';
     header('Location: ../login.php');
     exit;
 } else {
@@ -23,7 +23,7 @@ if (empty($user)) {
             exit;
         }
     } else {
-        $_SESSION['error'] = 'No existe el usuario o contraseña';
+        $_SESSION['error'] = '<span style="color:brown"> No existe el usuario o contraseña</span>';
         header('Location: ../login.php');
         exit;
     }

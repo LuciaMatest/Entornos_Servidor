@@ -1,5 +1,5 @@
 <?php
-require '../Conexion/conexionBD.php';
+require './Conexion/conexionBD.php';
 
 function validarUser($user,$pass){
     try {
