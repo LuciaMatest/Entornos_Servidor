@@ -182,7 +182,7 @@ main > section > article > .precio{
 }
 
 main > section > article > .boton{
-    background-color: #555;
+    background-color: #be901b;
     padding: 10px;
     padding-right: 50px;
     padding-left: 50px;
@@ -237,7 +237,7 @@ main > section > article > .boton:hover{
 }
 
 .login div form .boton{
-    background-color: #555;
+    background-color: #be901b;
     padding: 10px;
     padding-right: 50px;
     padding-left: 50px;
@@ -292,7 +292,7 @@ main > section > article > .boton:hover{
 }
 
 .registro div form .boton{
-    background-color: #555;
+    background-color: #be901b;
     padding: 10px;
     padding-right: 50px;
     padding-left: 50px;
