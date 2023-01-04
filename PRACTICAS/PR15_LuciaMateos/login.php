@@ -28,10 +28,10 @@
             <li><a href="#">Contacto</a></li>
             <li><a href="#">Ofertas</a></li>
         </ul>
-        <form class="barra">
+        <!-- <form class="barra">
             <input type="search" name="buscador" placeholder="Buscar" id="buscador">
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
+        </form> -->
     </nav>
     <main class="login">
         <h1>Mi cuenta</h1>
