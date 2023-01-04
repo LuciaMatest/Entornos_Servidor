@@ -56,23 +56,111 @@
             <form action="./registro.php" method="post">
                 <p>
                 <label for="idNombre">Nombre de usuario *</label>
-                <input type="text" name="nombre" id="nombre">
+                <input type="text" name="nombre" id="nombre"
+                value="<?
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("nombre")) {
+                        echo $_REQUEST["nombre"];
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y que cumple los requisitos, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("nombre")){
+                            ?>
+                            <span style="color:brown"> Introduce nombre</span>
+                            <?
+                        } elseif (!validarNombre()) {
+                            ?>
+                            <span style="color:brown"> Nombre ya registrado, revise</span>
+                            <?
+                        }
+                    }
+                ?>
                 </p>
                 <p>
                 <label for="idContraseña">Contraseña *</label>
                 <input type="password" name="contraseña" id="contraseña">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("password")){
+                            ?>
+                            <span style="color:brown"> Introduce contraseña</span>
+                            <?
+                        } elseif (!patronContraseña()) {
+                            ?>
+                            <span style="color:brown"> Contraseña no válida, revise</span>
+                            <?
+                        }
+                    }
+                ?>
                 </p>
                 <p>
                 <label for="idContraseña2">Repite la contraseña *</label>
                 <input type="password" name="contraseña2" id="contraseña2">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()){
+                        if (vacio('contraseña2')) {
+                            ?>
+                            <span style="color:brown">Introduce la contraseña de nuevo</span>
+                            <?           
+                        }elseif ($_REQUEST['contraseña']!=$_REQUEST['contraseña2']) {
+                            ?>
+                            <span style="color:brown"> Introduce de nuevo la contraseña</span>
+                            <?                              
+                        }
+                    }
+                ?>
                 </p>
                 <p>
                 <label for="idEmail">Email *</label>
-                <input type="email" name="correo" id="idEmail">
+                <input type="email" name="email" id="idEmail"
+                value="<?
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("email")) {
+                        echo $_REQUEST["email"];
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("email")){
+                            ?>
+                            <span style="color:brown"> Introduce email</span>
+                            <?
+                        } elseif (!patronEmail()) {
+                            ?>
+                            <span style="color:brown"> Email no válida, revise</span>
+                            <?
+                        }
+                    }
+                ?>
                 </p>
                 <p>
                 <label for="idFecha">Fecha de nacimiento *(aaaa-mm-dd)</label>
-                <input type="date" name="fecha" id="fecha">
+                <input type="date" name="fecha" id="fecha"
+                value="<?
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("fecha")) {
+                        echo $_REQUEST["fecha"];
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio, que sea fecha correcta y que sea mayor de edad, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("fecha")){
+                            ?>
+                            <span style="color:brown"> Introduce fecha</span>
+                            <?
+                        } elseif (!patronFecha()) {
+                            ?>
+                            <span style="color:brown"> Fecha no válida, revise</span>
+                            <?
+                        }
+                    }
+                ?>
                 </p>
                 <input type="submit" value="Registrarse" name="enviar" class="boton">
             </form>
