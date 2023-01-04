@@ -25,9 +25,9 @@
     <nav>
         <ul>
             <li><a href="index.php">Inicio</a></li>
-            <li><a href="">Tienda</a></li>
-            <li><a href="">Contacto</a></li>
-            <li><a href="">Ofertas</a></li>
+            <li><a href="productos.php">Tienda</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Ofertas</a></li>
         </ul>
         <form class="barra">
             <input type="search" name="buscador" placeholder="Buscar" id="buscador">
