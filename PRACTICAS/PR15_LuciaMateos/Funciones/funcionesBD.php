@@ -58,8 +58,8 @@ function existe($nombre){
 }
 
 //Patrones
-function validarNombre(){
-    if(validaSoloUser($_REQUEST['nombre'])){
+function validarUsuario(){
+    if(validaUser($_REQUEST['user'])){
         return true;
     }
     return false;
@@ -92,11 +92,15 @@ function patronFecha(){
 //Verificar datos
 function verificar(){
     if (enviado()){
-        if (!vacio('nombre') && validarNombre()) {
+        if (!vacio('user') && validarUsuario()) {
             if(!vacio("contraseña") && !vacio('contraseña2') && patronContraseña() && $_REQUEST['contraseña']==$_REQUEST['contraseña2']){
-                if (!vacio('email') && patronEmail()) {
-                    if (!vacio('fecha') && patronFecha()) {
-                        return true;
+                if (!vacio('nombre')) {
+                    if (!vacio('email') && patronEmail()) {
+                        if (!vacio('fecha') && patronFecha()) {
+                            if (existe('rol') && $_REQUEST['rol']!=0) {
+                                return true;
+                            }
+                        }
                     }
                 }
             }

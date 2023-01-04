@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-    <?php
-        session_start();
-    ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,14 +10,8 @@
 </head>
 <body>
     <?php
-    require('Funciones/funcionesBD.php');
-    require('Conexion/conexionBD.php');
-    ?>
-    <?php
-        if (isset($_SESSION['error'])) {
-            echo $_SESSION['error'];
-        }
-        unset($_SESSION['error']);
+        require('Funciones/funcionesBD.php');
+        require('Funciones/BD.php');
     ?>
     <header>
         <div class="logo">
@@ -46,7 +37,7 @@
     <main class="registro">
         <?php
             if (verificar()){
-                
+                nuevoUsuario();
             }else{
         
         ?>
@@ -55,24 +46,24 @@
             <h3>Registrarse</h3>
             <form action="./registro.php" method="post">
                 <p>
-                <label for="idNombre">Nombre de usuario *</label>
-                <input type="text" name="nombre" id="nombre"
+                <label for="idUser">Nombre de usuario *</label>
+                <input type="text" name="user" id="user"
                 value="<?
                     //Mantener el texto introducido en el campo de texto 
-                    if (enviado() && !vacio("nombre")) {
-                        echo $_REQUEST["nombre"];
+                    if (enviado() && !vacio("user")) {
+                        echo $_REQUEST["user"];
                     }
                 ?>">
                 <?
                     //comprobar que no este vacio y que cumple los requisitos, si lo está pongo un error
                     if (enviado()) {
-                        if (vacio("nombre")){
+                        if (vacio("user")){
                             ?>
-                            <span style="color:brown"> Introduce nombre</span>
+                            <span style="color:brown"> Introduce usuario</span>
                             <?
-                        } elseif (!validarNombre()) {
+                        } elseif (!validarUsuario()) {
                             ?>
-                            <span style="color:brown"> Nombre ya registrado, revise</span>
+                            <span style="color:brown"> Usuario ya registrado, revise</span>
                             <?
                         }
                     }
@@ -115,6 +106,26 @@
                 ?>
                 </p>
                 <p>
+                <label for="idNombre">Nombre *</label>
+                <input type="text" name="nombre" id="idNombre"
+                value="<?
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("nombre")) {
+                        echo $_REQUEST["nombre"];
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y que cumple los requisitos, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("nombre")){
+                            ?>
+                            <span style="color:brown"> Introduce nombre</span>
+                            <?
+                        }
+                    }
+                ?>
+                </p>
+                <p>
                 <label for="idEmail">Email *</label>
                 <input type="email" name="email" id="idEmail"
                 value="<?
@@ -148,7 +159,7 @@
                     }
                 ?>">
                 <?
-                    //comprobar que no este vacio, que sea fecha correcta y que sea mayor de edad, si lo está pongo un error
+                    //comprobar que no este vacio, que sea fecha correcta y si lo está pongo un error
                     if (enviado()) {
                         if (vacio("fecha")){
                             ?>
@@ -161,6 +172,23 @@
                         }
                     }
                 ?>
+                </p>
+                <p>
+                    <label for="idOpcion">Rol:</label>
+                    <select name="rol" id="idOpcion">
+                        <option value="0">Seleccione una opción</option>
+                        <option value="ADM01">Administrador</option>
+                        <option value="M0001">Moderador</option>
+                        <option value="U0001">Usuario normal</option>
+                    </select>
+                    <?php
+                        //Comprobar si existe
+                        if(existe('rol') && $_REQUEST['rol']==0){
+                            ?>
+                            <span style="color:brown"> Introduce un rol</span>
+                            <?
+                        }
+                    ?>
                 </p>
                 <input type="submit" value="Registrarse" name="enviar" class="boton">
             </form>

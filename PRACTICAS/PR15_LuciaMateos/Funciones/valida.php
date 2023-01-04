@@ -2,7 +2,7 @@
 session_start();
 require './BD.php';
 //Sacamos usuario y contraseña del formulario donde se van a introducir los datos
-$user = $_REQUEST['nombre'];
+$user = $_REQUEST['user'];
 $pass = $_REQUEST['contraseña'];
 
 if (empty($user)) {
@@ -15,7 +15,7 @@ if (empty($user)) {
     exit;
 } else {
     if (validarUser($user, $pass)) {
-        if ($_SESSION['perfil'] == 'ADM01') {
+        if ($_SESSION['roles'] == 'ADM01') {
             header('Location: ../index.php');
             exit;
         } else {

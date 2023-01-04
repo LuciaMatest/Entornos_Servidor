@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+<head>
     <?php
         session_start();
     ?>
-<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,16 +12,6 @@
     <title>Tienda</title>
 </head>
 <body>
-    <?php
-    require('Funciones/funcionesBD.php');
-    require('Conexion/conexionBD.php');
-    ?>
-    <?php
-        if (isset($_SESSION['error'])) {
-            echo $_SESSION['error'];
-        }
-        unset($_SESSION['error']);
-    ?>
     <header>
         <div class="logo">
             <img src="imagen/logo.png" alt="logo" class="icono_logo">
@@ -47,10 +37,10 @@
         <h1>Mi cuenta</h1>
         <div class="acceso">
             <h2>Acceder</h2>
-            <form action="./login.php" method="post">
+            <form action="./Funciones/valida.php" method="post">
                 <p>
-                    <label for="idNombre">Nombre de usuario o correo electrónico *</label>
-                    <input type="text" name="nombre" id="idNombre">
+                    <label for="idUser">Nombre de usuario *</label>
+                    <input type="text" name="user" id="idUser">
                 </p>
                 <p>
                     <label for="idContraseña">Contraseña *</label>
@@ -67,5 +57,11 @@
             <a href="">Politica de Privacidad</a>
         </div>
     </footer>
+    <?php
+        if (isset($_SESSION['error'])) {
+            echo $_SESSION['error'];
+        }
+        unset($_SESSION['error']);
+    ?>
 </body>
 </html>
