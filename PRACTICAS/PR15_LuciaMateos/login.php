@@ -58,7 +58,6 @@
                 </p>
                 <input type="submit" value="Acceder" name="enviar" class="boton">
                 <a href="registro.php">Crear una cuenta</a>
-
             </form>
         </div>
     </main>

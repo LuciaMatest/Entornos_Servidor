@@ -43,7 +43,7 @@
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </nav>
-    <main>
+    <main class="registro">
         <?php
             if (verificar()){
                 
@@ -51,20 +51,32 @@
         
         ?>
         <h1>Mi cuenta</h1>
-        <h3>Registrarse</h3>
-        <form action="./registro.php" method="post">
-            <label for="idNombre">Nombre de usuario *</label>
-            <input type="text" name="nombre" id="nombre">
-            <label for="idContraseña">Contraseña *</label>
-            <input type="password" name="contraseña" id="contraseña">
-            <label for="idContraseña2">Repite la contraseña *</label>
-            <input type="password" name="contraseña2" id="contraseña2">
-            <label for="idEmail">Email *</label>
-            <input type="email" name="correo" id="idEmail">
-            <label for="idFecha">Fecha de nacimiento *(aaaa-mm-dd)</label>
-            <input type="date" name="fecha" id="fecha">
-            <input type="submit" value="Registrarse" name="enviar">
-        </form>
+        <div class="registrarse">
+            <h3>Registrarse</h3>
+            <form action="./registro.php" method="post">
+                <p>
+                <label for="idNombre">Nombre de usuario *</label>
+                <input type="text" name="nombre" id="nombre">
+                </p>
+                <p>
+                <label for="idContraseña">Contraseña *</label>
+                <input type="password" name="contraseña" id="contraseña">
+                </p>
+                <p>
+                <label for="idContraseña2">Repite la contraseña *</label>
+                <input type="password" name="contraseña2" id="contraseña2">
+                </p>
+                <p>
+                <label for="idEmail">Email *</label>
+                <input type="email" name="correo" id="idEmail">
+                </p>
+                <p>
+                <label for="idFecha">Fecha de nacimiento *(aaaa-mm-dd)</label>
+                <input type="date" name="fecha" id="fecha">
+                </p>
+                <input type="submit" value="Registrarse" name="enviar" class="boton">
+            </form>
+        </div>
         <?php
             }
         ?>

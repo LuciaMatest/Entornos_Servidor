@@ -249,6 +249,60 @@ main > section > article > .boton:hover{
     background-color: #d1d1d1;
 }
 
+/* Registro */
+.registro {
+    text-align: center;
+    align-items: center;
+}
+
+.registro h1{
+    color: #444;
+}
+
+.registro div form{
+    background-color: #d4d4d4;
+    padding: 30px;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.registro div h2{
+    color: #555;
+}
+
+.registro div form p{
+    padding: 5px;
+    margin: 0 0 6px;
+}
+
+.registro div form p label{
+    line-height: 2;
+}
+
+.registro div form p input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.registro div form .boton{
+    background-color: #555;
+    padding: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-size: large;
+    color: whitesmoke;
+}
+
+.registro div form .boton:hover{
+    color: #555;
+    background-color: #d1d1d1;
+}
+
 /* Pie de pagina */
 footer {
     background-color: #d4d4d4;
