@@ -17,6 +17,9 @@
         <div class="logo">
             <img src="../imagen/logo.png" alt="logo" class="icono_logo">
         </div>
+        <div class="botones">
+            <a href="login.php"><i class="fa-solid fa-user"></i>Iniciar Sesión</a>
+        </div>
     </header>
     <nav>
         <ul>
@@ -183,7 +186,7 @@
                     ?>
                 </p>
                 <input type="submit" value="Registrarse" name="enviar" class="boton">
-                <a href="login.php">Volver</a>
+                <!-- <a href="login.php">Volver</a> -->
             </form>
         </div>
         <?php
