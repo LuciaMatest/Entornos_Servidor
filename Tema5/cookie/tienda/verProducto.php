@@ -2,7 +2,7 @@
     require './funciones/funcionesBD.php';       
     require('./seguro/conexion.php');     
 
-    if (isset($_REQUEST['producto'])) {
+    if (!isset($_REQUEST['producto'])) {
         header('Location: ./index.php');
     } else{
         $id = $_REQUEST['producto'];
@@ -21,7 +21,7 @@
     <section class='productos'>
         <h1>Producto</h1>
         <?php
-            $producto= findById($id);
+            $producto = findById($id);
             print_r($producto);
         ?>
     </section>

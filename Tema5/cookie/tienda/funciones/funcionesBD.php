@@ -21,7 +21,7 @@ function findById($id){
         $conexion = new PDO('mysql:host='.HOST.';dbname='.BBDD,USER,PASS);
         $sql = "select * from producto where codigo = ?";
         $sql_preparada=$conexion->prepare($sql);
-        $resultado=$sql_preparada->execute($array($id));
+        $resultado=$sql_preparada->execute(array($id));
         if ($resultado) {
             $producto = $sql_preparada->fetchAll();
             unset($conexion);
