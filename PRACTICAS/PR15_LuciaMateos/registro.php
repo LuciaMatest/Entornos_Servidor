@@ -12,7 +12,7 @@
     <?php
         require('Funciones/funcionesBD.php');
         require('Funciones/BD.php');
-        require('./Conexion/conexionBD.php');
+        require('Conexion/conexionBD.php');
     ?>
     <header>
         <div class="logo">
@@ -30,10 +30,6 @@
             <li><a href="#">Contacto</a></li>
             <li><a href="#">Ofertas</a></li>
         </ul>
-        <!-- <form class="barra">
-            <input type="search" name="buscador" placeholder="Buscar" id="buscador">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form> -->
     </nav>
     <main class="registro">
         <?php

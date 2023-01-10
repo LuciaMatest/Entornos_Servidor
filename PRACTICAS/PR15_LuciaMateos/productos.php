@@ -16,7 +16,7 @@
     <?php
         $opcion=false;
         try {
-            $conexion = new PDO('mysql:host='.HOST.';dbname='.BBDD, USER, PASS);
+            $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
             $sql = 'select * from productos';
             $resultado=$conexion->query($sql);
             $array_productos=array();
@@ -30,7 +30,7 @@
             }
             if ($ex->getCode() == 1049) {
                 $opcion=true;
-                $conexion2 = new PDO('mysql:host='.HOST.';dbname='.BBDD, USER, PASS);
+                $conexion2 = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
                 $script = usarBBDD();
                 $conexion2->exec($script);        
             }
@@ -42,7 +42,7 @@
     <?
         if ($opcion) {
             try {
-                $conexion = new PDO('mysql:host='.HOST.';dbname='.BBDD, USER, PASS);
+                $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
                 $sql = 'select * from productos';
                 $resultado=$conexion->query($sql);
                 $array_productos=array();

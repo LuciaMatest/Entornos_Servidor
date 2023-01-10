@@ -1,7 +1,7 @@
 <?php
         require('Funciones/funcionesBD.php');
         require('Funciones/BD.php');
-        require('./Conexion/conexionBD.php');
+        require('Conexion/conexionBD.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
