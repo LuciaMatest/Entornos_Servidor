@@ -1,7 +1,3 @@
-<?php
-    require('Funciones/funcionesBD.php');
-    require('Conexion/conexionBD.php');
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,6 +10,9 @@
 </head>
 <body>
     <?php
+        require('Funciones/funcionesBD.php');
+        require('Conexion/conexionBD.php');
+
         $opcion=false;
         try {
             $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
@@ -68,18 +67,8 @@
             <img src="imagen/logo.png" alt="logo" class="icono_logo">
         </div>
         <div class="botones">
-            <?
-                session_start();
-                if (estaValidado()) {
-                    echo '<a href="./logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>';
-                    echo '<a href="#"><i class="fa-solid fa-cart-arrow-down"></i></a>';
-                }else {
-            ?>
-                <a href="login.php"><i class="fa-solid fa-user"></i></a>
-                <a href="login.php"><i class="fa-solid fa-cart-arrow-down"></i></a>
-            <?
-                }
-            ?>
+            <a href="login.php"><i class="fa-solid fa-user"></i></a>
+            <a href="#"><i class="fa-solid fa-cart-arrow-down"></i></a>
         </div>
     </header>
     <nav>

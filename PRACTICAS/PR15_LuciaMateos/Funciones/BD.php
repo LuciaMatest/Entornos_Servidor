@@ -1,26 +1,24 @@
 <?php
+require '../Conexion/conexionBD.php';
 
 function validarUser($user,$pass){
     try {
         $conexion = new PDO('mysql:host =' .$_SERVER['SERVER_ADDR']. ';dbname=' .BBDD, USER, PASS);
-        $sql = 'select * from usuarios where usuario= ? and clave= ?';
+        $sql = 'select * from usuarios where usuario = ? and clave = ?';
         $sql_preparada=$conexion->prepare($sql);
+        //minimo sha512
         $pass_encriptada = sha1($pass);
         $array = array($user, $pass_encriptada);
         $sql_preparada->execute($array);
-
         //si devuelve algo hacemos el login
         if ($sql_preparada->rowCount() == 1) {
             session_start();
             //validamos el inicio de sesion
             $_SESSION['validado'] = true;
             $row = $sql_preparada->fetch();
-            $_SESSION['user']=$user;
-            $_SESSION['pass']=$pass;
-            $_SESSION['nombre']=$row['nombre'];
-            $_SESSION['email']=$row['correo'];
-            $_SESSION['fecha']=$row['fecha'];
-            $_SESSION['roles']=$row['rol'];
+            $_SESSION['user'] = $user;
+            $_SESSION['nombre'] = $row['nombre'];
+            $_SESSION['perfil'] = $row['rol'];
             unset($conexion);
             return true;
         }
@@ -50,13 +48,11 @@ function nuevoUsuario(){
 
 function validaUser($user){
     try {
-        $conexion = new PDO('mysql:host=' .$_SERVER['SERVER_ADDR']. ';dbname=' .BBDD, USER, PASS);
+        $conexion = new PDO('mysql:host =' .$_SERVER['SERVER_ADDR']. ';dbname=' .BBDD, USER, PASS);
         $sql="select * from usuarios where usuario= ? ;";
         $sql_preparada=$conexion->prepare($sql);
-
         $array = array($user);
         $sql_preparada->execute($array);
-
         //si devuelve algo hacemos el login
         if ($sql_preparada->rowCount() == 0) {
             unset($conexion);

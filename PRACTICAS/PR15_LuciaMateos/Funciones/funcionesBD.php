@@ -74,8 +74,7 @@ function patronEmail(){
 }
 
 function patronContraseña(){
-    // La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula. NO puede tener otros símbolos.
-    $patron='/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/';
+    $patron='/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d){8,}/';
     if(preg_match($patron, $_REQUEST['contraseña']) == 1){
         return true;
     }
@@ -83,12 +82,9 @@ function patronContraseña(){
 }
 
 function patronFecha(){
-    $patron='/^\d{4}([\-])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/';
-    if(preg_match($patron,$_REQUEST['fecha'])==1){
-        $cortado=explode('-',$_REQUEST['fecha']);
-        if(checkdate($cortado[1],$cortado[2],$cortado[0])){
-            return true;
-        }
+    $patron = '/^(\d{4})\-(0[1-9]|1[0-2])\-([0-2][0-9]|3[0-1])$/';
+    if(preg_match($patron, $_REQUEST['fecha'])==1){
+        return true;
     }
     return false;
 }

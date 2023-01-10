@@ -30,6 +30,10 @@
             <li><a href="#">Contacto</a></li>
             <li><a href="#">Ofertas</a></li>
         </ul>
+        <!-- <form class="barra">
+            <input type="search" name="buscador" placeholder="Buscar" id="buscador">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form> -->
     </nav>
     <main class="registro">
         <?php
@@ -147,8 +151,8 @@
                 ?>
                 </p>
                 <p>
-                <label for="idFecha">Fecha de nacimiento *</label>
-                <input type="text" name="fecha" id="idFecha" placeholder="aaaa-mm-dd"
+                <label for="idFecha">Fecha de nacimiento *(aaaa-mm-dd)</label>
+                <input type="date" name="fecha" id="fecha"
                 value="<?
                     //Mantener el texto introducido en el campo de texto 
                     if (enviado() && !vacio("fecha")) {

@@ -23,8 +23,8 @@ if (empty($user)) {
             exit;
         }
     } else {
-        $_SESSION['error'] = '<span style="color:brown"> No existe el usuario</span>';
-        header("Location: ../login.php");
+        $_SESSION['error'] = '<span style="color:brown"> No existe el usuario o contraseña</span>';
+        header('Location: ../login.php');
         exit;
     }
 }
