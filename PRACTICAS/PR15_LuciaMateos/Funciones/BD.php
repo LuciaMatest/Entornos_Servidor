@@ -46,6 +46,20 @@ function nuevoUsuario(){
     }
 }
 
+function actualizarUsuario(){
+    try {
+        $conexion= new PDO('mysql:host='. $_SERVER['SERVER_ADDR']. ';dbname=' .BBDD,USER,PASS); 
+        $sql="update usuarios set clave=:clave,nombre=:nombre,correo=:correo,fecha=:fecha,rol=:rol where usuario=:usuario;";
+        $sql_preparada=$conexion->prepare($sql);
+        $array = array(":usuario"=>$_REQUEST['user'],":clave"=>sha1($_REQUEST['contraseña']),":nombre"=>$_REQUEST['nombre'],":correo"=>$_REQUEST['email'],":fecha"=>$_REQUEST['fecha'],":rol"=>$_REQUEST['rol']);
+        $sql_preparada->execute($array);
+    } catch (Exception $ex) {
+        print_r($ex);
+        unset($conexion);
+        
+    }
+}
+
 function validaUser($user){
     try {
         $conexion = new PDO('mysql:host =' .$_SERVER['SERVER_ADDR']. ';dbname=' .BBDD, USER, PASS);

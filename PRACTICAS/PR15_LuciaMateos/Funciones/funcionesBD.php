@@ -13,24 +13,24 @@ function estaValidado(){
 }
 
 function esAdmin(){
-    if (isset($_SESSION['perfil'])) {
-        if ($_SESSION['perfil'] == 'ADM01')
+    if (isset($_SESSION['rol'])) {
+        if ($_SESSION['rol'] == 'ADM01')
             return true;
     }
     return false;
 }
 
 function esModerador(){
-    if (isset($_SESSION['perfil'])) {
-        if ($_SESSION['perfil'] == 'M0001')
+    if (isset($_SESSION['rol'])) {
+        if ($_SESSION['rol'] == 'M0001')
             return true;
     }
     return false;
 }
 
 function esUsuario(){
-    if (isset($_SESSION['perfil'])) {
-        if ($_SESSION['perfil'] == 'U0001')
+    if (isset($_SESSION['rol'])) {
+        if ($_SESSION['rol'] == 'U0001')
             return true;
     }
     return false;
@@ -82,9 +82,12 @@ function patronContraseña(){
 }
 
 function patronFecha(){
-    $patron = '/^(\d{4})\-(0[1-9]|1[0-2])\-([0-2][0-9]|3[0-1])$/';
-    if(preg_match($patron, $_REQUEST['fecha'])==1){
-        return true;
+    $patron = '/^([0-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/([0-9]{1,4})$/';
+    if (preg_match($patron, $_REQUEST['fecha'])==1) {
+        $partes = explode('/', $_REQUEST['fecha']);
+        if (checkdate($partes[1],$partes[0],$partes[2])) {
+            return true;
+        }
     }
     return false;
 }

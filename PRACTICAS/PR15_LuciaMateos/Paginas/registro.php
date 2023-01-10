@@ -147,7 +147,7 @@
                 </p>
                 <p>
                 <label for="idFecha">Fecha de nacimiento *(aaaa-mm-dd)</label>
-                <input type="date" name="fecha" id="fecha"
+                <input type="text" name="fecha" id="fecha"
                 value="<?
                     //Mantener el texto introducido en el campo de texto 
                     if (enviado() && !vacio("fecha")) {
