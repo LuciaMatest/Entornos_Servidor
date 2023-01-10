@@ -9,7 +9,10 @@
             $array = $_COOKIE['visto'];
             //si el producto ya ha sido visto
             if (in_array($id, $array)) {
-                # code...
+                //quitar del array el valor $id
+                $key = array_search($id, $array);
+                unset($array[$key]);
+                array_push($array,$id);
             } else {
                 //si ya tiene 3 y no existe en el array
                 if (count($array)==3) {
@@ -19,8 +22,6 @@
             }
             actualizar($array);
         }
-        //guardar en un array
-        print_r($_COOKIE['visto']);
     }
 
     function actualizar($array){
@@ -28,6 +29,21 @@
         foreach ($array as $id) {
             setcookie('visto['.$contador.']',$id);
             $contador++;
+        }
+    }
+
+    function monstrarUltimos(){
+        if (isset($_COOKIE['visto'])) {
+            $array = $_COOKIE['visto'];
+            $array = array_reverse($array);
+            foreach ($array as $id) {
+                $producto = findById($id);
+                $producto =$producto[0];
+                echo "<article>";
+                echo "<a href='./verProducto.php?producto=".$producto['codigo']."'><img src= './webroot/".$producto['baja']."' alt='pan'></a>";
+                echo '<h2>'.$producto['nombre']. '</h2>';               
+                echo "</article>"; 
+            }
         }
     }
 ?>

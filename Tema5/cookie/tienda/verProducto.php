@@ -28,16 +28,17 @@
             $producto = findById($id);
             $producto =$producto[0];
             echo "<article>";
-                echo '<img src= "./webroot/'.$producto['alta'].'" alt="pan">';
-                echo '<p>'.$producto['nombre']. '</p>';    
-                echo '<p>'.$producto['descripcion']. '</p>';                  
+            echo '<img src= "./webroot/'.$producto['alta'].'" alt="pan">';
+            echo '<h3>'.$producto['nombre']. '</h3>';    
+            echo '<p>'.$producto['descripcion']. '</p>';                  
             echo "</article>"; 
         ?>
     </section>
     <section class='vistos'>
-            <h3>Vistos</h3>
+            <h2>Vistos</h2>
             <?php
-            
+            //recorremos 
+            monstrarUltimos();
             ?>
     </section>
     <a href="./index.php">Volver</a>
