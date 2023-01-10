@@ -34,7 +34,7 @@
             echo "</article>"; 
         ?>
     </section>
-    <section class='visto'>
+    <section class='vistos'>
             <h3>Vistos</h3>
             <?php
             

@@ -1,3 +1,6 @@
+<?php
+    require './Conexion/conexionBD.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
