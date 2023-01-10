@@ -151,7 +151,7 @@
                 </p>
                 <p>
                 <label for="idFecha">Fecha de nacimiento *</label>
-                <input type="text" name="fecha" id="idFecha" placeholder="dd-mm-aaaa"
+                <input type="text" name="fecha" id="idFecha" placeholder="aaaa-mm-dd"
                 value="<?
                     //Mantener el texto introducido en el campo de texto 
                     if (enviado() && !vacio("fecha")) {

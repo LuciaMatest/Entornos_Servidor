@@ -83,7 +83,7 @@ function patronContraseña(){
 }
 
 function patronFecha(){
-    $patron = '/^([0-2][0-9]|3[0-1])\-(0[1-9]|1[0-2])\-(\d{4})$/';
+    $patron='/^\d{4}([\-])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/';
     if(preg_match($patron,$_REQUEST['fecha'])==1){
         $cortado=explode('-',$_REQUEST['fecha']);
         if(checkdate($cortado[1],$cortado[2],$cortado[0])){
