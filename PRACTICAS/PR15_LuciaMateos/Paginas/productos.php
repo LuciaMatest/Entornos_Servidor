@@ -71,7 +71,7 @@
         <?php
             session_start();
             if (estaValidado()) {
-                echo '<a href="registro.php"><i class="fa-solid fa-pen-to-square"></i>Perfil</a>';
+                echo '<a href="perfil.php"><i class="fa-solid fa-pen-to-square"></i>Perfil</a>';
                 echo '<a href="carrito.php"><i class="fa-solid fa-cart-arrow-down"></i>Carrito</a>';
                 echo '<a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>';
             } else {
