@@ -13,7 +13,7 @@ function estaValidado(){
 }
 
 function esAdmin(){
-    if (isset($_SESSION['rol'])) {
+    if (isset($_SESSION['roles'])) {
         if ($_SESSION['rol'] == 'ADM01')
             return true;
     }
@@ -21,7 +21,7 @@ function esAdmin(){
 }
 
 function esModerador(){
-    if (isset($_SESSION['rol'])) {
+    if (isset($_SESSION['roles'])) {
         if ($_SESSION['rol'] == 'M0001')
             return true;
     }
@@ -29,7 +29,7 @@ function esModerador(){
 }
 
 function esUsuario(){
-    if (isset($_SESSION['rol'])) {
+    if (isset($_SESSION['roles'])) {
         if ($_SESSION['rol'] == 'U0001')
             return true;
     }

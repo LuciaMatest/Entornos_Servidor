@@ -25,6 +25,9 @@
                 echo '<a href="Paginas/carrito.php"><i class="fa-solid fa-cart-arrow-down"></i>Carrito</a>';
                 echo '<a href="Paginas/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>';
             } elseif (esAdmin() || esModerador()) {
+                echo '<a href="Paginas/registro.php"><i class="fa-solid fa-pen-to-square"></i>Perfil</a>';
+                echo '<a href="Paginas/carrito.php"><i class="fa-solid fa-cart-arrow-down"></i>Carrito</a>';
+                echo '<a href="Paginas/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>';
                 echo '<a href="#"><i class="fa-regular fa-folder-open"></i>Almacen</a>';
                 echo '<a href="#"><i class="fa-solid fa-scale-unbalanced-flip"></i>Ventas</a>';
             } else {
