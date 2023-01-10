@@ -1,3 +1,7 @@
+<?php
+    require('Funciones/funcionesBD.php');
+    require('Conexion/conexionBD.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,9 +14,6 @@
 </head>
 <body>
     <?php
-        require('Funciones/funcionesBD.php');
-        require('Conexion/conexionBD.php');
-
         $opcion=false;
         try {
             $conexion = new PDO('mysql:host='.HOST.';dbname='.BBDD, USER, PASS);
@@ -67,8 +68,18 @@
             <img src="imagen/logo.png" alt="logo" class="icono_logo">
         </div>
         <div class="botones">
-            <a href="login.php"><i class="fa-solid fa-user"></i></a>
-            <a href="#"><i class="fa-solid fa-cart-arrow-down"></i></a>
+            <?
+                session_start();
+                if (estaValidado()) {
+                    echo '<a href="./logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>';
+                    echo '<a href="#"><i class="fa-solid fa-cart-arrow-down"></i></a>';
+                }else {
+            ?>
+                <a href="login.php"><i class="fa-solid fa-user"></i></a>
+                <a href="login.php"><i class="fa-solid fa-cart-arrow-down"></i></a>
+            <?
+                }
+            ?>
         </div>
     </header>
     <nav>
@@ -78,10 +89,6 @@
             <li><a href="#">Contacto</a></li>
             <li><a href="#">Ofertas</a></li>
         </ul>
-        <!-- <form class="barra">
-            <input type="search" name="buscador" placeholder="Buscar" id="buscador">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form> -->
     </nav>
     <main>
         <section>

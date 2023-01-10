@@ -30,6 +30,10 @@ insert into roles (codigo, descripcion) values ('ADM01','Administrador');
 insert into roles (codigo, descripcion) values ('M0001','Moderador');
 insert into roles (codigo, descripcion) values ('U0001','Usuario');
 
+insert into usuarios (usuario, clave, nombre, correo, fecha, rol) values ('adm1','Admin123','Admin123','admin1@correo.es', '', 'ADM01');
+insert into usuarios (usuario, clave, nombre, correo, fecha, rol) values ('mod1','Moder123','Moder123','moder1@correo.es','M0001');
+insert into usuarios (usuario, clave, nombre, correo, fecha, rol) values ('usu1','Usuar123','Usuar123','usuar1@correo.es','U0001');
+
 insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('1117','./imagen/1.png','Tahe Botanic','Mascarilla Aceite de Árgan, Aceite de Amapola y Aceite de Palo de Rosa 700 ml','21.80','7');
 insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('2596','./imagen/2.png','Tahe Natural Hair','Champu Dermorelax Essence 1000 ml','19.95','10');
 insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('3030','./imagen/3.jpg','Postquam','Champú de hierbas 1000 ml','6.90','4');
