@@ -28,10 +28,6 @@
             <li><a href="#">Contacto</a></li>
             <li><a href="#">Ofertas</a></li>
         </ul>
-        <!-- <form class="barra">
-            <input type="search" name="buscador" placeholder="Buscar" id="buscador">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form> -->
     </nav>
     <main>
         <div>
