@@ -12,6 +12,7 @@
     <?php
         require('Funciones/funcionesBD.php');
         require('Funciones/BD.php');
+        require('./Conexion/conexionBD.php');
     ?>
     <header>
         <div class="logo">
