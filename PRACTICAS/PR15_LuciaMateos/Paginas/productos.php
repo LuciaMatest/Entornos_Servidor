@@ -1,3 +1,7 @@
+<?php
+    require('../Funciones/funcionesBD.php');
+    require('../Conexion/conexionBD.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,14 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="../CSS/estilo.css">
     <title>Tienda</title>
 </head>
 <body>
     <?php
-        require('Funciones/funcionesBD.php');
-        require('Conexion/conexionBD.php');
-
         $opcion=false;
         try {
             $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
@@ -64,7 +65,7 @@
     ?>
     <header>
         <div class="logo">
-            <img src="imagen/logo.png" alt="logo" class="icono_logo">
+            <img src="../imagen/logo.png" alt="logo" class="icono_logo">
         </div>
         <div class="botones">
             <a href="login.php"><i class="fa-solid fa-user"></i></a>
@@ -73,7 +74,7 @@
     </header>
     <nav>
         <ul>
-            <li><a href="index.php">Inicio</a></li>
+            <li><a href="../index.php">Inicio</a></li>
             <li><a href="productos.php">Tienda</a></li>
             <li><a href="#">Contacto</a></li>
             <li><a href="#">Ofertas</a></li>
@@ -84,7 +85,7 @@
             <?
                 foreach ($array_productos as $key) {
                     echo "<article>";
-                            echo '<img src="'. $key['imagen'].'" alt="productos_pelu">';
+                            echo '<img src="../'.$key['imagen'].'" alt="productos_pelu">';
                             echo '<h3>'. $key['nombre']. '</h3>';
                             echo '<p><b>Cod.'. $key['cod_producto']. '</b>: ' . $key['descripcion']. '</p>';
                             echo '<p class="precio"><b>'.$key['precio'].'€</b></p>';
