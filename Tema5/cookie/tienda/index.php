@@ -20,9 +20,9 @@
                 $lista = findAll();
                 foreach ($lista as $producto) {
                     echo "<article>";
-                            echo '<img src= "./webroot/'. $producto['baja'].'" alt="pan">';
-                            echo '<p>'. $producto['nombre']. '</p>';
-                            echo "<a href='./verProducto.php?producto='" . $producto['codigo']. "'>Ver</a>";                        
+                        echo '<img src= "./webroot/'. $producto['baja'].'" alt="pan">';
+                        echo '<p>'. $producto['nombre']. '</p>';
+                        echo "<a href='./verProducto.php?producto=". $producto['codigo']."'>Ver</a>";                        
                     echo "</article>"; 
                 }
             ?>

@@ -23,10 +23,12 @@ function findById($id){
         $sql_preparada=$conexion->prepare($sql);
         $resultado=$sql_preparada->execute($array($id));
         if ($resultado) {
+            $producto = $sql_preparada->fetchAll();
             unset($conexion);
-            $resultado->fetchAll();
+            return $producto;
         } else {
             return false;
+            unset($conexion);
         }
     } catch (Exception $ex) {
         print_r($ex);
