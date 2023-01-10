@@ -16,10 +16,6 @@
         <div class="logo">
             <img src="../imagen/logo.png" alt="logo" class="icono_logo">
         </div>
-        <div class="botones">
-            <i class="fa-solid fa-user"></i>
-            <i class="fa-solid fa-cart-arrow-down"><a href="#"></a></i>
-        </div>
     </header>
     <nav>
         <ul>

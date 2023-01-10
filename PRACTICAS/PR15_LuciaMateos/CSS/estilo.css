@@ -38,8 +38,11 @@ header {
     color: #be901b;
 }
 
-.botones i:hover {
-    color: #41300a;
+.botones a{
+    color: #be901b;
+    text-decoration: none;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 /* Navegador */
@@ -71,36 +74,6 @@ nav ul li a {
 nav ul li a:hover {
     background: whitesmoke;
 }
-
-/* .barra {
-    display: flex;
-    position: relative;
-    padding-right: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
-.barra input {
-    border-style: none;
-    color: #555;
-    padding: 10px;
-    font-size: 17px;
-}
-
-.barra button {
-    border-style: none;
-    background: #444 center;
-    width: 40px;
-    height: 40px;
-}
-
-.barra button i {
-    color: whitesmoke;
-}
-
-.barra button:hover {
-    background: #555;
-} */
 
 /* Principal */
 main{
@@ -250,6 +223,10 @@ main > section > article > .boton:hover{
     background-color: #d1d1d1;
 }
 
+.login div form a{
+    padding-left: 20px;
+}
+
 /* Registro */
 .registro {
     text-align: center;
@@ -261,6 +238,10 @@ main > section > article > .boton:hover{
     margin: 5px;
 }
 
+.registro div{
+    padding-bottom: 10px;
+}
+
 .registro div form{
     background-color: #d4d4d4;
     padding: 30px;
@@ -270,6 +251,7 @@ main > section > article > .boton:hover{
 
 .registro div h2{
     color: #555;
+    margin: 10px;
 }
 
 .registro div form p{
@@ -288,7 +270,6 @@ main > section > article > .boton:hover{
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
 }
 
 .registro div form .boton{
@@ -303,6 +284,10 @@ main > section > article > .boton:hover{
 .registro div form .boton:hover{
     color: #555;
     background-color: #d1d1d1;
+}
+
+.registro div form a{
+    padding-left: 20px;
 }
 
 /* Pie de pagina */
@@ -323,4 +308,8 @@ footer div a{
 
 footer div a:hover{
     color: #555;
+}
+
+.footer_registro{
+    position: relative;
 }

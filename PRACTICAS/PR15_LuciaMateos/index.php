@@ -1,3 +1,7 @@
+<?php
+    require('Funciones/funcionesBD.php');
+    require('Conexion/conexionBD.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,8 +18,18 @@
             <img src="imagen/logo.png" alt="logo" class="icono_logo">
         </div>
         <div class="botones">
-            <a href="Paginas/login.php"><i class="fa-solid fa-user"></i></a>
-            <a href="Paginas/carrito.php"><i class="fa-solid fa-cart-arrow-down"></i></a>
+        <?php
+            session_start();
+            if (estaValidado()) {
+                echo '<a href="Paginas/registro.php"><i class="fa-solid fa-pen-to-square"></i>Perfil</a>';
+                echo '<a href="Paginas/carrito.php"><i class="fa-solid fa-cart-arrow-down"></i>Carrito</a>';
+                echo '<a href="Paginas/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>';
+            } else {
+        ?>
+            <a href="Paginas/login.php"><i class="fa-solid fa-user"></i>Iniciar Sesión</a>
+        <?php
+            }
+        ?>
         </div>
     </header>
     <nav>

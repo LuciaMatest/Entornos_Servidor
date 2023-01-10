@@ -17,10 +17,6 @@
         <div class="logo">
             <img src="../imagen/logo.png" alt="logo" class="icono_logo">
         </div>
-        <div class="botones">
-            <a href="login.php"><i class="fa-solid fa-user"></i></a>
-            <i class="fa-solid fa-cart-arrow-down"><a href="#"></a></i>
-        </div>
     </header>
     <nav>
         <ul>
@@ -187,13 +183,14 @@
                     ?>
                 </p>
                 <input type="submit" value="Registrarse" name="enviar" class="boton">
+                <a href="login.php">Volver</a>
             </form>
         </div>
         <?php
             }
         ?>
     </main>
-    <footer>
+    <footer class="footer_registro">
         <div class="politicas">
             <a href="#">Politica de Cookies</a>
             <a href="#">Politica de Privacidad</a>
