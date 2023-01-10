@@ -15,7 +15,13 @@ if (empty($user)) {
     exit;
 } else {
     if (validarUser($user, $pass)) {
-        if ($_SESSION['roles'] == 'ADM01') {
+        if ($_SESSION['rol'] == 'ADM01') {
+            header('Location: ../index.php');
+            exit;
+        } elseif ($_SESSION['rol'] == 'M0001') {
+            header('Location: ../index.php');
+            exit;
+        } elseif ($_SESSION['rol'] == 'U0001') {
             header('Location: ../index.php');
             exit;
         } else {
@@ -23,8 +29,8 @@ if (empty($user)) {
             exit;
         }
     } else {
-        $_SESSION['error'] = '<span style="color:brown"> No existe el usuario o contraseña</span>';
-        header('Location: ../login.php');
+        $_SESSION['error'] = '<span style="color:brown"> No existe el usuario</span>';
+        header('Location: ../Paginas/login.php');
         exit;
     }
 }
