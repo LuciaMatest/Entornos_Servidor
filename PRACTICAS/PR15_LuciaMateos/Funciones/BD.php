@@ -18,7 +18,7 @@ function validarUser($user,$pass){
             $row = $sql_preparada->fetch();
             $_SESSION['user'] = $user;
             $_SESSION['nombre'] = $row['nombre'];
-            $_SESSION['perfil'] = $row['rol'];
+            $_SESSION['roles'] = $row['rol'];
             unset($conexion);
             return true;
         }
