@@ -150,25 +150,47 @@ main>section>article>p {
     color: #555;
 }
 
+main>section>article>div{
+    padding: 10px;
+}
+
+main>section>article>div>.contar{
+    width: 3px;
+    font-size: 17px;
+    height: 38px;
+    padding: 16px 3px;
+    border: 1px #ddd solid;
+}
+
+main>section>article>div>.boton{
+    margin-left: 10px;
+    background-color: #be901b;
+    color: whitesmoke;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 main>section>article>.precio {
     color: #444;
     font-size: x-large;
 }
 
-main>section>article>.contar {
-    width: 5px;
+main>section>article>div>.contar {
+    width: 50px;
+    padding-left: 10px;
 }
 
-main>section>article>.boton {
+/* main>section>article>.boton {
     background-color: #be901b;
     padding: 10px;
     padding-right: 50px;
     padding-left: 50px;
     font-size: x-large;
     color: whitesmoke;
-}
+} */
 
-main>section>article>.boton:hover {
+main>section>article>div>.boton:hover {
     color: #555;
     background-color: whitesmoke;
 }
