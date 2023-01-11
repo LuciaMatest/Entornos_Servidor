@@ -103,7 +103,7 @@
                                     <input type="number" class="contar" name="quantity" value="1" title="Cantidad" size="4" min="1" max="" step="1" inputmode="numeric" autocomplete="off">
                                     <a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>
                                   </div>';
-                            echo '<p class="stock">Stock: '.$key['stock'].' disponibles</p>';
+                            echo '<p>Stock: '.$key['stock'].' disponibles</p>';
                             //echo '<a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';                        
                     echo "</article>"; 
                 }
