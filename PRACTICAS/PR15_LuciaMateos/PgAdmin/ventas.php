@@ -13,56 +13,6 @@
     <title>Tienda</title>
 </head>
 <body>
-    <?php
-        $opcion=false;
-        try {
-            $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-            $sql = 'select * from productos';
-            $resultado=$conexion->query($sql);
-            $array_productos=array();
-            while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
-                array_push($array_productos,$row);
-            }
-
-        } catch (Exception $ex) {
-            if ($ex->getCode() == 2002) {
-                echo '<span style="color:brown"> Fallo de conexión </span>';
-            }
-            if ($ex->getCode() == 1049) {
-                $opcion=true;
-                $conexion2 = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                $script = usarBBDD();
-                $conexion2->exec($script);        
-            }
-            if ($ex->getCode() == 1045) {
-                echo '<span style="color:brown"> Datos incorrectos </span>';
-            }
-        }
-    ?>
-    <?
-        if ($opcion) {
-            try {
-                $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                $sql = 'select * from productos';
-                $resultado=$conexion->query($sql);
-                $array_productos=array();
-                while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
-                    array_push($array_productos,$row);
-                }
-    
-            } catch (Exception $ex) {
-                if ($ex->getCode() == 2002) {
-                    echo '<span style="color:brown"> Fallo de conexión </span>';
-                }
-                if ($ex->getCode() == 1049) {
-                    echo '<span style="color:brown"> Base de datos desconocida </span>';       
-                }
-                if ($ex->getCode() == 1045) {
-                    echo '<span style="color:brown"> Datos incorrectos </span>';
-                }
-            }
-        }
-    ?>
     <header>
         <div class="logo">
             <img src="../imagen/logo.png" alt="logo" class="icono_logo">
@@ -88,12 +38,6 @@
             <li><a href="productos.php">Tienda</a></li>
             <li><a href="#">Contacto</a></li>
             <li><a href="#">Ofertas</a></li>
-            <?php
-            if (esAdmin() || esModerador()) {
-                echo '<li><a href="../PgAdmin/almacen.php">Almacén</a></li>';
-                echo '<li><a href="../PgAdmin/ventas.php">Ventas</a></li>';
-            }
-            ?>
         </ul>
     </nav>
     <main>

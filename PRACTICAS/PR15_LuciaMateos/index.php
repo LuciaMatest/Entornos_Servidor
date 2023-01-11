@@ -40,8 +40,8 @@
             <li><a href="#">Ofertas</a></li>
             <?php
             if (esAdmin() || esModerador()) {
-                echo '<li><a href="#">Almacen</a></li>';
-                echo '<li><a href="#">Ventas</a></li>';
+                echo '<li><a href="PgAdmin/almacen.php">Almacén</a></li>';
+                echo '<li><a href="PgAdmin/ventas.php">Ventas</a></li>';
             }
             ?>
         </ul>

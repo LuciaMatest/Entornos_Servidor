@@ -14,8 +14,18 @@
             <img src="../imagen/logo.png" alt="logo" class="icono_logo">
         </div>
         <div class="botones">
-            <a href="login.php"><i class="fa-solid fa-user"></i></a>
-            <a href="#"><i class="fa-solid fa-cart-arrow-down"></i></a>
+        <?php
+            session_start();
+            if (estaValidado()) {
+                echo '<a href="carrito.php"><i class="fa-solid fa-cart-arrow-down"></i>Carrito</a>';
+                echo '<a href="perfil.php"><i class="fa-solid fa-pen-to-square"></i>Perfil</a>';
+                echo '<a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>';
+            } else {
+        ?>
+            <a href="login.php"><i class="fa-solid fa-user"></i>Iniciar Sesión</a>
+        <?php
+            }
+        ?>
         </div>
     </header>
     <nav>
@@ -24,6 +34,12 @@
             <li><a href="productos.php">Tienda</a></li>
             <li><a href="#">Contacto</a></li>
             <li><a href="#">Ofertas</a></li>
+            <?php
+            if (esAdmin() || esModerador()) {
+                echo '<li><a href="../PgAdmin/almacen.php">Almacén</a></li>';
+                echo '<li><a href="../PgAdmin/ventas.php">Ventas</a></li>';
+            }
+            ?>
         </ul>
     </nav>
     <main>
