@@ -99,6 +99,7 @@
                             echo '<h3>'. $key['nombre']. '</h3>';
                             echo '<p><b>Cod.'. $key['cod_producto']. '</b>: ' . $key['descripcion']. '</p>';
                             echo '<p class="precio"><b>'.$key['precio'].'€</b></p>';
+                            echo '<p>Stock: '.$key['stock'].' disponibles</p>';
                             echo '<div>
                                     <input type="number" class="contar" name="quantity" value="1" title="Cantidad" size="4" min="1" max="" step="1" inputmode="numeric" autocomplete="off">
                                     <a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>

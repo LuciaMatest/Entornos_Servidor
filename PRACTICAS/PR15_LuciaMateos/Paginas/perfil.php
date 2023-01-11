@@ -61,30 +61,9 @@
         <h1>Mi perfil</h1>
         <div class="perfil">
             <form action="./perfil.php" method="post">
-                <h2></h2>
                 <p>
                 <label for="idUser">Usuario:</label>
-                <input type="text" name="user" id="user" readonly
-                value="<?
-                    //Mantener el texto introducido en el campo de texto 
-                    if (enviado() && !vacio("user")) {
-                        echo $_REQUEST["user"];
-                    }
-                ?>">
-                <?
-                    //comprobar que no este vacio y que cumple los requisitos, si lo está pongo un error
-                    if (enviado()) {
-                        if (vacio("user")){
-                            ?>
-                            <span style="color:brown"> Introduce usuario</span>
-                            <?
-                        } elseif (!validarUsuario()) {
-                            ?>
-                            <span style="color:brown"> Usuario ya registrado, revise</span>
-                            <?
-                        }
-                    }
-                ?>
+                <input type="text" name="user" id="user" readonly>
                 </p>
                 <p>
                 <label for="idNombre">Nombre:</label>
@@ -112,7 +91,7 @@
                 <?
                     //comprobar que no este vacio y valido, si lo está pongo un error
                     if (enviado()) {
-                        if (vacio("password")){
+                        if (vacio("contraseña")){
                             ?>
                             <span style="color:brown"> Introduce contraseña</span>
                             <?

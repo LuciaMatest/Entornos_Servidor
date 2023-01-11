@@ -67,7 +67,7 @@
                 <?
                     //comprobar que no este vacio y valido, si lo está pongo un error
                     if (enviado()) {
-                        if (vacio("password")){
+                        if (vacio("contraseña")){
                             ?>
                             <span style="color:brown"> Introduce contraseña</span>
                             <?
