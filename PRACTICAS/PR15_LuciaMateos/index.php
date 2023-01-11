@@ -46,7 +46,7 @@
             ?>
         </ul>
     </nav>
-    <main>
+    <main class="principal">
         <div>
             <div class="rectangulo">
                 <h2>Tu Tienda de Productos de  Belleza y Bienestar</h2>
