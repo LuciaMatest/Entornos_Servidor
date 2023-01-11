@@ -181,6 +181,10 @@ main>section>article>div>.contar {
     padding-left: 10px;
 }
 
+main>section>article>.stock {
+    margin-top: 2px;
+}
+
 /* main>section>article>.boton {
     background-color: #be901b;
     padding: 10px;
