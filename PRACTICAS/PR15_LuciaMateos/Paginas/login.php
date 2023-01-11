@@ -39,8 +39,10 @@
                     <input type="password" name="contraseña" id="idContraseña">
                 </p>
                 <!-- <label><input type="checkbox" checked="checked" name="recuerdame"> Recuerdeme</label> -->
-                <input type="submit" value="Acceder" name="enviar" class="boton">
-                <a href="registro.php"> Crear cuenta</a>
+                <div>
+                    <input type="submit" value="Acceder" name="enviar" class="boton">
+                    <a href="registro.php"> Crear cuenta</a>
+                </div>
                 
             </form>
         </div>

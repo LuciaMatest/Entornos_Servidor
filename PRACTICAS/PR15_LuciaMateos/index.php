@@ -21,8 +21,8 @@
         <?php
             session_start();
             if (estaValidado()) {
-                echo '<a href="Paginas/perfil.php"><i class="fa-solid fa-pen-to-square"></i>Perfil</a>';
                 echo '<a href="Paginas/carrito.php"><i class="fa-solid fa-cart-arrow-down"></i>Carrito</a>';
+                echo '<a href="Paginas/perfil.php"><i class="fa-solid fa-pen-to-square"></i>Perfil</a>';
                 echo '<a href="Paginas/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>';
             } else {
         ?>

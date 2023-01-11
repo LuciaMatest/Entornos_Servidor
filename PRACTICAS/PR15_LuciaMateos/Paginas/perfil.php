@@ -1,6 +1,7 @@
 <?php
     require('../Funciones/funcionesBD.php');
     require('../Funciones/BD.php');
+    require('../Conexion/conexionBD.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -47,39 +48,20 @@
     </nav>
     <main class="registro">
         <?php
-            if (verificar()){
+            if (guardarCambios()){
                 actualizarUsuario();
                 session_destroy();
-                session_start();
+                validarUser($_REQUEST['user'],$_REQUEST['pass']);
             }else{
         
         ?>
         <h1>Mi perfil</h1>
         <div class="perfil">
             <form action="./perfil.php" method="post">
+                <h2></h2>
                 <p>
-                <label for="idUser">Nombre de usuario *</label>
-                <input type="text" name="user" id="user"
-                value="<?
-                    //Mantener el texto introducido en el campo de texto 
-                    if (enviado() && !vacio("user")) {
-                        echo $_REQUEST["user"];
-                    }
-                ?>">
-                <?
-                    //comprobar que no este vacio y que cumple los requisitos, si lo está pongo un error
-                    if (enviado()) {
-                        if (vacio("user")){
-                            ?>
-                            <span style="color:brown"> Introduce usuario</span>
-                            <?
-                        } elseif (!validarUsuario()) {
-                            ?>
-                            <span style="color:brown"> Usuario ya registrado, revise</span>
-                            <?
-                        }
-                    }
-                ?>
+                    <label for="idUser">Usuario</label>
+                    <input type="text" name="user" id="user" readonly>
                 </p>
                 <p>
                 <label for="idContraseña">Contraseña *</label>
@@ -185,8 +167,8 @@
                     }
                 ?>
                 </p>
-                <p>
-                    <label for="idOpcion">Rol:</label>
+                <p class="opciones">
+                    <label for="idOpcion">Rol *</label>
                     <select name="rol" id="idOpcion">
                         <option value="0">Seleccione una opción</option>
                         <option value="ADM01">Administrador</option>
@@ -202,8 +184,6 @@
                         }
                     ?>
                 </p>
-                <input type="submit" value="Guardar cambios" name="enviar" class="boton">
-                <!-- <a href="login.php">Volver</a> -->
             </form>
         </div>
         <?php

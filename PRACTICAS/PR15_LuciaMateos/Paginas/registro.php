@@ -17,9 +17,6 @@
         <div class="logo">
             <img src="../imagen/logo.png" alt="logo" class="icono_logo">
         </div>
-        <div class="botones">
-            <a href="login.php"><i class="fa-solid fa-user"></i>Iniciar Sesión</a>
-        </div>
     </header>
     <nav>
         <ul>
@@ -38,8 +35,8 @@
         ?>
         <h1>Mi cuenta</h1>
         <div class="registrarse">
-            <h2>Registrarse</h2>
             <form action="./registro.php" method="post">
+                <h2>Registrarse</h2>
                 <p>
                 <label for="idUser">Nombre de usuario *</label>
                 <input type="text" name="user" id="user"
@@ -168,8 +165,8 @@
                     }
                 ?>
                 </p>
-                <p>
-                    <label for="idOpcion">Rol:</label>
+                <p class="opciones">
+                    <label for="idOpcion">Rol *</label>
                     <select name="rol" id="idOpcion">
                         <option value="0">Seleccione una opción</option>
                         <option value="ADM01">Administrador</option>
@@ -185,8 +182,10 @@
                         }
                     ?>
                 </p>
-                <input type="submit" value="Registrarse" name="enviar" class="boton">
-                <!-- <a href="login.php">Volver</a> -->
+                <div>
+                    <input type="submit" value="Registrarse" name="enviar" class="boton">
+                    <a href="login.php">Volver</a>
+                </div>
             </form>
         </div>
         <?php

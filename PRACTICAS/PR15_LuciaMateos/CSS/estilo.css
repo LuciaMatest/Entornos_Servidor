@@ -150,11 +150,11 @@ main>section>article>p {
     color: #555;
 }
 
-main>section>article>div{
+main>section>article>div {
     padding: 10px;
 }
 
-main>section>article>div>.contar{
+main>section>article>div>.contar {
     width: 3px;
     font-size: 17px;
     height: 38px;
@@ -162,7 +162,7 @@ main>section>article>div>.contar{
     border: 1px #ddd solid;
 }
 
-main>section>article>div>.boton{
+main>section>article>div>.boton {
     margin-left: 10px;
     background-color: #be901b;
     color: whitesmoke;
@@ -200,13 +200,14 @@ main>section>article>div>.boton:hover {
     text-align: center;
     align-items: center;
     justify-content: center;
+    padding-top: 70px;
 }
 
 .login h1 {
     color: #444;
     margin: 5px;
     padding-top: 60px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .login div form {
@@ -243,7 +244,13 @@ main>section>article>div>.boton:hover {
     box-sizing: border-box;
 }
 
-.login div form .boton {
+.login div form div {
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.login div form div .boton {
     background-color: #be901b;
     border: 1px solid #ccc;
     padding: 10px;
@@ -253,12 +260,12 @@ main>section>article>div>.boton:hover {
     color: whitesmoke;
 }
 
-.login div form .boton:hover {
+.login div form div .boton:hover {
     color: #555;
     background-color: #d1d1d1;
 }
 
-.login div form a {
+.login div form div a {
     padding-left: 20px;
 }
 
@@ -266,32 +273,34 @@ main>section>article>div>.boton:hover {
 .registro {
     text-align: center;
     align-items: center;
+    justify-content: center;
 }
 
 .registro h1 {
     color: #444;
     margin: 5px;
-}
-
-.registro div {
-    padding-bottom: 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
 }
 
 .registro div form {
     background-color: #d4d4d4;
-    padding: 30px;
+    width: 500px;
+    margin: 10px auto;
+    padding: 20px;
     text-align: left;
     border-radius: 5px;
 }
 
-.registro div h2 {
+.registro div form h2 {
     color: #555;
-    margin: 10px;
+    text-align: center;
+    margin: 5px;
 }
 
 .registro div form p {
-    padding: 3px;
-    margin: 0 0 6px;
+    padding: 5px;
+    margin: 0;
 }
 
 .registro div form p label {
@@ -305,10 +314,18 @@ main>section>article>div>.boton:hover {
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.registro div form div {
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
 }
 
 .registro div form .boton {
     background-color: #be901b;
+    border: 1px solid #ccc;
     padding: 10px;
     padding-right: 50px;
     padding-left: 50px;
@@ -323,6 +340,16 @@ main>section>article>div>.boton:hover {
 
 .registro div form a {
     padding-left: 20px;
+}
+
+.registro div form .opciones select{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 /* Pie de pagina */
