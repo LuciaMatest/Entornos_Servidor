@@ -28,8 +28,8 @@
     <main class="login">
         <h1>Mi cuenta</h1>
         <div class="acceso">
-            <h2>Acceder</h2>
             <form action="../Funciones/valida.php" method="post">
+                <h2>Acceder</h2>
                 <p>
                     <label for="idUser">Nombre de usuario *</label>
                     <input type="text" name="user" id="idUser">
@@ -38,8 +38,10 @@
                     <label for="idContraseña">Contraseña *</label>
                     <input type="password" name="contraseña" id="idContraseña">
                 </p>
+                <!-- <label><input type="checkbox" checked="checked" name="recuerdame"> Recuerdeme</label> -->
                 <input type="submit" value="Acceder" name="enviar" class="boton">
-                <a href="registro.php">Crear una cuenta</a>
+                <a href="registro.php"> Crear cuenta</a>
+                
             </form>
         </div>
     </main>
