@@ -114,12 +114,14 @@ function verificar(){
 
 function guardarCambios(){
     if (enviado()){
-        if(!vacio("contraseña") && !vacio('contraseña2') && patronContraseña() && $_REQUEST['contraseña']==$_REQUEST['contraseña2']){
-            if (!vacio('nombre')) {
-                if (!vacio('email') && patronEmail()) {
-                    if (!vacio('fecha') && patronFecha()) {
-                        if (existe('rol') && $_REQUEST['rol']!=0) {
-                            return true;
+        if (!vacio('user')) {
+            if(!vacio("contraseña") && !vacio('contraseña2') && patronContraseña() && $_REQUEST['contraseña']==$_REQUEST['contraseña2']){
+                if (!vacio('nombre')) {
+                    if (!vacio('email') && patronEmail()) {
+                        if (!vacio('fecha') && patronFecha()) {
+                            if (existe('rol') && $_REQUEST['rol']!=0) {
+                                return true;
+                            }
                         }
                     }
                 }
