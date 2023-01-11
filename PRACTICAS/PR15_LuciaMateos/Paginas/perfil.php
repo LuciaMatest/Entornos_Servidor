@@ -1,7 +1,7 @@
 <?php
     require('../Funciones/funcionesBD.php');
     require('../Funciones/BD.php');
-    require('../Conexion/conexionBD.php');
+    // require('../Conexion/conexionBD.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -52,6 +52,9 @@
                 actualizarUsuario();
                 session_destroy();
                 validarUser($_REQUEST['user'],$_REQUEST['pass']);
+                session_start();
+                echo "<h2>Perfil actualizado!</h2>";
+                echo "<a href='../index.php' class='botones'>Volver a inicio</a>";
             }else{
         
         ?>
@@ -60,47 +63,31 @@
             <form action="./perfil.php" method="post">
                 <h2></h2>
                 <p>
-                    <label for="idUser">Usuario</label>
-                    <input type="text" name="user" id="user" readonly>
-                </p>
-                <p>
-                <label for="idContraseña">Contraseña *</label>
-                <input type="password" name="contraseña" id="contraseña">
+                <label for="idUser">Usuario:</label>
+                <input type="text" name="user" id="user" readonly
+                value="<?
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("user")) {
+                        echo $_REQUEST["user"];
+                    }
+                ?>">
                 <?
-                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    //comprobar que no este vacio y que cumple los requisitos, si lo está pongo un error
                     if (enviado()) {
-                        if (vacio("password")){
+                        if (vacio("user")){
                             ?>
-                            <span style="color:brown"> Introduce contraseña</span>
+                            <span style="color:brown"> Introduce usuario</span>
                             <?
-                        } elseif (!patronContraseña()) {
+                        } elseif (!validarUsuario()) {
                             ?>
-                            <span style="color:brown"> Contraseña no válida, revise</span>
+                            <span style="color:brown"> Usuario ya registrado, revise</span>
                             <?
                         }
                     }
                 ?>
                 </p>
                 <p>
-                <label for="idContraseña2">Repite la contraseña *</label>
-                <input type="password" name="contraseña2" id="contraseña2">
-                <?
-                    //comprobar que no este vacio y valido, si lo está pongo un error
-                    if (enviado()){
-                        if (vacio('contraseña2')) {
-                            ?>
-                            <span style="color:brown">Introduce la contraseña de nuevo</span>
-                            <?           
-                        }elseif ($_REQUEST['contraseña']!=$_REQUEST['contraseña2']) {
-                            ?>
-                            <span style="color:brown"> Introduce de nuevo la contraseña</span>
-                            <?                              
-                        }
-                    }
-                ?>
-                </p>
-                <p>
-                <label for="idNombre">Nombre *</label>
+                <label for="idNombre">Nombre:</label>
                 <input type="text" name="nombre" id="idNombre"
                 value="<?
                     //Mantener el texto introducido en el campo de texto 
@@ -120,7 +107,44 @@
                 ?>
                 </p>
                 <p>
-                <label for="idEmail">Email *</label>
+                <label for="idContraseña">Contraseña:</label>
+                <input type="password" name="contraseña" id="contraseña">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("password")){
+                            ?>
+                            <span style="color:brown"> Introduce contraseña</span>
+                            <?
+                        } elseif (!patronContraseña()) {
+                            ?>
+                            <span style="color:brown"> Contraseña no válida, revise</span>
+                            <?
+                        }
+                    }
+                ?>
+                </p>
+                <p>
+                <label for="idContraseña2">Repite la contraseña:</label>
+                <input type="password" name="contraseña2" id="contraseña2">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()){
+                        if (vacio('contraseña2')) {
+                            ?>
+                            <span style="color:brown">Introduce la contraseña de nuevo</span>
+                            <?           
+                        }elseif ($_REQUEST['contraseña']!=$_REQUEST['contraseña2']) {
+                            ?>
+                            <span style="color:brown"> Introduce de nuevo la contraseña</span>
+                            <?                              
+                        }
+                    }
+                ?>
+                </p>
+                
+                <p>
+                <label for="idEmail">Email:</label>
                 <input type="email" name="email" id="idEmail"
                 value="<?
                     //Mantener el texto introducido en el campo de texto 
@@ -144,7 +168,7 @@
                 ?>
                 </p>
                 <p>
-                <label for="idFecha">Fecha de nacimiento *</label>
+                <label for="idFecha">Fecha de nacimiento:</label>
                 <input type="text" name="fecha" id="fecha" placeholder="dd/mm/aaaa"
                 value="<?
                     //Mantener el texto introducido en el campo de texto 
@@ -168,7 +192,7 @@
                 ?>
                 </p>
                 <p class="opciones">
-                    <label for="idOpcion">Rol *</label>
+                    <label for="idOpcion">Rol:</label>
                     <select name="rol" id="idOpcion">
                         <option value="0">Seleccione una opción</option>
                         <option value="ADM01">Administrador</option>
@@ -184,6 +208,10 @@
                         }
                     ?>
                 </p>
+                <div>
+                    <input type="submit" value="Guardar cambios" name="enviar" class="boton">
+                    <a href="login.php">Volver</a>
+                </div>
             </form>
         </div>
         <?php
