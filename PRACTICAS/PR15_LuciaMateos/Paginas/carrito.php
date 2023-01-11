@@ -1,3 +1,7 @@
+<?php
+    require('../Funciones/funcionesBD.php');
+    require('../Conexion/conexionBD.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

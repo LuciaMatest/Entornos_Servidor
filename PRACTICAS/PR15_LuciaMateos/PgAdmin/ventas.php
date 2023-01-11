@@ -38,6 +38,11 @@
             <li><a href="productos.php">Tienda</a></li>
             <li><a href="#">Contacto</a></li>
             <li><a href="#">Ofertas</a></li>
+            <?php
+            if (esAdmin() || esModerador()) {
+                echo '<li><a href="almacen.php">Almacén</a></li>';
+            }
+            ?>
         </ul>
     </nav>
     <main>
