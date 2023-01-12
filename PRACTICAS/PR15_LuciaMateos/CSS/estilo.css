@@ -113,7 +113,7 @@ nav ul li a:hover {
     transform: scaleX(-1);
 }
 
-/* Productos */
+/* Tienda */
 main {
     padding-left: 10px;
     padding-right: 10px;
@@ -150,7 +150,7 @@ main>section>article>p {
     color: #555;
 }
 
-main>section>article>div {
+/* main>section>article>div {
     padding: 10px;
 }
 
@@ -171,27 +171,27 @@ main>section>article>div>.boton {
     padding-right: 15px;
 }
 
-main>section>article>.precio {
-    color: #444;
-    font-size: x-large;
-}
-
 main>section>article>div>.contar {
     width: 50px;
     padding-left: 10px;
+} */
+
+main>section>article>.precio {
+    color: #444;
+    font-size: large;
 }
 
 
-/* main>section>article>.boton {
+main>section>article>.boton {
     background-color: #be901b;
     padding: 10px;
     padding-right: 50px;
     padding-left: 50px;
     font-size: x-large;
     color: whitesmoke;
-} */
+}
 
-main>section>article>div>.boton:hover {
+main>section>article>.boton:hover {
     color: #555;
     background-color: whitesmoke;
 }
