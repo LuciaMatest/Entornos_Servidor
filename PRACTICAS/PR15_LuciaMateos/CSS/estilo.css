@@ -146,7 +146,7 @@ nav ul li a:hover {
 .tienda section article h3 {
     color: #303030;
     margin-top: 10px;
-    font-size: x-large;
+    font-size: 25px;
     margin-bottom: 5px;
 }
 
@@ -156,15 +156,15 @@ nav ul li a:hover {
 
 .tienda section article .precio {
     color: #444;
-    font-size: large;
+    font-size: 20px;
     padding-bottom: 5px;
 }
 
 .tienda section article .boton {
     background-color: #be901b;
-    padding: 10px;
-    padding-right: 25px;
-    padding-left: 25px;
+    padding: 12px;
+    padding-right: 50px;
+    padding-left: 50px;
     font-size: medium;
     color: whitesmoke;
 }
@@ -182,24 +182,27 @@ nav ul li a:hover {
 .producto section article {
     display: flex;
     flex-direction: column;
+    background-color: white;
+    padding-bottom: 12%;
 }
 
-.producto section article .detalles{
+.producto section article .detalles {
     display: flex;
     flex-direction: row;
-    background-color: white;
     padding-top: 50px;
+    padding-left: 30px;
 }
 
 .producto section article .detalles img {
-    padding: 100px;
+    padding: 50px;
     width: inherit;
     padding-top: 5px;
+    padding-bottom: 5px;
     max-width: max-content;
     margin-right: 0px;
 }
 
-.producto section article .detalles .informacion{
+.producto section article .detalles .informacion {
     display: flex;
     flex-direction: column;
 }
@@ -226,7 +229,7 @@ nav ul li a:hover {
     color: #555;
 }
 
-.producto section article .detalles .informacion .unidad{
+.producto section article .detalles .informacion .unidad {
     margin-bottom: 2px;
 }
 
@@ -248,15 +251,41 @@ nav ul li a:hover {
     font-size: 20px;
     color: whitesmoke;
     padding: 15px;
-    padding-left: 35px;
-    padding-right: 35px;
+    padding-left: 70px;
+    padding-right: 70px;
 }
 
 .producto section article .detalles .informacion .stock {
     color: rgb(116, 116, 116);
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 55px;
+    padding-right: 55px;
 }
+
+.producto section article .descripcion {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    padding-left: 30px;
+}
+
+.producto section article .descripcion h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 8px;
+    margin-left: 10px;
+}
+
+.producto section article .descripcion p {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: justify;
+    margin-top: 8px;
+    margin-left: 20px;
+}
+
 
 /* Login */
 .login {
