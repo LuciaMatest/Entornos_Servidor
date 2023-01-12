@@ -112,7 +112,7 @@
                                     if (estaValidado()) {
                                         echo '<a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';
                                     } else {
-                                        echo '<a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';
+                                        echo '<a href="login.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';
                                     }
                                     echo '<p class="stock">Stock: '.$key['stock'].' disponibles</p>';
                                 echo '</div>';
