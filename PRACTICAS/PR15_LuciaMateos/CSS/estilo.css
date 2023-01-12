@@ -355,21 +355,24 @@ main>section>article>div>.boton:hover {
 
 /* Ventas */
 .venta{
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    padding: 20px;
+}
+
+/* Almacén */
+.almacen{
+    padding: 20px;
 }
 
 /* Tablas */
 table,tr {
-    border: 2px solid black;
+    border: 2px solid #444;
     border-collapse: collapse;
-    width:90%;
+    width:100%;
     text-align: center;
 }
 
 th {
-    background-color: #490716;
+    background-color: #be901b;
     color: white;
     padding: 15px;
 }

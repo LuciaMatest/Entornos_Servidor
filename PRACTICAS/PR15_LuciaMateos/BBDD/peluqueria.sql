@@ -67,3 +67,5 @@ create table albaran (
     foreign key (usuario_albaran) references usuarios (usuario),
 	foreign key (cod_producto) references productos (cod_producto)
 ) engine=innodb;
+
+insert into albaran (id_albaran, fecha_albaran, cod_producto, cantidad, usuario_albaran) values ('2014','2015-09-14','3030','1','Lulu');

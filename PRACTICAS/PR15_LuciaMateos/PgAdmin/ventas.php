@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../CSS/estilo.css">
-    <title>Tienda</title>
+    <title>Ventas</title>
 </head>
 <body>
     <header>
@@ -21,9 +21,9 @@
         <?php
             session_start();
             if (estaValidado()) {
-                echo '<a href="carrito.php"><i class="fa-solid fa-cart-arrow-down"></i>Carrito</a>';
-                echo '<a href="perfil.php"><i class="fa-solid fa-pen-to-square"></i>Perfil</a>';
-                echo '<a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>';
+                echo '<a href="../Paginas/carrito.php"><i class="fa-solid fa-cart-arrow-down"></i>Carrito</a>';
+                echo '<a href="../Paginas/perfil.php"><i class="fa-solid fa-pen-to-square"></i>Perfil</a>';
+                echo '<a href="../Paginas/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>';
             } else {
         ?>
             <a href="login.php"><i class="fa-solid fa-user"></i>Iniciar Sesión</a>
@@ -54,6 +54,7 @@
                 <th>Cod producto</th>
                 <th>Cantidad</th>
                 <th>Total</th>
+                <th></th>
             </tr>
             <tr>
             <?php
@@ -75,9 +76,9 @@
                     echo '<td>' . $row['precio_total'] . '</td>';
                     if (esAdmin()) {
                         echo "<td>";
-                        echo '<a href="#"><i class="fa-solid fa-cart-arrow-down"></i>Eliminar</a>';
+                        echo '<a href="#"><i class="fa-solid fa-cart-arrow-down"></i> Eliminar</a>';
                         echo "/";
-                        echo '<a href="#"><i class="fa-solid fa-cart-arrow-down"></i>Modificar</a>';
+                        echo '<a href="#"><i class="fa-solid fa-cart-arrow-down"></i> Modificar</a>';
                         echo "</td>";     
                     }
                     echo '</tr>';
@@ -98,7 +99,7 @@
             ?>
         </table>
     </main>
-    <footer class="footer_registro">
+    <footer>
         <div class="politicas">
             <a href="#">Politica de Cookies</a>
             <a href="#">Politica de Privacidad</a>
