@@ -86,33 +86,25 @@ function actualizarUsuario(){
     }
 }
 
-function findAllVentas(){
+function ventaProducto(){
     try {
-        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD,USER,PASS);
-        $sql = "select * from ventas";
-        $resultado=$conexion->query($sql);
-        $array=$resultado->fetchAll(PDO::FETCH_ASSOC);
-        unset($conexion);
-        return $array;
-    } catch (Exception $ex) {
-        print_r($ex);
-        unset($conexion);
-        return false;
-    }
-}
+        $conexion= new PDO('mysql:host='. $_SERVER['SERVER_ADDR']. ';dbname=' .BBDD,USER,PASS); 
+        $sql="insert into ventas (usuario_ventas, fecha_compra, cod_producto, cantidad, precio_total) values (:usuario_ventas,:fecha_compra,:cod_producto,:cantidad,:precio_total);";
+        $sql2="update productos set stock=:stock where cod_producto=:cod_producto;";
+        $nstock=$_REQUEST['stock']-$_REQUEST['cantidad'];
 
-function findAllAlbaran(){
-    try {
-        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD,USER,PASS);
-        $sql = "select * from albaran";
-        $resultado=$conexion->query($sql);
-        $array=$resultado->fetchAll(PDO::FETCH_ASSOC);
-        unset($conexion);
-        return $array;
+        $sql_preparada=$conexion->prepare($sql);
+        $sql_preparada2=$conexion->prepare($sql2);
+
+        $array= array(":usuario_ventas"=>$_SESSION['user'],":fecha_compra"=>date('Y-m-d'),":cod_producto"=>$_REQUEST['cod_producto'],":cantidad"=>$_REQUEST['cantidad'],":precio_total"=> floatval($_REQUEST['precio'])*(floatval($_REQUEST['cantidad'])));
+        $array2= array(":cod_producto"=>$_REQUEST['cod_producto'],":stock"=>$nstock);
+
+        $sql_preparada->execute($array);
+        $sql_preparada2->execute($array2);
     } catch (Exception $ex) {
         print_r($ex);
         unset($conexion);
-        return false;
+        
     }
 }
 ?>

@@ -1,5 +1,6 @@
 <?php
     require('../Funciones/funcionesBD.php');
+    require('../Funciones/BD.php');
     require('../Conexion/conexionBD.php');
 ?>
 <!DOCTYPE html>
@@ -13,47 +14,16 @@
     <title>Carrito</title>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="../imagen/logo.png" alt="logo" class="icono_logo">
-        </div>
-        <div class="botones">
-        <?php
-            session_start();
-            if (estaValidado()) {
-                echo '<a href="carrito.php"><i class="fa-solid fa-cart-arrow-down"></i>Carrito</a>';
-                echo '<a href="perfil.php"><i class="fa-solid fa-pen-to-square"></i>Perfil</a>';
-                echo '<a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>';
-            } else {
-        ?>
-            <a href="login.php"><i class="fa-solid fa-user"></i>Iniciar Sesión</a>
-        <?php
-            }
-        ?>
-        </div>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="../index.php">Inicio</a></li>
-            <li><a href="productos.php">Tienda</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#">Ofertas</a></li>
-            <?php
-            if (esAdmin() || esModerador()) {
-                echo '<li><a href="../PgAdmin/almacen.php">Almacén</a></li>';
-                echo '<li><a href="../PgAdmin/ventas.php">Ventas</a></li>';
-            }
-            ?>
-        </ul>
-    </nav>
-    <main>
-        
-    </main>
-    <footer>
-        <div class="politicas">
-            <a href="#">Politica de Cookies</a>
-            <a href="#">Politica de Privacidad</a>
-        </div>
-    </footer>
+<?    
+    session_start();
+    if (estaValidado()) {
+        ventaProducto();
+        header('Location: ../index.php');
+        exit;
+    }else {
+        header('Location: ../login.php');
+        exit;
+    }
+?>
 </body>
 </html>

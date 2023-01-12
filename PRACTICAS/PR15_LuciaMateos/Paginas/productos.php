@@ -106,10 +106,13 @@
                             echo '<p><b>Cod.'. $key['cod_producto']. '</b>: ' . $key['descripcion']. '</p>';
                             echo '<p class="precio"><b>'.$key['precio'].'€</b></p>';
                             echo '<div>
-                                    <input type="number" class="contar" name="quantity" value="1" title="Cantidad" size="4" min="1" max="" step="1" inputmode="numeric" autocomplete="off">
-                                    <a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>
-                                  </div>';
+                            <input type="number" class="contar" name="quantity" value="1" title="Cantidad" size="4" min="1" max="" step="1" inputmode="numeric" autocomplete="off">
+                            <a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>
+                            </div>';
                             echo '<p>Stock: '.$key['stock'].' disponibles</p>';
+                            echo '<input type="hidden" name="cod_producto" value="'.$key['cod_producto'].'">';
+                            echo '<input type="hidden" name="precio" value="'.$key['precio'].'">';
+                            echo '<input type="hidden" name="stock" value="'.$key['stock'].'">';
                             //echo '<a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';                        
                     echo "</article>"; 
                 }
