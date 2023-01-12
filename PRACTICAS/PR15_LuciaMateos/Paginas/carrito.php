@@ -18,7 +18,7 @@
     session_start();
     if (estaValidado()) {
         ventaProducto();
-        header('Location: ../index.php');
+        header('Location: ../login.php');
         exit;
     }else {
         header('Location: ../login.php');
