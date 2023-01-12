@@ -96,25 +96,32 @@
             ?>
         </ul>
     </nav>
-    <main>
+    <main class="producto">
         <section>
             <?
                 foreach ($array_productos as $key) {
-                    echo "<article>";
-                            echo '<img src="../'.$key['imagen'].'" alt="productos_pelu">';
-                            echo '<h3>'. $key['nombre']. '</h3>';
-                            echo '<p><b>Cod.'. $key['cod_producto']. '</b>: ' . $key['descripcion']. '</p>';
-                            echo '<p class="precio"><b>'.$key['precio'].'€</b></p>';
-                            echo '<div>
-                            <input type="number" class="contar" name="quantity" value="1" title="Cantidad" size="4" min="1" max="" step="1" inputmode="numeric" autocomplete="off">
-                            <a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>
-                            </div>';
-                            echo '<p>Stock: '.$key['stock'].' disponibles</p>';
-                            echo '<input type="hidden" name="cod_producto" value="'.$key['cod_producto'].'">';
-                            echo '<input type="hidden" name="precio" value="'.$key['precio'].'">';
-                            echo '<input type="hidden" name="stock" value="'.$key['stock'].'">';
-                            //echo '<a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';                        
-                    echo "</article>"; 
+                    if ($key['cod_producto']==$_REQUEST['cod_producto']){
+                        echo "<article>";
+                            echo '<div class="detalles">';
+                                echo '<img src="../'.$key['imagen_alta'].'" alt="productos_pelu">';
+                                echo '<div class="informacion">';
+                                    echo '<h3>'. $key['nombre']. '</h3>';
+                                    echo '<p class="precio"><b>'.$key['precio'].'€</b></p>';
+                                    echo '<p class="unidad">Unidades:</p>';
+                                    echo '<input type="number" class="contar" name="quantity" value="1" title="Cantidad" size="4" min="1" max="" step="1" inputmode="numeric" autocomplete="off">';
+                                    echo '<a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';
+                                    echo '<p class="stock">Stock: '.$key['stock'].' disponibles</p>';
+                                echo '</div>';
+                            echo '</div>';
+                            echo '<div class="description">';
+                                echo '<h3>'. $key['nombre']. '</h3>';
+                                echo '<p><b>Cod.'. $key['cod_producto']. '</b>: ' . $key['descripcion']. '</p>';
+                            echo '</div>';
+                                echo '<input type="hidden" name="cod_producto" value="'.$key['cod_producto'].'">';
+                                echo '<input type="hidden" name="precio" value="'.$key['precio'].'">';
+                                echo '<input type="hidden" name="stock" value="'.$key['stock'].'">';                       
+                        echo "</article>"; 
+                    }
                 }
             ?>
         </section>
