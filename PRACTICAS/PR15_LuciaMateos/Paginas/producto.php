@@ -109,7 +109,11 @@
                                     echo '<p class="precio"><b>'.$key['precio'].'€</b></p>';
                                     echo '<p class="unidad">Unidades:</p>';
                                     echo '<input type="number" class="contar" name="quantity" value="1" title="Cantidad" size="4" min="1" max="" step="1" inputmode="numeric" autocomplete="off">';
-                                    echo '<a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';
+                                    if (estaValidado()) {
+                                        echo '<a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';
+                                    } else {
+                                        echo '<a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';
+                                    }
                                     echo '<p class="stock">Stock: '.$key['stock'].' disponibles</p>';
                                 echo '</div>';
                             echo '</div>';
