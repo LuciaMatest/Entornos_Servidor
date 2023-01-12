@@ -1,6 +1,6 @@
 <?php
     require('../Funciones/funcionesBD.php');
-    require('../Conexion/conexionBD.php');
+    require('../Funciones/BD.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -45,25 +45,58 @@
             ?>
         </ul>
     </nav>
-    <main>
-        <section>
-            <?
-                foreach ($array_productos as $key) {
-                    echo "<article>";
-                            echo '<img src="../'.$key['imagen'].'" alt="productos_pelu">';
-                            echo '<h3>'. $key['nombre']. '</h3>';
-                            echo '<p><b>Cod.'. $key['cod_producto']. '</b>: ' . $key['descripcion']. '</p>';
-                            echo '<p class="precio"><b>'.$key['precio'].'€</b></p>';
-                            echo '<div>
-                                    <input type="number" class="contar" name="quantity" value="1" title="Cantidad" size="4" min="1" max="" step="1" inputmode="numeric" autocomplete="off">
-                                    <a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>
-                                  </div>';
-                            echo '<p>Stock: '.$key['stock'].' disponibles</p>';
-                            //echo '<a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';                        
-                    echo "</article>"; 
+    <main class="venta">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Fecha compra</th>
+                <th>Cod producto</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+            <?php
+            // require('../Conexion/conexionBD.php');
+            //Transaccion
+            try {
+                $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+                //Seleccionamos todos los datos que tiene la tabla de canciones
+                $sql = 'select * from ventas';
+                $resultado=$conexion->query($sql);
+                //Recorremos la tabla para ir incorporando cada dato a la tabla en el lugar correspondiente
+                while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
+                    echo '<tr>';
+                    echo '<td>' . $row['id_ventas'] . '</td>';
+                    echo '<td>' . $row['usuario_ventas'] . '</td>';
+                    echo '<td>' . $row['fecha_compra'] . '</td>';
+                    echo '<td>' . $row['cod_producto'] . '</td>';
+                    echo '<td>' . $row['cantidad'] . '</td>';
+                    echo '<td>' . $row['precio_total'] . '</td>';
+                    if (esAdmin()) {
+                        echo "<td>";
+                        echo '<a href="#"><i class="fa-solid fa-cart-arrow-down"></i>Eliminar</a>';
+                        echo "/";
+                        echo '<a href="#"><i class="fa-solid fa-cart-arrow-down"></i>Modificar</a>';
+                        echo "</td>";     
+                    }
+                    echo '</tr>';
                 }
+            } catch (Exception $ex) {
+                if ($ex->getCode() == 2002) {
+                    echo '<span style="color:brown"> Fallo de conexión </span>';
+                }
+                if ($ex->getCode() == 1049) {
+                    echo '<span style="color:brown"> Base de datos desconocida </span>';
+                }
+                if ($ex->getCode() == 1045) {
+                    echo '<span style="color:brown"> Datos incorrectos </span>';
+                }
+            }finally{
+                unset($conexion);
+            }
             ?>
-        </section>
+        </table>
     </main>
     <footer class="footer_registro">
         <div class="politicas">

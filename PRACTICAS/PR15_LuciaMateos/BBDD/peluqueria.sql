@@ -54,6 +54,8 @@ create table ventas (
 	foreign key (cod_producto) references productos (cod_producto)
 ) engine=innodb;
 
+insert into ventas (id_ventas, usuario_ventas, fecha_compra, cod_producto, cantidad, precio_total) values ('1117','Lulu','2015-09-14','3030','1','13.81');
+
 create table albaran (
     id_albaran INT PRIMARY KEY AUTO_INCREMENT,
     fecha_albaran DATE NOT NULL,

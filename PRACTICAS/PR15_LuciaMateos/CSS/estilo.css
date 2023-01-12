@@ -353,6 +353,31 @@ main>section>article>div>.boton:hover {
     box-sizing: border-box;
 }
 
+/* Ventas */
+.venta{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Tablas */
+table,tr {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width:90%;
+    text-align: center;
+}
+
+th {
+    background-color: #490716;
+    color: white;
+    padding: 15px;
+}
+
+td{
+    padding: 10px;
+}
+
 /* Pie de pagina */
 footer {
     background-color: #d4d4d4;
