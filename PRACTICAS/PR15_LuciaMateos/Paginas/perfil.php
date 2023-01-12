@@ -63,16 +63,26 @@
             <form action="./perfil.php" method="post">
                 <p>
                 <label for="idUser">Usuario:</label>
-                <input type="text" name="user" id="user" readonly>
+                <input type="text" name="user" id="user" readonly 
+                value="<?php
+                    echo $_SESSION["user"];
+                ?>">
+                <?
+                    //comprobar que no este vacio y que cumple los requisitos, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("user")){
+                            ?>
+                            <span style="color:brown"> Introduce usuario</span>
+                            <?
+                        }
+                    }
+                ?>
                 </p>
                 <p>
                 <label for="idNombre">Nombre:</label>
                 <input type="text" name="nombre" id="idNombre"
                 value="<?
-                    //Mantener el texto introducido en el campo de texto 
-                    if (enviado() && !vacio("nombre")) {
-                        echo $_REQUEST["nombre"];
-                    }
+                    echo $_SESSION["nombre"];
                 ?>">
                 <?
                     //comprobar que no este vacio y que cumple los requisitos, si lo está pongo un error
@@ -87,7 +97,10 @@
                 </p>
                 <p>
                 <label for="idContraseña">Contraseña:</label>
-                <input type="password" name="contraseña" id="contraseña">
+                <input type="password" name="contraseña" id="contraseña"
+                value="<?
+                    echo $_SESSION["contraseña"];
+                ?>">
                 <?
                     //comprobar que no este vacio y valido, si lo está pongo un error
                     if (enviado()) {
@@ -104,32 +117,10 @@
                 ?>
                 </p>
                 <p>
-                <label for="idContraseña2">Repite la contraseña:</label>
-                <input type="password" name="contraseña2" id="contraseña2">
-                <?
-                    //comprobar que no este vacio y valido, si lo está pongo un error
-                    if (enviado()){
-                        if (vacio('contraseña2')) {
-                            ?>
-                            <span style="color:brown">Introduce la contraseña de nuevo</span>
-                            <?           
-                        }elseif ($_REQUEST['contraseña']!=$_REQUEST['contraseña2']) {
-                            ?>
-                            <span style="color:brown"> Introduce de nuevo la contraseña</span>
-                            <?                              
-                        }
-                    }
-                ?>
-                </p>
-                
-                <p>
                 <label for="idEmail">Email:</label>
                 <input type="email" name="email" id="idEmail"
                 value="<?
-                    //Mantener el texto introducido en el campo de texto 
-                    if (enviado() && !vacio("email")) {
-                        echo $_REQUEST["email"];
-                    }
+                    echo $_SESSION["email"];
                 ?>">
                 <?
                     //comprobar que no este vacio y valido, si lo está pongo un error
@@ -150,10 +141,7 @@
                 <label for="idFecha">Fecha de nacimiento:</label>
                 <input type="text" name="fecha" id="fecha" placeholder="dd/mm/aaaa"
                 value="<?
-                    //Mantener el texto introducido en el campo de texto 
-                    if (enviado() && !vacio("fecha")) {
-                        echo $_REQUEST["fecha"];
-                    }
+                    echo $_SESSION["fecha"];
                 ?>">
                 <?
                     //comprobar que no este vacio, que sea fecha correcta y si lo está pongo un error
