@@ -114,12 +114,12 @@ nav ul li a:hover {
 }
 
 /* Tienda */
-main {
+.tienda {
     padding-left: 10px;
     padding-right: 10px;
 }
 
-main>section {
+.tienda section {
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: space-around;
@@ -128,7 +128,7 @@ main>section {
     background-color: white;
 }
 
-main>section>article {
+.tienda section article {
     position: relative;
     float: left;
     width: 400px;
@@ -138,16 +138,35 @@ main>section>article {
     border: 1px solid transparent;
 }
 
-main>section>article>img {
+.tienda section article img {
     padding: 20px;
 }
 
-main>section>article>h3 {
+.tienda section article h3 {
     color: #303030;
 }
 
-main>section>article>p {
+.tienda section article p {
     color: #555;
+}
+
+.tienda section article .precio {
+    color: #444;
+    font-size: large;
+}
+
+.tienda section article .boton {
+    background-color: #be901b;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: large;
+    color: whitesmoke;
+}
+
+.tienda section article .boton:hover {
+    color: #555;
+    background-color: whitesmoke;
 }
 
 /* main>section>article>div {
@@ -175,26 +194,6 @@ main>section>article>div>.contar {
     width: 50px;
     padding-left: 10px;
 } */
-
-main>section>article>.precio {
-    color: #444;
-    font-size: large;
-}
-
-
-main>section>article>.boton {
-    background-color: #be901b;
-    padding: 10px;
-    padding-right: 50px;
-    padding-left: 50px;
-    font-size: x-large;
-    color: whitesmoke;
-}
-
-main>section>article>.boton:hover {
-    color: #555;
-    background-color: whitesmoke;
-}
 
 /* Login */
 .login {

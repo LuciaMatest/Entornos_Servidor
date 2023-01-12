@@ -19,7 +19,8 @@ create table usuarios (
 
 CREATE TABLE productos (
     cod_producto INT PRIMARY KEY,
-    imagen CHAR(30) NOT NULL,
+    imagen_alta CHAR(30) NOT NULL,
+    imagen_baja CHAR(30) NOT NULL,
     nombre CHAR(30) NOT NULL,
     descripcion CHAR(140) NOT NULL,
     precio NUMERIC(5,2) NOT NULL,
@@ -34,12 +35,12 @@ insert into usuarios (usuario, clave, nombre, correo, fecha, rol) values ('Lulu'
 insert into usuarios (usuario, clave, nombre, correo, fecha, rol) values ('Mod1','d2556a84b8b33416e0475cb7346fd65682bde4b6','Mod123','mod1@correo.com', '2015-09-14', 'M0001');
 insert into usuarios (usuario, clave, nombre, correo, fecha, rol) values ('User1','1738fbf898038e1b9119d24c929804df51e506aa','Usu123','usu1@correo.com', '2001-05-22', 'U0001');
 
-insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('1117','./imagen/1.png','Tahe Botanic','Mascarilla Aceite de Árgan, Aceite de Amapola y Aceite de Palo de Rosa 700 ml','21.80','7');
-insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('2596','./imagen/2.png','Tahe Natural Hair','Champu Dermorelax Essence 1000 ml','19.95','10');
-insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('3030','./imagen/3.jpg','Postquam','Champú de hierbas 1000 ml','6.90','4');
-insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('3152','./imagen/4.jpg','Crawford','Champú nutrición 1000 ml','10.61','12');
-insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('3319','./imagen/5.png','Revlon','Champú Micellar Equave hidratante con queratina 250 ml','13.81','6');
-insert into productos (cod_producto, imagen, nombre, descripcion, precio, stock) values ('4497','./imagen/6.jpg','Postquam','Emulsión Suavizante Cabellos Teñidos 1000 ml','8.90','2');
+insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('1117','./imagen/alta/1-1.png', './imagen/baja/1-baja.png', 'Tahe Botanic','Mascarilla Aceite de Árgan, Aceite de Amapola y Aceite de Palo de Rosa 700 ml','21.80','7');
+insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('2596','./imagen/alta/2-2.png', './imagen/baja/2-baja.png', 'Tahe Natural Hair','Champu Dermorelax Essence 1000 ml','19.95','10');
+insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('3030','./imagen/alta/3-3.png', './imagen/baja/3-baja.png', 'Postquam','Champú de hierbas 1000 ml','6.90','4');
+insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('3152','./imagen/alta/4-4.png', './imagen/baja/4-baja.png', 'Crawford','Champú nutrición 1000 ml','10.61','12');
+insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('3319','./imagen/alta/5-5.png', './imagen/baja/5-baja.png', 'Revlon','Champú Micellar Equave hidratante con queratina 250 ml','13.81','6');
+insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('4497','./imagen/alta/6-6.png', './imagen/baja/6-baja.png', 'Postquam','Emulsión Suavizante Cabellos Teñidos 1000 ml','8.90','2');
 
 create table ventas (
     id_ventas INT PRIMARY KEY AUTO_INCREMENT,

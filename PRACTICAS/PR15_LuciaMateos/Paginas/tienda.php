@@ -96,12 +96,12 @@
             ?>
         </ul>
     </nav>
-    <main>
+    <main class="tienda">
         <section>
             <?
                 foreach ($array_productos as $key) {
                     echo "<article>";
-                            echo '<img src="../'.$key['imagen'].'" alt="productos_pelu">';
+                            echo '<img src="../'.$key['imagen_baja'].'" alt="productos_pelu">';
                             echo '<h3>'. $key['nombre']. '</h3>';
                             echo '<p class="precio"><b>'.$key['precio'].'€</b></p>';
                             echo '<a href="producto.php?cod_producto='.$key['cod_producto'].'" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';                      
