@@ -24,19 +24,19 @@ require('./Seguro/conexion.php');
 // }
 
 //Conexion exec
-// try{
-//     $conexion = new PDO('mysql:host='.HOST.';dbname='.BBDD, USER, PASS);
-//     // echo $conexion->getAttribute(PDO::ATTR_CLIENT_VERSION);
-//     echo "Conexion correcta";
-//     $sql= "insert into equipo values(7,'Brasil'),(8,'Portugal')";
-//     $numero=$conexion->exec($sql);
-//     echo '<br>Se ha insertado ' .$numero;
-// }catch(Exception $ex){
-//     echo "Error:";
-//     print_r($ex);
-// }finally{
-//     unset($conexion);
-// }
+try{
+    $conexion = new PDO('mysql:host='.HOST.';dbname='.BBDD, USER, PASS);
+    // echo $conexion->getAttribute(PDO::ATTR_CLIENT_VERSION);
+    echo "Conexion correcta";
+    $sql= "insert into equipo values(7,'Brasil'),(8,'Portugal')";
+    $numero=$conexion->exec($sql);
+    echo '<br>Se ha insertado ' .$numero;
+}catch(Exception $ex){
+    echo "Error:";
+    print_r($ex);
+}finally{
+    unset($conexion);
+}
 
 
 //Consultas preparadas sin array

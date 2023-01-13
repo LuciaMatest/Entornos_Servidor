@@ -56,7 +56,7 @@
             $clave=$_REQUEST['clave'];
             try {
                 $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                $elimina = "delete from ventas where id_ventas='" .$_REQUEST['clave']. "';" ;
+                $elimina = "delete from ventas where id_ventas= ?;" ;
                 $conexion->exec($elimina);
             } catch (Exception $ex) {
                 if ($ex->getCode() == 2002) {
