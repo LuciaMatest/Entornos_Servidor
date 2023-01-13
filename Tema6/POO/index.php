@@ -43,4 +43,5 @@ echo Persona::elProximoId();
 
 echo "<br>Propiedades que existen";
 print_r(get_class_vars('Persona'));
+print_r(get_class_vars($p1));
 ?>

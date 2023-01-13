@@ -13,11 +13,7 @@
             $this->email =$email;
 
         }
-
-        public static function elProximoId(){
-            return self::$id + 1;
-        }
-
+        
         public function __get($get){
             return $this->$get;
         }
@@ -29,12 +25,21 @@
         public function __toString(){
          return "ID:".$this->id."Nombre " . $this->nombre." Edad ".$this->edad."<br>"; 
         }
-
+        
         public function __clone(){
-            $this->id=$this->id+1;
+            // $this->id=$this->id+1;
         }
+
         public function __destruct(){
             self::$id = self::$id - 1;
+        }
+
+        public static function elProximoId(){
+            return self::$id + 1;
+        }
+
+        public function verVariables(){
+            return get_object_vars($this);
         }
   }
 
