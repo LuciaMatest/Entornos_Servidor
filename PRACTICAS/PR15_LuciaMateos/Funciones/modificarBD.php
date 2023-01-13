@@ -601,7 +601,6 @@
         <?
         } 
         ?>
-
         <?php
             if ($opcion == 'añadir_stock') {
                 $clave=$_REQUEST['clave'];

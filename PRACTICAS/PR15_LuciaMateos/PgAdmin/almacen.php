@@ -109,7 +109,7 @@
         </table>
         <?
             if (esAdmin()) {
-                echo '<br><a href="#" class="añadir_prod"><i class="fa-solid fa-plus"></i> Añadir producto</a>';
+                echo '<br><a href="#" class="añadir_prod"><i class="fa-solid fa-plus"></i> Añadir producto</a><br>';
             }
         ?>
 
