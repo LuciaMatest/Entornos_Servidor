@@ -200,6 +200,21 @@
                         $usuario_albaran = $row['usuario_albaran'];
                     }
                 }
+                if ($opcion == 'modifica_productos') {
+                    $clave=$_REQUEST['clave'];
+                    //Seleccionamos todos los datos de una de la opciones que tenemos en la lista
+                    $sql="select * from productos where cod_producto='" . $_REQUEST['clave'] . "';";
+                    $resultado=$conexion->query($sql);
+                    //Recorremos la tabla
+                    while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
+                        $cod_producto = $row['cod_producto'];
+                        $nombre = $row['nombre'];
+                        $descripcion = $row['descripcion'];
+                        $precio = $row['precio'];
+                        $stock = $row['stock'];
+                    }
+                }
+                
             } catch (Exception $ex) {
                 if ($ex->getCode() == 2002) {
                     echo '<span style="color:brown"> Fallo de conexión </span>';
@@ -522,7 +537,7 @@
                 </p>
                 <p>
                 <label for="descripcion">Descripcion:</label>
-                <input type="number" name="descripcion" id="descripcion" placeholder="descripcion"
+                <input type="text" name="descripcion" id="descripcion" placeholder="descripcion"
                 value="<?
                     if ($opcion == 'modifica_productos') {
                         echo $descripcion;
