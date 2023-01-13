@@ -52,50 +52,50 @@
         $opcion=$_REQUEST['opcion'];
 
         //Eliminar
-        if ($opcion == 'elimina_venta') {
-            $clave=$_REQUEST['clave'];
-            try {
-                $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                $elimina = "delete from ventas where id_ventas='" .$_REQUEST['clave']. "';" ;
-                $conexion->exec($elimina);
-            } catch (Exception $ex) {
-                if ($ex->getCode() == 2002) {
-                    echo '<span style="color:brown"> Fallo de conexión </span>';
-                }
-                if ($ex->getCode() == 1049) {
-                    echo '<span style="color:brown"> Base de datos desconocida </span>';
-                }
-                if ($ex->getCode() == 1045) {
-                    echo '<span style="color:brown"> Datos incorrectos </span>';
-                }
-            }finally{
-                unset($conexion);
-            }
+        // if ($opcion == 'elimina_venta') {
+        //     $clave=$_REQUEST['clave'];
+        //     try {
+        //         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+        //         $elimina = "delete from ventas where id_ventas='" .$_REQUEST['clave']. "';" ;
+        //         $conexion->exec($elimina);
+        //     } catch (Exception $ex) {
+        //         if ($ex->getCode() == 2002) {
+        //             echo '<span style="color:brown"> Fallo de conexión </span>';
+        //         }
+        //         if ($ex->getCode() == 1049) {
+        //             echo '<span style="color:brown"> Base de datos desconocida </span>';
+        //         }
+        //         if ($ex->getCode() == 1045) {
+        //             echo '<span style="color:brown"> Datos incorrectos </span>';
+        //         }
+        //     }finally{
+        //         unset($conexion);
+        //     }
 
-            header("Location: ../PgAdmin/ventas.php");
-        }
-        if ($opcion == 'elimina_albaran') {
-            $clave=$_REQUEST['clave'];
-            try {
-                $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                $elimina = "delete from albaran where id_albaran='" .$_REQUEST['clave']. "';" ;
-                $conexion->exec($elimina);
-            } catch (Exception $ex) {
-                if ($ex->getCode() == 2002) {
-                    echo '<span style="color:brown"> Fallo de conexión </span>';
-                }
-                if ($ex->getCode() == 1049) {
-                    echo '<span style="color:brown"> Base de datos desconocida </span>';
-                }
-                if ($ex->getCode() == 1045) {
-                    echo '<span style="color:brown"> Datos incorrectos </span>';
-                }
-            }finally{
-                unset($conexion);
-            }
+        //     header("Location: ../PgAdmin/ventas.php");
+        // }
+        // if ($opcion == 'elimina_albaran') {
+        //     $clave=$_REQUEST['clave'];
+        //     try {
+        //         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+        //         $elimina = "delete from albaran where id_albaran='" .$_REQUEST['clave']. "';" ;
+        //         $conexion->exec($elimina);
+        //     } catch (Exception $ex) {
+        //         if ($ex->getCode() == 2002) {
+        //             echo '<span style="color:brown"> Fallo de conexión </span>';
+        //         }
+        //         if ($ex->getCode() == 1049) {
+        //             echo '<span style="color:brown"> Base de datos desconocida </span>';
+        //         }
+        //         if ($ex->getCode() == 1045) {
+        //             echo '<span style="color:brown"> Datos incorrectos </span>';
+        //         }
+        //     }finally{
+        //         unset($conexion);
+        //     }
 
-            header("Location: ../PgAdmin/almacen.php");
-        }
+        //     header("Location: ../PgAdmin/almacen.php");
+        // }
 
         //Modificar
         if ($opcion == 'modifica_ventas') {
@@ -117,30 +117,30 @@
             }finally{
                 unset($conexion);
             }
-            header("Location: ./PgAdmin/ventas.php");
+            header("Location: ../PgAdmin/ventas.php");
         }
 
-        if ($opcion == 'modifica_albaran') {
-            $clave=$_REQUEST['clave'];
-            try {
-                $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                $actualiza = "update albaran set id_albaran='" .$_REQUEST['id_albaran']. "',fecha_albaran='" .$_REQUEST['fecha_albaran']. "',cod_producto='" .$_REQUEST['cod_producto']. "',cantidad='" .$_REQUEST['cantidad']. "',usuario_albaran='" .$_REQUEST['usuario_albaran']. "' where id_albaran='" . $_REQUEST['clave'] . "';" ;
-                $conexion->exec($actualiza);
-            } catch (Exception $ex) {
-                if ($ex->getCode() == 2002) {
-                    echo '<span style="color:brown"> Fallo de conexión </span>';
-                }
-                if ($ex->getCode() == 1049) {
-                    echo '<span style="color:brown"> Base de datos desconocida </span>';
-                }
-                if ($ex->getCode() == 1045) {
-                    echo '<span style="color:brown"> Datos incorrectos </span>';
-                }
-            }finally{
-                unset($conexion);
-            }
-            header("Location: ../PgAdmin/almacen.php");
-        }
+        // if ($opcion == 'modifica_albaran') {
+        //     $clave=$_REQUEST['clave'];
+        //     try {
+        //         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+        //         $actualiza = "update albaran set id_albaran='" .$_REQUEST['id_albaran']. "',fecha_albaran='" .$_REQUEST['fecha_albaran']. "',cod_producto='" .$_REQUEST['cod_producto']. "',cantidad='" .$_REQUEST['cantidad']. "',usuario_albaran='" .$_REQUEST['usuario_albaran']. "' where id_albaran='" . $_REQUEST['clave'] . "';" ;
+        //         $conexion->exec($actualiza);
+        //     } catch (Exception $ex) {
+        //         if ($ex->getCode() == 2002) {
+        //             echo '<span style="color:brown"> Fallo de conexión </span>';
+        //         }
+        //         if ($ex->getCode() == 1049) {
+        //             echo '<span style="color:brown"> Base de datos desconocida </span>';
+        //         }
+        //         if ($ex->getCode() == 1045) {
+        //             echo '<span style="color:brown"> Datos incorrectos </span>';
+        //         }
+        //     }finally{
+        //         unset($conexion);
+        //     }
+        //     header("Location: ../PgAdmin/almacen.php");
+        // }
         ?>
         <?
             //Mostraremos la informacion que queremos modificar dependiendo de que 'boton' seleccionemos
@@ -161,20 +161,20 @@
                         $precio_total = $row['precio_total'];
                     }
                 }
-                if ($opcion == 'modifica_albaran') {
-                    $clave=$_REQUEST['clave'];
-                    //Seleccionamos todos los datos de una de la opciones que tenemos en la lista
-                    $sql="select * from albaran where id_albaran='" . $_REQUEST['clave'] . "';";
-                    $resultado=$conexion->query($sql);
-                    //Recorremos la tabla
-                    while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
-                        $id_albaran = $row['id_albaran'];
-                        $fecha_albaran = $row['fecha_albaran'];
-                        $cod_producto = $row['cod_producto'];
-                        $cantidad = $row['cantidad'];
-                        $usuario_albaran = $row['usuario_albaran'];
-                    }
-                }
+                // if ($opcion == 'modifica_albaran') {
+                //     $clave=$_REQUEST['clave'];
+                //     //Seleccionamos todos los datos de una de la opciones que tenemos en la lista
+                //     $sql="select * from albaran where id_albaran='" . $_REQUEST['clave'] . "';";
+                //     $resultado=$conexion->query($sql);
+                //     //Recorremos la tabla
+                //     while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
+                //         $id_albaran = $row['id_albaran'];
+                //         $fecha_albaran = $row['fecha_albaran'];
+                //         $cod_producto = $row['cod_producto'];
+                //         $cantidad = $row['cantidad'];
+                //         $usuario_albaran = $row['usuario_albaran'];
+                //     }
+                // }
             } catch (Exception $ex) {
                 if ($ex->getCode() == 2002) {
                     echo '<span style="color:brown"> Fallo de conexión </span>';
