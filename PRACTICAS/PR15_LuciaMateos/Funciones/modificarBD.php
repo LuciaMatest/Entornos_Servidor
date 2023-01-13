@@ -245,7 +245,7 @@
                 </p>
                 <p>
                 <label for="fecha_compra">Fecha:</label>
-                <input type="text" name="fecha_compra" id="fecha_compra" placeholder="fecha_compra"
+                <input type="text" name="fecha_compra" id="fecha_compra" placeholder="aaaa-mm-dd"
                 value="<?
                     if ($opcion == 'modifica_ventas') {
                         echo $fecha_compra;
@@ -254,16 +254,12 @@
                 <?
                     //comprobar que no este vacio y valido, si lo está pongo un error
                     if (enviado()) {
-                        if (vacio("fecha_compra")){
+                        if (vacio("fecha")){
                             ?>
                             <span style="color:brown"> Introduce fecha</span>
                             <?
                         }
-                    } elseif (!patronFecha()) {
-                        ?>
-                        <span style="color:brown"> Fecha no válida, revise</span>
-                        <?
-                    }
+                    } 
                 ?>
                 </p>
                 <p>
