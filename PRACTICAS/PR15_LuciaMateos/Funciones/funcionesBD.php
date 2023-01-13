@@ -82,10 +82,11 @@ function patronContraseña(){
 }
 
 function patronFecha(){
-    $patron = '/^([0-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/([0-9]{1,4})$/';
+    $patron = '/^([0-9]{1,4})\-(0[1-9]|1[0-2])\-([0-2][0-9]|3[0-1])$/';
+    // $patron = '/^([0-2][0-9]|3[0-1])\-(0[1-9]|1[0-2])\-([0-9]{1,4})$/';
     if (preg_match($patron, $_REQUEST['fecha'])==1) {
-        $partes = explode('/', $_REQUEST['fecha']);
-        if (checkdate($partes[1],$partes[0],$partes[2])) {
+        $partes = explode('-', $_REQUEST['fecha']);
+        if (checkdate($partes[1],$partes[2],$partes[0])) {
             return true;
         }
     }
