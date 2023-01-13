@@ -185,7 +185,7 @@
             }
         ?>
     </main>
-    <footer>
+    <footer class="footer_registro">
         <div class="politicas">
             <a href="">Politica de Cookies</a>
             <a href="">Politica de Privacidad</a>
