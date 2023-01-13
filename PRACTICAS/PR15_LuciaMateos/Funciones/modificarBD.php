@@ -320,7 +320,7 @@
                 ?>
                 </p>
                 <div>
-                    <input type="submit" value="Modificar" name="enviar" class="boton">
+                    <input type="submit" value="Modificar_ventas" name="enviar" class="boton">
                     <a href="../PgAdmin/ventas.php">Volver</a>
                 </div>
             </form>
@@ -434,7 +434,7 @@
                 ?>
                 </p>
                 <div>
-                    <input type="submit" value="Modificar" name="enviar" class="boton">
+                    <input type="submit" value="Modificar_albarán" name="enviar" class="boton">
                     <a href="../PgAdmin/almacen.php">Volver</a>
                 </div>
             </form>
