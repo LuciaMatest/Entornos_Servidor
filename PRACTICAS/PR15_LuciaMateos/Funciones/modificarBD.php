@@ -102,7 +102,7 @@
             $clave=$_REQUEST['clave'];
             try {
                 $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                $actualiza = "update ventas set id_ventas='" .$_REQUEST['id_ventas']. "',usuario_ventas='" .$_REQUEST['usuario_ventas']. "',fecha_compra='" .$_REQUEST['fecha_compra']. "',cod_producto='" .$_REQUEST['cod_producto']. "',cantidad='" .$_REQUEST['cantidad']. "',precio_total='" .$_REQUEST['precio_total']. "' where id_ventas='" . $_REQUEST['clave'] . "';" ;
+                $actualiza = "update ventas set id_ventas= ? ,usuario_ventas= ?,fecha_compra= ?,cod_producto= ?,cantidad= ?,precio_total= ? where id_ventas='" . $_REQUEST['clave'] . "';" ;
                 $conexion->exec($actualiza);
             } catch (Exception $ex) {
                 if ($ex->getCode() == 2002) {
