@@ -76,7 +76,8 @@
                     if (esAdmin()) {
                         echo "<td>";
                         echo '<a href="../Funciones/modificarBD.php?opcion=elimina_albaran&clave='.$row['id_albaran'].'"><i class="fa-solid fa-cart-arrow-down"></i> Eliminar</a>';
-                        echo " ";
+                        echo "</td>";
+                        echo "<td>";
                         echo '<a href="../Funciones/modificarBD.php?opcion=modifica_albaran&clave='.$row['id_albaran'].'"><i class="fa-solid fa-cart-arrow-down"></i> Modificar</a>';
                         echo "</td>";     
                     }
