@@ -444,6 +444,80 @@ nav ul li a:hover {
     box-sizing: border-box;
 }
 
+/* Modificar */
+.modificar {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-top: 70px;
+}
+
+.modificar div h1 {
+    color: #444;
+    margin: 5px;
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+.modificar div form {
+    background-color: #d4d4d4;
+    width: 500px;
+    margin: 10px auto;
+    padding: 20px;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.modificar div form h2 {
+    color: #555;
+    text-align: center;
+    margin: 5px;
+}
+
+.modificar div form p {
+    padding: 5px;
+    margin: 0;
+}
+
+.modificar div form p label {
+    line-height: 2;
+}
+
+.modificar div form p input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modificar div form div {
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.modificar div form div .boton {
+    background-color: #be901b;
+    border: 1px solid #ccc;
+    padding: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-size: large;
+    color: whitesmoke;
+}
+
+.modificar div form div .boton:hover {
+    color: #555;
+    background-color: #d1d1d1;
+}
+
+.modificar div form div a {
+    padding-left: 20px;
+}
+
 /* Ventas */
 .venta {
     padding: 20px;

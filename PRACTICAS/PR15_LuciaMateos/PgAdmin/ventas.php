@@ -55,6 +55,7 @@
                 <th>Cantidad</th>
                 <th>Total</th>
                 <th></th>
+                <th></th>
             </tr>
             <tr>
             <?php
@@ -77,7 +78,8 @@
                     if (esAdmin()) {
                         echo "<td>";
                         echo '<a href="../Funciones/modificarBD.php?opcion=elimina_venta&clave='.$row['id_ventas'].'"><i class="fa-solid fa-cart-arrow-down"></i> Eliminar</a>';
-                        echo " ";
+                        echo "</td>"; 
+                        echo "<td>";
                         echo '<a href="../Funciones/modificarBD.php?opcion=modifica_ventas&clave='.$row['id_ventas'].'"><i class="fa-solid fa-cart-arrow-down"></i> Modificar</a>';
                         echo "</td>";     
                     }
