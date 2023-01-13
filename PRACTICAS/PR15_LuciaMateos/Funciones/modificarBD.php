@@ -213,6 +213,16 @@
                         echo $id_ventas;
                     }
                 ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("id_ventas")){
+                            ?>
+                            <span style="color:brown"> Introduce id</span>
+                            <?
+                        }
+                    }
+                ?>
                 </p>
                 <p>
                 <label for="usuario_ventas">Usuario:</label>
@@ -222,6 +232,16 @@
                         echo $usuario_ventas;
                     }
                 ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("usuario_ventas")){
+                            ?>
+                            <span style="color:brown"> Introduce usuario</span>
+                            <?
+                        }
+                    }
+                ?>
                 </p>
                 <p>
                 <label for="fecha_compra">Fecha:</label>
@@ -231,6 +251,20 @@
                         echo $fecha_compra;
                     }
                 ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("fecha_compra")){
+                            ?>
+                            <span style="color:brown"> Introduce fecha</span>
+                            <?
+                        }
+                    } elseif (!patronFecha()) {
+                        ?>
+                        <span style="color:brown"> Fecha no válida, revise</span>
+                        <?
+                    }
+                ?>
                 </p>
                 <p>
                 <label for="cod_producto">Codigo producto:</label>
@@ -240,15 +274,16 @@
                         echo $cod_producto;
                     }
                 ?>">
-                </p>
-                <p>
-                <label for="cod_producto">Codigo producto:</label>
-                <input type="number" name="cod_producto" id="cod_producto" placeholder="cod_producto"
-                value="<?
-                    if ($opcion == 'modifica_ventas') {
-                        echo $cod_producto;
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("cod_producto")){
+                            ?>
+                            <span style="color:brown"> Introduce código</span>
+                            <?
+                        }
                     }
-                ?>">
+                ?>
                 </p>
                 <p>
                 <label for="cantidad">Cantidad:</label>
@@ -258,6 +293,16 @@
                         echo $cantidad;
                     }
                 ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("cantidad")){
+                            ?>
+                            <span style="color:brown"> Introduce cantidad</span>
+                            <?
+                        }
+                    }
+                ?>
                 </p>
                 <p>
                 <label for="precio_total">Precio total:</label>
@@ -267,6 +312,16 @@
                         echo $precio_total;
                     }
                 ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("precio_total")){
+                            ?>
+                            <span style="color:brown"> Introduce precio</span>
+                            <?
+                        }
+                    }
+                ?>
                 </p>
                 <div>
                     <input type="submit" value="Modificar" name="enviar" class="boton">
