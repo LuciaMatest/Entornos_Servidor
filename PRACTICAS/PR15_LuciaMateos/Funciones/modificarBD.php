@@ -191,6 +191,8 @@
             }finally{
                 unset($conexion);
             }
+
+        if ($opcion == 'modifica_ventas') {
         ?>
         <div class="mod_ventas">
             <h1>Modificar Ventas</h1>
@@ -325,6 +327,9 @@
                 </div>
             </form>
         </div>
+        <?
+        } elseif ($opcion == 'modifica_albaran') {
+        ?>
         <div class="mod_albaran">
             <h1>Modificar Albarán</h1>
             <!-- Formulario -->
@@ -439,6 +444,9 @@
                 </div>
             </form>
         </div>
+        <?
+        }
+        ?>
     </main>
     <footer class="footer_registro">
         <div class="politicas">
