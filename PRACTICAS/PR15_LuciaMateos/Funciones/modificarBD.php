@@ -56,7 +56,7 @@
             $clave=$_REQUEST['clave'];
             try {
                 $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                $elimina = "delete from ventas where id_ventas= ?;" ;
+                $elimina = "delete from ventas where id_ventas='" .$_REQUEST['clave']. "';" ;
                 $conexion->exec($elimina);
             } catch (Exception $ex) {
                 if ($ex->getCode() == 2002) {
@@ -102,7 +102,7 @@
             $clave=$_REQUEST['clave'];
             try {
                 $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                $actualiza = "update ventas set id_ventas= ? ,usuario_ventas= ?,fecha_compra= ?,cod_producto= ?,cantidad= ?,precio_total= ? where id_ventas='" . $_REQUEST['clave'] . "';" ;
+                $actualiza = "update ventas set id_ventas='" .$_REQUEST['id_ventas']. "',usuario_ventas='" .$_REQUEST['usuario_ventas']. "',fecha_compra='" .$_REQUEST['fecha_compra']. "',cod_producto='" .$_REQUEST['cod_producto']. "',cantidad='" .$_REQUEST['cantidad']. "',precio_total='" .$_REQUEST['precio_total']. "' where id_ventas='" . $_REQUEST['clave'] . "';" ;
                 $conexion->exec($actualiza);
             } catch (Exception $ex) {
                 if ($ex->getCode() == 2002) {
@@ -124,7 +124,7 @@
             $clave=$_REQUEST['clave'];
             try {
                 $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                $actualiza = "update albaran set id_albaran= ?,fecha_albaran= ?,cod_producto= ?,cantidad= ?,usuario_albaran=? where id_albaran='" . $_REQUEST['clave'] . "';" ;
+                $actualiza = "update albaran set id_albaran='" .$_REQUEST['id_albaran']. "',fecha_albaran='" .$_REQUEST['fecha_albaran']. "',cod_producto='" .$_REQUEST['cod_producto']. "',cantidad='" .$_REQUEST['cantidad']. "',usuario_albaran='" .$_REQUEST['usuario_albaran']. "' where id_albaran='" . $_REQUEST['clave'] . "';" ;
                 $conexion->exec($actualiza);
             } catch (Exception $ex) {
                 if ($ex->getCode() == 2002) {
@@ -142,7 +142,111 @@
             header("Location: ../PgAdmin/almacen.php");
         }
         ?>
-
+        <?
+            //Mostraremos la informacion que queremos modificar dependiendo de que 'boton' seleccionemos
+            try {
+                $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+                if ($opcion == 'modifica_ventas') {
+                    $clave=$_REQUEST['clave'];
+                    //Seleccionamos todos los datos de una de la opciones que tenemos en la lista
+                    $sql="select * from ventas where id_ventas='" . $_REQUEST['clave'] . "';";
+                    $resultado=$conexion->query($sql);
+                    //Recorremos la tabla
+                    while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
+                        $id_ventas = $row['id_ventas'];
+                        $usuario_ventas = $row['usuario_ventas'];
+                        $fecha_compra = $row['fecha_compra'];
+                        $cod_producto = $row['cod_producto'];
+                        $cantidad = $row['cantidad'];
+                        $precio_total = $row['precio_total'];
+                    }
+                }
+                if ($opcion == 'modifica_albaran') {
+                    $clave=$_REQUEST['clave'];
+                    //Seleccionamos todos los datos de una de la opciones que tenemos en la lista
+                    $sql="select * from albaran where id_albaran='" . $_REQUEST['clave'] . "';";
+                    $resultado=$conexion->query($sql);
+                    //Recorremos la tabla
+                    while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
+                        $id_albaran = $row['id_albaran'];
+                        $fecha_albaran = $row['fecha_albaran'];
+                        $cod_producto = $row['cod_producto'];
+                        $cantidad = $row['cantidad'];
+                        $usuario_albaran = $row['usuario_albaran'];
+                    }
+                }
+            } catch (Exception $ex) {
+                if ($ex->getCode() == 2002) {
+                    echo '<span style="color:brown"> Fallo de conexión </span>';
+                }
+                if ($ex->getCode() == 1049) {
+                    echo '<span style="color:brown"> Base de datos desconocida </span>';
+                }
+                if ($ex->getCode() == 1045) {
+                    echo '<span style="color:brown"> Datos incorrectos </span>';
+                }
+            }finally{
+                unset($conexion);
+            }
+        ?>
+        <!-- Formulario -->
+        <form action="./modificarBD.php" method="post">
+            <!-- input oculto para mantener un seguimiento de que registros de la base de datos necesitan actualizarse cuando un formulario de actualización es remitido -->
+            <input type="hidden" name="opcion"
+            value="<?
+                echo $opcion;
+            ?>">
+            <!-- input oculto para recordar el ID del registro que ha sido editado -->
+            <input type="hidden" name="clave" value="<?
+                if ($opcion=='modifica_ventas') {
+                    echo $clave;
+                }
+            ?>">
+            <label for="id_ventas">ID:</label>
+            <input type="text" name="id_ventas" id="id_ventas" placeholder="id_ventas"
+            value="<?
+                if ($opcion == 'modifica_ventas') {
+                    echo $id_ventas;
+                }
+            ?>">
+            <label for="usuario_ventas">Usuario:</label>
+            <input type="text" name="usuario_ventas" id="usuario_ventas" placeholder="usuario_ventas"
+            value="<?
+                if ($opcion == 'modifica_ventas') {
+                    echo $usuario_ventas;
+                }
+            ?>">
+            <label for="fecha_compra">Fecha:</label>
+            <input type="text" name="fecha_compra" id="fecha_compra" placeholder="fecha_compra"
+            value="<?
+                if ($opcion == 'modifica_ventas') {
+                    echo $fecha_compra;
+                }
+            ?>">
+            <label for="cod_producto">Codigo producto:</label>
+            <input type="number" name="cod_producto" id="cod_producto" placeholder="cod_producto"
+            value="<?
+                if ($opcion == 'modifica_ventas') {
+                    echo $cod_producto;
+                }
+            ?>">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" name="cantidad" id="cantidad" placeholder="cantidad"
+            value="<?
+                if ($opcion == 'modifica_ventas') {
+                    echo $cantidad;
+                }
+            ?>">
+            <label for="precio_total">Precio total:</label>
+            <input type="number" name="precio_total" id="precio_total" placeholder="precio_total"
+            value="<?
+                if ($opcion == 'modifica_ventas') {
+                    echo $precio_total;
+                }
+            ?>">
+            <!-- Botón con el que insertamos o modificamos uno o varios datos -->
+            <input type="submit" value="Modificar" name="enviar">
+        </form>
     </main>
 </body>
 
