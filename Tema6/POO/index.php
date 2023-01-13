@@ -30,18 +30,28 @@ require_once ('Persona2.php');
 
 $p1= new Persona('maria',21,'maria@gmail.com');
 echo $p1->edad;
-echo $p1->__get('nombre');
-echo $p1->__get('email');
-
+echo "<br>";
 $p1->edad=25;
 echo $p1->edad;
-echo Persona::$id;
-$p2= new Persona('daniel',21,'daniel@gmail.com');
-echo $p2;
+echo "<br>";
+echo $p1->__get('nombre');
 
+
+$p2= new Persona('daniel',21,'daniel@gmail.com');
+unset($p2);
+
+echo "<br>";
+echo Persona::$id;
 echo Persona::elProximoId();
 
-echo "<br>Propiedades que existen";
+echo "<br>Propiedades que existen:<br>";
 print_r(get_class_vars('Persona'));
-print_r(get_class_vars($p1));
+print_r($p1->verVariables());
+
+setcookie('objeto', serialize($p1));
+var_dump(($_COOKIE['objeto']));
+echo '<br>';
+echo serialize($p1);
+var_dump(unserialize($_COOKIE['objeto']));
+
 ?>

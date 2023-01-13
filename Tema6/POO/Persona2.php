@@ -15,11 +15,13 @@
         }
         
         public function __get($get){
-            return $this->$get;
+            if (property_exists(__CLASS__,$get))
+                return $this->$get;
         }
 
         public function __set($clave,$valor){
-            $this->$clave=$valor;
+            if (property_exists(__CLASS__,$clave))
+                $this->$clave=$valor;
         }
         
         public function __toString(){
