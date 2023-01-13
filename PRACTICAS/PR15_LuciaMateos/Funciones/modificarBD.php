@@ -421,7 +421,7 @@
                 </p>
                 <p>
                 <label for="usuario_albaran">Usuario:</label>
-                <input type="number" name="usuario_albaran" id="usuario_albaran" placeholder="usuario_albaran"
+                <input type="text" name="usuario_albaran" id="usuario_albaran" placeholder="usuario_albaran"
                 value="<?
                     if ($opcion == 'modifica_albaran') {
                         echo $usuario_albaran;
@@ -446,6 +446,37 @@
         </div>
         <?
         }
+        ?>
+
+        <?php
+            if ($opcion == 'añadir_stock') {
+                $clave=$_REQUEST['clave'];
+                $stock=(int)$_REQUEST['stock'];
+                $cantidad=(int)$_REQUEST['cantidad'];
+                $nuevo=$cantidad+$stock;
+                try {
+                    $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+                    $actualiza = "update productos set stock='" .$nuevo. "' where cod_producto='" . $_REQUEST['clave'] . "';" ;
+                    $inserta = "insert into albaran (fecha_albaran, cod_producto, cantidad, usuario_albaran) values ('" .$_REQUEST['fecha_albaran']. "','" .$_REQUEST['cod_producto']. "','" .$_REQUEST['cantidad']. "','" .$_REQUEST['usuario_albaran']. "');";
+                    $sql_preparada=$conexion->prepare($inserta);
+                    $array = array(":fecha_albaran"=>date('Y-m-d'),":cod_producto"=>(int)($_REQUEST['cod_producto']),":cantidad"=>(int)($_REQUEST['cantidad']),":usuario_albaran"=>$_SESSION['usuario_albaran']);
+                    $sql_preparada->execute($array);
+                    $conexion->exec($actualiza);
+                } catch (Exception $ex) {
+                    if ($ex->getCode() == 2002) {
+                        echo '<span style="color:brown"> Fallo de conexión </span>';
+                    }
+                    if ($ex->getCode() == 1049) {
+                        echo '<span style="color:brown"> Base de datos desconocida </span>';
+                    }
+                    if ($ex->getCode() == 1045) {
+                        echo '<span style="color:brown"> Datos incorrectos </span>';
+                    }
+                }finally{
+                    unset($conexion);
+                }
+                header("Location: ../PgAdmin/almacen.php");
+            }
         ?>
     </main>
     <footer class="footer_registro">

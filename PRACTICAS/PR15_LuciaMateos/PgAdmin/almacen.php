@@ -48,6 +48,73 @@
     <main class="almacen">
         <table>
             <tr>
+                <th>ID Producto</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>precio</th>
+                <th>stock</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+            <?php
+            try {
+                $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+                //Seleccionamos todos los datos que tiene la tabla de canciones
+                $sql = 'select * from productos';
+                $resultado=$conexion->query($sql);
+                //Recorremos la tabla para ir incorporando cada dato a la tabla en el lugar correspondiente
+                while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
+                    echo '<tr>';
+                    echo '<td>' . $row['cod_producto'] . '</td>';
+                    echo '<td>' . $row['nombre'] . '</td>';
+                    echo '<td>' . $row['descripcion'] . '</td>';
+                    echo '<td>' . $row['precio'] . '</td>';
+                    echo '<td>' . $row['stock'] . '</td>';
+                    echo '<td>';
+                    if (esAdmin() || esModerador()) {
+                        echo '<form action="../Funciones/modificarBD.php">
+                            <div>
+                              <input type="number" name="cantidad" size="2" value="1">
+                              <input type="hidden" name="opcion" value="añadir_stock">
+                              <input type="hidden" name="cod_producto" value="'.$row['cod_producto'].'">
+                              <input type="hidden" name="stock" value="'.$row['stock'].'">
+                              <a href="../Funciones/modificarBD.php?opcion=añadir_stock&clave='.$row['cod_producto'].'">Añadir</a>
+                            </div>
+                          </form>
+                          ';   
+                    }
+                    echo '</td>';
+                    echo '<td>';
+                    if (esAdmin()) {
+                        echo '<a href="../Funciones/modificarBD.php?opcion=modifica_productos&clave='.$row['cod_producto'].'"><i class="fa-solid fa-cart-arrow-down"></i> Modificar</a>';    
+                    }
+                    echo '</td>';
+                    echo '</tr>';
+                }
+            } catch (Exception $ex) {
+                if ($ex->getCode() == 2002) {
+                    echo '<span style="color:brown"> Fallo de conexión </span>';
+                }
+                if ($ex->getCode() == 1049) {
+                    echo '<span style="color:brown"> Base de datos desconocida </span>';
+                }
+                if ($ex->getCode() == 1045) {
+                    echo '<span style="color:brown"> Datos incorrectos </span>';
+                }
+            }finally{
+                unset($conexion);
+            }
+            ?>
+        </table>
+        <?
+            if (esAdmin()) {
+                echo '<br><a href="#" class="añadir_prod"><i class="fa-solid fa-plus"></i> Añadir producto</a>';
+            }
+        ?>
+
+        <table>
+            <tr>
                 <th>ID</th>
                 <th>Fecha albaran</th>
                 <th>Cod producto</th>
@@ -58,8 +125,6 @@
             </tr>
             <tr>
             <?php
-            // require('../Conexion/conexionBD.php');
-            //Transaccion
             try {
                 $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
                 //Seleccionamos todos los datos que tiene la tabla de canciones
@@ -81,16 +146,6 @@
                         echo '<a href="../Funciones/modificarBD.php?opcion=modifica_albaran&clave='.$row['id_albaran'].'"><i class="fa-solid fa-cart-arrow-down"></i> Modificar</a>';
                         echo "</td>";     
                     }
-                    // if (esAdmin() || esModerador()) {
-                    //     echo "<td>";
-                    //     echo '<a href="#"><i class="fa-solid fa-arrow-up-from-bracket"></i> Insertar</a>';
-                    //     echo "</td>";     
-                    // }
-                    // if (esAdmin()) {
-                    //     echo "<td>";
-                    //     echo '<a href="#"><i class="fa-solid fa-cart-arrow-down"></i> Modificar</a>';
-                    //     echo "</td>";     
-                    // }
                     echo '</tr>';
                 }
             } catch (Exception $ex) {
@@ -108,11 +163,6 @@
             }
             ?>
         </table>
-        <?
-            // if (esAdmin()) {
-            //     echo '<br><a href="#" class="añadir_prod"><i class="fa-solid fa-plus"></i> Añadir producto</a>';
-            // }
-        ?>
     </main>
     <footer>
         <div class="politicas">
