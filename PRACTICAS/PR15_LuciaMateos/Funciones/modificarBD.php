@@ -143,6 +143,28 @@
                     }
                     header("Location: ../PgAdmin/almacen.php");
                 }
+
+                if ($opcion == 'modifica_productos') {
+                    $clave=$_REQUEST['clave'];
+                    try {
+                        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+                        $actualiza = "update productos set cod_producto='" .$_REQUEST['cod_producto']. "',nombre='" .$_REQUEST['nombre']. "',descripcion='" .$_REQUEST['descripcion']. "',precio='" .$_REQUEST['precio']. "',stock='" .$_REQUEST['stock']. "' where cod_producto='" . $_REQUEST['clave'] . "';" ;
+                        $conexion->exec($actualiza);
+                    } catch (Exception $ex) {
+                        if ($ex->getCode() == 2002) {
+                            echo '<span style="color:brown"> Fallo de conexión </span>';
+                        }
+                        if ($ex->getCode() == 1049) {
+                            echo '<span style="color:brown"> Base de datos desconocida </span>';
+                        }
+                        if ($ex->getCode() == 1045) {
+                            echo '<span style="color:brown"> Datos incorrectos </span>';
+                        }
+                    }finally{
+                        unset($conexion);
+                    }
+                    header("Location: ../PgAdmin/almacen.php");
+                }
             }
         ?>
         <?
@@ -445,7 +467,124 @@
             </form>
         </div>
         <?
-        }
+        } elseif ($opcion == 'modifica_productos') {
+        ?>
+        <div class="mod_productos">
+            <h1>Modificar producto</h1>
+            <!-- Formulario -->
+            <form action="./modificarBD.php" method="post">
+                <input type="hidden" name="opcion"
+                value="<?
+                    echo $opcion;
+                ?>">
+                <input type="hidden" name="clave" value="<?
+                    if ($opcion=='modifica_albaran') {
+                        echo $clave;
+                    }
+                ?>">
+                <p>
+                <label for="id_albaran">ID:</label>
+                <input type="text" name="id_albaran" id="id_albaran" placeholder="id_albaran"
+                value="<?
+                    if ($opcion == 'modifica_albaran') {
+                        echo $id_albaran;
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("id_albaran")){
+                            ?>
+                            <span style="color:brown"> Introduce id</span>
+                            <?
+                        }
+                    }
+                ?>
+                </p>
+                <p>
+                <label for="fecha_albaran">Fecha:</label>
+                <input type="text" name="fecha_albaran" id="fecha_albaran" placeholder="aaaa-mm-dd"
+                value="<?
+                    if ($opcion == 'modifica_albaran') {
+                        echo $fecha_albaran;
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("fecha_albaran")){
+                            ?>
+                            <span style="color:brown"> Introduce fecha</span>
+                            <?
+                        }
+                    } 
+                ?>
+                </p>
+                <p>
+                <label for="cod_producto">Codigo producto:</label>
+                <input type="number" name="cod_producto" id="cod_producto" placeholder="cod_producto"
+                value="<?
+                    if ($opcion == 'modifica_albaran') {
+                        echo $cod_producto;
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("cod_producto")){
+                            ?>
+                            <span style="color:brown"> Introduce código</span>
+                            <?
+                        }
+                    }
+                ?>
+                </p>
+                <p>
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" name="cantidad" id="cantidad" placeholder="cantidad"
+                value="<?
+                    if ($opcion == 'modifica_albaran') {
+                        echo $cantidad;
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("cantidad")){
+                            ?>
+                            <span style="color:brown"> Introduce cantidad</span>
+                            <?
+                        }
+                    }
+                ?>
+                </p>
+                <p>
+                <label for="usuario_albaran">Usuario:</label>
+                <input type="text" name="usuario_albaran" id="usuario_albaran" placeholder="usuario_albaran"
+                value="<?
+                    if ($opcion == 'modifica_albaran') {
+                        echo $usuario_albaran;
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("usuario_albaran")){
+                            ?>
+                            <span style="color:brown"> Introduce usuario</span>
+                            <?
+                        }
+                    }
+                ?>
+                </p>
+                <div>
+                    <input type="submit" value="Modificar_albarán" name="enviar" class="boton">
+                    <a href="../PgAdmin/almacen.php">Volver</a>
+                </div>
+            </form>
+        </div>
+        <?
+        } 
         ?>
 
         <?php
