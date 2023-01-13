@@ -449,13 +449,12 @@ nav ul li a:hover {
     text-align: center;
     align-items: center;
     justify-content: center;
-    padding-top: 70px;
 }
 
 .modificar div h1 {
     color: #444;
     margin: 5px;
-    padding-top: 60px;
+    padding-top: 30px;
     padding-bottom: 20px;
 }
 

@@ -196,19 +196,15 @@
             <h1>Modificar Ventas</h1>
             <!-- Formulario -->
             <form action="./modificarBD.php" method="post">
-                <p>
                 <input type="hidden" name="opcion"
                 value="<?
                     echo $opcion;
                 ?>">
-                </p>
-                <p>
                 <input type="hidden" name="clave" value="<?
                     if ($opcion=='modifica_ventas') {
                         echo $clave;
                     }
                 ?>">
-                </p>
                 <p>
                 <label for="id_ventas">ID:</label>
                 <input type="text" name="id_ventas" id="id_ventas" placeholder="id_ventas"
@@ -279,6 +275,11 @@
             </form>
         </div>
     </main>
+    <footer class="footer_registro">
+        <div class="politicas">
+            <a href="#">Politica de Cookies</a>
+            <a href="#">Politica de Privacidad</a>
+        </div>
+    </footer>
 </body>
-
 </html>
