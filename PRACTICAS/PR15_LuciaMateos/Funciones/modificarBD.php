@@ -478,53 +478,15 @@
                     echo $opcion;
                 ?>">
                 <input type="hidden" name="clave" value="<?
-                    if ($opcion=='modifica_albaran') {
+                    if ($opcion=='modifica_productos') {
                         echo $clave;
                     }
                 ?>">
                 <p>
-                <label for="id_albaran">ID:</label>
-                <input type="text" name="id_albaran" id="id_albaran" placeholder="id_albaran"
+                <label for="cod_producto">ID:</label>
+                <input type="text" name="cod_producto" id="cod_producto" placeholder="cod_producto"
                 value="<?
-                    if ($opcion == 'modifica_albaran') {
-                        echo $id_albaran;
-                    }
-                ?>">
-                <?
-                    //comprobar que no este vacio y valido, si lo está pongo un error
-                    if (enviado()) {
-                        if (vacio("id_albaran")){
-                            ?>
-                            <span style="color:brown"> Introduce id</span>
-                            <?
-                        }
-                    }
-                ?>
-                </p>
-                <p>
-                <label for="fecha_albaran">Fecha:</label>
-                <input type="text" name="fecha_albaran" id="fecha_albaran" placeholder="aaaa-mm-dd"
-                value="<?
-                    if ($opcion == 'modifica_albaran') {
-                        echo $fecha_albaran;
-                    }
-                ?>">
-                <?
-                    //comprobar que no este vacio y valido, si lo está pongo un error
-                    if (enviado()) {
-                        if (vacio("fecha_albaran")){
-                            ?>
-                            <span style="color:brown"> Introduce fecha</span>
-                            <?
-                        }
-                    } 
-                ?>
-                </p>
-                <p>
-                <label for="cod_producto">Codigo producto:</label>
-                <input type="number" name="cod_producto" id="cod_producto" placeholder="cod_producto"
-                value="<?
-                    if ($opcion == 'modifica_albaran') {
+                    if ($opcion == 'modifica_productos') {
                         echo $cod_producto;
                     }
                 ?>">
@@ -533,52 +495,90 @@
                     if (enviado()) {
                         if (vacio("cod_producto")){
                             ?>
-                            <span style="color:brown"> Introduce código</span>
+                            <span style="color:brown"> Introduce id</span>
                             <?
                         }
                     }
                 ?>
                 </p>
                 <p>
-                <label for="cantidad">Cantidad:</label>
-                <input type="number" name="cantidad" id="cantidad" placeholder="cantidad"
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" placeholder="nombre"
                 value="<?
-                    if ($opcion == 'modifica_albaran') {
-                        echo $cantidad;
+                    if ($opcion == 'modifica_productos') {
+                        echo $nombre;
                     }
                 ?>">
                 <?
                     //comprobar que no este vacio y valido, si lo está pongo un error
                     if (enviado()) {
-                        if (vacio("cantidad")){
+                        if (vacio("nombre")){
                             ?>
-                            <span style="color:brown"> Introduce cantidad</span>
+                            <span style="color:brown"> Introduce nombre</span>
+                            <?
+                        }
+                    } 
+                ?>
+                </p>
+                <p>
+                <label for="descripcion">Descripcion:</label>
+                <input type="number" name="descripcion" id="descripcion" placeholder="descripcion"
+                value="<?
+                    if ($opcion == 'modifica_productos') {
+                        echo $descripcion;
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("descripcion")){
+                            ?>
+                            <span style="color:brown"> Introduce descripcion</span>
                             <?
                         }
                     }
                 ?>
                 </p>
                 <p>
-                <label for="usuario_albaran">Usuario:</label>
-                <input type="text" name="usuario_albaran" id="usuario_albaran" placeholder="usuario_albaran"
+                <label for="precio">Precio:</label>
+                <input type="number" name="precio" id="precio" placeholder="precio"
                 value="<?
-                    if ($opcion == 'modifica_albaran') {
-                        echo $usuario_albaran;
+                    if ($opcion == 'modifica_productos') {
+                        echo $precio;
                     }
                 ?>">
                 <?
                     //comprobar que no este vacio y valido, si lo está pongo un error
                     if (enviado()) {
-                        if (vacio("usuario_albaran")){
+                        if (vacio("precio")){
                             ?>
-                            <span style="color:brown"> Introduce usuario</span>
+                            <span style="color:brown"> Introduce precio</span>
+                            <?
+                        }
+                    }
+                ?>
+                </p>
+                <p>
+                <label for="stock">Stock:</label>
+                <input type="number" name="stock" id="stock" placeholder="stock"
+                value="<?
+                    if ($opcion == 'modifica_productos') {
+                        echo $stock;
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("stock")){
+                            ?>
+                            <span style="color:brown"> Introduce stock</span>
                             <?
                         }
                     }
                 ?>
                 </p>
                 <div>
-                    <input type="submit" value="Modificar_albarán" name="enviar" class="boton">
+                    <input type="submit" value="Modificar_producto" name="enviar" class="boton">
                     <a href="../PgAdmin/almacen.php">Volver</a>
                 </div>
             </form>
