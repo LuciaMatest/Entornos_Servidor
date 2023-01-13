@@ -73,16 +73,23 @@
                     echo '<td>' . $row['cod_producto'] . '</td>';
                     echo '<td>' . $row['cantidad'] . '</td>';
                     echo '<td>' . $row['usuario_albaran'] . '</td>';
-                    if (esAdmin() || esModerador()) {
-                        echo "<td>";
-                        echo '<a href="#"><i class="fa-solid fa-arrow-up-from-bracket"></i> Insertar</a>';
-                        echo "</td>";     
-                    }
                     if (esAdmin()) {
                         echo "<td>";
-                        echo '<a href="#"><i class="fa-solid fa-cart-arrow-down"></i> Modificar</a>';
+                        echo '<a href="../Funciones/modificarBD.php?opcion=elimina_albaran='.$valor['id_albaran'].'"><i class="fa-solid fa-cart-arrow-down"></i> Eliminar</a>';
+                        echo " ";
+                        echo '<a href="../Funciones/modificarBD.php?opcion=modifica_albaran='.$valor['id_albaran'].'"><i class="fa-solid fa-cart-arrow-down"></i> Modificar</a>';
                         echo "</td>";     
                     }
+                    // if (esAdmin() || esModerador()) {
+                    //     echo "<td>";
+                    //     echo '<a href="#"><i class="fa-solid fa-arrow-up-from-bracket"></i> Insertar</a>';
+                    //     echo "</td>";     
+                    // }
+                    // if (esAdmin()) {
+                    //     echo "<td>";
+                    //     echo '<a href="#"><i class="fa-solid fa-cart-arrow-down"></i> Modificar</a>';
+                    //     echo "</td>";     
+                    // }
                     echo '</tr>';
                 }
             } catch (Exception $ex) {
@@ -101,9 +108,9 @@
             ?>
         </table>
         <?
-            if (esAdmin()) {
-                echo '<br><a href="#" class="añadir_prod"><i class="fa-solid fa-plus"></i> Añadir producto</a>';
-            }
+            // if (esAdmin()) {
+            //     echo '<br><a href="#" class="añadir_prod"><i class="fa-solid fa-plus"></i> Añadir producto</a>';
+            // }
         ?>
     </main>
     <footer>

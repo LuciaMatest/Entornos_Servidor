@@ -10,11 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../CSS/estilo.css">
-    <title>Tienda</title>
+    <title>Vista producto</title>
 </head>
 <body>
     <?php
-        $opcion=false;
         try {
             $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
             $sql = 'select * from productos';
@@ -36,30 +35,6 @@
             }
             if ($ex->getCode() == 1045) {
                 echo '<span style="color:brown"> Datos incorrectos </span>';
-            }
-        }
-    ?>
-    <?
-        if ($opcion) {
-            try {
-                $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                $sql = 'select * from productos';
-                $resultado=$conexion->query($sql);
-                $array_productos=array();
-                while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
-                    array_push($array_productos,$row);
-                }
-    
-            } catch (Exception $ex) {
-                if ($ex->getCode() == 2002) {
-                    echo '<span style="color:brown"> Fallo de conexión </span>';
-                }
-                if ($ex->getCode() == 1049) {
-                    echo '<span style="color:brown"> Base de datos desconocida </span>';       
-                }
-                if ($ex->getCode() == 1045) {
-                    echo '<span style="color:brown"> Datos incorrectos </span>';
-                }
             }
         }
     ?>
