@@ -8,8 +8,9 @@
             parent::__construct($nombre,$edad,$email);
             $this->curso = $curso;
         }
+
         public function __toString(){
-            return "ID:".$this->id."Nombre " . $this->nombre." Edad ".$this->edad." Curso: ".$this->$curso."<br>"; 
+            return parent::$id.": Nombre: " . $this->nombre." Edad ".$this->edad." Curso: ".$this->curso."<br>"; 
            }
     }
 ?>
