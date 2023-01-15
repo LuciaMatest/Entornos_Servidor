@@ -116,7 +116,7 @@ function verificar(){
 function guardarCambios(){
     if (enviado()){
         if (!vacio('user')) {
-            if(!vacio("contraseña") && !vacio('contraseña2') && patronContraseña() && $_REQUEST['contraseña']==$_REQUEST['contraseña2']){
+            if(!vacio("contraseña") && patronContraseña()){
                 if (!vacio('nombre')) {
                     if (!vacio('email') && patronEmail()) {
                         if (!vacio('fecha') && patronFecha()) {

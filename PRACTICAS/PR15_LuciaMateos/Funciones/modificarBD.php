@@ -246,7 +246,7 @@
                 ?>">
                 <p>
                 <label for="id_ventas">ID:</label>
-                <input type="text" name="id_ventas" id="id_ventas" placeholder="id_ventas"
+                <input type="text" name="id_ventas" id="id_ventas" placeholder="id_ventas" readonly
                 value="<?
                     if ($opcion == 'modifica_ventas') {
                         echo $id_ventas;
@@ -265,7 +265,7 @@
                 </p>
                 <p>
                 <label for="usuario_ventas">Usuario:</label>
-                <input type="text" name="usuario_ventas" id="usuario_ventas" placeholder="usuario_ventas"
+                <input type="text" name="usuario_ventas" id="usuario_ventas" placeholder="usuario_ventas" readonly
                 value="<?
                     if ($opcion == 'modifica_ventas') {
                         echo $usuario_ventas;
@@ -303,7 +303,7 @@
                 </p>
                 <p>
                 <label for="cod_producto">Codigo producto:</label>
-                <input type="number" name="cod_producto" id="cod_producto" placeholder="cod_producto"
+                <input type="number" name="cod_producto" id="cod_producto" placeholder="cod_producto" readonly
                 value="<?
                     if ($opcion == 'modifica_ventas') {
                         echo $cod_producto;
@@ -382,7 +382,7 @@
                 ?>">
                 <p>
                 <label for="id_albaran">ID:</label>
-                <input type="text" name="id_albaran" id="id_albaran" placeholder="id_albaran"
+                <input type="text" name="id_albaran" id="id_albaran" placeholder="id_albaran" readonly
                 value="<?
                     if ($opcion == 'modifica_albaran') {
                         echo $id_albaran;
@@ -420,7 +420,7 @@
                 </p>
                 <p>
                 <label for="cod_producto">Codigo producto:</label>
-                <input type="number" name="cod_producto" id="cod_producto" placeholder="cod_producto"
+                <input type="number" name="cod_producto" id="cod_producto" placeholder="cod_producto" readonly
                 value="<?
                     if ($opcion == 'modifica_albaran') {
                         echo $cod_producto;
@@ -458,7 +458,7 @@
                 </p>
                 <p>
                 <label for="usuario_albaran">Usuario:</label>
-                <input type="text" name="usuario_albaran" id="usuario_albaran" placeholder="usuario_albaran"
+                <input type="text" name="usuario_albaran" id="usuario_albaran" placeholder="usuario_albaran" readonly
                 value="<?
                     if ($opcion == 'modifica_albaran') {
                         echo $usuario_albaran;
@@ -499,7 +499,7 @@
                 ?>">
                 <p>
                 <label for="cod_producto">ID:</label>
-                <input type="text" name="cod_producto" id="cod_producto" placeholder="cod_producto"
+                <input type="text" name="cod_producto" id="cod_producto" placeholder="cod_producto" readonly
                 value="<?
                     if ($opcion == 'modifica_productos') {
                         echo $cod_producto;
@@ -518,7 +518,7 @@
                 </p>
                 <p>
                 <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" placeholder="nombre"
+                <input type="text" name="nombre" id="nombre" placeholder="nombre" readonly
                 value="<?
                     if ($opcion == 'modifica_productos') {
                         echo $nombre;
@@ -575,7 +575,7 @@
                 </p>
                 <p>
                 <label for="stock">Stock:</label>
-                <input type="number" name="stock" id="stock" placeholder="stock"
+                <input type="number" name="stock" id="stock" placeholder="stock" readonly
                 value="<?
                     if ($opcion == 'modifica_productos') {
                         echo $stock;
@@ -606,10 +606,10 @@
                 $clave=$_REQUEST['clave'];
                 $stock=(int)$_REQUEST['stock'];
                 $cantidad=(int)$_REQUEST['cantidad'];
-                $nuevo=$cantidad+$stock;
+                $nuevo_producto=$cantidad+$stock;
                 try {
                     $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                    $actualiza = "update productos set stock='" .$nuevo. "' where cod_producto='" . $_REQUEST['clave'] . "';" ;
+                    $actualiza = "update productos set stock='" .$nuevo_producto. "' where cod_producto='" . $_REQUEST['clave'] . "';" ;
                     $inserta = "insert into albaran (fecha_albaran, cod_producto, cantidad, usuario_albaran) values ('" .$_REQUEST['fecha_albaran']. "','" .$_REQUEST['cod_producto']. "','" .$_REQUEST['cantidad']. "','" .$_REQUEST['usuario_albaran']. "');";
                     $sql_preparada=$conexion->prepare($inserta);
                     $array = array(":fecha_albaran"=>date('Y-m-d'),":cod_producto"=>(int)($_REQUEST['cod_producto']),":cantidad"=>(int)($_REQUEST['cantidad']),":usuario_albaran"=>$_SESSION['usuario_albaran']);

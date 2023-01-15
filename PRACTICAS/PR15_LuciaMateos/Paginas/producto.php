@@ -84,7 +84,7 @@
                                     echo '<p class="precio"><b>'.$key['precio'].'€</b></p>';
                                     echo '<p class="unidad">Unidades:</p>';
                                     echo '<form action="./carrito.php">';
-                                    echo '<input type="number" class="contar" name="quantity" value="1" title="Cantidad" size="4" min="1" max="" step="1" inputmode="numeric" autocomplete="off">';
+                                    echo '<input type="number" class="contar" name="cantidad" value="1" title="Cantidad" size="4" min="1" max="" step="1" inputmode="numeric" autocomplete="off">';
                                     if (estaValidado()) {
                                         echo '<button type="submit" name="comprar" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></button>';
                                     } else {
