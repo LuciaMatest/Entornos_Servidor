@@ -610,11 +610,11 @@
                 try {
                     $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
                     $actualiza = "update productos set stock='" .$nuevo_producto. "' where cod_producto='" . $_REQUEST['clave'] . "';" ;
-                    $inserta = "insert into albaran (fecha_albaran, cod_producto, cantidad, usuario_albaran) values ('" .$_REQUEST['fecha_albaran']. "','" .$_REQUEST['cod_producto']. "','" .$_REQUEST['cantidad']. "','" .$_REQUEST['usuario_albaran']. "');";
+                    $inserta = "insert into albaran (fecha_albaran, cod_producto, cantidad, usuario_albaran) values (?,?,?,?);";
                     $sql_preparada=$conexion->prepare($inserta);
-                    $array = array(":fecha_albaran"=>date('Y-m-d'),":cod_producto"=>(int)($_REQUEST['cod_producto']),":cantidad"=>(int)($_REQUEST['cantidad']),":usuario_albaran"=>$_SESSION['usuario_albaran']);
-                    $sql_preparada->execute($array);
+                    $array = array(date('Y-m-d'),(int)($_REQUEST['cod_producto']),(int)($_REQUEST['cantidad']),$_SESSION['usuario_albaran']);
                     $conexion->exec($actualiza);
+                    $sql_preparada->execute($array);
                 } catch (Exception $ex) {
                     if ($ex->getCode() == 2002) {
                         echo '<span style="color:brown"> Fallo de conexión </span>';

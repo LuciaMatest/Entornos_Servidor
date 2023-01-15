@@ -47,6 +47,7 @@
     </nav>
     <main class="almacen">
         <table>
+            <h1>Stock</h1>
             <tr>
                 <th>ID Producto</th>
                 <th>Nombre</th>
@@ -79,7 +80,7 @@
                               <input type="hidden" name="opcion" value="añadir_stock">
                               <input type="hidden" name="cod_producto" value="'.$row['cod_producto'].'">
                               <input type="hidden" name="stock" value="'.$row['stock'].'">
-                              <a href="../Funciones/modificarBD.php?opcion=añadir_stock&clave='.$row['cod_producto'].'">Añadir</a>
+                              <button type="submit" name="añadir" class="boton">Añadir</button>
                             </div>
                           </form>
                           ';   
@@ -116,6 +117,7 @@
         ?>
 
         <table>
+            <h1>Albarán</h1>
             <tr>
                 <th>ID</th>
                 <th>Fecha albaran</th>
