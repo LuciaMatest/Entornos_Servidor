@@ -41,6 +41,7 @@
             <?php
             if (esAdmin() || esModerador()) {
                 echo '<li><a href="ventas.php">Ventas</a></li>';
+                echo '<li><a href="albaran.php">Albarán</a></li>';
             }
             ?>
         </ul>
@@ -111,61 +112,8 @@
             if (esAdmin()) {
                 echo '<br><a href="../Funciones/modificarBD.php?opcion=añadir_productos"><i class="fa-solid fa-plus"></i> Añadir producto</a>';
             }
-
-            echo '<br><br>';
         ?>
 
-        <table>
-            <h1>Albarán</h1>
-            <tr>
-                <th>ID</th>
-                <th>Fecha albaran</th>
-                <th>Cod producto</th>
-                <th>Cantidad</th>
-                <th>Usuario</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-            <?php
-            try {
-                $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                //Seleccionamos todos los datos que tiene la tabla de canciones
-                $sql = 'select * from albaran';
-                $resultado=$conexion->query($sql);
-                //Recorremos la tabla para ir incorporando cada dato a la tabla en el lugar correspondiente
-                while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
-                    echo '<tr>';
-                    echo '<td>' . $row['id_albaran'] . '</td>';
-                    echo '<td>' . $row['fecha_albaran'] . '</td>';
-                    echo '<td>' . $row['cod_producto'] . '</td>';
-                    echo '<td>' . $row['cantidad'] . '</td>';
-                    echo '<td>' . $row['usuario_albaran'] . '</td>';
-                    if (esAdmin()) {
-                        echo "<td>";
-                        echo '<a href="../Funciones/modificarBD.php?opcion=elimina_albaran&clave='.$row['id_albaran'].'"><i class="fa-solid fa-cart-arrow-down"></i> Eliminar</a>';
-                        echo "</td>";
-                        echo "<td>";
-                        echo '<a href="../Funciones/modificarBD.php?opcion=modifica_albaran&clave='.$row['id_albaran'].'"><i class="fa-solid fa-cart-arrow-down"></i> Modificar</a>';
-                        echo "</td>";     
-                    }
-                    echo '</tr>';
-                }
-            } catch (Exception $ex) {
-                if ($ex->getCode() == 2002) {
-                    echo '<span style="color:brown"> Fallo de conexión </span>';
-                }
-                if ($ex->getCode() == 1049) {
-                    echo '<span style="color:brown"> Base de datos desconocida </span>';
-                }
-                if ($ex->getCode() == 1045) {
-                    echo '<span style="color:brown"> Datos incorrectos </span>';
-                }
-            }finally{
-                unset($conexion);
-            }
-            ?>
-        </table>
     </main>
     <footer >
         <div class="politicas">

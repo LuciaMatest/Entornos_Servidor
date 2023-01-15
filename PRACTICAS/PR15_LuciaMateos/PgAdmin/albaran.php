@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../CSS/estilo.css">
-    <title>Ventas</title>
+    <title>Almacén</title>
 </head>
 <body>
     <header>
@@ -41,47 +41,42 @@
             <?php
             if (esAdmin() || esModerador()) {
                 echo '<li><a href="almacen.php">Almacén</a></li>';
-                echo '<li><a href="albaran.php">Albarán</a></li>';
+                echo '<li><a href="ventas.php">Ventas</a></li>';
             }
             ?>
         </ul>
     </nav>
-    <main class="venta">
+    <main class="almacen">
         <table>
+            <h1>Albarán</h1>
             <tr>
                 <th>ID</th>
-                <th>Usuario</th>
-                <th>Fecha compra</th>
+                <th>Fecha albaran</th>
                 <th>Cod producto</th>
                 <th>Cantidad</th>
-                <th>Total</th>
+                <th>Usuario</th>
                 <th></th>
                 <th></th>
             </tr>
             <tr>
             <?php
-            // require('../Conexion/conexionBD.php');
-            //Transaccion
             try {
                 $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                //Seleccionamos todos los datos que tiene la tabla de canciones
-                $sql = 'select * from ventas';
+                $sql = 'select * from albaran';
                 $resultado=$conexion->query($sql);
-                //Recorremos la tabla para ir incorporando cada dato a la tabla en el lugar correspondiente
                 while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
                     echo '<tr>';
-                    echo '<td>' . $row['id_ventas'] . '</td>';
-                    echo '<td>' . $row['usuario_ventas'] . '</td>';
-                    echo '<td>' . $row['fecha_compra'] . '</td>';
+                    echo '<td>' . $row['id_albaran'] . '</td>';
+                    echo '<td>' . $row['fecha_albaran'] . '</td>';
                     echo '<td>' . $row['cod_producto'] . '</td>';
                     echo '<td>' . $row['cantidad'] . '</td>';
-                    echo '<td>' . $row['precio_total'] . '</td>';
+                    echo '<td>' . $row['usuario_albaran'] . '</td>';
                     if (esAdmin()) {
                         echo "<td>";
-                        echo '<a href="../Funciones/modificarBD.php?opcion=elimina_venta&clave='.$row['id_ventas'].'"><i class="fa-solid fa-cart-arrow-down"></i> Eliminar</a>';
-                        echo "</td>"; 
+                        echo '<a href="../Funciones/modificarBD.php?opcion=elimina_albaran&clave='.$row['id_albaran'].'"><i class="fa-solid fa-cart-arrow-down"></i> Eliminar</a>';
+                        echo "</td>";
                         echo "<td>";
-                        echo '<a href="../Funciones/modificarBD.php?opcion=modifica_ventas&clave='.$row['id_ventas'].'"><i class="fa-solid fa-cart-arrow-down"></i> Modificar</a>';
+                        echo '<a href="../Funciones/modificarBD.php?opcion=modifica_albaran&clave='.$row['id_albaran'].'"><i class="fa-solid fa-cart-arrow-down"></i> Modificar</a>';
                         echo "</td>";     
                     }
                     echo '</tr>';
@@ -102,7 +97,7 @@
             ?>
         </table>
     </main>
-    <footer>
+    <footer >
         <div class="politicas">
             <a href="#">Politica de Cookies</a>
             <a href="#">Politica de Privacidad</a>

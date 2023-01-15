@@ -619,10 +619,7 @@
             </form>
         </div>
         <?
-        } 
-        ?>
-        <?
-        if($opcion == 'añadir_productos'){
+        } elseif ($opcion == 'añadir_productos'){
         ?>
         <div class="aña_productos">
             <h1>Añadir producto</h1>
@@ -737,7 +734,7 @@
         <?    
         }
         ?>
-        <?php
+        <?
             if ($opcion == 'añadir_stock') {
                 $clave=$_REQUEST['clave'];
                 try {
@@ -767,7 +764,7 @@
                 }finally{
                     unset($conexion);
                 }
-                header("Location: ../PgAdmin/almacen.php");
+                header("Location: ../PgAdmin/albaran.php");
             }
         ?>
     </main>
