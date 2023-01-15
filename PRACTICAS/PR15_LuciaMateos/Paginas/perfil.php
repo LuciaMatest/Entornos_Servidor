@@ -55,7 +55,7 @@
                 session_start();
                 echo "<h2>Perfil actualizado!</h2>";
                 echo "<a href='../index.php' class='botones'>Volver a inicio</a>";
-            }else{
+            } else{
         
         ?>
         <h1>Mi perfil</h1>
