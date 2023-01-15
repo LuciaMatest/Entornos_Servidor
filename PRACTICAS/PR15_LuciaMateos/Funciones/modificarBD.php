@@ -96,7 +96,6 @@
 
                 header("Location: ../PgAdmin/almacen.php");
             }
-
             if (enviado()) {
                 //Modificar
                 if ($opcion == 'modifica_ventas') {
@@ -120,8 +119,6 @@
                     }
                     header("Location: ../PgAdmin/ventas.php");
                 }
-            
-
                 if ($opcion == 'modifica_albaran') {
                     $clave=$_REQUEST['clave'];
                     try {
@@ -143,7 +140,6 @@
                     }
                     header("Location: ../PgAdmin/almacen.php");
                 }
-
                 if ($opcion == 'modifica_productos') {
                     $clave=$_REQUEST['clave'];
                     try {
@@ -165,6 +161,29 @@
                     }
                     header("Location: ../PgAdmin/almacen.php");
                 }
+                if ($opcion == 'añadir_productos') {
+                    try {
+                        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+                        $inserta = "insert into productos (cod_producto, nombre, descripcion, precio, stock) values (?,?,?,?,?,?,?)";
+                        $sql_preparada=$conexion->prepare($inserta);
+                        $array= array($_REQUEST['cod_producto'], $_REQUEST['nombre'],$_REQUEST['descripcion'],(int)$_REQUEST['precio'],(int)$_REQUEST['stock']);
+                        $sql_preparada->execute($array);
+                    } catch (Exception $ex) {
+                        if ($ex->getCode() == 2002) {
+                            echo '<span style="color:brown"> Fallo de conexión </span>';
+                        }
+                        if ($ex->getCode() == 1049) {
+                            echo '<span style="color:brown"> Base de datos desconocida </span>';
+                        }
+                        if ($ex->getCode() == 1045) {
+                            echo '<span style="color:brown"> Datos incorrectos </span>';
+                        }
+                    }finally{
+                        unset($conexion);
+                    }
+                    header("Location: ../PgAdmin/almacen.php");
+                }
+                
             }
         ?>
         <?
@@ -214,6 +233,7 @@
                         $stock = $row['stock'];
                     }
                 }
+
                 
             } catch (Exception $ex) {
                 if ($ex->getCode() == 2002) {
@@ -600,6 +620,122 @@
         </div>
         <?
         } 
+        ?>
+        <?
+        if($opcion == 'añadir_productos'){
+        ?>
+        <div class="aña_productos">
+            <h1>Añadir producto</h1>
+            <!-- Formulario -->
+            <form action="./modificarBD.php" method="post">
+                <p>
+                <label for="cod_producto">ID:</label>
+                <input type="text" name="cod_producto" id="cod_producto" placeholder="cod_producto"
+                value="<?
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("cod_producto")) {
+                        echo $_REQUEST["cod_producto"];
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("cod_producto")){
+                            ?>
+                            <span style="color:brown"> Introduce id</span>
+                            <?
+                        }
+                    }
+                ?>
+                </p>
+                <p>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" placeholder="nombre"
+                value="<?
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("nombre")) {
+                        echo $_REQUEST["nombre"];
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("nombre")){
+                            ?>
+                            <span style="color:brown"> Introduce nombre</span>
+                            <?
+                        }
+                    } 
+                ?>
+                </p>
+                <p>
+                <label for="descripcion">Descripcion:</label>
+                <input type="text" name="descripcion" id="descripcion" placeholder="descripcion"
+                value="<?
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("descripcion")) {
+                        echo $_REQUEST["descripcion"];
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("descripcion")){
+                            ?>
+                            <span style="color:brown"> Introduce descripcion</span>
+                            <?
+                        }
+                    }
+                ?>
+                </p>
+                <p>
+                <label for="precio">Precio:</label>
+                <input type="number" name="precio" id="precio" placeholder="precio"
+                value="<?
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("precio")) {
+                        echo $_REQUEST["precio"];
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("precio")){
+                            ?>
+                            <span style="color:brown"> Introduce precio</span>
+                            <?
+                        }
+                    }
+                ?>
+                </p>
+                <p>
+                <label for="stock">Stock:</label>
+                <input type="number" name="stock" id="stock" placeholder="stock" 
+                value="<?
+                    //Mantener el texto introducido en el campo de texto 
+                    if (enviado() && !vacio("stock")) {
+                        echo $_REQUEST["stock"];
+                    }
+                ?>">
+                <?
+                    //comprobar que no este vacio y valido, si lo está pongo un error
+                    if (enviado()) {
+                        if (vacio("stock")){
+                            ?>
+                            <span style="color:brown"> Introduce stock</span>
+                            <?
+                        }
+                    }
+                ?>
+                </p>
+                <div>
+                    <input type="submit" value="Añadir" name="enviar" class="boton">
+                    <a href="../PgAdmin/almacen.php">Volver</a>
+                </div>
+            </form>
+        </div>
+        <?    
+        }
         ?>
         <?php
             if ($opcion == 'añadir_stock') {

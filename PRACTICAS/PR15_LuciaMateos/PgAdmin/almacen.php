@@ -79,7 +79,7 @@
                               <input type="number" name="cantidad" size="2" value="1">
                               <input type="hidden" name="cod_producto" value="'.$row['cod_producto'].'">
                               <input type="hidden" name="stock" value="'.$row['stock'].'">
-                              <a href="../Funciones/modificarBD.php?opcion=añadir_stock&clave='.$row['id_albaran'].'"> Añadir</a>
+                              <a href="../Funciones/modificarBD.php?opcion=añadir_stock&clave='.$row['cod_producto'].'"> Añadir</a>
                             </div>
                           </form>
                           ';   
@@ -109,7 +109,7 @@
         </table>
         <?
             if (esAdmin()) {
-                echo '<br><a href="#" class="añadir_prod"><i class="fa-solid fa-plus"></i> Añadir producto</a>';
+                echo '<br><a href="../Funciones/modificarBD.php?opcion=añadir_productos"><i class="fa-solid fa-plus"></i> Añadir producto</a>';
             }
 
             echo '<br><br>';
