@@ -83,22 +83,24 @@
                                     echo '<h3>'. $key['nombre']. '</h3>';
                                     echo '<p class="precio"><b>'.$key['precio'].'€</b></p>';
                                     echo '<p class="unidad">Unidades:</p>';
+                                    echo '<form action="./carrito.php">';
                                     echo '<input type="number" class="contar" name="quantity" value="1" title="Cantidad" size="4" min="1" max="" step="1" inputmode="numeric" autocomplete="off">';
                                     if (estaValidado()) {
-                                        echo '<a href="carrito.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';
+                                        echo '<button type="submit" name="comprar" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></button>';
                                     } else {
-                                        echo '<a href="login.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';
+                                        echo '<button type="submit" name="comprar" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></button>';
                                     }
                                     echo '<p class="stock">Stock: '.$key['stock'].' disponibles</p>';
+                                    echo '<input type="hidden" name="cod_producto" value="'.$key['cod_producto'].'">';
+                                    echo '<input type="hidden" name="precio" value="'.$key['precio'].'">';
+                                    echo '<input type="hidden" name="stock" value="'.$key['stock'].'">'; 
+                                    echo '</form>';
                                 echo '</div>';
                             echo '</div>';
                             echo '<div class="descripcion">';
                                 echo '<h3>'. $key['nombre']. '</h3>';
                                 echo '<p><b>Cod.'. $key['cod_producto']. '</b>: ' . $key['descripcion']. '</p>';
-                            echo '</div>';
-                                echo '<input type="hidden" name="cod_producto" value="'.$key['cod_producto'].'">';
-                                echo '<input type="hidden" name="precio" value="'.$key['precio'].'">';
-                                echo '<input type="hidden" name="stock" value="'.$key['stock'].'">';                       
+                            echo '</div>';                      
                         echo "</article>"; 
                     }
                 }
