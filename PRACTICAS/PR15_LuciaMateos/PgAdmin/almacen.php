@@ -77,10 +77,9 @@
                         echo '<form action="../Funciones/modificarBD.php">
                             <div>
                               <input type="number" name="cantidad" size="2" value="1">
-                              <input type="hidden" name="opcion" value="añadir_stock">
                               <input type="hidden" name="cod_producto" value="'.$row['cod_producto'].'">
                               <input type="hidden" name="stock" value="'.$row['stock'].'">
-                              <button type="submit" name="añadir" class="boton">Añadir</button>
+                              <a href="../Funciones/modificarBD.php?opcion=añadir_stock&clave='.$row['id_albaran'].'"> Añadir</a>
                             </div>
                           </form>
                           ';   
@@ -168,7 +167,7 @@
             ?>
         </table>
     </main>
-    <footer>
+    <footer >
         <div class="politicas">
             <a href="#">Politica de Cookies</a>
             <a href="#">Politica de Privacidad</a>
