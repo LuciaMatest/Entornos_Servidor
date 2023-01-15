@@ -164,7 +164,7 @@
                 if ($opcion == 'añadir_productos') {
                     try {
                         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                        $inserta = "insert into productos (cod_producto, nombre, descripcion, precio, stock) values (?,?,?,?,?,?,?)";
+                        $inserta = "insert into productos (cod_producto, nombre, descripcion, precio, stock) values (?,?,?,?,?)";
                         $sql_preparada=$conexion->prepare($inserta);
                         $array= array($_REQUEST['cod_producto'], $_REQUEST['nombre'],$_REQUEST['descripcion'],(int)$_REQUEST['precio'],(int)$_REQUEST['stock']);
                         $sql_preparada->execute($array);
