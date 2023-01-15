@@ -604,17 +604,20 @@
         <?php
             if ($opcion == 'añadir_stock') {
                 $clave=$_REQUEST['clave'];
-                $stock=(int)$_REQUEST['stock'];
-                $cantidad=(int)$_REQUEST['cantidad'];
-                $nuevo_producto=$cantidad+$stock;
                 try {
                     $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                    $actualiza = "update productos set stock='" .$nuevo_producto. "' where cod_producto='" . $_REQUEST['clave'] . "';" ;
                     $inserta = "insert into albaran (fecha_albaran, cod_producto, cantidad, usuario_albaran) values (?,?,?,?);";
+                    $actualiza = "update productos set stock=:stock where cod_producto='" . $_REQUEST['clave'] . "';" ;
+                    $nuevo_producto=$_REQUEST['stock']-$_REQUEST['cantidad'];
+
                     $sql_preparada=$conexion->prepare($inserta);
+                    $sql_preparada2=$conexion->prepare($actualiza);
+
                     $array = array(date('Y-m-d'),(int)($_REQUEST['cod_producto']),(int)($_REQUEST['cantidad']),$_SESSION['usuario_albaran']);
-                    $conexion->exec($actualiza);
+                    $array2= array(":cod_producto"=>$_REQUEST['cod_producto'],":stock"=>$nuevo_producto);
+
                     $sql_preparada->execute($array);
+                    $sql_preparada2->execute($array2);
                 } catch (Exception $ex) {
                     if ($ex->getCode() == 2002) {
                         echo '<span style="color:brown"> Fallo de conexión </span>';
