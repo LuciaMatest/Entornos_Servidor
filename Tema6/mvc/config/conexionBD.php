@@ -1,6 +1,5 @@
 <?php
-    define('USER', 'lucia');
-    define('PASS', 'lucia');
-    define('BBDD', 'sesiones2');
-
+define('USER','lucia');
+define('PASS','lucia');
+define('BBDD','sesiones2');
 ?>

@@ -1,6 +1,4 @@
 <?php
-    require './config/configuracion.php';
-
-    UsuarioDAO::findAll();
-
+require './config/configuracion.php';
+UsuarioDAO::findAll();
 ?>
