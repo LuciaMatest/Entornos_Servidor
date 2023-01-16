@@ -41,6 +41,7 @@
             <?php
             if (esAdmin() || esModerador()) {
                 echo '<li><a href="PgAdmin/almacen.php">Almacén</a></li>';
+                echo '<li><a href="PgAdmin/albaran.php">Albarán</a></li>';
                 echo '<li><a href="PgAdmin/ventas.php">Ventas</a></li>';
             }
             ?>
