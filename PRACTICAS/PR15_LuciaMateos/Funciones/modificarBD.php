@@ -1,5 +1,6 @@
 <?php
     require('funcionesBD.php');
+    require('BD.php');
     require('../Conexion/conexionBD.php');
 ?>
 <!DOCTYPE html>
@@ -735,40 +736,15 @@
         }
         ?>
         <?
+        if (enviado()) {
             if ($opcion == 'añadir_stock') {
-                $clave=$_REQUEST['clave'];
-                try {
-                    $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-                    $inserta = "insert into albaran (fecha_albaran, cod_producto, cantidad, usuario_albaran) values (?,?,?,?);";
-                    $actualiza = "update productos set stock=:stock where cod_producto='" . $_REQUEST['clave'] . "';" ;
-                    $nuevo_producto=$_REQUEST['stock']-$_REQUEST['cantidad'];
-
-                    $sql_preparada=$conexion->prepare($inserta);
-                    $sql_preparada2=$conexion->prepare($actualiza);
-
-                    $array = array(date('Y-m-d'),(int)($_REQUEST['cod_producto']),(int)($_REQUEST['cantidad']),$_SESSION['usuario_albaran']);
-                    $array2= array(":cod_producto"=>$_REQUEST['cod_producto'],":stock"=>$nuevo_producto);
-
-                    $sql_preparada->execute($array);
-                    $sql_preparada2->execute($array2);
-                } catch (Exception $ex) {
-                    if ($ex->getCode() == 2002) {
-                        echo '<span style="color:brown"> Fallo de conexión </span>';
-                    }
-                    if ($ex->getCode() == 1049) {
-                        echo '<span style="color:brown"> Base de datos desconocida </span>';
-                    }
-                    if ($ex->getCode() == 1045) {
-                        echo '<span style="color:brown"> Datos incorrectos </span>';
-                    }
-                }finally{
-                    unset($conexion);
-                }
+                añadirStock();
                 header("Location: ../PgAdmin/albaran.php");
             }
+        }
         ?>
     </main>
-    <footer class="footer_registro">
+    <footer>
         <div class="politicas">
             <a href="#">Politica de Cookies</a>
             <a href="#">Politica de Privacidad</a>

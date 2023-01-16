@@ -72,15 +72,15 @@
                     echo '<td>' . $row['nombre'] . '</td>';
                     echo '<td>' . $row['descripcion'] . '</td>';
                     echo '<td>' . $row['precio'] . '</td>';
-                    echo '<td>' . $row['stock'] . '</td>';
                     echo '<td>';
                     if (esAdmin() || esModerador()) {
                         echo '<form action="../Funciones/modificarBD.php">
                             <div>
+                              <p class="stock"> '.$row['stock'].' </p>
                               <input type="number" name="cantidad" size="2" value="1">
+                              <a href="../Funciones/modificarBD.php?opcion=añadir_stock"> Añadir</a>
                               <input type="hidden" name="cod_producto" value="'.$row['cod_producto'].'">
                               <input type="hidden" name="stock" value="'.$row['stock'].'">
-                              <a href="../Funciones/modificarBD.php?opcion=añadir_stock&clave='.$row['cod_producto'].'"> Añadir</a>
                             </div>
                           </form>
                           ';   
