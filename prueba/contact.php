@@ -6,7 +6,7 @@ if($_POST) {
 
     $visitor_email = "";
 
-    // $email_title = "";
+    $email_title = "";
 
     $concerned_department = "";
 
@@ -32,11 +32,11 @@ if($_POST) {
 
     
 
-    // if(isset($_POST['email_title'])) {
+    if(isset($_POST['email_title'])) {
 
-    // 	$email_title = filter_var($_POST['email_title'], FILTER_SANITIZE_STRING);
+    	$email_title = filter_var($_POST['email_title'], FILTER_SANITIZE_STRING);
 
-    // }
+    }
 
     
 
@@ -62,21 +62,21 @@ if($_POST) {
 
     }
 
-    // else if($concerned_department == "marketing") {
+    else if($concerned_department == "marketing") {
 
-    // 	$recipient = "marketing@domain.com";
+    	$recipient = "lucia.matest@educa.jcyl.es";
 
-    // }
+    }
 
-    // else if($concerned_department == "technical support") {
+    else if($concerned_department == "technical support") {
 
-    // 	$recipient = "tech.support@domain.com";
+    	$recipient = "lucia.matest@educa.jcyl.es";
 
-    // }
+    }
 
     else {
 
-    	$recipient = "lulu.ilustracion@gmail.com";
+    	$recipient = "lucia.matest@educa.jcyl.es";
 
     }
 
@@ -90,7 +90,7 @@ if($_POST) {
 
     
 
-    if(mail($recipient, $visitor_message, $headers)) {
+    if(mail($recipient, $email_title, $visitor_message, $headers)) {
 
     	echo "<p>Thank you for contacting us, $visitor_name. You will get a reply within 24 hours.</p>";
 
