@@ -23,7 +23,7 @@
             if ($obj) {
                 return $usuario= new Usuario($obj->usuario,$obj->clave,$obj->nombre,$obj->correo,$obj->perfil);
             }else{
-                return null;
+                return 'No existe el usuario';
             }
         }
         public static function delete($id){
@@ -33,7 +33,7 @@
             if ($devuelve->rowCount()==0){
                 return 'No ha borrado';
             }else{
-                return null;
+                return 'Borrado';
             }        
             
         }
@@ -53,20 +53,20 @@
             if ($devuelve->rowCount()==0){
                 return 'No actualizado';
             }else{
-                return null;
+                return 'Actualizado';
             }
         }
 
         public static function valida($user,$pass){
             $sql='select * from usuarios where usuario=? and clave=?;';
-            $passh = sha1($pass);
+            $passh= sha1($pass);
             $datos=array($user,$passh);
             $devuelve = parent::ejecuta($sql,$datos);
             $obj=$devuelve->fetchObject();
             if ($obj) {
                 return $usuario= new Usuario($obj->usuario,$obj->clave,$obj->nombre,$obj->correo,$obj->perfil);
             }else{
-                return null;
+                return 'No existe el usuario';
             }
         }
     }
