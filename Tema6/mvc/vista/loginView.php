@@ -5,14 +5,18 @@
         unset($_SESSION['error']);
     }
 ?>
+<br>
     <form action="">
         <div class="mb-3 row">
+        <br>
             <label for="user" class="col-2 col-form-label">Usuario</label>
             <div class="col-8">
                 <input type="text" class="form-control" name="user" id="inputName" placeholder="Usuario">
             </div>
         </div>
+
         <div class="mb-3 row">
+            <br>
             <label for="pass" class="col-2 col-form-label">Contraseña</label>
             <div class="col-8">
                 <input type="password" class="form-control" name="pass" id="inputName" placeholder="Contraseña">

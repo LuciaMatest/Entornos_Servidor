@@ -23,7 +23,7 @@
             if ($obj) {
                 return $usuario= new Usuario($obj->usuario,$obj->clave,$obj->nombre,$obj->correo,$obj->perfil);
             }else{
-                return 'No existe el usuario';
+                return null;
             }
         }
         public static function delete($id){
@@ -33,7 +33,7 @@
             if ($devuelve->rowCount()==0){
                 return 'No ha borrado';
             }else{
-                return 'Borrado';
+                return null;
             }        
             
         }
@@ -53,7 +53,7 @@
             if ($devuelve->rowCount()==0){
                 return 'No actualizado';
             }else{
-                return 'Actualizado';
+                return null;
             }
         }
 
