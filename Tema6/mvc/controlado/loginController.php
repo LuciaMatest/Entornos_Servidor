@@ -11,10 +11,11 @@
         if ($usuario != null) {
             $_SESSION['validado'] = true;
             $_SESSION['user'] = $user;
-            $_SESSION['nombre'] = $row['nombre'];
-            $_SESSION['perfil'] = $row['perfil'];
+            $_SESSION['nombre'] = $usuario->nombre;
+            $_SESSION['perfil'] = $usuario->perfil;
             $_SESSION['vista'] = $vistas['home'];
-            unset($_SESSION['controlador']);
+            //luego cambiamos el controlador
+            $_SESSION['controlador'] = './controlado/UserController.php' ;
         }
     }
 ?>
