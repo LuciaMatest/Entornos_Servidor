@@ -29,7 +29,7 @@
     </div>
     <div class="mb-3 mt-3">
         <?if ($_SESSION['accion']=='editar'){?>
-            <button type="submit" class="btn btn-primary" name="enviar">Iniciar Sesión</button>
+            <button type="submit" class="btn btn-primary" name="enviar">Guardar</button>
         <?
         }
         ?>
