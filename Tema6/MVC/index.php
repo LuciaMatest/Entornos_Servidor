@@ -1,10 +1,6 @@
 <?php
     require('./config/configuracion.php');
 
-    if (isset($_REQUEST['logout'])) {
-        session_destroy();
-    }
-
     session_start();
 
     if (estaValidado() && !isset($_SESSION['pagina'])) {
@@ -17,4 +13,8 @@
         require_once($_SESSION['controlador']);
     }
     require_once('./vista/layout.php');
+
+    if (isset($_REQUEST['logout'])) {
+        session_destroy();
+    }
 ?>
