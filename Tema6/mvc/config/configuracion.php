@@ -17,7 +17,7 @@ require_once('./core/validaciones.php');
 
 //Controladores
 $controladores=array(
-    'login'=>'loginController.php'
+    'login'=>'./controlado/loginController.php'
 );
 
 //Vistas

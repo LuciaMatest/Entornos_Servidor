@@ -56,5 +56,18 @@
                 return 'Actualizado';
             }
         }
+
+        public static function valida($user,$pass){
+            $sql='select * from usuarios where usuario=? and clave=?;';
+            $passh = sha1($pass);
+            $datos=array($user,$passh);
+            $devuelve = parent::ejecuta($sql,$datos);
+            $obj=$devuelve->fetchObject();
+            if ($obj) {
+                return $usuario= new Usuario($obj->usuario,$obj->clave,$obj->nombre,$obj->correo,$obj->perfil);
+            }else{
+                return null;
+            }
+        }
     }
 ?>
