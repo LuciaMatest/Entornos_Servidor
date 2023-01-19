@@ -24,6 +24,7 @@ $controladores=array(
 $vistas= array(
     'home'=>'homeView.php',
     'login'=>'loginView.php'
+    // 'user'=>'loginView.php'
 );
 
 ?>
