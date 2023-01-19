@@ -1,21 +1,18 @@
-<?  
-    
+<?php
     class FactoryBD{
-
         public static function ejecuta($sql,$datos){
             try {
                 //Los datos deben venir siempre como un array
-                $con= new PDO('mysql:host='. $_SERVER['SERVER_ADDR']. ';dbname=' .BBDD,USER,PASS);
-                $preparada= $con->prepare($sql);
-                $preparada->execute($datos);
-
+                $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD,USER,PASS);
+                $sql_preparada = $conexion->prepare($sql);
+                $sql_preparada->execute($datos);
             } catch (Exception $ex) {
-                //Si no va pues nulo
-                $preparada=null;
+                //Si no funciona es nulo
+                $sql_preparada = null;
                 echo $ex;
-            }finally{
-                unset($con);
-                return $preparada;
+            } finally {
+                unset($conexion);
+                return $sql_preparada;
             }
         }
     }

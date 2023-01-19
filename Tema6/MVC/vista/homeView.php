@@ -1,3 +1,3 @@
-<?
-    echo "<h1>INDEX</h1>"
+<?php
+    echo '<h1>Home View</h1>';
 ?>
