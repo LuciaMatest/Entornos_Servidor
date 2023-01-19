@@ -26,9 +26,11 @@
                     if (!estaValidado()) {
                         echo '<button class="btn btn-primary" type="submit" name="login">Login</button>';
                     } else {
-                        echo '<h2>'.$_SESSION['user'].'</h2>';
-                        echo '<button class="btn btn-primary" type="submit" name="miperfil">Mi perfil</button>';
-                        echo '<button class="btn btn-primary" type="submit" name="logout">Logout</button>';
+                        echo '<div class="container mt-3">';
+                            echo '<h2>'.$_SESSION['user'].'</h2>';
+                            echo '<button class="btn btn-primary" type="submit" name="miperfil">Mi perfil</button>';
+                            echo '<button class="btn btn-primary" type="submit" name="logout">Logout</button>';
+                        echo '</div>';
                     }
                 ?>
             </form>
