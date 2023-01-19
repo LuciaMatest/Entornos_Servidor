@@ -12,6 +12,8 @@
         $_SESSION['vista']=$vistas['login'];
     }elseif (isset($_REQUEST['pagina'])) {
         require_once($_SESSION['controlador']);
+    }elseif (isset($_REQUEST['pagina'])) {
+        require_once $_SESSION['controlador'];
     }
     require_once('./vista/layout.php');
 ?>
