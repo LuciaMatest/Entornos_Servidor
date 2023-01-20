@@ -5,27 +5,34 @@
   <form action="./index.php" method="post">
     <div class="mb-3 mt-3">
       <label for="user">Usuario:</label>
-      <input type="text" class="form-control" id="inputName" placeholder="Usuario" name="user" value="<? echo $usuario->usuario?>">
+      <input type="text" class="form-control" id="inputName" placeholder="Usuario" name="user" >
     </div>
     <div class="mb-3">
       <label for="pass">Contraseña:</label>
-      <input type="password" class="form-control" id="inputName" placeholder="Contraseña" name="pass" value="<? echo $usuario->clave?>">
+      <input type="password" class="form-control" id="inputName" placeholder="Contraseña" name="pass" >
     </div>
     <div class="mb-3 mt-3">
       <label for="inputName">Nombre:</label>
-      <input type="text" class="form-control" id="inputName" placeholder="Nombre" name="nombre" value="<? echo $usuario->nombre?>">
+      <input type="text" class="form-control" id="inputName" placeholder="Nombre" name="nombre" >
     </div>
     <div class="mb-3 mt-3">
       <label for="inputEmail">Email:</label>
-      <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email" value="<? echo $usuario->correo?>">
+      <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email" >
     </div>
     <div class="mb-3 mt-3">
       <label for="inputPerfil">Perfil:</label>
-      <input type="text" class="form-control" id="inputPerfil" placeholder="Perfil" name="perfil" value="<? echo $usuario->perfil?>">
+      <input type="text" class="form-control" id="inputPerfil" placeholder="Perfil" name="perfil">
     </div>
     <div class="mb-3 mt-3">
-        <button type="submit" class="btn btn-primary" name="enviar">Guardar</button>
-        <button type="submit" class="btn btn-primary" name="editar">Editar</button>
+      <?if ($_SESSION['accion'] == 'editar') { ?>
+          <input type="submit" value="Guardar" name="guardar">
+      <?
+      } else {
+      ?>
+          <input type="submit" value="Editar" name="editar">
+      <?
+      }
+      ?>
     </div>
   </form>
 </div>

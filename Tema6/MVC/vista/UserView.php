@@ -28,16 +28,15 @@
       <input type="text" class="form-control" id="inputPerfil" placeholder="Perfil" name="perfil" value="<? echo $usuario->perfil?>">
     </div>
     <div class="mb-3 mt-3">
-        <?if ($_SESSION['accion']=='editar'){?>
-            <button type="submit" class="btn btn-primary" name="enviar">Guardar</button>
-        <?
-        }
-        ?>
-        <?if ($_SESSION['accion']=='ver'){?>
-            <button type="submit" class="btn btn-primary" name="editar">Editar</button>
-        <?
-        }
-        ?>
+      <?if ($_SESSION['accion'] == 'editar') { ?>
+          <input type="submit" value="Guardar" name="guardar">
+      <?
+      } else {
+      ?>
+          <input type="submit" value="Editar" name="editar">
+      <?
+      }
+      ?>
     </div>
   </form>
 </div>
