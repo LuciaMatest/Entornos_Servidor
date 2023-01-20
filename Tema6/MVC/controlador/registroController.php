@@ -2,7 +2,7 @@
     if (isset($_REQUEST['guardar'])) {
         //validamos el formulario
         //$_SESSION['error'] el motivo por el que no valida
-        $user = new Usuario($_REQUEST['user'],$_REQUEST['nombre'],$_REQUEST['email'],$_REQUEST['pass'],'P0001');
+        $user = new Usuario($_REQUEST['user'],$_REQUEST['nombre'],$_REQUEST['email'],sha1($_REQUEST['pass']),'P0001');
         if (UsuarioDAO::insert($user)) {
             $_SESSION['controlador']=$controladores['home'];
             $_SESSION['vista']=$vistas['home'];

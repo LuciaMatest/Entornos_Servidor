@@ -6,7 +6,8 @@
     $controladores = array(
         'login'=>'./controlador/loginController.php',
         'user'=>'./controlador/UserController.php',
-        'registro'=>'./controlador/registroController.php'
+        'registro'=>'./controlador/registroController.php',
+        'home'=>'./controlador/homeController.php'
     );
 
     //CORE
