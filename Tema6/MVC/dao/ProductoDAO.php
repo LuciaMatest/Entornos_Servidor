@@ -63,7 +63,7 @@
             foreach ($objeto as $att) {
                 array_push($datos,$att);
             }
-            $resultado = parent::ejecute($inserta,$datos);
+            $resultado = parent::ejecuta($inserta,$datos);
             if ($resultado->rowCount() == 0) {
                 return false;
             } else {
