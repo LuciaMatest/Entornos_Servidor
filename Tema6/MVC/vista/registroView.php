@@ -11,6 +11,10 @@
       <label for="pass">Contraseña:</label>
       <input type="password" class="form-control" id="inputName" placeholder="Contraseña" name="pass" >
     </div>
+    <div class="mb-3">
+      <label for="pass2">Repetir contraseña:</label>
+      <input type="password" class="form-control" id="inputName" placeholder="Contraseña2" name="pass2" >
+    </div>
     <div class="mb-3 mt-3">
       <label for="inputName">Nombre:</label>
       <input type="text" class="form-control" id="inputName" placeholder="Nombre" name="nombre" >
