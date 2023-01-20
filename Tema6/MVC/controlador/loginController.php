@@ -21,8 +21,8 @@ if ($_REQUEST['registro']) {
                 $_SESSION['perfil'] = $usuario->perfil;
                 $_SESSION['vista'] = $vistas['home'];
                 $_SESSION['controlador'] = $controladores['user'];
+            }
         }
-    }
     }
 }
     

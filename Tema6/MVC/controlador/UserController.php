@@ -9,6 +9,7 @@
         $usuario = UsuarioDAO::findById($_SESSION['user']);
 
     } elseif (isset($_REQUEST['guardar'])) {
+        //funcion validaContraseñas
         $_SESSION['accion'] = 'ver';
         $usuario = UsuarioDAO::findById($_SESSION['user']);
         $usuario->clave = $_REQUEST['pass'];

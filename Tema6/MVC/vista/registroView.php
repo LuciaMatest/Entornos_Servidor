@@ -20,19 +20,7 @@
       <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email" >
     </div>
     <div class="mb-3 mt-3">
-      <label for="inputPerfil">Perfil:</label>
-      <input type="text" class="form-control" id="inputPerfil" placeholder="Perfil" name="perfil">
-    </div>
-    <div class="mb-3 mt-3">
-      <?if ($_SESSION['accion'] == 'editar') { ?>
-          <input type="submit" value="Guardar" name="guardar">
-      <?
-      } else {
-      ?>
-          <input type="submit" value="Editar" name="editar">
-      <?
-      }
-      ?>
+      <input type="submit" value="Guardar" name="guardar">
     </div>
   </form>
 </div>

@@ -60,7 +60,12 @@
             foreach ($objeto as $att) {
                 array_push($datos,$att);
             }
-            parent::ejecute($inserta,$datos);
+            $resultado = parent::ejecute($inserta,$datos);
+            if ($resultado->rowCount() == 0) {
+                return false;
+            } else {
+                return true;
+            }
 
         }
 
