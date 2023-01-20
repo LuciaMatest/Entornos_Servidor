@@ -11,10 +11,6 @@
       <label for="pass">Contraseña:</label>
       <input type="password" class="form-control" id="inputName" placeholder="Contraseña" name="pass" value="<? echo $usuario->clave?>">
     </div>
-    <div class="mb-3">
-      <label for="pass">Repetir contraseña:</label>
-      <input type="password" class="form-control" id="inputName" placeholder="Contraseña" name="pass" value="<? echo $usuario->clave?>">
-    </div>
     <div class="mb-3 mt-3">
       <label for="inputName">Nombre:</label>
       <input type="text" class="form-control" id="inputName" placeholder="Nombre" name="nombre" value="<? echo $usuario->nombre?>">
@@ -28,7 +24,8 @@
       <input type="text" class="form-control" id="inputPerfil" placeholder="Perfil" name="perfil" value="<? echo $usuario->perfil?>">
     </div>
     <div class="mb-3 mt-3">
-        <button type="submit" class="btn btn-primary" name="registrar">Registrarse</button>
+        <button type="submit" class="btn btn-primary" name="enviar">Guardar</button>
+        <button type="submit" class="btn btn-primary" name="editar">Editar</button>
     </div>
   </form>
 </div>

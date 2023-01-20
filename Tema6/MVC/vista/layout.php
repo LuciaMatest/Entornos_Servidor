@@ -25,6 +25,7 @@
                 <?php
                     if (!estaValidado()) {
                         echo '<button class="btn btn-primary" type="submit" name="login">Login</button>';
+                        echo '<button class="btn btn-primary" type="submit" name="registro">Registro</button>';
                     } else {
                         echo '<div class="container mt-3">';
                             echo '<h2 class="text-muted">'.$_SESSION['user'].'</h2>';

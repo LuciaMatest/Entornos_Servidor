@@ -5,7 +5,8 @@
     //CONTROLADOR
     $controladores = array(
         'login'=>'./controlador/loginController.php',
-        'user'=>'./controlador/UserController.php'
+        'user'=>'./controlador/UserController.php',
+        'registro'=>'./controlador/registroController.php'
     );
 
     //CORE
@@ -24,6 +25,7 @@
     $vistas = array(
         'home'=>'./vista/homeView.php',
         'login'=>'./vista/loginView.php',
-        'user'=>'./vista/UserView.php'
+        'user'=>'./vista/UserView.php',
+        'registro'=>'./vista/registroView.php'
     );
 ?>
