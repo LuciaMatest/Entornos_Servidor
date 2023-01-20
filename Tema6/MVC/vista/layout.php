@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
