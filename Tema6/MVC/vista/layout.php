@@ -24,8 +24,10 @@
             <form class="d-flex" action='./index.php' method='post'>
                 <?php
                     if (!estaValidado()) {
-                        echo '<button class="btn btn-primary" type="submit" name="login">Login</button>';
-                        echo '<button class="btn btn-primary" type="submit" name="registro">Registro</button>';
+                        echo '<div class="container mt-3">';
+                            echo '<button class="btn btn-primary" type="submit" name="login">Login</button>&nbsp;';
+                            echo '<button class="btn btn-primary" type="submit" name="registro">Registro</button>';
+                        echo '</div>';
                     } else {
                         echo '<div class="container mt-3">';
                             echo '<h2 class="text-muted">'.$_SESSION['user'].'</h2>';
