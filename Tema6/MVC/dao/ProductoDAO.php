@@ -14,7 +14,7 @@
                     $row->stock,
                     $row->img
                 );
-                array_push($arrayProducto,$usuario);
+                array_push($arrayProducto,$producto);
             }
             return $arrayProducto;
         }
