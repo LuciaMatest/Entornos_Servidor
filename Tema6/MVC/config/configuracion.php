@@ -18,9 +18,11 @@
     require_once('./dao/DAO.php');
     require_once('./dao/FactoryBD.php');
     require_once('./dao/UsuarioDAO.php');
+    require_once('./dao/ProductoDAO.php');
 
     //MODELO
     require_once('./modelo/Usuario.php');
+    require_once('./modelo/Producto.php');
 
     //VISTA
     $vistas = array(
