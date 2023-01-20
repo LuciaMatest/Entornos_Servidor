@@ -25,14 +25,14 @@
                 <?php
                     if (!estaValidado()) {
                         echo '<div class="container mt-3">';
-                            echo '<button class="btn btn-primary" type="submit" name="login">Login</button>&nbsp;';
-                            echo '<button class="btn btn-primary" type="submit" name="registro">Registro</button>';
+                            echo '<input class="btn btn-primary" type="submit" name="login" value="Login">&nbsp;';
+                            echo '<input class="btn btn-primary" type="submit" name="registro" value="Registro">';
                         echo '</div>';
                     } else {
                         echo '<div class="container mt-3">';
                             echo '<h2 class="text-muted">'.$_SESSION['user'].'</h2>';
-                            echo '<button class="btn btn-primary" type="submit" name="miperfil">Mi perfil</button>&nbsp;';
-                            echo '<button class="btn btn-primary" type="submit" name="logout">Logout</button>';
+                            echo '<input class="btn btn-primary" type="submit" name="miperfil" value="Mi perfil">&nbsp;';
+                            echo '<input class="btn btn-primary" type="submit" name="logout" value="Logout">';
                         echo '</div>';
                     }
                 ?>
