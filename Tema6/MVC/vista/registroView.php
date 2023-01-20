@@ -24,7 +24,7 @@
       <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email" >
     </div>
     <div class="mb-3 mt-3">
-      <input type="submit" value="Guardar" name="guardar">
+      <input type="submit" class="btn btn-primary" value="Guardar" name="guardar">
     </div>
   </form>
 </div>

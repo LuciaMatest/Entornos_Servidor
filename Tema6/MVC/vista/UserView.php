@@ -29,11 +29,11 @@
     </div>
     <div class="mb-3 mt-3">
       <?if ($_SESSION['accion'] == 'editar') { ?>
-          <input type="submit" value="Guardar" name="guardar">
+          <input type="submit" class="btn btn-primary" value="Guardar" name="guardar">
       <?
       } else {
       ?>
-          <input type="submit" value="Editar" name="editar">
+          <input type="submit" class="btn btn-primary" value="Editar" name="editar">
       <?
       }
       ?>

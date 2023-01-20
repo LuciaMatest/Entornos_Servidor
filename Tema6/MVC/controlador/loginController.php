@@ -20,7 +20,7 @@ if ($_REQUEST['registro']) {
                 $_SESSION['nombre'] = $usuario->nombre;
                 $_SESSION['perfil'] = $usuario->perfil;
                 $_SESSION['vista'] = $vistas['home'];
-                $_SESSION['controlador'] = $controladores['user'];
+                $_SESSION['controlador'] = $controladores['home'];
             }
         }
     }
