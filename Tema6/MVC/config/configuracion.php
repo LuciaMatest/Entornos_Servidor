@@ -7,7 +7,8 @@
         'login'=>'./controlador/loginController.php',
         'user'=>'./controlador/UserController.php',
         'registro'=>'./controlador/registroController.php',
-        'home'=>'./controlador/homeController.php'
+        'home'=>'./controlador/homeController.php',
+        'producto'=>'./controlador/ProductoController.php'
     );
 
     //CORE
@@ -29,6 +30,7 @@
         'home'=>'./vista/homeView.php',
         'login'=>'./vista/loginView.php',
         'user'=>'./vista/UserView.php',
-        'registro'=>'./vista/registroView.php'
+        'registro'=>'./vista/registroView.php',
+        'verProducto'=>'./vista/ProductoView.php'
     );
 ?>
