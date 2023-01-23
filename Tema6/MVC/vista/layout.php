@@ -30,11 +30,15 @@
                         echo '</div>';
                     } else {
                         echo '<div class="container mt-3">';
-                            echo '<h2 class="text-muted">'.$_SESSION['user'].'</h2>';
+                        echo '<h2 class="text-muted">'.$_SESSION['user'].'</h2>';
+                        if (esAdmin()) {
+                            echo '<input class="btn btn-primary" type="submit" name="admin" value="Administrar">&nbsp;';
+                            
+                        }
                             echo '<input class="btn btn-primary" type="submit" name="miperfil" value="Mi perfil">&nbsp;';
                             echo '<input class="btn btn-primary" type="submit" name="logout" value="Logout">';
-                        echo '</div>';
                     }
+                        echo '</div>';
                 ?>
             </form>
             </div>
