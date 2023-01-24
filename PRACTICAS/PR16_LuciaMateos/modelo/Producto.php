@@ -1,19 +1,21 @@
 <?php
 class Producto{
-    private $codProd;
+    private $cod_producto;
+    private $img_alta;
+    private $img_baja;
     private $nombre;
     private $descripcion;
     private $precio;
     private $stock;
-    private $img;
 
-    public function __construct($codProd,$nombre,$descripcion,$precio,$stock,$img){
-        $this->codProd = $codProd;
+    public function __construct($cod_producto,$img_alta, $img_baja, $nombre,$descripcion,$precio,$stock){
+        $this->cod_producto = $cod_producto;
+        $this->img_alta = $img_alta;
+        $this->img_baja = $img_baja;
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
         $this->precio = $precio;
         $this->stock = $stock;
-        $this->img = $img;
     }
 
     public function __get($get){

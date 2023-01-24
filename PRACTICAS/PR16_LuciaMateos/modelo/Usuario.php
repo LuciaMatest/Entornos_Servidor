@@ -4,14 +4,16 @@
         private $clave;
         private $nombre;
         private $correo;
-        private $perfil;
+        private $fecha;
+        private $rol;
 
-        public function __construct($usuario,$clave,$nombre,$correo,$perfil){
+        public function __construct($usuario,$clave,$nombre,$correo,$fecha,$rol){
             $this->usuario = $usuario;
             $this->clave = $clave;
             $this->nombre = $nombre;
             $this->correo = $correo;
-            $this->perfil = $perfil;
+            $this->fecha = $fecha;
+            $this->rol = $rol;
         }
 
         public function __get($get){

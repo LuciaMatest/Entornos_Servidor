@@ -88,7 +88,7 @@
                                     if (estaValidado()) {
                                         echo '<button type="submit" name="comprar" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></button>';
                                     } else {
-                                        echo '<button type="submit" name="comprar" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></button>';
+                                        echo '<a href="login.php" class="boton">Comprar <i class="fa-solid fa-cart-plus"></i></a>';                      
                                     }
                                     echo '<p class="stock">Stock: '.$key['stock'].' disponibles</p>';
                                     echo '<input type="hidden" name="cod_producto" value="'.$key['cod_producto'].'">';
