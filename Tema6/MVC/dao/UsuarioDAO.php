@@ -37,7 +37,7 @@
         }
 
         public static function update($objeto){
-            $actualiza = 'update usuarios set clave=?,correo=?,perfil=? where usuario=?;';
+            $actualiza = 'update usuarios set clave=?,nombre=?,correo=?,perfil=? where usuario=?;';
             $datos = array(
                 $objeto->usuario,
                 $objeto->clave,
@@ -46,7 +46,7 @@
                 $objeto->perfil
             );
             $resultado = parent::ejecuta($actualiza,$datos);
-            if ($resultado->rowCount() == 0) {
+            if ($resultado->rowCount()==0) {
                 return false;
             } else {
                 return true;
