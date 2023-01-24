@@ -1,0 +1,571 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Enlaces sin subrayado sin bullets */
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo img {
+    width: 200px;
+}
+
+.botones i {
+    padding-right: 5px;
+    padding-left: 5px;
+    font-size: 17px;
+    color: #be901b;
+}
+
+.botones a {
+    color: #be901b;
+    text-decoration: none;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+/* Navegador */
+nav {
+    background-color: #d4d4d4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 12px;
+}
+
+nav ul li a {
+    padding: 20px;
+    display: block;
+    color: #333;
+    font-weight: bold;
+    font-size: large;
+}
+
+nav ul li a:hover {
+    background: whitesmoke;
+}
+
+/* Principal */
+.principal {
+    padding-top: 40px;
+}
+
+.principal div {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.principal div .imagenes {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+}
+
+.principal div .imagenes img {
+    width: 50%;
+    padding: 5px;
+}
+
+.principal div .rectangulo {
+    background: #ffffff;
+    background: linear-gradient(90deg, #ffffff00 0%, #be901b 18%, #c69d36 80%, #e0ca9200 100%);
+}
+
+.principal div .rectangulo h2 {
+    color: whitesmoke;
+}
+
+.principal div .imagenes .img1 {
+    transform: scaleX(-1);
+}
+
+/* Tienda */
+.tienda {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tienda section {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    background-color: white;
+}
+
+.tienda section article {
+    position: relative;
+    float: left;
+    width: 300px;
+    margin: 30px 20px 50px;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+.tienda section article img {
+    padding: 10px;
+    width: 250px;
+    height: 250px;
+}
+
+.tienda section article h3 {
+    color: #303030;
+    margin-top: 10px;
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.tienda section article p {
+    color: #555;
+}
+
+.tienda section article .precio {
+    color: #444;
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+.tienda section article .boton {
+    background-color: #be901b;
+    padding: 12px;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-size: medium;
+    color: whitesmoke;
+}
+
+.tienda section article .boton:hover {
+    color: #555;
+    background-color: whitesmoke;
+}
+
+/* Producto */
+.producto {
+    padding: 10px;
+}
+
+.producto section article {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding-bottom: 12%;
+}
+
+.producto section article .detalles {
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+    padding-left: 30px;
+}
+
+.producto section article .detalles img {
+    padding: 50px;
+    width: inherit;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    max-width: max-content;
+    margin-right: 0px;
+}
+
+.producto section article .detalles .informacion {
+    display: flex;
+    flex-direction: column;
+}
+
+.producto section article .detalles .informacion h3 {
+    color: #303030;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    width: 100%;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.producto section article .detalles .informacion .precio {
+    color: #444;
+    font-size: 45px;
+    margin-top: 5px;
+    margin: 0;
+    text-align: left;
+}
+
+.producto section article .detalles .informacion p {
+    color: #555;
+}
+
+.producto section article .detalles .informacion .unidad {
+    margin-bottom: 2px;
+}
+
+.producto section article .detalles .informacion .contar {
+    width: 50px;
+    font-size: 17px;
+    height: 35px;
+    padding: 10px 3px;
+    border: 1px #ddd solid;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.producto section article .detalles .informacion .boton {
+    background-color: #be901b;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+    color: whitesmoke;
+    padding: 15px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.producto section article .detalles .informacion .stock {
+    color: rgb(116, 116, 116);
+    padding-left: 55px;
+    padding-right: 55px;
+}
+
+.producto section article .descripcion {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    padding-left: 30px;
+}
+
+.producto section article .descripcion h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 8px;
+    margin-left: 10px;
+}
+
+.producto section article .descripcion p {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: justify;
+    margin-top: 8px;
+    margin-left: 20px;
+}
+
+
+/* Login */
+.login {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-top: 70px;
+}
+
+.login h1 {
+    color: #444;
+    margin: 5px;
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+.login div form {
+    background-color: #d4d4d4;
+    width: 500px;
+    margin: 10px auto;
+    padding: 20px;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.login div form h2 {
+    color: #555;
+    text-align: center;
+    margin: 5px;
+}
+
+.login div form p {
+    padding: 5px;
+    margin: 0;
+}
+
+.login div form p label {
+    line-height: 2;
+}
+
+.login div form p input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login div form div {
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.login div form div .boton {
+    background-color: #be901b;
+    border: 1px solid #ccc;
+    padding: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-size: large;
+    color: whitesmoke;
+}
+
+.login div form div .boton:hover {
+    color: #555;
+    background-color: #d1d1d1;
+}
+
+.login div form div a {
+    padding-left: 20px;
+}
+
+/* Registro */
+.registro {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.registro h1 {
+    color: #444;
+    margin: 5px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.registro div form {
+    background-color: #d4d4d4;
+    width: 500px;
+    margin: 10px auto;
+    padding: 20px;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.registro div form h2 {
+    color: #555;
+    text-align: center;
+    margin: 5px;
+}
+
+.registro div form p {
+    padding: 5px;
+    margin: 0;
+}
+
+.registro div form p label {
+    line-height: 2;
+}
+
+.registro div form p input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.registro div form div {
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.registro div form .boton {
+    background-color: #be901b;
+    border: 1px solid #ccc;
+    padding: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-size: large;
+    color: whitesmoke;
+}
+
+.registro div form .boton:hover {
+    color: #555;
+    background-color: #d1d1d1;
+}
+
+.registro div form a {
+    padding-left: 20px;
+}
+
+.registro div form .opciones select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Modificar */
+.modificar {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.modificar div h1 {
+    color: #444;
+    margin: 5px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.modificar div form {
+    background-color: #d4d4d4;
+    width: 500px;
+    margin: 10px auto;
+    padding: 20px;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.modificar div form h2 {
+    color: #555;
+    text-align: center;
+    margin: 5px;
+}
+
+.modificar div form p {
+    padding: 5px;
+    margin: 0;
+}
+
+.modificar div form p label {
+    line-height: 2;
+}
+
+.modificar div form p input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modificar div form div {
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.modificar div form div .boton {
+    background-color: #be901b;
+    border: 1px solid #ccc;
+    padding: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-size: large;
+    color: whitesmoke;
+}
+
+.modificar div form div .boton:hover {
+    color: #555;
+    background-color: #d1d1d1;
+}
+
+.modificar div form div a {
+    padding-left: 20px;
+}
+
+/* Ventas */
+.venta {
+    padding: 20px;
+}
+
+/* Almacén */
+.almacen {
+    padding: 20px;
+}
+
+/* Tablas */
+table,
+tr {
+    border: 2px solid #444;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+th {
+    background-color: #be901b;
+    color: white;
+    padding: 15px;
+}
+
+td {
+    padding: 10px;
+}
+
+/* Pie de pagina */
+footer {
+    background-color: #d4d4d4;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+footer div a {
+    color: #444;
+    padding: 10px;
+}
+
+footer div a:hover {
+    color: #555;
+}
+
+.footer_registro {
+    position: relative;
+}
