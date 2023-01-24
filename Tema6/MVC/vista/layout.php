@@ -15,11 +15,11 @@
             <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Home</a>
+                <a class="nav-link" href="./index.php?home">Home</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                 <a class="nav-link" href="javascript:void(0)">Features</a>
-                </li>
+                </li> -->
             </ul>
             <form class="d-flex" action='./index.php' method='post'>
                 <?php
