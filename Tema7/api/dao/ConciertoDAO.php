@@ -36,6 +36,15 @@ class ConciertoDAO extends FactoryBD implements DAO
         return $arrayCociertos;
     }
 
+    public static function findOrderByFecha($id)
+    {
+        $sql = 'select * from conciertos order by fecha ?';
+        $datos = array($id);
+        $devuelve = parent::ejecuta($sql, $datos);
+        $arrayCociertos = $devuelve->fetchAll(PDO::FETCH_ASSOC);
+        return $arrayCociertos;
+    }
+
     public static function delete($id)
     {
         $sql = 'delete from conciertos where id=?;';
