@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.boton {
+    color: #be901b;
+    text-decoration: none;
+}
+
+.botonG {
+    background-color: #be901b;
+    border: 1px solid #ccc;
+    padding: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-size: large;
+    color: whitesmoke;
+}
+
+.botonG:hover {
+    color: #555;
+    background-color: #d1d1d1;
+}
+
+
+.op {
+    color: #333;
+    font-size: large;
+}
+
+.opli:hover {
+    background: whitesmoke;
+    color: #333;
+}
+
+.rectangulo {
+    background: linear-gradient(90deg, #ffffff00 0%, #be901b 18%, #c69d36 80%, #e0ca9200 100%);
+}
+
+.rectangulo h4 {
+    color: whitesmoke;
+}
