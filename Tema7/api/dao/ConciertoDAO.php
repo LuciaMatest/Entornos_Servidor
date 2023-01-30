@@ -10,11 +10,7 @@ class ConciertoDAO extends FactoryBD implements DAO
         $sql = 'select * from conciertos';
         $datos = array();
         $devuelve = parent::ejecuta($sql, $datos);
-        $arrayCociertos = array();
-        while ($obj = $devuelve->fetchObject()) {
-            $concierto = new Concierto($obj->grupo, $obj->fecha, $obj->precio, $obj->lugar);
-            array_push($arrayCociertos, $concierto);
-        }
+        $arrayCociertos = $devuelve->fetchAll(PDO::FETCH_ASSOC);
         return $arrayCociertos;
     }
 
@@ -23,9 +19,9 @@ class ConciertoDAO extends FactoryBD implements DAO
         $sql = 'select * from conciertos where id=?';
         $datos = array($id);
         $devuelve = parent::ejecuta($sql, $datos);
-        $obj = $devuelve->fetchObject();
+        $obj = $devuelve->fetch(PDO::FETCH_ASSOC);
         if ($obj) {
-            return $concierto = new Concierto($obj->grupo, $obj->fecha, $obj->precio, $obj->lugar);
+            return $obj;
         } else {
             return 'No existe el producto';
         }

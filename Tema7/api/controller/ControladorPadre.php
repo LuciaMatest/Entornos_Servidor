@@ -16,8 +16,8 @@ class ControladorPadre{
     }
 
     protected function parametros(){
-        $uri= $_SERVER['PATH_INFO'];
-        print_r($uri);
+        $uri= $_GET;
+        
         return $uri;
     }
 
