@@ -42,7 +42,14 @@ class ConciertosControlador extends ControladorPadre
                     array('Content-Type: application/json', 'HTTP/1.1 200 OK')
                 );
             } else {
-                if (isset($_GET['fecha'])) {
+                if ((isset($_GET['fecha'])) && (isset($_GET['ordenFecha'])) ) {
+                    $concierto = ConciertoDAO::findByFechaOrden($_GET['fecha'],$_GET['ordenFecha']);
+                    $data = json_encode($concierto);
+                    self::respuesta(
+                        $data,
+                        array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+                    );
+                } elseif (isset($_GET['fecha'])) {
                     $concierto = ConciertoDAO::findByFecha($_GET['fecha']);
                     $data = json_encode($concierto);
                     self::respuesta(
@@ -52,10 +59,11 @@ class ConciertosControlador extends ControladorPadre
                 } elseif (isset($_GET['ordenFecha'])) {
                     if (($_GET['ordenFecha'] != 'ASC') && ($_GET['ordenFecha'] != 'DESC')) {
                         self::respuesta(
+                            '',
                             array('HTTP/1.1 400 El filtro de fecha debe ser ASC o DESC')
                         );
                     } else {
-                        $concierto = ConciertoDAO::findOrderByFecha($_GET['fecha']);
+                        $concierto = ConciertoDAO::findOrderByFecha($_GET['ordenFecha']);
                         $data = json_encode($concierto);
                         self::respuesta(
                             $data,
