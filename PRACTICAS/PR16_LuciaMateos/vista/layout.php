@@ -79,10 +79,10 @@
                         <?php
                         }
                         ?>
-                        <li class="opli nav-item p-3 fw-bold"><a class="op btn nav-link" href="index.php">Inicio</a></li>
-                        <li class="opli nav-item p-3 fw-bold"><a class="op btn nav-link" href="Paginas/tienda.php">Tienda</a></li>
-                        <li class="opli nav-item p-3 fw-bold"><a class="op btn nav-link" href="#">Contacto</a></li>
-                        <li class="opli nav-item p-3 fw-bold"><a class="op btn nav-link" href="#">Ofertas</a></li>
+                        <li class="opli nav-item p-3 fw-bold"><input class="op btn nav-link" type="submit" name="home" value="Inicio"></li>
+                        <li class="opli nav-item p-3 fw-bold"><input class="op btn nav-link" type="submit" name="tienda" value="Tienda"></li>
+                        <!-- <li class="opli nav-item p-3 fw-bold"><a class="op btn nav-link" href="#">Contacto</a></li>
+                        <li class="opli nav-item p-3 fw-bold"><a class="op btn nav-link" href="#">Ofertas</a></li> -->
                         <?php
                         if (esAdmin() || esModerador()) {
                             echo '<li class="opli nav-item p-3 fw-bold"><input type="submit" name="almacen" value="Almacén" class="op btn nav-link"></li>';
