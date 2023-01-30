@@ -41,14 +41,25 @@ class ConciertosControlador extends ControladorPadre
                     $data,
                     array('Content-Type: application/json', 'HTTP/1.1 200 OK')
                 );
+            } else {
+                if (isset($_GET['fecha'])) {
+                    $concierto = ConciertoDAO::findByFecha($_GET['fecha']);
+                    $data = json_encode($concierto);
+                    self::respuesta(
+                        $data,
+                        array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+                    );
+                } else {
+                    self::respuesta('', array('HTTP/1.1 400 No se ha utilizado un filtro correcto'));
+                }
             }
         } elseif (count($recurso) == 3) {
             $concierto = ConciertoDAO::findById($recurso[2]);
             $data = json_encode($concierto);
-                self::respuesta(
-                    $data,
-                    array('Content-Type: application/json', 'HTTP/1.1 200 OK')
-                );
+            self::respuesta(
+                $data,
+                array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+            );
         }
     }
     public function insertar()
