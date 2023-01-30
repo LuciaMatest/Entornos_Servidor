@@ -46,7 +46,7 @@
                                 } ?>">
                             </div>
                             <div class="text-center">
-                                <input type="submit" value="Guardar cambios" name="guardar" class="botonG">
+                                <input type="submit" value="Modificar" name="modificar" class="botonG">
                             </div>
                         </form>
                     </div>

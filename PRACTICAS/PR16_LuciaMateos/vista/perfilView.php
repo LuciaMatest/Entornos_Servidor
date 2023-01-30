@@ -33,7 +33,7 @@
                             <!-- Rol -->
                             <div class="mb-4 px-2">
                                 <label for="idOpcion" class="form-label">Rol</label>
-                                <select name="rol" id="idOpcion" class="w-100 d-inline-block bg-white" value="<? echo $usuario->rol?>" style="box-sizing: border-box;border-radius: 4px;border: 1px solid #ccc;padding: 12px 20px;margin: 8px 0;">
+                                <select name="rol" id="idOpcion" class="w-100 d-inline-block bg-white" value="<? echo $usuario->rol ?>" style="box-sizing: border-box;border-radius: 4px;border: 1px solid #ccc;padding: 12px 20px;margin: 8px 0;">
                                     <option value="0">Seleccione una opción</option>
                                     <option value="ADM01">Administrador</option>
                                     <option value="M0001">Moderador</option>
@@ -43,12 +43,14 @@
                             <div class="text-center">
                                 <? if ($_SESSION['accion'] == 'editar') { ?>
                                     <input type="submit" class="botonG" value="Guardar" name="guardar">
-                                <?
-                                } else {
-                                ?>
+                                    <?
+                                }
+                                    ?><?
+                                    if ($_SESSION['accion'] == 'ver') { ?>
+                                    
                                     <input type="submit" class="botonG" value="Editar" name="editar">
                                 <?
-                                }
+                                    }
                                 ?>
                             </div>
                         </form>
