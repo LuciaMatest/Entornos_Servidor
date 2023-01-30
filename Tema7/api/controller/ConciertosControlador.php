@@ -21,8 +21,8 @@ class ConciertosControlador extends ControladorPadre
                 break;
 
             default:
-                # code...
-                break;
+                ControladorPadre::respuesta('', array('HTTP/1.1 400 No se ha iniciado recurso'));
+                return null;
         }
     }
 
@@ -36,6 +36,9 @@ class ConciertosControlador extends ControladorPadre
                 //LISTAR
                 $lista = ConciertoDAO::findAll();
                 print_r($lista);
+                $data = json_encode($lista);
+                self::respuesta($data,
+                array('Content-Type: application/json', 'HTTP/1.1 200 OK'));
             }
         }
         //conciertos y despues id
