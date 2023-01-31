@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../webroot/css/style.css">
+    <link rel="stylesheet" href="./webroot/css/style.css">
     <title><? echo $_SESSION['pagina']; ?></title>
 </head>
 
@@ -17,8 +17,8 @@
         <header class="p-3" style="background-color: #f0f0f0;">
             <div class="mx-2">
                 <div class="d-flex bd-highlight mb-1 align-items-center justify-content-space-between">
-                    <a href="../index.php" class="mx-auto mx-sm-auto ms-md-0 my-1" class="logo">
-                        <img src="../webroot/imagen/logo.png" alt="logo" class="icono_logo" style="width: 200px;">
+                    <a href="./index.php" class="mx-auto mx-sm-auto ms-md-0 my-1" class="logo">
+                        <img src="./webroot/imagen/logo.png" alt="logo" class="icono_logo" style="width: 200px;">
                     </a>
                     <?php
                     if (estaValidado()) {
@@ -48,7 +48,7 @@
                     } else {
                     ?>
                         <div class="p-0 p-sm-0 p-md-2">
-                            <input type="submit" value="Iniciar sesión" name="login" class="boton px-1 d-none d-sm-none d-md-block">
+                            <input type="submit" value="Iniciar sesión" name="login" class="botonG px-1 d-none d-sm-none d-md-block">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                             </svg>

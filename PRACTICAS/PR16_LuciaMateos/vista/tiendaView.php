@@ -6,7 +6,7 @@
             <article class="col">
                 <div class="card mb-4">
                     <div class="card-header bg-white">
-                        <img src='./webroot/imagen/<? echo $key->imagen_baja ?>' alt="productos_pelu">
+                        <img src='../webroot/imagen/<? echo $key->imagen_baja ?>' alt="productos_pelu">
                     </div>
                     <div class="card-body">
                         <h3 class="fw-bold my-1" style="color: #303030;font-size: 25px;">'<? echo $key->nombre ?>'</h3>

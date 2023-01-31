@@ -74,8 +74,7 @@ if (isset($_REQUEST['home'])) {
             $_SESSION['vista'] = $vistas['registro'];
             require_once $_SESSION['controlador'];
         } else {
-
-            require_once($_SESSION['controlador']);
+            // require_once($_SESSION['controlador']);
         }
     }
 }
