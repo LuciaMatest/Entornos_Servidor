@@ -46,7 +46,7 @@ class ConciertoDAO extends FactoryBD implements DAO
     }
 
     public static function findByFechaOrden($fecha, $orden){
-        $sql = 'select * from conciertos where fecha > = ? and order by fecha '.$orden.'';
+        $sql = 'select * from conciertos where fecha >= ? order by fecha '.$orden;
         $datos = array($fecha);
         $devuelve = parent::ejecuta($sql, $datos);
         $arrayCociertos = $devuelve->fetchAll(PDO::FETCH_ASSOC);
