@@ -88,9 +88,9 @@ class ConciertosControlador extends ControladorPadre
         $body = file_get_contents('php://input');
         $dato = json_decode($body, true);
         //propiedades
-        if(isset($dato['grupo']) && isset($dato['fecha']) && isset($dato['precio']) && isset($dato['lugar'])){
-            $concierto = new Concierto($dato['grupo'],$dato['fecha'],$dato['precio'],$dato['lugar']);
-            if(ConciertoDAO::insert($concierto)){
+        if (isset($dato['grupo']) && isset($dato['fecha']) && isset($dato['precio']) && isset($dato['lugar'])) {
+            $concierto = new Concierto($dato['grupo'], $dato['fecha'], $dato['precio'], $dato['lugar']);
+            if (ConciertoDAO::insert($concierto)) {
                 self::respuesta(
                     '',
                     array('Content-Type: application/json', 'HTTP/1.1 200 OK')
@@ -99,11 +99,14 @@ class ConciertosControlador extends ControladorPadre
         } else {
             self::respuesta('', array('HTTP/1.1 400 No se ha insertado correctamente'));
         }
-
     }
     public function modificar()
     {
-        $parametros = $this->parametros();
+        $recurso = self::recurso();
+        if (count($recurso) == 2) {
+        } else {
+            self::respuesta('', array('HTTP/1.1 400 El recurso esta mal formado /conciertos/{id}'));
+        }
     }
     public function borrar()
     {
