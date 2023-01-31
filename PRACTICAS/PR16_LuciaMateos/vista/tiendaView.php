@@ -6,11 +6,12 @@
             <article class="col">
                 <div class="card mb-4">
                     <div class="card-header bg-white">
-                        <img src='../webroot/imagen/<? echo $key->imagen_baja ?>' alt="productos_pelu">
+                        <img src='./webroot/imagen/<? echo $key->imagen_baja ?>' alt="productos_pelu">
+                        <img class="card-img-top" src='./webroot<?echo $producto->img?>' alt="Card image cap">
                     </div>
                     <div class="card-body">
-                        <h3 class="fw-bold my-1" style="color: #303030;font-size: 25px;">'<? echo $key->nombre ?>'</h3>
-                        <p class="precio py-1" style="color: #444;font-size: 20px;"><b>'<? echo $key->precio ?>'€</b></p>
+                        <h3 class="fw-bold my-1" style="color: #303030;font-size: 25px;"><? echo $key->nombre ?></h3>
+                        <p class="precio py-1" style="color: #444;font-size: 20px;"><b><? echo $key->precio ?>€</b></p>
                         <form action="./index.php" method="post">
                             <input type="hidden" name="cod_producto" value="<? echo $key->cod_producto ?>">
                             <input type="submit" value="ver" name="ver" class="botonG">

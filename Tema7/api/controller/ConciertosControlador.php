@@ -85,7 +85,10 @@ class ConciertosControlador extends ControladorPadre
     }
     public function insertar()
     {
-        $parametros = $this->parametros();
+       $body = file_get_contents('php://input');
+       $dato = json_decode($body);
+       ConciertoDAO::insert($dato);
+       print_r($dato);
     }
     public function modificar()
     {
