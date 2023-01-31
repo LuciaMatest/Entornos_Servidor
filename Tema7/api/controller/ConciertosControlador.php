@@ -42,8 +42,8 @@ class ConciertosControlador extends ControladorPadre
                     array('Content-Type: application/json', 'HTTP/1.1 200 OK')
                 );
             } else {
-                if ((isset($_GET['fecha'])) && (isset($_GET['ordenFecha'])) ) {
-                    $concierto = ConciertoDAO::findByFechaOrden($_GET['fecha'],$_GET['ordenFecha']);
+                if ((isset($_GET['fecha'])) && (isset($_GET['ordenFecha']))) {
+                    $concierto = ConciertoDAO::findByFechaOrden($_GET['fecha'], $_GET['ordenFecha']);
                     $data = json_encode($concierto);
                     self::respuesta(
                         $data,
@@ -85,10 +85,21 @@ class ConciertosControlador extends ControladorPadre
     }
     public function insertar()
     {
-       $body = file_get_contents('php://input');
-       $dato = json_decode($body);
-       ConciertoDAO::insert($dato);
-       print_r($dato);
+        $body = file_get_contents('php://input');
+        $dato = json_decode($body, true);
+        //propiedades
+        if(isset($dato['grupo']) && isset($dato['fecha']) && isset($dato['precio']) && isset($dato['lugar'])){
+            $concierto = new Concierto($dato['grupo'],$dato['fecha'],$dato['precio'],$dato['lugar']);
+            if(ConciertoDAO::insert($concierto)){
+                self::respuesta(
+                    '',
+                    array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+                );
+            };
+        } else {
+            self::respuesta('', array('HTTP/1.1 400 No se ha insertado correctamente'));
+        }
+
     }
     public function modificar()
     {

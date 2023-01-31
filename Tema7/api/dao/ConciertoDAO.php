@@ -68,11 +68,13 @@ class ConciertoDAO extends FactoryBD implements DAO
     public static function insert($objeto)
     {
         $sql = 'insert into conciertos values (null,?,?,?,?)';
+        //para que no de fallo a la hora de escribir uno de los valores
         $objeto = (array)$objeto;
         $datos = array();
         foreach ($objeto as $att) {
             array_push($datos, $att);
         }
+        $datos[0] = null;
         $devuelve = parent::ejecuta($sql, $datos);
         if ($devuelve->rowCount() == 0) {
             return false;
