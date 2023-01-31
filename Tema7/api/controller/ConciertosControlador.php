@@ -114,7 +114,12 @@ class ConciertosControlador extends ControladorPadre
                         '',
                         array('Content-Type: application/json', 'HTTP/1.1 200 OK')
                     );
-                };
+                } else {
+                    self::respuesta(
+                        '',
+                        array('Content-Type: application/json', 'HTTP/1.1 200 Ya no existe, no se ha modificado')
+                    );
+                }
             }
         } else {
             self::respuesta('', array('HTTP/1.1 400 El recurso esta mal formado /conciertos/{id}'));
@@ -122,6 +127,21 @@ class ConciertosControlador extends ControladorPadre
     }
     public function borrar()
     {
-        $parametros = $this->parametros();
+        $recurso = self::recurso();
+        if (count($recurso) == 3) {
+            if (ConciertoDAO::delete($recurso[2])) {
+                self::respuesta(
+                    '',
+                    array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+                );
+            } else {
+                self::respuesta(
+                    '',
+                    array('Content-Type: application/json', 'HTTP/1.1 200 Ya no existe, no se ha borrado')
+                );
+            }
+        } else {
+            self::respuesta('', array('HTTP/1.1 400 No se ha podido eliminar correctamente'));
+        }
     }
 }
