@@ -103,7 +103,19 @@ class ConciertosControlador extends ControladorPadre
     public function modificar()
     {
         $recurso = self::recurso();
-        if (count($recurso) == 2) {
+        if (count($recurso) == 3) {
+            $body = file_get_contents('php://input');
+            $dato = json_decode($body, true);
+            if (isset($dato['grupo']) && isset($dato['fecha']) && isset($dato['precio']) && isset($dato['lugar'])) {
+                $concierto = new Concierto($dato['grupo'], $dato['fecha'], $dato['precio'], $dato['lugar']);
+                $concierto->id = $recurso[2];
+                if (ConciertoDAO::update($concierto)) {
+                    self::respuesta(
+                        '',
+                        array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+                    );
+                };
+            }
         } else {
             self::respuesta('', array('HTTP/1.1 400 El recurso esta mal formado /conciertos/{id}'));
         }
