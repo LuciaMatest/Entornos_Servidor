@@ -35,12 +35,12 @@ insert into usuarios (usuario, clave, nombre, correo, fecha, rol) values ('Lulu'
 insert into usuarios (usuario, clave, nombre, correo, fecha, rol) values ('Mod1','d2556a84b8b33416e0475cb7346fd65682bde4b6','Mod123','mod1@correo.com', '2015-09-14', 'M0001');
 insert into usuarios (usuario, clave, nombre, correo, fecha, rol) values ('User1','1738fbf898038e1b9119d24c929804df51e506aa','Usu123','usu1@correo.com', '2001-05-22', 'U0001');
 
-insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('1117','./producto/1-1.png', './producto/1-baja.png', 'Tahe Botanic','Mascarilla Aceite de Árgan, Aceite de Amapola y Aceite de Palo de Rosa 700 ml','21.80','7');
-insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('2596','./producto/2-2.png', './producto/2-baja.png', 'Tahe Natural Hair','Champu Dermorelax Essence 1000 ml','19.95','10');
-insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('3030','./producto/3-3.png', './producto/3-baja.png', 'Postquam','Champú de hierbas 1000 ml','6.90','4');
-insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('3152','./producto/4-4.png', './producto/4-baja.png', 'Crawford','Champú nutrición 1000 ml','10.61','12');
-insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('3319','./producto/5-5.png', './producto/5-baja.png', 'Revlon','Champú Micellar Equave hidratante con queratina 250 ml','13.81','6');
-insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('4497','./producto/6-6.png', './producto/6-baja.png', 'Postquam','Emulsión Suavizante Cabellos Teñidos 1000 ml','8.90','2');
+insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('1117','/producto/1-1.png', '/producto/1-baja.png', 'Tahe Botanic','Mascarilla Aceite de Árgan, Aceite de Amapola y Aceite de Palo de Rosa 700 ml','21.80','7');
+insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('2596','/producto/2-2.png', '/producto/2-baja.png', 'Tahe Natural Hair','Champu Dermorelax Essence 1000 ml','19.95','10');
+insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('3030','/producto/3-3.png', '/producto/3-baja.png', 'Postquam','Champú de hierbas 1000 ml','6.90','4');
+insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('3152','/producto/4-4.png', '/producto/4-baja.png', 'Crawford','Champú nutrición 1000 ml','10.61','12');
+insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('3319','/producto/5-5.png', '/producto/5-baja.png', 'Revlon','Champú Micellar Equave hidratante con queratina 250 ml','13.81','6');
+insert into productos (cod_producto, imagen_alta, imagen_baja, nombre, descripcion, precio, stock) values ('4497','/producto/6-6.png', '/producto/6-baja.png', 'Postquam','Emulsión Suavizante Cabellos Teñidos 1000 ml','8.90','2');
 
 create table ventas (
     id_ventas INT PRIMARY KEY AUTO_INCREMENT,
