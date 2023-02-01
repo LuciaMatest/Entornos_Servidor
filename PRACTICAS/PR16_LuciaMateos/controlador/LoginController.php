@@ -1,11 +1,18 @@
 <?php
-if ($_REQUEST['registro']) {
+if (isset($_SESSION['registrar'])) {
     $_SESSION['controlador'] = $controladores['registro'];
+    $_SESSION['pagina'] = 'registrar';
     $_SESSION['vista'] = $vistas['registro'];
-} else{
+    require_once $_SESSION['controlador'];
+}
+// if ($_REQUEST['registro']) {
+//     $_SESSION['controlador'] = $controladores['registro'];
+//     $_SESSION['vista'] = $vistas['registro'];
+// } 
+else {
     if (isset($_REQUEST['user'])) {
         $user = $_REQUEST['user'];
-        $pass = $_REQUEST['pass'];
+        $pass = $_REQUEST['contraseña'];
 
         if (empty($user)) {
             $_SESSION['error'] = 'Debe rellenar el nombre';
@@ -13,8 +20,8 @@ if ($_REQUEST['registro']) {
         if (empty($pass)) {
             $_SESSION['error'] = 'Debe rellenar la contraseña';
         } else {
-            $usuario = UsuarioDAO::valida($user,$pass);
-            if ($usuario!=null) {
+            $usuario = UsuarioDAO::valida($user, $pass);
+            if ($usuario != null) {
                 $_SESSION['validado'] = true;
                 $_SESSION['user'] = $user;
                 $_SESSION['nombre'] = $usuario->nombre;
@@ -26,6 +33,3 @@ if ($_REQUEST['registro']) {
         }
     }
 }
-    
-    
-?>
