@@ -33,6 +33,7 @@ body {
     padding-left: 50px;
     font-size: large;
     color: whitesmoke;
+    border-radius: 5px;
 }
 
 .botonG:hover {
