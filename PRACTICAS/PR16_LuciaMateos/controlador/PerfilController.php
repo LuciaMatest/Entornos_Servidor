@@ -11,6 +11,7 @@
         $usuario->nombre = $_REQUEST['nombre'];
         $usuario->correo = $_REQUEST['email'];
         $usuario->rol = $_REQUEST['rol'];
+
         if (UsuarioDAO::update($usuario)) {
             $_SESSION['accion'] = 'editar';
             $_SESSION['error'] = 'No se ha conseguido guardar los cambios';
@@ -18,7 +19,7 @@
     } else {
         $usuario = UsuarioDAO::findById($_SESSION['user']);
         $_SESSION['pagina'] = 'vista';
-        $_SESSION['vista'] = $vistas['user'];
+        $_SESSION['vista'] = $vistas['perfil'];
     }
     
 ?>

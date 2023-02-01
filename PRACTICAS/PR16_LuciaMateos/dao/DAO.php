@@ -3,8 +3,8 @@
     interface DAO{
         public static function findAll();
         public static function findById($id);
-        public static function update($producto);
-        public static function insert($producto);
+        public static function update($objeto);
+        public static function insert($objeto);
         public static function delete($id);
     }
 ?>

@@ -7,14 +7,14 @@ class UsuarioDAO extends FactoryBD implements DAO
         $datos = array();
         $resultado = parent::ejecuta($sql, $datos);
         $arrayUsuario = array();
-        while ($producto = $resultado->fetchObject()) {
+        while ($objeto = $resultado->fetchObject()) {
             $usuario = new Usuario(
-                $producto->usuario,
-                $producto->clave,
-                $producto->nombre,
-                $producto->correo,
-                $producto->fecha,
-                $producto->rol
+                $objeto->usuario,
+                $objeto->clave,
+                $objeto->nombre,
+                $objeto->correo,
+                $objeto->fecha,
+                $objeto->rol
             );
             array_push($arrayUsuario, $usuario);
         }
@@ -26,31 +26,31 @@ class UsuarioDAO extends FactoryBD implements DAO
         $sql = 'select * from usuarios where usuario=?;';
         $datos = array($id);
         $resultado = parent::ejecuta($sql, $datos);
-        $producto = $resultado->fetchObject();
-        if ($producto) {
+        $objeto = $resultado->fetchObject();
+        if ($objeto) {
             return $usuario = new Usuario(
-                $producto->usuario,
-                $producto->clave,
-                $producto->nombre,
-                $producto->correo,
-                $producto->fecha,
-                $producto->rol
+                $objeto->usuario,
+                $objeto->clave,
+                $objeto->nombre,
+                $objeto->correo,
+                $objeto->fecha,
+                $objeto->rol
             );
         } else {
             return 'No existe el usuario';
         }
     }
 
-    public static function update($producto)
+    public static function update($objeto)
     {
         $actualiza = 'update usuarios set clave=?,nombre=?,correo=?,rol=? where usuario=?;';
         $datos = array(
-            $producto->clave,
-            $producto->nombre,
-            $producto->correo,
-            $producto->fecha,
-            $producto->rol,
-            $producto->usuario
+            $objeto->clave,
+            $objeto->nombre,
+            $objeto->correo,
+            $objeto->fecha,
+            $objeto->rol,
+            $objeto->usuario
         );
         $resultado = parent::ejecuta($actualiza, $datos);
         if ($resultado->rowCount() == 0) {
@@ -60,12 +60,12 @@ class UsuarioDAO extends FactoryBD implements DAO
         }
     }
 
-    public static function insert($producto)
+    public static function insert($objeto)
     {
         $inserta = "insert into usuarios values (?,?,?,?,?);";
-        $producto = (array)$producto;
+        $objeto = (array)$objeto;
         $datos = array();
-        foreach ($producto as $att) {
+        foreach ($objeto as $att) {
             array_push($datos, $att);
         }
         $resultado = parent::ejecuta($inserta, $datos);
@@ -94,15 +94,15 @@ class UsuarioDAO extends FactoryBD implements DAO
         $passh = sha1($pass);
         $datos = array($user, $passh);
         $resultado = parent::ejecuta($sql, $datos);
-        $producto = $resultado->fetchObject();
-        if ($producto) {
+        $objeto = $resultado->fetchObject();
+        if ($objeto) {
             return $usuario = new Usuario(
-                $producto->usuario,
-                $producto->clave,
-                $producto->nombre,
-                $producto->correo,
-                $producto->fecha,
-                $producto->rol
+                $objeto->usuario,
+                $objeto->clave,
+                $objeto->nombre,
+                $objeto->correo,
+                $objeto->fecha,
+                $objeto->rol
             );
         } else {
             return 'No existe el usuario';
