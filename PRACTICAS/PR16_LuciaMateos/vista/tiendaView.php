@@ -13,7 +13,7 @@
                         <p class="precio py-1" style="color: #444;font-size: 20px;"><b><? echo $producto->precio ?>€</b></p>
                         <form action="./index.php" method="post">
                             <input type="hidden" name="cod_producto" value="<? echo $producto->cod_producto ?>">
-                            <input type="submit" value="ver" name="Más detalles" class="botonG">
+                            <input type="submit" value="Ver producto" name="ver" class="botonG">
                         </form>
                     </div>
                 </div>
