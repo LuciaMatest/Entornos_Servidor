@@ -16,6 +16,13 @@ body {
 .boton {
     color: #be901b;
     text-decoration: none;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.boton:hover {
+    color: #555;
 }
 
 .botonG {
@@ -50,4 +57,8 @@ body {
 
 .rectangulo h4 {
     color: whitesmoke;
+}
+
+svg {
+    color: #be901b;
 }
