@@ -6,7 +6,7 @@
     $controladores = array(
         'albaran'=>'./controlador/AlbaranController.php',
         'almacen'=>'./controlador/AlmacenController.php',
-        // 'home'=>'./controlador/HomeController.php',
+        'home'=>'./controlador/HomeController.php',
         'login'=>'./controlador/LoginController.php',
         'modificarAlbaran'=>'./controlador/ModificarAlbaranController.php',
         'modificarProducto'=>'./controlador/ModificarProductoController.php',

@@ -32,11 +32,11 @@ if (isset($_REQUEST['home'])) {
         $_SESSION['vista'] = $vistas['login'];
     } elseif (isset($_SESSION['pagina'])) {
         // perfil
-        if (isset($_REQUEST['perfil'])) {
+        if (isset($_REQUEST['miperfil'])) {
 
             $_SESSION['accion'] = 'ver';
-            $_SESSION['controlador'] = $controladores['user'];
-            $_SESSION['vista'] = $vistas['user'];
+            $_SESSION['controlador'] = $controladores['perfil'];
+            $_SESSION['vista'] = $vistas['perfil'];
             require_once($_SESSION['controlador']);
             // tienda
         } elseif (isset($_REQUEST['tienda'])) {
@@ -60,7 +60,7 @@ if (isset($_REQUEST['home'])) {
             $_SESSION['vista'] = $vistas['albaran'];
             require_once $_SESSION['controlador'];
             //ventas
-        }elseif (isset($_REQUEST['ventas'])) {
+        } elseif (isset($_REQUEST['ventas'])) {
 
             $_SESSION['controlador'] = $controladores['ventas'];
             $_SESSION['pagina'] = 'ventas';
@@ -74,7 +74,7 @@ if (isset($_REQUEST['home'])) {
             $_SESSION['vista'] = $vistas['registro'];
             require_once $_SESSION['controlador'];
         } else {
-            // require_once($_SESSION['controlador']);
+            require_once($_SESSION['controlador']);
         }
     }
 }
