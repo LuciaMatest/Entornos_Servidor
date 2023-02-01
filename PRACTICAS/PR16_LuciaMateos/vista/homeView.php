@@ -7,7 +7,7 @@
             <img class="img-fluid" src="./webroot/imagen/inicio3.jpg" alt="img">
         </div>
         <div class="p-3 d-block d-sm-block d-md-block d-xl-none">
-            <img class="img-fluid py-2" src="./webroot/imagen/inicios.jpg" alt="img1">
+            <img class="img-fluid py-2" src="./webroot/imagen/inicio.jpg" alt="img1">
             <img class="img-fluid py-2" src="./webroot/imagen/inicio2.jpg" alt="img2">
         </div>
     </div>

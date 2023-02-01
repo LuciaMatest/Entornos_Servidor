@@ -7,13 +7,13 @@ class AlbaranDAO extends FactoryBD implements DAO
         $datos = array();
         $resultado = parent::ejecuta($sql, $datos);
         $arrayAlbaran = array();
-        while ($row = $resultado->fetchObject()) {
+        while ($producto = $resultado->fetchObject()) {
             $albaran = new Albaran(
-                $row->id_albaran,
-                $row->fecha_albaran,
-                $row->cod_producto,
-                $row->cantidad,
-                $row->usuario_albaran
+                $producto->id_albaran,
+                $producto->fecha_albaran,
+                $producto->cod_producto,
+                $producto->cantidad,
+                $producto->usuario_albaran
             );
             array_push($arrayAlbaran, $albaran);
         }
@@ -25,29 +25,29 @@ class AlbaranDAO extends FactoryBD implements DAO
         $sql = 'select * from albaran where id_albaran=?;';
         $datos = array($id);
         $resultado = parent::ejecuta($sql, $datos);
-        $row = $resultado->fetchObject();
-        if ($row) {
+        $producto = $resultado->fetchObject();
+        if ($producto) {
             return $albaran = new Albaran(
-                $row->id_albaran,
-                $row->fecha_albaran,
-                $row->cod_producto,
-                $row->cantidad,
-                $row->usuario_albaran
+                $producto->id_albaran,
+                $producto->fecha_albaran,
+                $producto->cod_producto,
+                $producto->cantidad,
+                $producto->usuario_albaran
             );
         } else {
             return 'No existe el albaran';
         }
     }
 
-    public static function update($objeto)
+    public static function update($producto)
     {
         $actualiza = 'update albaran set fecha_albaran=?,cod_producto=?,cantidad=?,usuario_albaran=? where id_albaran=?;';
         $datos = array(
-            $objeto->fecha_albaran,
-            $objeto->cod_producto,
-            $objeto->cantidad,
-            $objeto->usuario_albaran,
-            $objeto->id_albaran
+            $producto->fecha_albaran,
+            $producto->cod_producto,
+            $producto->cantidad,
+            $producto->usuario_albaran,
+            $producto->id_albaran
         );
         $resultado = parent::ejecuta($actualiza, $datos);
         if ($resultado->rowCount() == 0) {
@@ -57,12 +57,12 @@ class AlbaranDAO extends FactoryBD implements DAO
         }
     }
 
-    public static function insert($objeto)
+    public static function insert($producto)
     {
         $inserta = "insert into albaran values (?,?,?,?,?);";
-        $objeto = (array)$objeto;
+        $producto = (array)$producto;
         $datos = array();
-        foreach ($objeto as $att) {
+        foreach ($producto as $att) {
             array_push($datos, $att);
         }
         $resultado = parent::ejecuta($inserta, $datos);

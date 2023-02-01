@@ -7,14 +7,14 @@ class VentasDAO extends FactoryBD implements DAO
         $datos = array();
         $resultado = parent::ejecuta($sql, $datos);
         $arrayVentas = array();
-        while ($row = $resultado->fetchObject()) {
+        while ($producto = $resultado->fetchObject()) {
             $ventas = new Ventas(
-                $row->id_ventas,
-                $row->usuario_ventas,
-                $row->fecha_compra,
-                $row->cod_producto,
-                $row->cantidad,
-                $row->precio_total
+                $producto->id_ventas,
+                $producto->usuario_ventas,
+                $producto->fecha_compra,
+                $producto->cod_producto,
+                $producto->cantidad,
+                $producto->precio_total
             );
             array_push($arrayVentas, $ventas);
         }
@@ -26,31 +26,31 @@ class VentasDAO extends FactoryBD implements DAO
         $sql = 'select * from ventas where id_ventas=?;';
         $datos = array($id);
         $resultado = parent::ejecuta($sql, $datos);
-        $row = $resultado->fetchObject();
-        if ($row) {
+        $producto = $resultado->fetchObject();
+        if ($producto) {
             return $ventas = new Ventas(
-                $row->id_ventas,
-                $row->usuario_ventas,
-                $row->fecha_compra,
-                $row->cod_producto,
-                $row->cantidad,
-                $row->precio_total
+                $producto->id_ventas,
+                $producto->usuario_ventas,
+                $producto->fecha_compra,
+                $producto->cod_producto,
+                $producto->cantidad,
+                $producto->precio_total
             );
         } else {
             return 'No existe la venta';
         }
     }
 
-    public static function update($objeto)
+    public static function update($producto)
     {
         $actualiza = 'update ventas set usuario_ventas=?,fecha_compra=?,cod_producto=?,cantidad=?,precio_total=? where id_ventas=?;';
         $datos = array(
-            $objeto->usuario_ventas,
-            $objeto->fecha_compra,
-            $objeto->cod_producto,
-            $objeto->cantidad,
-            $objeto->precio_total,
-            $objeto->id_ventas
+            $producto->usuario_ventas,
+            $producto->fecha_compra,
+            $producto->cod_producto,
+            $producto->cantidad,
+            $producto->precio_total,
+            $producto->id_ventas
         );
         $resultado = parent::ejecuta($actualiza, $datos);
         if ($resultado->rowCount() == 0) {
@@ -60,12 +60,12 @@ class VentasDAO extends FactoryBD implements DAO
         }
     }
 
-    public static function insert($objeto)
+    public static function insert($producto)
     {
         $inserta = "insert into ventas values (?,?,?,?,?);";
-        $objeto = (array)$objeto;
+        $producto = (array)$producto;
         $datos = array();
-        foreach ($objeto as $att) {
+        foreach ($producto as $att) {
             array_push($datos, $att);
         }
         $resultado = parent::ejecuta($inserta, $datos);

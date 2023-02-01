@@ -12,8 +12,8 @@
                             <!-- ID -->
                             <? if ($_SESSION['accion'] == 'editar') { ?>
                                 <div class="mb-4 px-2">
-                                    <label for="idProducto" class="form-label">ID</label>
-                                    <input type="text" class="form-control" name="idProducto" id="idProducto" placeholder="idProducto" readonly value="<? echo $producto->cod_producto ?>">
+                                    <label for="cod_producto" class="form-label">ID</label>
+                                    <input type="text" class="form-control" name="cod_producto" id="cod_producto" placeholder="cod_producto" readonly value="<? echo $producto->cod_producto ?>">
                                 </div>
                             <? } ?>
                             <!-- Imagen -->

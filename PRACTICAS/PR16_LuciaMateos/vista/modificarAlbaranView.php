@@ -26,8 +26,8 @@
                             </div>
                             <!-- Codigo -->
                             <div class="mb-4 px-2">
-                                    <label for="idProducto" class="form-label">Código</label>
-                                    <input type="text" class="form-control" name="idProducto" id="idProducto" readonly value="<? echo $producto->cod_producto ?>">
+                                    <label for="cod_producto" class="form-label">Código</label>
+                                    <input type="text" class="form-control" name="cod_producto" id="cod_producto" readonly value="<? echo $producto->cod_producto ?>">
                             </div>
                             <!-- Cantidad -->
                             <div class="mb-4 px-2">
