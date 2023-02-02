@@ -1,5 +1,4 @@
 <div class="p-2 p-sm-3 p-md-3 p-lg-3">
-    <h1 class="text-center text-sm-center text-md-start text-lg-start">Albarán</h1>
     <table class="table text-center">
         <thead class="text-white" style="background-color: #be901b;">
             <tr>

@@ -9,8 +9,8 @@ function estaValidado()
 
 function esAdmin()
 {
-    if (isset($_SESSION['roles'])) {
-        if ($_SESSION['roles'] == 'ADM01')
+    if (isset($_SESSION['rol'])) {
+        if ($_SESSION['rol'] == 'ADM01')
             return true;
     }
     return false;
@@ -18,8 +18,8 @@ function esAdmin()
 
 function esModerador()
 {
-    if (isset($_SESSION['roles'])) {
-        if ($_SESSION['roles'] == 'M0001')
+    if (isset($_SESSION['rol'])) {
+        if ($_SESSION['rol'] == 'M0001')
             return true;
     }
     return false;
@@ -27,8 +27,8 @@ function esModerador()
 
 function esUsuario()
 {
-    if (isset($_SESSION['roles'])) {
-        if ($_SESSION['roles'] == 'U0001')
+    if (isset($_SESSION['rol'])) {
+        if ($_SESSION['rol'] == 'U0001')
             return true;
     }
     return false;
@@ -102,4 +102,3 @@ function verificar()
         return false;
     }
 }
-

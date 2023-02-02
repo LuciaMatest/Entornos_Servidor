@@ -20,7 +20,6 @@
 
     //CORE
     require_once('./core/funciones.php');
-    // require_once('./core/validaciones.php');
 
     //DAO
     require_once('./dao/DAO.php');

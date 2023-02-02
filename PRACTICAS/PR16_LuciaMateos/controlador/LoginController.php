@@ -4,12 +4,7 @@ if (isset($_SESSION['registrar'])) {
     $_SESSION['pagina'] = 'registrar';
     $_SESSION['vista'] = $vistas['registro'];
     require_once $_SESSION['controlador'];
-}
-// if ($_REQUEST['registro']) {
-//     $_SESSION['controlador'] = $controladores['registro'];
-//     $_SESSION['vista'] = $vistas['registro'];
-// } 
-else {
+} else {
     if (isset($_REQUEST['user'])) {
         $user = $_REQUEST['user'];
         $pass = $_REQUEST['contraseña'];
