@@ -10,7 +10,7 @@
                         <h3 class="fw-bold my-1 w-100 mb-1" style="color: #303030;font-size: 18px; text-transform: uppercase;line-height: 30px;"><? echo $producto->nombre ?></h3>
                         <p><? echo '<b>Cod:' . $producto->cod_producto . '</b> ' . $producto->descripcion ?></p>
                         <p class="precio py-1" style="color: #444;font-size: 45px;"><b><? echo $producto->precio ?> €</b></p>
-                        <form action="./index.php" method="post">
+                        <form action="./index.php" method="post" enctype="multipart/form-data">
                             <div class="form-group ">
                                 <label for="cantidad">Unidades:</label>
                                 <input type="number" class="border-gray" name="cantidad" value="1" title="Cantidad" size="4" min="1" max="<? echo $producto->stock ?>">
