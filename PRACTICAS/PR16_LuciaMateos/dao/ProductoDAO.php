@@ -45,10 +45,8 @@ class ProductoDAO extends FactoryBD implements DAO
 
     public static function update($objeto)
     {
-        $actualiza = 'update productos set imagen_alta=?,imagen_baja=?,nombre=?,descripcion=?,precio=?,stock=? where cod_producto=?;';
+        $actualiza = 'update productos set nombre=?,descripcion=?,precio=?,stock=? where cod_producto=?;';
         $datos = array(
-            $objeto->imagen_alta,
-            $objeto->imagen_baja,
             $objeto->nombre,
             $objeto->descripcion,
             $objeto->precio,

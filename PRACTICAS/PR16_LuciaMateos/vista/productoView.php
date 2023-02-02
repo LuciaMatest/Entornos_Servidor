@@ -22,14 +22,12 @@
                                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                                         </svg>
                                     </span>
-                                    <input type="submit" value="Comprar" name="comprar" class="botonG" style="border-top-right-radius: 5px; border-bottom-right-radius: 5px;" <? if (!estaValidado()) {
-                                                                                                                                                                                ?>disabled<?
-                                                                                                                                                                                            // } elseif ($producto->stock == 0) {
-                                                                                                                                                                                            //     echo '<label>No hay stock disponible</label>';
-                                                                                                                                                                                        } ?>>
+                                    <input type="submit" value="Comprar" name="comprar" class="botonG" style="border-top-right-radius: 5px; border-bottom-right-radius: 5px;" <? if (!estaValidado() || $producto->stock == 0) { ?>disabled<? } ?>>
                                 </div>
-                                <input type="hidden" name="cod_producto" value="<? echo $producto->cod_producto ?>">
                                 <label class="stock px-4 mx-3 py-3" style="color: rgb(116, 116, 116);">Stock: <? echo $producto->stock ?> disponibles</label>
+                                <input type="hidden" name="cod_producto" value="<? echo $producto->cod_producto ?>">
+                                <input type="hidden" name="precio" value="<? echo $producto->precio ?>">
+                                <input type="hidden" name="stock" value="<? echo $producto->stock ?>">
                             </div>
                         </form>
                         <div class="alert border-none alert-warning " style="font-weight: bold; color: #555; font-size:80%">
