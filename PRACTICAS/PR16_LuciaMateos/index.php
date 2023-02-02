@@ -6,14 +6,14 @@ if (isset($_REQUEST['home'])) {
 
     $_SESSION['controlador'] = $controladores['home'];
     $_SESSION['vista'] = $vistas['home'];
-    $_SESSION['pagina'] = 'home';
+    $_SESSION['pagina'] = 'Home';
     require_once $_SESSION['controlador'];
 } elseif (isset($_REQUEST['logout'])) {
 
     session_destroy();
     $_SESSION['controlador'] = $controladores['home'];
     $_SESSION['vista'] = $vistas['home'];
-    $_SESSION['pagina'] = 'home';
+    $_SESSION['pagina'] = 'Home';
     header('Location: index.php');
 } else {
 
@@ -21,13 +21,13 @@ if (isset($_REQUEST['home'])) {
 
         //si no tiene una vista home
         $_SESSION['controlador'] = $controladores['home'];
-        $_SESSION['pagina'] = 'home';
+        $_SESSION['pagina'] = 'Home';
         $_SESSION['vista'] = $vistas['home'];
         require_once($_SESSION['controlador']);
     } elseif (isset($_REQUEST['login'])) {
 
         //si ha pulsado login
-        $_SESSION['pagina'] = 'login';
+        $_SESSION['pagina'] = 'Login';
         $_SESSION['controlador'] = $controladores['login'];
         $_SESSION['vista'] = $vistas['login'];
     } elseif (isset($_SESSION['pagina'])) {
@@ -42,7 +42,7 @@ if (isset($_REQUEST['home'])) {
         } elseif (isset($_REQUEST['tienda'])) {
 
             $_SESSION['controlador'] = $controladores['tienda'];
-            $_SESSION['pagina'] = 'tienda';
+            $_SESSION['pagina'] = 'Tienda';
             $_SESSION['vista'] = $vistas['tienda'];
             require_once $_SESSION['controlador'];
             //almacen
@@ -63,14 +63,14 @@ if (isset($_REQUEST['home'])) {
         } elseif (isset($_REQUEST['ventas'])) {
 
             $_SESSION['controlador'] = $controladores['ventas'];
-            $_SESSION['pagina'] = 'ventas';
+            $_SESSION['pagina'] = 'Ventas';
             $_SESSION['vista'] = $vistas['ventas'];
             require_once $_SESSION['controlador'];
             //registro
         } elseif (isset($_REQUEST['registro'])) {
 
             $_SESSION['controlador'] = $controladores['registro'];
-            $_SESSION['pagina'] = 'registrar';
+            $_SESSION['pagina'] = 'Registrar';
             $_SESSION['vista'] = $vistas['registro'];
             require_once $_SESSION['controlador'];
         } else {
