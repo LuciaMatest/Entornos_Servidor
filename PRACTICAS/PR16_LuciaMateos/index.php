@@ -48,14 +48,14 @@ if (isset($_REQUEST['home'])) {
             //almacen
         } elseif (isset($_REQUEST['almacen'])) {
 
-            $_SESSION['controlador'] = $controladores['producto'];
+            $_SESSION['controlador'] = $controladores['almacen'];
             $_SESSION['pagina'] = 'Almacen';
             $_SESSION['vista'] = $vistas['almacen'];
             require_once $_SESSION['controlador'];
             //albaran
         } elseif (isset($_REQUEST['albaran'])) {
 
-            $_SESSION['controlador'] = $controladores['producto'];
+            $_SESSION['controlador'] = $controladores['albaran'];
             $_SESSION['pagina'] = 'Albaran';
             $_SESSION['vista'] = $vistas['albaran'];
             require_once $_SESSION['controlador'];

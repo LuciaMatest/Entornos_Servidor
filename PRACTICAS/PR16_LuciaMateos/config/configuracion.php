@@ -38,8 +38,8 @@
 
     //VISTA
     $vistas = array(
-        'albaran'=>'./vista/AlbaranView.php',
-        'almacen'=>'./vista/AlmacenView.php',
+        'albaran'=>'./vista/albaranView.php',
+        'almacen'=>'./vista/almacenView.php',
         'home'=>'./vista/homeView.php',
         'login'=>'./vista/loginView.php',
         'modificarAlbaran'=>'./vista/modificarAlbaranView.php',
