@@ -1,16 +1,11 @@
 <?
 if (isset($_REQUEST['almacen'])) {
     $almacen = ProductoDAO::findAll();
-} elseif (isset($_REQUEST['eliminar'])) {
-    $_SESSION['producto'] = $_REQUEST['cod_producto'];
-    $almacen = ProductoDAO::delete($_REQUEST['cod_producto']);
-    $listaProducto = ProductoDAO::findAll();
-} elseif (isset($_REQUEST['editar'])) {
-    $_SESSION['producto'] = $_REQUEST['cod_producto'];
-    $almacen = ProductoDAO::findById($_REQUEST['cod_producto']);
-    $_SESSION['vista'] =  $vistas['modificarProducto'];
-} elseif (isset($_REQUEST['cod_producto'])) {
-    $_SESSION['producto'] = $_REQUEST['cod_producto'];
-    $almacen = ProductoDAO::findById($_REQUEST['cod_producto']);
-    $_SESSION['vista'] =  $vistas['verProducto'];
+} elseif (isset($_REQUEST['modificar'])) {
+    $producto = ProductoDAO::findById($_SESSION['producto']);
+    $producto->precio=(float)$_REQUEST['precio'];
+    $producto->descripcion=$_REQUEST['descripcion'];
+    ProductoDAO::update($producto);
+} else {
+    $almacen = ProductoDAO::findAll();
 }

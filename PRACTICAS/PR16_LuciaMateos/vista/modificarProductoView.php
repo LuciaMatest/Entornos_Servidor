@@ -12,8 +12,8 @@
                             <!-- ID -->
                             <? if ($_SESSION['accion'] == 'editar') { ?>
                                 <div class="mb-4 px-2">
-                                    <label for="cod_producto" class="form-label">ID</label>
-                                    <input type="text" class="form-control" name="cod_producto" id="cod_producto" placeholder="cod_producto" readonly value="<? echo $producto->cod_producto ?>">
+                                    <label for="cod_objeto" class="form-label">ID</label>
+                                    <input type="text" class="form-control" name="cod_objeto" id="cod_objeto" placeholder="cod_objeto" readonly value="<? echo $objeto->cod_objeto ?>">
                                 </div>
                             <? } ?>
                             <!-- Imagen -->
@@ -37,7 +37,7 @@
                                 <label for="idNombre" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" name="nombre" id="idNombre" value="<?
                                 if ($_SESSION['accion'] == 'editar') {
-                                    echo $producto->nombre;
+                                    echo $objeto->nombre;
                                 } ?>">
                             </div>
                             <!-- Descripcion -->
@@ -45,7 +45,7 @@
                                 <label for="idDescripcion" class="form-label">Descripcion</label>
                                 <input type="text" class="form-control" name="descripcion" id="idDescripcion" value="<?
                                 if ($_SESSION['accion'] == 'editar') {
-                                    echo $producto->descripcion;
+                                    echo $objeto->descripcion;
                                 } ?>">
                             </div>
                             <!-- Precio -->
@@ -53,7 +53,7 @@
                                 <label for="idPrecio" class="form-label">Precio</label>
                                 <input type="number" class="form-control" name="precio" id="idPrecio" value="<?
                                 if ($_SESSION['accion'] == 'editar') {
-                                    echo $producto->precio;
+                                    echo $objeto->precio;
                                 } ?>">
                             </div>
                             <!-- Stock -->
@@ -61,7 +61,7 @@
                                 <label for="idStock" class="form-label">Stock</label>
                                 <input type="text" class="form-control" name="stock" id="idStock" value="<?
                                 if ($_SESSION['accion'] == 'editar') {
-                                    echo $producto->stock;
+                                    echo $objeto->stock;
                                 } ?>">
                             </div>
                             <div class="text-center">
