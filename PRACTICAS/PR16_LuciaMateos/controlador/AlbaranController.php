@@ -6,7 +6,6 @@ if (isset($_REQUEST['albaran'])) {
     AlbaranDAO::delete($_SESSION['albaran']);
     $albaran = AlbaranDAO::findAll();
 } elseif (isset($_REQUEST['modificar'])) {
-    $_SESSION['albaran'] = $_REQUEST['id_albaran'];
     $_SESSION['vista'] = $vistas['modificarAlbaran'];
     $_SESSION['controlador'] = $controlador['albaran'];
 } elseif (isset($_REQUEST['id_albaran'])) {
