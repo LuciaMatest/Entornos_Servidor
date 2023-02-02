@@ -24,8 +24,8 @@
                                     </span>
                                     <input type="submit" value="Comprar" name="comprar" class="botonG" style="border-top-right-radius: 5px; border-bottom-right-radius: 5px;" <? if (!estaValidado()) {
                                                                                                                                                                                 ?>disabled<?
-                                                                                                                                                                                        } elseif ($producto->stock == 0) {
-                                                                                                                                                                                            echo '<label>No hay stock disponible</label>';
+                                                                                                                                                                                            // } elseif ($producto->stock == 0) {
+                                                                                                                                                                                            //     echo '<label>No hay stock disponible</label>';
                                                                                                                                                                                         } ?>>
                                 </div>
                                 <input type="hidden" name="cod_producto" value="<? echo $producto->cod_producto ?>">

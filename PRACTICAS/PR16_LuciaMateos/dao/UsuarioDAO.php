@@ -43,7 +43,7 @@ class UsuarioDAO extends FactoryBD implements DAO
 
     public static function update($objeto)
     {
-        $actualiza = 'update usuarios set clave=?,nombre=?,correo=?,rol=? where usuario=?;';
+        $actualiza = 'update usuarios set clave=?,nombre=?,correo=?, fecha=?,rol=? where usuario=?;';
         $datos = array(
             $objeto->clave,
             $objeto->nombre,
