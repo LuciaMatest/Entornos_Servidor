@@ -8,9 +8,6 @@
         'almacen'=>'./controlador/AlmacenController.php',
         'home'=>'./controlador/HomeController.php',
         'login'=>'./controlador/LoginController.php',
-        // 'modificarAlbaran'=>'./controlador/ModificarAlbaranController.php',
-        // 'modificarProducto'=>'./controlador/ModificarProductoController.php',
-        // 'modificarVentas'=>'./controlador/ModificarVentasController.php',
         'perfil'=>'./controlador/PerfilController.php',
         'producto'=>'./controlador/ProductoController.php',
         'registro'=>'./controlador/RegistroController.php',
@@ -27,7 +24,7 @@
     require_once('./dao/UsuarioDAO.php');
     require_once('./dao/ProductoDAO.php');
     require_once('./dao/AlbaranDAO.php');
-    require_once('./dao/UsuarioDAO.php');
+    require_once('./dao/VentasDAO.php');
 
     //MODELO
     require_once('./modelo/Usuario.php');
@@ -50,4 +47,3 @@
         'tienda'=>'./vista/tiendaView.php',
         'ventas'=>'./vista/ventasView.php'
     );
-?>
