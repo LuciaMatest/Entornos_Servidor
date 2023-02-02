@@ -5,6 +5,11 @@ if (isset($_REQUEST['ventas'])) {
     $_SESSION['ventas'] = $_REQUEST['id_ventas'];
     $ventas = VentasDAO::delete($_REQUEST['id_ventas']);
     $ventas = VentasDAO::findAll();
+} elseif (isset($_REQUEST['editar'])) {
+    $_SESSION['accion'] = 'editar';
+    $_SESSION['ventas'] = $_REQUEST['id_ventas'];
+    $_SESSION['vista'] = $vistas['modificarVentas'];
+    $_SESSION['controlador'] = $controladores['ventas'];
 } elseif (isset($_REQUEST['comprar'])) {
     $producto = ProductoDAO::findById($_SESSION['producto']);
     $producto->stock = ($producto->stock) - (int)$_REQUEST['cantidad'];

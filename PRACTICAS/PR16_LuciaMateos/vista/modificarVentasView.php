@@ -8,7 +8,7 @@
                     </div>
                     <div class="card-body pt-0">
                         <!-- Formulario -->
-                        <form action="./index.php" method="post" enctype="multipart/form-data">
+                        <form action="./index.php" method="post">
                             <!-- ID -->
                             <? if ($_SESSION['accion'] == 'editar') { ?>
                                 <div class="mb-4 px-2">
