@@ -51,7 +51,6 @@
                             </div>
                             <div class="text-center">
                                 <input type="submit" value="Registrarse" name="registrar" class="botonG">
-                                <!-- <a href="login.php" class="ps-3">Volver</a> -->
                             </div>
                         </form>
                     </div>
