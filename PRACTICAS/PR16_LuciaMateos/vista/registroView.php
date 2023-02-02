@@ -14,49 +14,31 @@
                                 <label for="idUser" class="form-label">Usuario</label>
                                 <input type="text" class="form-control" name="user" id="idUser">
                             </div>
-                            <? if (isset($_SESSION['errores']['user'])) { ?>
-                                <div class="invalid-feedback"><? echo $_SESSION['errores']['user'] ?> </div>
-                            <? } ?>
                             <!-- Contraseña -->
                             <div class="mb-4 px-2">
                                 <label for="idContraseña" class="form-label">Contraseña</label>
                                 <input type="password" class="form-control" name="contraseña" id="idContraseña">
                             </div>
-                            <? if (isset($_SESSION['errores']['contraseña'])) { ?>
-                                <div class="invalid-feedback"><? echo $_SESSION['errores']['contraseña'] ?> </div>
-                            <? } ?>
                             <!-- Contraseña rep -->
                             <div class="mb-4 px-2">
                                 <label for="idContraseña2" class="form-label">Repite contraseña</label>
                                 <input type="password" class="form-control" name="contraseña2" id="idContraseña2">
                             </div>
-                            <? if (isset($_SESSION['errores']['contraseña2'])) { ?>
-                                <div class="invalid-feedback"><? echo $_SESSION['errores']['contraseña2'] ?> </div>
-                            <? } ?>
                             <!-- Nombre -->
                             <div class="mb-4 px-2">
                                 <label for="idNombre" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" name="nombre" id="idNombre">
                             </div>
-                            <? if (isset($_SESSION['errores']['nombre'])) { ?>
-                                <div class="invalid-feedback"><? echo $_SESSION['errores']['nombre'] ?> </div>
-                            <? } ?>
                             <!-- Email -->
                             <div class="mb-4 px-2">
                                 <label for="idEmail" class="form-label">Email</label>
                                 <input type="text" class="form-control" name="email" id="idEmail">
                             </div>
-                            <? if (isset($_SESSION['errores']['email'])) { ?>
-                                <div class="invalid-feedback"><? echo $_SESSION['errores']['email'] ?> </div>
-                            <? } ?>
                             <!-- Fecha -->
                             <div class="mb-4 px-2">
                                 <label for="idFecha" class="form-label">Fecha de nacimiento</label>
                                 <input type="text" class="form-control" name="fecha" id="fecha" placeholder="aaaa-mm-dd">
                             </div>
-                            <? if (isset($_SESSION['errores']['fecha'])) { ?>
-                                <div class="invalid-feedback"><? echo $_SESSION['errores']['fecha'] ?> </div>
-                            <? } ?>
                             <!-- Rol -->
                             <div class="mb-4 px-2">
                                 <label for="idOpcion" class="form-label">Rol</label>
@@ -67,9 +49,6 @@
                                     <option value="U0001">Usuario normal</option>
                                 </select>
                             </div>
-                            <? if (isset($_SESSION['errores']['rol'])) { ?>
-                                <div class="invalid-feedback"><? echo $_SESSION['errores']['rol'] ?> </div>
-                            <? } ?>
                             <div class="text-center">
                                 <input type="submit" value="Registrarse" name="registrar" class="botonG">
                                 <!-- <a href="login.php" class="ps-3">Volver</a> -->

@@ -96,6 +96,7 @@
             </ul>
         </footer>
     </div>
+    <script src="./webroot/js/disabled.js"></script>
 </body>
 
 </html>

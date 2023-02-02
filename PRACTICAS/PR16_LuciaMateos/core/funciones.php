@@ -76,20 +76,20 @@ function patronFecha()
 function verificar()
 {
     if (!isset($_REQUEST['guardar'])) {
-        $_SESSION['errores']['enviado'] = 'No enviado';
+        $_SESSION['error']['enviado'] = 'No enviado';
         if (vacio('user') || UsuarioDAO::findById($_REQUEST['user']) != null) {
-            $_SESSION['errores']['user'] = 'Fallo de usuario';
+            $_SESSION['error']['user'] = 'Fallo de usuario';
             if (vacio('contraseña') || vacio('contraseña2') || !patronContraseña() || $_REQUEST['contraseña'] != $_REQUEST['contraseña2']) {
-                $_SESSION['errores']['contraseña'] = 'Fallo de contraseña';
+                $_SESSION['error']['contraseña'] = 'Fallo de contraseña';
                 if (vacio('nombre')) {
-                    $_SESSION['errores']['nombre'] = 'Fallo de nombre';
+                    $_SESSION['error']['nombre'] = 'Fallo de nombre';
                     if (vacio('email') || !patronEmail()) {
-                        $_SESSION['errores']['email'] = 'Fallo de email';
+                        $_SESSION['error']['email'] = 'Fallo de email';
                         if (vacio('fecha') || !patronFecha()) {
-                            $_SESSION['errores']['fecha'] = 'Fallo de fecha';
+                            $_SESSION['error']['fecha'] = 'Fallo de fecha';
                             if (!isset($_REQUEST['rol']) || $_REQUEST['rol'] == 0) {
-                                $_SESSION['errores']['rol'] = 'Fallo de rol';
-                                if (!isset($_SESSION['errores'])) {
+                                $_SESSION['error']['rol'] = 'Fallo de rol';
+                                if (!isset($_SESSION['error'])) {
                                     return true;
                                 }
                             }

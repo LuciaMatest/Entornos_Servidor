@@ -1,7 +1,7 @@
 <?php
-if (isset($_SESSION['registrar'])) {
+if (isset($_REQUEST['registrar'])) {
     $_SESSION['controlador'] = $controladores['registro'];
-    $_SESSION['pagina'] = 'registrar';
+    $_SESSION['pagina'] = 'Registrar';
     $_SESSION['vista'] = $vistas['registro'];
     require_once $_SESSION['controlador'];
 } else {

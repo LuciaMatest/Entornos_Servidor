@@ -10,7 +10,7 @@
                         <h3 class="fw-bold my-1 w-100 mb-1" style="color: #303030;font-size: 18px; text-transform: uppercase;line-height: 30px;"><? echo $producto->nombre ?></h3>
                         <p><? echo '<b>Cod:' . $producto->cod_producto . '</b> ' . $producto->descripcion ?></p>
                         <p class="precio py-1" style="color: #444;font-size: 45px;"><b><? echo $producto->precio ?> €</b></p>
-                        <form action="./index.php" method="post" enctype="multipart/form-data">
+                        <form action="./index.php" method="post">
                             <div class="form-group ">
                                 <label for="cantidad">Unidades:</label>
                                 <input type="number" class="border-gray" name="cantidad" value="1" title="Cantidad" size="4" min="1" max="<? echo $producto->stock ?>">
@@ -26,8 +26,6 @@
                                 </div>
                                 <label class="stock px-4 mx-3 py-3" style="color: rgb(116, 116, 116);">Stock: <? echo $producto->stock ?> disponibles</label>
                                 <input type="hidden" name="cod_producto" value="<? echo $producto->cod_producto ?>">
-                                <input type="hidden" name="precio" value="<? echo $producto->precio ?>">
-                                <input type="hidden" name="stock" value="<? echo $producto->stock ?>">
                             </div>
                         </form>
                         <div class="alert border-none alert-warning " style="font-weight: bold; color: #555; font-size:80%">
