@@ -59,7 +59,7 @@ class AlbaranDAO extends FactoryBD implements DAO
 
     public static function insert($objeto)
     {
-        $inserta = "insert into albaran values (?,?,?,?,?);";
+        $inserta = 'insert into albaran values (?,?,?,?,?)';
         $objeto = (array)$objeto;
         $datos = array();
         foreach ($objeto as $att) {
@@ -75,7 +75,7 @@ class AlbaranDAO extends FactoryBD implements DAO
 
     public static function delete($id)
     {
-        $elimina = "delete from albaran where id_albaran=?;";
+        $elimina = 'delete from albaran where id_albaran=?';
         $datos = array($id);
         $resultado = parent::ejecuta($elimina, $datos);
         if ($resultado->rowCount() == 0) {

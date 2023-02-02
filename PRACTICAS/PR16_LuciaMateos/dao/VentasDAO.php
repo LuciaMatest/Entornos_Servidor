@@ -62,7 +62,7 @@ class VentasDAO extends FactoryBD implements DAO
 
     public static function insert($objeto)
     {
-        $inserta = "insert into ventas values (?,?,?,?,?);";
+        $inserta = 'insert into ventas values (?,?,?,?,?)';
         $objeto = (array)$objeto;
         $datos = array();
         foreach ($objeto as $att) {
@@ -78,7 +78,7 @@ class VentasDAO extends FactoryBD implements DAO
 
     public static function delete($id)
     {
-        $elimina = "delete from ventas where id_ventas=?;";
+        $elimina = 'delete from ventas where id_ventas=?';
         $datos = array($id);
         $resultado = parent::ejecuta($elimina, $datos);
         if ($resultado->rowCount() == 0) {

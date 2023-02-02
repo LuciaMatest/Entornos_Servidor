@@ -43,7 +43,7 @@ class UsuarioDAO extends FactoryBD implements DAO
 
     public static function update($objeto)
     {
-        $actualiza = 'update usuarios set clave=?,nombre=?,correo=?, fecha=?,rol=? where usuario=?;';
+        $actualiza = 'update usuarios set clave=?,nombre=?,correo=?,fecha=?,rol=? where usuario=?;';
         $datos = array(
             $objeto->clave,
             $objeto->nombre,
@@ -62,7 +62,7 @@ class UsuarioDAO extends FactoryBD implements DAO
 
     public static function insert($objeto)
     {
-        $inserta = "insert into usuarios values (?,?,?,?,?);";
+        $inserta = 'insert into usuarios values (?,?,?,?,?)';
         $objeto = (array)$objeto;
         $datos = array();
         foreach ($objeto as $att) {
@@ -78,7 +78,7 @@ class UsuarioDAO extends FactoryBD implements DAO
 
     public static function delete($id)
     {
-        $elimina = "delete from usuarios where usuario=?;";
+        $elimina = 'delete from usuarios where usuario=?';
         $datos = array($id);
         $resultado = parent::ejecuta($elimina, $datos);
         if ($resultado->rowCount() == 0) {
