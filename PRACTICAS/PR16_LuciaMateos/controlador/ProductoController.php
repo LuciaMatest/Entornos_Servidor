@@ -6,6 +6,5 @@ if (isset($_REQUEST['cod_producto'])) {
 } elseif (isset($_REQUEST['comprar'])) {
     $_SESSION['controlador'] = $controladores['ventas'];
     $_SESSION['pagina'] = 'Home';
-    $_SESSION['vista'] = $vistas['home'];
     require($_SESSION['controlador']);
 }
