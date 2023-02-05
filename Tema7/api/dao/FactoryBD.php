@@ -11,13 +11,16 @@
                 $preparada->execute($datos);
 
             } catch (Exception $ex) {
-                //Si no va pues nulo
                 $preparada=null;
-                echo $ex;
+                if ($ex->getCode()==2002 || $ex->getCode()==1049){
+                    ControladorPadre::respuesta('',array('HTTP/1.1 500 Server Error'));
+                }else{
+                    ControladorPadre::respuesta('',array('HTTP/1.1 400 Algun parametro esta mal: ' . $ex->getMessage()));
+                    
+                }  
             }finally{
                 unset($con);
                 return $preparada;
             }
         }
     }
-?>
