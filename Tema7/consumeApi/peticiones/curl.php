@@ -1,7 +1,7 @@
 <?
     function get(){
         $conexion= curl_init();
-        $url= 'http://192.168.2.205/ServidorClase/Tema7/api/conciertos.php';
+        $url= 'http://192.168.2.207/DAW2/DWES/Teoria/api/conciertos.php';
         curl_setopt($conexion, CURLOPT_URL, $url);
         curl_setopt($conexion, CURLOPT_RETURNTRANSFER, true);
 
@@ -18,7 +18,7 @@
             "lugar":"'.$lugar.'" 
         }';
         $conexion= curl_init();
-        $url= 'http://192.168.2.205/ServidorClase/Tema7/api/conciertos.php/conciertos';
+        $url= 'http://192.168.2.207/DAW2/DWES/Teoria/api/conciertos.php/conciertos';
         curl_setopt($conexion, CURLOPT_URL, $url);
         curl_setopt($conexion, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
         curl_setopt($conexion, CURLOPT_RETURNTRANSFER, true);

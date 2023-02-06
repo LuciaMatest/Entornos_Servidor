@@ -1,5 +1,5 @@
 <pre>
     <?
-    print_r(json_decode($lista));
+    print_r($lista);
     ?>
 </pre>
