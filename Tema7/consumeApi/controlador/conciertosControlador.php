@@ -11,6 +11,6 @@
           $lista=get();
           require '../vista/listar.php';
        } else {
-         require '../vista/formInsert.php';
+         require '../vista/formInsert.html';
        }
     }
