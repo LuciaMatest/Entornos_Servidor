@@ -39,11 +39,14 @@ function put($id, $grupo, $fecha, $precio, $lugar)
         "precio":"' . $precio . '" ,
         "lugar":"' . $lugar . '" 
     }';
-    $url = 'http://192.168.2.200/tema7/api/conciertos.php/conciertos/' . $id;
     $conexion = curl_init();
+    $url = 'http://192.168.2.200/tema7/api/conciertos.php/conciertos/' . $id;
     curl_setopt($conexion, CURLOPT_URL, $url);
+    curl_setopt($conexion, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
     curl_setopt($conexion, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($conexion, CURLOPT_PUT, 1);
     curl_setopt($conexion, CURLOPT_POSTFIELDS, $json);
     $return = curl_exec($conexion);
+    curl_close($conexion);
+    return 1;
 }
