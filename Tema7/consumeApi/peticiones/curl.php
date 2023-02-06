@@ -46,7 +46,7 @@ function put($id, $grupo, $fecha, $precio, $lugar)
     curl_setopt($conexion, CURLOPT_URL, $url);
     curl_setopt($conexion, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
     curl_setopt($conexion, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($conexion, CURLOPT_PUT, 1);
+    curl_setopt($conexion, CURLOPT_CUSTOMREQUEST, 'PUT');
     curl_setopt($conexion, CURLOPT_POSTFIELDS, $json);
     $return = curl_exec($conexion);
     curl_close($conexion);
