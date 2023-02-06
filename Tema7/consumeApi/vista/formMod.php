@@ -3,7 +3,7 @@ require_once '../funciones/funciones.php';
 ?>
 <div class="container">
     <form action="../controlador/conciertosControlador.php">
-        <select>
+        <select name="id">
             <option value="0">Seleccione un grupo</option>
             <?
             cargarConciertos();

@@ -31,7 +31,7 @@ function post($grupo, $fecha, $precio, $lugar)
     return 1;
 }
 
-function put($grupo, $fecha, $precio, $lugar)
+function put($grupo, $fecha, $precio, $lugar, $id)
 {
     $json = '{
         "grupo":"' . $grupo . '" ,
@@ -39,11 +39,11 @@ function put($grupo, $fecha, $precio, $lugar)
         "precio":"' . $precio . '" ,
         "lugar":"' . $lugar . '" 
     }';
-    $url = 'http://192.168.2.200/tema7/api/conciertos.php/conciertos';
+    $url = 'http://192.168.2.200/tema7/api/conciertos.php/conciertos/'.$id;
     $conexion = curl_init();
     curl_setopt($conexion, CURLOPT_URL, $url);
     curl_setopt($conexion, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($conexion, CURLOPT_CUSTOMREQUEST, "PUT");
+    curl_setopt($conexion, CURLOPT_PUT, 1);
     curl_setopt($conexion, CURLOPT_POSTFIELDS, $json);
     $return = curl_exec($conexion);
 }
