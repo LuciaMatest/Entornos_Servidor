@@ -12,6 +12,6 @@ if (isset($_REQUEST['accion'])) {
       $lista = json_decode($lista, true);
       require '../vista/listar.php';
    } else {
-      require '../vista/formInsert.html';
+      require '../vista/formInsert.php';
    }
 }
