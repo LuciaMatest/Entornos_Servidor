@@ -9,7 +9,7 @@
                 <th scope="col">Stock</th>
                 <?
                 if (esAdmin()) {
-                    echo '<th scope="col">Modificar</th>';
+                    echo '<th scope="col">Editar</th>';
                 }
                 ?>
             </tr>

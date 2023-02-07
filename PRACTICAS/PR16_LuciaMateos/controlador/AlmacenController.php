@@ -1,6 +1,12 @@
 <?
 if (isset($_REQUEST['almacen'])) {
     $almacen = ProductoDAO::findAll();
+} elseif (isset($_REQUEST['editar'])) {
+    $_SESSION['accion'] = 'editar';
+    $ventas = VentasDAO::findById($_REQUEST['id_ventas']);
+    $_SESSION['ventas'] = $_REQUEST['id_ventas'];
+    $_SESSION['vista'] = $vistas['modificarVentas'];
+    $_SESSION['controlador'] = $controladores['ventas'];
 } elseif (isset($_REQUEST['modificar'])) {
     $producto = ProductoDAO::findById($_SESSION['producto']);
     $producto->precio=(float)$_REQUEST['precio'];
