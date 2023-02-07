@@ -2,9 +2,9 @@
     <div class="container mod_ventas">
         <div class="row justify-content-center mt-5">
             <div class="col-lg-5 col-md-9 col-sm-10">
-                <div class="card" style="background-color: #d4d4d4;border-style: none;">
+                <div class="card">
                     <div class="card-title text-center">
-                        <h2 class="px-3 pt-4 fw-bold" style="color: #555;">Nuevo producto</h2>
+                        <h2 class="px-3 pt-4 fw-bold">Nuevo producto</h2>
                     </div>
                     <div class="card-body pt-0">
                         <!-- Formulario -->

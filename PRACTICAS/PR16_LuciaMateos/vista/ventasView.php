@@ -1,6 +1,6 @@
 <div class="p-2 p-sm-3 p-md-3 p-lg-3">
     <table class="table text-center">
-        <thead class="text-white" style="background-color: #be901b;">
+        <thead class="text-white">
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Usuario</th>

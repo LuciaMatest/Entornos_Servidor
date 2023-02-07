@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-lg-5 col-md-9 col-sm-10">
-                <h1 class="text-center fw-bold pb-3" style="color: #444;">Mi perfil</h1>
-                <div class="card" style="background-color: #d4d4d4;border-style: none;">
+                <h1 class="text-center fw-bold pb-3">Mi perfil</h1>
+                <div class="card">
                     <div class="card-body pt-4">
                         <form action="./index.php" method="post">
                             <!-- Usuario -->
@@ -33,7 +33,7 @@
                             <!-- Rol -->
                             <div class="mb-4 px-2">
                                 <label for="idOpcion" class="form-label">Rol</label>
-                                <select name="rol" id="idOpcion" class="w-100 d-inline-block bg-white" value="<? echo $usuario->rol ?>" style="box-sizing: border-box;border-radius: 4px;border: 1px solid #ccc;padding: 12px 20px;margin: 8px 0;">
+                                <select name="rol" id="idOpcion" class="w-100 d-inline-block bg-white" value="<? echo $usuario->rol ?>">
                                     <option value="0">Seleccione una opción</option>
                                     <option value="ADM01">Administrador</option>
                                     <option value="M0001">Moderador</option>
@@ -46,11 +46,11 @@
                                     <?
                                 }
                                     ?><?
-                                    if ($_SESSION['accion'] == 'ver') { ?>
-                                    
+                                        if ($_SESSION['accion'] == 'ver') { ?>
+
                                     <input type="submit" class="botonG" value="Editar" name="editar">
                                 <?
-                                    }
+                                        }
                                 ?>
                             </div>
                         </form>

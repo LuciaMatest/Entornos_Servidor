@@ -14,11 +14,11 @@
 
 <body>
     <form action="./index.php" method="post">
-        <header class="p-3" style="background-color: #f0f0f0;">
+        <header class="p-3">
             <div class="mx-2">
                 <div class="d-flex bd-highlight mb-1 align-items-center justify-content-space-between">
                     <a href="./index.php" class="mx-auto mx-sm-auto ms-md-0 my-1" class="logo">
-                        <img src="./webroot/imagen/logo.png" alt="logo" class="icono_logo" style="width: 200px;">
+                        <img src="./webroot/imagen/logo.png" alt="logo" class="icono_logo">
                     </a>
                     <?php
                     if (estaValidado()) {
@@ -48,7 +48,7 @@
                     }
                     ?>
         </header>
-        <nav class="navbar navbar-expand-lg p-0" style="background-color: #d4d4d4;">
+        <nav class="navbar navbar-expand-lg p-0">
             <div class="container-fluid p-0">
                 <a class="navbar-brand"></a>
                 <button class="btn default d-block d-sm-block d-md-flex d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,14 +82,14 @@
             </div>
         </nav>
     </form>
-    <main class="sticky-top" >
+    <main class="sticky-top">
         <?php
         require_once $_SESSION['vista'];
         ?>
     </main>
 
     <div class="container-fluid px-0 pt-1">
-        <footer class="fixed-bottom" style="background-color: #d4d4d4;">
+        <footer class="fixed-bottom">
             <ul class="nav justify-content-center ">
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Politica de Cookies</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Politica de Privacidad</a></li>

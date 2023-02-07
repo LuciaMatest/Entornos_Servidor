@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-lg-5 col-md-9 col-sm-10">
-                <h1 class="text-center fw-bold pb-3" style="color: #444;">Mi cuenta</h1>
-                <div class="card" style="background-color: #d4d4d4;border-style: none;">
+                <h1 class="text-center fw-bold pb-3">Mi cuenta</h1>
+                <div class="card">
                     <div class="card-title text-center">
-                        <h2 class="px-3 pt-4 fw-bold" style="color: #555;">Acceder</h2>
+                        <h2 class="px-3 pt-4 fw-bold">Acceder</h2>
                     </div>
                     <div class="card-body pt-0">
                         <form action="./index.php" method="post">

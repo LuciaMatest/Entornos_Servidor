@@ -1,6 +1,6 @@
 <div class="p-2 p-sm-3 p-md-3 p-lg-3">
     <table class="table text-center">
-        <thead class="text-white" style="background-color: #be901b;">
+        <thead class="text-white">
             <tr>
                 <th scope="col">Código</th>
                 <th scope="col">Nombre</th>
@@ -24,7 +24,7 @@
                     <td><? echo 'Disponible ' . $valor->stock . '<br>' ?>
                         <form action="./index.php" method="post">
                             <? if (esAdmin() || esModerador()) { ?>
-                                <input type="number" style="border: 0;" name="cantidad" value="1" title="Cantidad" size="4" min="1" max="">
+                                <input type="number" class="border-0" name="cantidad" value="1" title="Cantidad" size="4" min="1" max="">
                                 <input type="submit" name="añadir" class="boton" value="Añadir">
                                 <input type="hidden" name="cod_producto" value="<? echo $valor->cod_producto ?>">
                             <? } ?>

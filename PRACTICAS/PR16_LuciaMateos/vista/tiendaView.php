@@ -9,8 +9,8 @@
                         <img src='./webroot/imagen<? echo $producto->imagen_baja ?>' alt="productos_pelu">
                     </div>
                     <div class="card-body">
-                        <h3 class="fw-bold my-1" style="color: #303030;font-size: 25px;"><? echo $producto->nombre ?></h3>
-                        <p class="precio py-1" style="color: #444;font-size: 20px;"><b><? echo $producto->precio ?>€</b></p>
+                        <h3 class="fw-bold my-1"><? echo $producto->nombre ?></h3>
+                        <p class="precio py-1"><b><? echo $producto->precio ?>€</b></p>
                         <form action="./index.php" method="post">
                             <input type="hidden" name="cod_producto" value="<? echo $producto->cod_producto ?>">
                             <input type="submit" value="Ver producto" name="ver" class="botonG">
@@ -20,5 +20,6 @@
             </article>
         <? }
         ?>
+
     </section>
 </div>
