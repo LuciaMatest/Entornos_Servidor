@@ -93,7 +93,7 @@ function patronImagenBaja()
 
 function validarUsuario()
 {
-    if (isset($_REQUEST['enviar'])) {
+    if (isset($_REQUEST['guardar'])) {
         if (!vacio('user') && UsuarioDAO::findById($_REQUEST['user']) != null) {
             if (!vacio('contraseña') && patronContraseña()) {
                 if (!vacio('nombre')) {
@@ -111,6 +111,7 @@ function validarUsuario()
         return false;
     }
 }
+
 
 function validarNuevoUsuario()
 {

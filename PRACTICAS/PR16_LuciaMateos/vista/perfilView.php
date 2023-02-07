@@ -1,9 +1,3 @@
-<?
-if (isset($_SESSION['error'])) {
-    echo $_SESSION['error'];
-    unset($_SESSION['error']);
-}
-?>
 <div class="pt-1">
     <div class="container">
         <div class="row justify-content-center mt-5">

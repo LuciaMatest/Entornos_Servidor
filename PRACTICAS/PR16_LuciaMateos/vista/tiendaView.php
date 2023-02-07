@@ -8,7 +8,7 @@
                     <div class="card-header bg-white">
                         <img src='./webroot/imagen<? echo $producto->imagen_baja ?>' alt="productos_pelu">
                     </div>
-                    <div class="card-body">
+                    <div class="card-body bg-white">
                         <h3 class="fw-bold my-1"><? echo $producto->nombre ?></h3>
                         <p class="precio py-1"><b><? echo $producto->precio ?>€</b></p>
                         <form action="./index.php" method="post">
