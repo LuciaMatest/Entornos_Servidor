@@ -93,16 +93,34 @@ function patronImagenBaja()
 
 function validarUsuario()
 {
-    if (isset($_REQUEST['guardar'])) {
-        if (!vacio('contraseña') && patronContraseña()) {
-            if (!vacio('nombre')) {
-                if (!vacio('email') && patronEmail()) {
-                    if (isset($_REQUEST['rol']) && $_REQUEST['rol'] != 0) {
-                        return true;
-                    }
-                }
-            }
-        }
+    if (!isset($_REQUEST['guardar'])) {
+        $_SESSION['errores']['guardar'] = 'No enviado';
+    }
+
+    if (vacio('nombre')) {
+        $_SESSION['errores']['nombre'] = 'Nombre vacio';
+    }
+
+    if (vacio('contraseña') || vacio('contraseña2')) {
+        $_SESSION['errores']['contraseña'] = 'Contraseña vacía';
+    } elseif ($_REQUEST['contraseña'] != $_REQUEST['contraseña2']) {
+        $_SESSION['errores']['contraseña'] = 'No son iguales';
+    } elseif (!patronContraseña()) {
+        $_SESSION['errores']['contraseña'] = 'Debes incluir, mayuscula, minuscula, número y al menos 8 caracteres';
+    }
+
+    if (vacio('email')) {
+        $_SESSION['errores']['email'] = 'Debes rellenar el correo';
+    }/*elseif (!patMail()) {
+        $_SESSION['errores']['email']='Email incorrecto';             
+    }*/
+
+    if ($_REQUEST['rol'] == 0) {
+        $_SESSION['errores']['rol'] = 'Selecciona un rol';
+    }
+
+    if (!isset($_SESSION['errores'])) {
+        return true;
     } else {
         return false;
     }
