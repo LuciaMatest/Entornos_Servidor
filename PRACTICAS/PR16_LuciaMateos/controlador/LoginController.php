@@ -1,5 +1,5 @@
 <?php
-if (isset($_REQUEST['registrar'])) {
+if (isset($_REQUEST['nuevaCuenta'])) {
     $_SESSION['controlador'] = $controladores['registro'];
     $_SESSION['pagina'] = 'Registrar';
     $_SESSION['vista'] = $vistas['registro'];

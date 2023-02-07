@@ -19,7 +19,7 @@
                             </div>
                             <div class="text-center">
                                 <input type="submit" value="Acceder" name="enviar" class="botonG">
-                                <input type="submit" value="Crear cuenta" name="registrar" class="boton px-2">
+                                <input type="submit" value="Crear cuenta" name="nuevaCuenta" class="boton px-2">
                             </div>
                         </form>
                     </div>

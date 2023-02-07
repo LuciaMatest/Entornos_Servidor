@@ -62,7 +62,7 @@ class UsuarioDAO extends FactoryBD implements DAO
 
     public static function insert($objeto)
     {
-        $inserta = 'insert into usuarios values (?,?,?,?,?)';
+        $inserta = 'insert into usuarios values (?,?,?,?,?,?)';
         $objeto = (array)$objeto;
         $datos = array();
         foreach ($objeto as $att) {

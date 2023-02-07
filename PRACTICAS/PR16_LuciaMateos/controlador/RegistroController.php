@@ -1,5 +1,5 @@
 <?php
-if (isset($_REQUEST['guardar'])) {
+if (isset($_REQUEST['registrar'])) {
 
     $usuario = new Usuario($_REQUEST['user'], sha1($_REQUEST['contraseña']), $_REQUEST['nombre'], $_REQUEST['email'], $_REQUEST['fecha'], $_REQUEST['rol']);
 

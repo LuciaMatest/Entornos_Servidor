@@ -11,38 +11,38 @@
                         <form action="./index.php" method="post">
                             <!-- Usuario -->
                             <div class="mb-4 px-2">
-                                <label for="idUser" class="form-label">Usuario</label>
-                                <input type="text" class="form-control" name="user" id="idUser">
+                                <label for="user" class="form-label">Usuario</label>
+                                <input type="text" class="form-control" name="user" id="user">
                             </div>
                             <!-- Contraseña -->
                             <div class="mb-4 px-2">
-                                <label for="idContraseña" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" name="contraseña" id="idContraseña">
+                                <label for="contraseña" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" name="contraseña" id="contraseña">
                             </div>
                             <!-- Contraseña rep -->
                             <div class="mb-4 px-2">
-                                <label for="idContraseña2" class="form-label">Repite contraseña</label>
-                                <input type="password" class="form-control" name="contraseña2" id="idContraseña2">
+                                <label for="contraseña2" class="form-label">Repite contraseña</label>
+                                <input type="password" class="form-control" name="contraseña2" id="contraseña2">
                             </div>
                             <!-- Nombre -->
                             <div class="mb-4 px-2">
-                                <label for="idNombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" name="nombre" id="idNombre">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" name="nombre" id="nombre">
                             </div>
                             <!-- Email -->
                             <div class="mb-4 px-2">
-                                <label for="idEmail" class="form-label">Email</label>
-                                <input type="text" class="form-control" name="email" id="idEmail">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" class="form-control" name="email" id="email">
                             </div>
                             <!-- Fecha -->
                             <div class="mb-4 px-2">
-                                <label for="idFecha" class="form-label">Fecha de nacimiento</label>
+                                <label for="fecha" class="form-label">Fecha de nacimiento</label>
                                 <input type="text" class="form-control" name="fecha" id="fecha" placeholder="aaaa-mm-dd">
                             </div>
                             <!-- Rol -->
                             <div class="mb-4 px-2">
-                                <label for="idOpcion" class="form-label">Rol</label>
-                                <select name="rol" id="idOpcion" class="w-100 d-inline-block bg-white" style="box-sizing: border-box;border-radius: 4px;border: 1px solid #ccc;padding: 12px 20px;margin: 8px 0;">
+                                <label for="rol" class="form-label">Rol</label>
+                                <select name="rol" id="rol" class="w-100 d-inline-block bg-white" style="box-sizing: border-box;border-radius: 4px;border: 1px solid #ccc;padding: 12px 20px;margin: 8px 0;">
                                     <option value="0">Seleccione una opción</option>
                                     <option value="ADM01">Administrador</option>
                                     <option value="M0001">Moderador</option>
