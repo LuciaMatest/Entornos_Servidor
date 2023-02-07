@@ -12,57 +12,49 @@
                             <!-- ID -->
                             <? if ($_SESSION['accion'] == 'editar') { ?>
                                 <div class="mb-4 px-2">
-                                    <label for="cod_objeto" class="form-label">ID</label>
-                                    <input type="text" class="form-control" name="cod_objeto" id="cod_objeto" placeholder="cod_objeto" readonly value="<? echo $objeto->cod_objeto ?>">
+                                    <label for="cod_producto" class="form-label">ID</label>
+                                    <input type="text" class="form-control" name="cod_producto" id="cod_producto" placeholder="cod_objeto" readonly value="<? echo $almacen->cod_producto ?>">
                                 </div>
                             <? } ?>
                             <!-- Imagen -->
                             <div class="mb-4 px-2">
                                 <label for="imagen_alta" class="form-label">Imagen alta</label>
-                                <input type="file" class="form-control" name="alta" id="imagen_alta" value="<?
-                                if ($_SESSION['accion'] == 'editar') {
-                                    echo 'disabled';
-                                } ?>">
+                                <input type="file" class="form-control" name="imagen_alta" id="imagen_alta" value="<? if ($_SESSION['accion'] == 'editar') {
+                                                                                                                        echo $almacen->imagen_alta;
+                                                                                                                    } ?>">
                             </div>
                             <!-- Imagen -->
                             <div class="mb-4 px-2">
                                 <label for="imagen_baja" class="form-label">Imagen baja</label>
-                                <input type="file" class="form-control" name="baja" id="imagen_baja" value="<?
-                                if ($_SESSION['accion'] == 'editar') {
-                                    echo 'disabled';
-                                } ?>">
+                                <input type="file" class="form-control" name="imagen_baja" id="imagen_baja" value="<? if ($_SESSION['accion'] == 'editar') {
+                                                                                                                        echo $almacen->imagen_baja;
+                                                                                                                    } ?>">
                             </div>
                             <!-- Nombre -->
                             <div class="mb-4 px-2">
-                                <label for="idNombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" name="nombre" id="idNombre" value="<?
-                                if ($_SESSION['accion'] == 'editar') {
-                                    echo $objeto->nombre;
-                                } ?>">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" name="nombre" id="nombre" value="<? if ($_SESSION['accion'] == 'editar') {
+                                                                                                                echo $almacen->nombre;
+                                                                                                            } ?>">
                             </div>
                             <!-- Descripcion -->
                             <div class="mb-4 px-2">
-                                <label for="idDescripcion" class="form-label">Descripcion</label>
-                                <input type="text" class="form-control" name="descripcion" id="idDescripcion" value="<?
-                                if ($_SESSION['accion'] == 'editar') {
-                                    echo $objeto->descripcion;
-                                } ?>">
+                                <label for="descripcion" class="form-label">Descripcion</label>
+                                <input type="text" class="form-control" name="descripcion" id="descripcion" value="<? if ($_SESSION['accion'] == 'editar') {
+                                                                                                                        echo $almacen->descripcion;
+                                                                                                                    } ?>">
                             </div>
                             <!-- Precio -->
                             <div class="mb-4 px-2">
-                                <label for="idPrecio" class="form-label">Precio</label>
-                                <input type="number" class="form-control" name="precio" id="idPrecio" value="<?
-                                if ($_SESSION['accion'] == 'editar') {
-                                    echo $objeto->precio;
-                                } ?>">
+                                <label for="precio" class="form-label">Precio</label>
+                                <input type="number" class="form-control" name="precio" id="precio" value="<? if ($_SESSION['accion'] == 'editar') {
+                                                                                                                echo $almacen->precio;
+                                                                                                            } ?>">
                             </div>
                             <!-- Stock -->
                             <div class="mb-4 px-2">
-                                <label for="idStock" class="form-label">Stock</label>
-                                <input type="text" class="form-control" name="stock" id="idStock" value="<?
-                                if ($_SESSION['accion'] == 'editar') {
-                                    echo $objeto->stock;
-                                } ?>">
+                                <label for="stock" class="form-label">Stock</label>
+                                <input type="text" class="form-control" name="stock" id="stock" readonly value="<? echo $almacen->stock ?>">
                             </div>
                             <div class="text-center">
                                 <input type="submit" value="Modificar" name="modificar" class="botonG">

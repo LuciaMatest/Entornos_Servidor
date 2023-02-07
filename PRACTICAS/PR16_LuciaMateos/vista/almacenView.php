@@ -22,8 +22,8 @@
                     <td><? echo $valor->descripcion ?></td>
                     <td><? echo $valor->precio ?></td>
                     <td><? echo 'Disponible ' . $valor->stock . '<br>' ?>
-                        <? if (esAdmin() || esModerador()) { ?>
-                            <form action="./index.php" method="post">
+                        <form action="./index.php" method="post">
+                            <? if (esAdmin() || esModerador()) { ?>
                                 <input type="number" style="border: 0;" name="cantidad" value="1" title="Cantidad" size="4" min="1" max="">
                                 <input type="submit" name="añadir" class="boton" value="Añadir">
                                 <input type="hidden" name="cod_producto" value="<? echo $valor->cod_producto ?>">
@@ -36,13 +36,15 @@
                             </svg>
                             <input type="submit" name="editar" class="boton" value="Editar">
                         </td>
+                        </form>
                     <? } ?>
                 </tr>
             <? } ?>
         </tbody>
     </table>
-    <? if (esAdmin()) { ?>
-        <input type="submit" name="crear" class="botonG" value="Añadir producto">
-    <? } ?>
+    <form action="./index.php" method="post">
+        <? if (esAdmin()) { ?>
+            <input type="submit" name="crear" class="botonG" value="Añadir producto">
+        <? } ?>
     </form>
 </div>

@@ -82,7 +82,7 @@
             </div>
         </nav>
     </form>
-    <main class="sticky-top">
+    <main class="sticky-top" >
         <?php
         require_once $_SESSION['vista'];
         ?>
