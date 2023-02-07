@@ -11,6 +11,6 @@ if (isset($_REQUEST['registrar'])) {
         $_SESSION['nombre'] = $usuario->nombre;
         $_SESSION['rol'] = $usuario->rol;
     } else {
-        $_SESSION['error'] = 'No se ha podido registrar';
+        $_SESSION['error'] = '<script>alert("No se ha podido registrar");</script>';
     }
 }

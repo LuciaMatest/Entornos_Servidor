@@ -93,6 +93,23 @@ function patronImagenBaja()
 
 function validarUsuario()
 {
+    if (isset($_REQUEST['guardar'])) {
+        if (!vacio('contraseña') && patronContraseña()) {
+            if (!vacio('nombre')) {
+                if (!vacio('email') && patronEmail()) {
+                    if (isset($_REQUEST['rol']) && $_REQUEST['rol'] != 0) {
+                        return true;
+                    }
+                }
+            }
+        }
+    } else {
+        return false;
+    }
+}
+
+function validarNuevoUsuario()
+{
     if (!isset($_REQUEST['guardar'])) {
         if (vacio('user') || UsuarioDAO::findById($_REQUEST['user']) != null) {
             if (vacio('contraseña') || vacio('contraseña2') || !patronContraseña() || $_REQUEST['contraseña'] != $_REQUEST['contraseña2']) {
@@ -110,10 +127,6 @@ function validarUsuario()
     } else {
         return false;
     }
-}
-
-function validarNuevoUsuario()
-{
 }
 
 function validarAlmacen()
