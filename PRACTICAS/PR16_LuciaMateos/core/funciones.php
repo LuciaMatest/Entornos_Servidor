@@ -91,38 +91,25 @@ function patronImagenBaja()
     return false;
 }
 
-// function verificar()
-// {
-//     if (!isset($_REQUEST['guardar'])) {
-//         $_SESSION['error']['enviado'] = 'No enviado';
-//         if (vacio('user') || UsuarioDAO::findById($_REQUEST['user']) != null) {
-//             $_SESSION['error']['user'] = 'Fallo de usuario';
-//             if (vacio('contraseña') || vacio('contraseña2') || !patronContraseña() || $_REQUEST['contraseña'] != $_REQUEST['contraseña2']) {
-//                 $_SESSION['error']['contraseña'] = 'Fallo de contraseña';
-//                 if (vacio('nombre')) {
-//                     $_SESSION['error']['nombre'] = 'Fallo de nombre';
-//                     if (vacio('email') || !patronEmail()) {
-//                         $_SESSION['error']['email'] = 'Fallo de email';
-//                         if (vacio('fecha') || !patronFecha()) {
-//                             $_SESSION['error']['fecha'] = 'Fallo de fecha';
-//                             if (!isset($_REQUEST['rol']) || $_REQUEST['rol'] == 0) {
-//                                 $_SESSION['error']['rol'] = 'Fallo de rol';
-//                                 if (!isset($_SESSION['error'])) {
-//                                     return true;
-//                                 }
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     } else {
-//         return false;
-//     }
-// }
-
 function validarUsuario()
 {
+    if (!isset($_REQUEST['guardar'])) {
+        if (vacio('user') || UsuarioDAO::findById($_REQUEST['user']) != null) {
+            if (vacio('contraseña') || vacio('contraseña2') || !patronContraseña() || $_REQUEST['contraseña'] != $_REQUEST['contraseña2']) {
+                if (vacio('nombre')) {
+                    if (vacio('email') || !patronEmail()) {
+                        if (vacio('fecha') || !patronFecha()) {
+                            if (!isset($_REQUEST['rol']) || $_REQUEST['rol'] == 0) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } else {
+        return false;
+    }
 }
 
 function validarNuevoUsuario()
