@@ -26,6 +26,14 @@ if (isset($_REQUEST['almacen'])) {
     ProductoDAO::update($almacen);
     $almacen = ProductoDAO::findAll();
 } elseif (isset($_REQUEST['crear'])) {
+    $_SESSION['vista'] = $vistas['modificarAñadir'];
+    $_SESSION['controlador'] = $controladores['almacen'];
+} elseif (isset($_REQUEST['nuevo'])) {
+    $producto = new Producto($_REQUEST['cod_producto'], './webroot/imagen' . $_FILES['imagen_alta']['name'], './webroot/imagen' . $_FILES['imagen_baja']['name'], $_REQUEST['nombre'], $_REQUEST['descripcion'], (float)$_REQUEST['precio'], $_REQUEST['stock']);
+    $almacen = ProductoDAO::insert($producto);
+    $_SESSION['vista'] = $vistas['almacen'];
+    $_SESSION['controlador'] = $controladores['almacen'];
+    $almacen = ProductoDAO::findAll();
 } else {
     $almacen = ProductoDAO::findAll();
 }
