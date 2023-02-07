@@ -1,7 +1,3 @@
-<?
-$API_key = 'UZ4rUUIANoxWmt6vrkzMI6WoEeojSKGj';
-?>
-
 <!doctype html>
 <html lang="es">
 
@@ -53,15 +49,15 @@ $API_key = 'UZ4rUUIANoxWmt6vrkzMI6WoEeojSKGj';
         <div class="d-flex">
           <select class="form-select form-select-lg" name="ciudad" id="ciudad">
             <option selected>Selecciona una ciudad</option>
-            <option value="Zamora">Zamora</option>
-            <option value="Salamanca">Salamanca</option>
-            <option value="León">León</option>
-            <option value="Palencia">Palencia</option>
-            <option value="Valladolid">Valladolid</option>
-            <option value="Segovia">Segovia</option>
             <option value="Ávila">Ávila</option>
             <option value="Burgos">Burgos</option>
+            <option value="León">León</option>
+            <option value="Palencia">Palencia</option>
+            <option value="Salamanca">Salamanca</option>
+            <option value="Segovia">Segovia</option>
             <option value="Soria">Soria</option>
+            <option value="Valladolid">Valladolid</option>
+            <option value="Zamora">Zamora</option>
           </select>
           <button type="submit" class="btn btn-secondary ms-3 px-4">Buscar</button>
         </div>
