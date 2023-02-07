@@ -24,9 +24,11 @@ if (isset($_REQUEST['almacen'])) {
     $almacen = ProductoDAO::findById($_REQUEST['cod_producto']);
     $almacen->stock = ($almacen->stock) + (int)$_REQUEST['cantidad'];
     ProductoDAO::update($almacen);
-    $almacen = ProductoDAO::findAll();
+    $nuevostock = new Albaran(null, date('Y-m-d'), $_SESSION['producto'], $_REQUEST['cantidad'], $_SESSION['user']);
+    AlbaranDAO::insert($nuevostock);
     $_SESSION['vista'] = $vistas['albaran'];
     $_SESSION['controlador'] = $controladores['albaran'];
+    $almacen = ProductoDAO::findAll();
     $albaran = AlbaranDAO::findAll();
 } elseif (isset($_REQUEST['crear'])) {
     $_SESSION['vista'] = $vistas['modificarAñadir'];
