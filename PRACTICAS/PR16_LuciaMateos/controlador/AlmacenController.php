@@ -25,6 +25,9 @@ if (isset($_REQUEST['almacen'])) {
     $almacen->stock = ($almacen->stock) + (int)$_REQUEST['cantidad'];
     ProductoDAO::update($almacen);
     $almacen = ProductoDAO::findAll();
+    $_SESSION['vista'] = $vistas['albaran'];
+    $_SESSION['controlador'] = $controladores['albaran'];
+    $albaran = AlbaranDAO::findAll();
 } elseif (isset($_REQUEST['crear'])) {
     $_SESSION['vista'] = $vistas['modificarAñadir'];
     $_SESSION['controlador'] = $controladores['almacen'];
