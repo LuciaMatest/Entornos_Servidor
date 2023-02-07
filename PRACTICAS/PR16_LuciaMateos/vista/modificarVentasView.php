@@ -43,7 +43,7 @@
                             <!-- Precio -->
                             <div class="mb-4 px-2">
                                 <label for="precio_total" class="form-label">Precio</label>
-                                <input type="number" class="form-control" name="precio_total" id="precio_total" value="<? if ($_SESSION['accion'] == 'editar') {
+                                <input type="text" class="form-control" name="precio_total" id="precio_total" value="<? if ($_SESSION['accion'] == 'editar') {
                                                                                                                             echo $ventas->precio_total;
                                                                                                                         } ?>">
                             </div>
