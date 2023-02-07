@@ -20,6 +20,7 @@ if (isset($_REQUEST['albaran'])) {
     $_SESSION['albaran'] = $_REQUEST['id_albaran'];
     $_SESSION['vista'] = $vistas['albaran'];
     $_SESSION['controlador'] = $controladores['albaran'];
+    $producto = ProductoDAO::findAll();
     $albaran = AlbaranDAO::findAll();
 } else {
     $albaran = AlbaranDAO::findAll();

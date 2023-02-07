@@ -139,6 +139,17 @@ function validarAlmacen()
 
 function validarAlbarán()
 {
+    if (isset($_REQUEST['modificar'])) {
+        if (!vacio('user') && UsuarioDAO::findById($_REQUEST['user']) != null) {
+            if (!vacio('fecha') && patronFecha()) {
+                if (!vacio('cantidad')) {
+                    return true;
+                }
+            }
+        }
+    } else {
+        return false;
+    }
 }
 
 function validarVentas()
