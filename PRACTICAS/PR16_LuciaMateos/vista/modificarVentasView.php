@@ -12,46 +12,40 @@
                             <!-- ID -->
                             <? if ($_SESSION['accion'] == 'editar') { ?>
                                 <div class="mb-4 px-2">
-                                    <label for="idVentas" class="form-label">ID</label>
-                                    <input type="text" class="form-control" name="id_ventas" id="idVentas" readonly value="<? echo $ventas->id_ventas ?>">
+                                    <label for="id_ventas" class="form-label">ID</label>
+                                    <input type="text" class="form-control" name="id_ventas" id="id_ventas" readonly value="<? echo $ventas->id_ventas ?>">
                                 </div>
                             <? } ?>
                             <!-- Usuario -->
                             <div class="mb-4 px-2">
-                                <label for="idUsuario" class="form-label">Usuario</label>
-                                <input type="number" class="form-control" name="usuario_ventas" id="idUsuario" value="<?
-                                if ($_SESSION['accion'] == 'editar') {
-                                    echo $ventas->usuario_ventas;
-                                } ?>">
+                                <label for="usuario_ventas" class="form-label">Usuario</label>
+                                <input type="text" class="form-control" name="usuario_ventas" id="usuario_ventas" readonly value="<? echo $ventas->usuario_ventas ?>">
                             </div>
                             <!-- Fecha -->
                             <div class="mb-4 px-2">
-                                <label for="idFechaVentas" class="form-label">Fecha</label>
-                                <input type="date" class="form-control" name="fecha_compra" id="idFechaVentas" value="<?
-                                if ($_SESSION['accion'] == 'editar') {
-                                    echo $ventas->fecha_compra;
-                                } ?>">
+                                <label for="fecha_compra" class="form-label">Fecha</label>
+                                <input type="date" class="form-control" name="fecha_compra" id="fecha_compra" value="<? if ($_SESSION['accion'] == 'editar') {
+                                                                                                                            echo $ventas->fecha_compra;
+                                                                                                                        } ?>">
                             </div>
                             <!-- Codigo -->
                             <div class="mb-4 px-2">
-                                    <label for="cod_producto" class="form-label">Código</label>
-                                    <input type="text" class="form-control" name="cod_producto" id="cod_producto" readonly value="<? echo $ventas->cod_producto ?>">
+                                <label for="cod_producto" class="form-label">Código</label>
+                                <input type="text" class="form-control" name="cod_producto" id="cod_producto" readonly value="<? echo $ventas->cod_producto ?>">
                             </div>
                             <!-- Cantidad -->
                             <div class="mb-4 px-2">
-                                <label for="idCantidad" class="form-label">Cantidad</label>
-                                <input type="text" class="form-control" name="cantidad" id="idCantidad" value="<?
-                                if ($_SESSION['accion'] == 'editar') {
-                                    echo $ventas->cantidad;
-                                } ?>">
+                                <label for="cantidad" class="form-label">Cantidad</label>
+                                <input type="text" class="form-control" name="cantidad" id="cantidad" value="<? if ($_SESSION['accion'] == 'editar') {
+                                                                                                                    echo $ventas->cantidad;
+                                                                                                                } ?>">
                             </div>
                             <!-- Precio -->
                             <div class="mb-4 px-2">
-                                <label for="idPrecio" class="form-label">Precio</label>
-                                <input type="number" class="form-control" name="precio_total" id="idPrecio" value="<?
-                                if ($_SESSION['accion'] == 'editar') {
-                                    echo $ventas->precio_total;
-                                } ?>">
+                                <label for="precio_total" class="form-label">Precio</label>
+                                <input type="number" class="form-control" name="precio_total" id="precio_total" value="<? if ($_SESSION['accion'] == 'editar') {
+                                                                                                                            echo $ventas->precio_total;
+                                                                                                                        } ?>">
                             </div>
                             <div class="text-center">
                                 <input type="submit" value="Modificar" name="modificar" class="botonG">
