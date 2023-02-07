@@ -93,13 +93,13 @@ function patronImagenBaja()
 
 function validarUsuario()
 {
-    if (!isset($_REQUEST['guardar'])) {
-        if (vacio('user') || UsuarioDAO::findById($_REQUEST['user']) != null) {
-            if (vacio('contraseña') || !patronContraseña()) {
-                if (vacio('nombre')) {
-                    if (vacio('email') || !patronEmail()) {
-                        if (vacio('fecha') || !patronFecha()) {
-                            if (!isset($_REQUEST['rol']) || $_REQUEST['rol'] == 0) {
+    if (isset($_REQUEST['enviar'])) {
+        if (!vacio('user') && UsuarioDAO::findById($_REQUEST['user']) != null) {
+            if (!vacio('contraseña') && patronContraseña()) {
+                if (!vacio('nombre')) {
+                    if (!vacio('email') && patronEmail()) {
+                        if (!vacio('fecha') && patronFecha()) {
+                            if (isset($_REQUEST['rol']) && $_REQUEST['rol'] != 0) {
                                 return true;
                             }
                         }
@@ -114,13 +114,13 @@ function validarUsuario()
 
 function validarNuevoUsuario()
 {
-    if (!isset($_REQUEST['guardar'])) {
-        if (vacio('user') || UsuarioDAO::findById($_REQUEST['user']) != null) {
-            if (vacio('contraseña') || vacio('contraseña2') || !patronContraseña() || $_REQUEST['contraseña'] != $_REQUEST['contraseña2']) {
-                if (vacio('nombre')) {
-                    if (vacio('email') || !patronEmail()) {
-                        if (vacio('fecha') || !patronFecha()) {
-                            if (!isset($_REQUEST['rol']) || $_REQUEST['rol'] == 0) {
+    if (isset($_REQUEST['registrar'])) {
+        if (!vacio('user') && UsuarioDAO::findById($_REQUEST['user']) != null) {
+            if (!vacio('contraseña') && !vacio('contraseña2') && patronContraseña() && $_REQUEST['contraseña'] == $_REQUEST['contraseña2']) {
+                if (!vacio('nombre')) {
+                    if (!vacio('email') && patronEmail()) {
+                        if (!vacio('fecha') && patronFecha()) {
+                            if (isset($_REQUEST['rol']) && $_REQUEST['rol'] != 0) {
                                 return true;
                             }
                         }
@@ -133,17 +133,36 @@ function validarNuevoUsuario()
     }
 }
 
-function validarAlmacen()
-{
-}
-
-function validarAlbarán()
+function validarAlbaran()
 {
     if (isset($_REQUEST['modificar'])) {
-        if (!vacio('user') && UsuarioDAO::findById($_REQUEST['user']) != null) {
-            if (!vacio('fecha') && patronFecha()) {
-                if (!vacio('cantidad')) {
-                    return true;
+        if (!vacio('fecha_albaran') && patronFecha()) {
+            if (!vacio('cantidad')) {
+                return true;
+            }
+        }
+    } else {
+        return false;
+    }
+}
+
+function validarAñadir()
+{
+    if (isset($_REQUEST['nuevo'])) {
+        if (!vacio('nombre')) {
+            if (!vacio('precio')) {
+                if (!vacio('descripcion')) {
+                    if (!vacio('stock')) {
+                        if (file_exists($_FILES['imagen_alta']['tmp_name']) && patronImagenAlta()) {
+                            if (file_exists($_FILES['imagen_baja']['tmp_name']) && patronImagenBaja()) {
+                                $ubi1 = "./webroot/imagen" . $_FILES['imagen_alta']['name'];
+                                $ubi2 = "./webroot/imagen" . $_FILES['imagen_baja']['name'];
+                                move_uploaded_file($_FILES['imagen_alta']['tmp_name'], $ubi1);
+                                move_uploaded_file($_FILES['imagen_baja']['tmp_name'], $ubi2);
+                                return true;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -154,4 +173,15 @@ function validarAlbarán()
 
 function validarVentas()
 {
+    if (isset($_REQUEST['modificar'])) {
+        if (!vacio('fecha_compra') && patronFecha()) {
+            if (!vacio('cantidad')) {
+                if (!vacio('precio_total')) {
+                    return true;
+                }
+            }
+        }
+    } else {
+        return false;
+    }
 }
