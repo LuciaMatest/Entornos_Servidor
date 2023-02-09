@@ -1,16 +1,24 @@
 <?
-    class Usuario{
+    class Apuesta{
         private $id;
-        private $nombre;
-        private $password;
-        private $perfil;
+        private $fecha;
+        private $iduser;
+        private $n1;
+        private $n2;
+        private $n3;
+        private $n4;
+        private $n5;
 
-        public function __construct($id,$nombre,$password,$perfil)
+        public function __construct($id,$fecha,$iduser,$n1,$n2,$n3,$n4,$n5)
         {
             $this->id=$id;
-            $this->nombre=$nombre;
-            $this->password=$password;
-            $this->perfil=$perfil;
+            $this->fecha=$fecha;
+            $this->iduser=$iduser;
+            $this->n1=$n1;
+            $this->n2=$n2;
+            $this->n3=$n3;
+            $this->n4=$n4;
+            $this->n5=$n5;
         }
 
         public function __get($get)

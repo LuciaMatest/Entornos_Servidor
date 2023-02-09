@@ -21,27 +21,15 @@
             <li class="nav-item">
               <a class="nav-link" href="./index.php?home">Home</a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">Features</a>
-                </li> -->
           </ul>
           <form class="d-flex" action='./index.php' method='post'>
             <?php
-            if (!estaValidado()) {
-              echo '<div class="container mt-3">';
-              echo '<input class="btn btn-primary" type="submit" name="login" value="Login">&nbsp;';
-              echo '<input class="btn btn-primary" type="submit" name="registro" value="Registro">';
-              echo '</div>';
-            } else {
+            if (estaValidado()) {
               echo '<div class="container mt-3">';
               echo '<h2 class="text-muted">' . $_SESSION['user'] . '</h2>';
-              if (esAdmin()) {
-                echo '<input class="btn btn-primary" type="submit" name="admin" value="Administrar">&nbsp;';
-              }
-              echo '<input class="btn btn-primary" type="submit" name="miperfil" value="Mi perfil">&nbsp;';
               echo '<input class="btn btn-primary" type="submit" name="logout" value="Logout">';
+              echo '</div>';
             }
-            echo '</div>';
             ?>
           </form>
         </div>
