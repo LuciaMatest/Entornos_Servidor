@@ -13,11 +13,7 @@
                                 </label>
                             <?}?>
                         </div>
-                        <?//Si aun no se ha hecho ninguna apuesta
-                        // if(){
-                            ?>
                         <input type="submit" class="btn btn-dark" name="insertar" value="Insertar">
-                        <?//}?>
                         <input type="submit" class="btn btn-dark" name="modificar" value="Modificar">
                     </div>
                 </form>
