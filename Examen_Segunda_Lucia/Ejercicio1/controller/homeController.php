@@ -12,6 +12,8 @@ if (isset($_REQUEST['user'])) {
         $usuario = UsuarioDAO::valida($user, $pass);
         if ($usuario != null) {
             $_SESSION['validado'] = true;
+            $_SESSION['user'] = $user;
+            $_SESSION['id'] = $usuario->id;
             $_SESSION['nombre'] = $usuario->nombre;
             $_SESSION['perfil'] = $usuario->perfil;
             if (esAdmin()) {
