@@ -19,9 +19,26 @@ class SorteosControlador extends ControladorPadre
         $parametros = $this->parametros();
         $recurso = self::recurso();
         if (count($recurso) == 2) {
-            
-        } elseif (count($recurso) == 3) {
-            
+            if (!$parametros) {
+                //Listar 
+                $lista = SorteoDAO::findAll();
+                $data = json_encode($lista);
+                self::respuesta(
+                    $data,
+                    array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+                );
+            } else {
+            }
+        }
+        if (count($recurso) == 3) {
+            if (!$parametros) {
+                $sorteo = SorteoDAO::findById($recurso[2]);
+                $data = json_encode($sorteo);
+                self::respuesta(
+                    $data,
+                    array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+                );
+            }
         }
     }
 }

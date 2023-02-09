@@ -20,7 +20,7 @@ if (isset($_REQUEST['modificar'])) {
         $apuesta = ApuestaDAO::insert($apuesta);
         $_SESSION["error"] = "Apuesta realizada";
         $_SESSION['vista'] = $vistas['apuesta'];
-        $_SESSION['controlador'] = $controladores['apuesta'];
+        $_SESSION['controlador'] = $controladores['sorteo'];
     } else {
         $_SESSION["error"] = "No has seleccionado 5 números.";
     }
