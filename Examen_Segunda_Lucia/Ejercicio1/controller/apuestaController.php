@@ -14,6 +14,9 @@ if(isset($_REQUEST['modificar'])){
     $apuesta = new Apuesta(null, date('Y-m-d'),$_SESSION['iduser'],$_REQUEST['n1'],$_REQUEST['n2'],$_REQUEST['n3'],$_REQUEST['n4'],$_REQUEST['n5']);
     $apuesta = ApuestaDAO::insert($apuesta);
     if (selecciona('check')){
-        'Debe rellenar el nombre';
+        'Debe seleccionar 5 ´numeros';
     }
+    $_SESSION['vista'] = $vistas['apuesta'];
+    $_SESSION['controlador'] = $controladores['apuesta'];
+    $apuesta = ApuestaDAO::findAll();
 }
