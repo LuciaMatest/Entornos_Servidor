@@ -15,7 +15,8 @@ if (isset($_REQUEST['modificar'])) {
 } elseif (isset($_REQUEST['insertar'])) {
     if (selecciona('check')) {
         $apuesta = ApuestaDAO::findAll();
-        $apuesta = new Apuesta(count($apuesta), date('Y-m-d'), $_SESSION['id'], $_REQUEST['check'][0], $_REQUEST['check'][1], $_REQUEST['check'][2], $_REQUEST['check'][3], $_REQUEST['check'][4]);
+        $arrayCheck= $_REQUEST['check'];
+        $apuesta = new Apuesta(null,null, $_SESSION['id'], $arrayCheck[0], $arrayCheck[1],$arrayCheck[2], $arrayCheck[3], $arrayCheck[4]);
         $apuesta = ApuestaDAO::insert($apuesta);
         $_SESSION['vista'] = $vistas['apuesta'];
         $_SESSION['controlador'] = $controladores['apuesta'];
