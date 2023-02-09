@@ -26,7 +26,7 @@
             <?php
             if (estaValidado()) {
               echo '<div class="container mt-3">';
-              echo '<h2 class="text-muted">' . $_SESSION['user'] . '</h2>';
+              echo '<h2 class="text-muted">' . $_SESSION['nombre'] . '</h2>';
               echo '<input class="btn btn-primary" type="submit" name="logout" value="Logout">';
               echo '</div>';
             }

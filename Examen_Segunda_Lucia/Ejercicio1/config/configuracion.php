@@ -20,8 +20,8 @@
     //Controladores 
     $controladores=array(
         'home'=>'./controller/homeController.php',
-        'apuesta'=>'/controller/apuestaController.php',
-        'sorteo'=>'/controller/sorteoController.php',
+        'apuesta'=>'./controller/apuestaController.php',
+        'sorteo'=>'./controller/sorteoController.php'
     );
 
     //Vistas
@@ -30,6 +30,3 @@
         'apuesta'=>'./view/apuestaView.php',
         'sorteo'=>'./view/sorteoView.php',
     );
-
-
-?>

@@ -1,0 +1,20 @@
+.rojo {
+    background-color: red;
+}
+
+input:checked+label {
+    background-color: green;
+}
+
+input:checked+.rojo {
+    background-color: orange;
+}
+
+.oculto {
+    display: none;
+}
+
+input+label {
+    font-size: large;
+    padding: 5px;
+}

@@ -15,16 +15,16 @@
     }
     //----------------------------------------------
     function esAdmin(){
-        if(isset($_SESSION['rol'])){
-            if ($_SESSION['rol']=='ADM01'){
+        if(isset($_SESSION['perfil'])){
+            if ($_SESSION['perfil']=='admin'){
                 return true;
             }
             return false;
         }
     }
-    function esModerador(){
-        if(isset($_SESSION['rol'])){
-            if ($_SESSION['rol']=='MOD02'){
+    function esUsuario(){
+        if(isset($_SESSION['perfil'])){
+            if ($_SESSION['perfil']=='user'){
                 return true;
             }
             return false;
