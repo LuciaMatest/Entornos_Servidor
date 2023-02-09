@@ -60,11 +60,14 @@ class ApuestaDAO extends FactoryBD implements DAO
     public static function insert($objeto)
     {
         $sql = 'insert into apuesta values (null,current_date,?,?,?,?,?,?)';
-        $objeto = (array)$objeto;
-        $datos = array();
-        foreach ($objeto as $att) {
-            array_push($datos, $att);
-        }
+        $datos = array(
+            $objeto->iduser,
+            $objeto->n1,
+            $objeto->n2,
+            $objeto->n3,
+            $objeto->n4,
+            $objeto->n5
+        );
         $devuelve = parent::ejecuta($sql, $datos);
         if ($devuelve->rowCount() == 0) {
             return false;

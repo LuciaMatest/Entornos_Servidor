@@ -18,6 +18,7 @@ if (isset($_REQUEST['modificar'])) {
         $arrayCheck = $_REQUEST['check'];
         $apuesta = new Apuesta(null, date('Y-m-d'), $_SESSION['id'], $arrayCheck[0], $arrayCheck[1], $arrayCheck[2], $arrayCheck[3], $arrayCheck[4]);
         $apuesta = ApuestaDAO::insert($apuesta);
+        $_SESSION["error"] = "Apuesta realizada";
         $_SESSION['vista'] = $vistas['apuesta'];
         $_SESSION['controlador'] = $controladores['apuesta'];
     } else {
