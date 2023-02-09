@@ -16,7 +16,7 @@
     </div>
     <div class="mb-3">
       <label for="recuerdame">Recuerdame</label>
-      <input type="checkbox" id="recuerdame" name="recuerdame" checked />
+      <input type="checkbox" id="recuerdame" name="recuerdame" />
     </div>
     <button type="submit" class="btn btn-primary" name="enviar">Iniciar Sesión</button>
   </form>

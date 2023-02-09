@@ -17,12 +17,16 @@ if (isset($_REQUEST['user'])) {
             if (esAdmin()) {
                 $_SESSION['vista'] = $vistas['sorteo'];
                 $_SESSION['controlador'] = $controladores['sorteo'];
+                header('Location: ./index.php');
             } else {
                 $_SESSION['vista'] = $vistas['apuesta'];
                 $_SESSION['controlador'] = $controladores['apuesta'];
+                header('Location: ./index.php');
             }
 
-            header('Location: ./index.php');
+            if (isset($_REQUEST["recuerdame"])) {
+                setcookie("usuario", $_REQUEST["user"]);
+            }
         }
     }
 }
