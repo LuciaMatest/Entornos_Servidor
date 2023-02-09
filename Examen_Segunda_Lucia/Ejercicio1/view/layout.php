@@ -13,76 +13,41 @@
 </head>
 
 <body>
-  <form action="./index.php" method="post">
-    <header class="p-3">
-      <div class="mx-2">
-        <div class="d-flex bd-highlight mb-1 align-items-center justify-content-space-between">
-          <!-- <a href="./index.php" class="mx-auto mx-sm-auto ms-md-0 my-1" class="logo">
-            <img src="./webroot/img/" alt="logo" class="icono_logo">
-          </a> -->
-          <?php
-          // if (estaValidado()) {
-          //   echo '<div class="p-0 p-sm-0 p-md-2 d-flex d-none d-sm-none d-md-none d-lg-block">
-          //                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-          //                       <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-          //                       <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-          //                   </svg>
-          //                   <input type="submit" value="Perfil" name="miperfil" class="btn boton px-1">
-          //               </div>';
-          //   echo '<div class="p-0 p-sm-0 p-md-2 d-flex  d-none d-sm-none d-md-none d-lg-block">
-          //                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-          //                       <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-          //                       <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-          //                   </svg>
-          //                   <input type="submit" value="Logout" name="logout" class="btn boton px-1">
-          //                   </div>';
-          // } else {
-          ?>
-          <div class="p-0 p-sm-0 p-md-2 d-flex justify-content-center align-items-center d-none d-sm-none d-md-block">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-            </svg>
-            <input type="submit" value="Iniciar sesión" name="login" class="boton px-1">
-          </div>
-          <?php
-          // }
-          ?>
-    </header>
-    <nav class="navbar navbar-expand-lg p-0">
-      <div class="container-fluid p-0">
-        <a class="navbar-brand"></a>
-        <button class="btn default d-block d-sm-block d-md-flex d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-          </svg>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-          <ul class="navbar-nav">
-            <?php
-            // if (estaValidado()) {
-            //   echo '<li class="opli nav-item p-3 p-md-0 fw-bold"><input type="submit" value="Perfil" name="miperfil" class="btn boton px-1 d-block d-sm-block d-md-none"></li>';
-            //   echo '<li class="opli nav-item p-3 p-md-0 fw-bold"><input type="submit" value="Cerrar sesión" name="logout" class="btn boton px-1 d-block d-sm-block d-md-none"></li>';
-            // } else {
-            ?>
-            <li class="opli nav-item p-3 p-md-0 fw-bold"><input type="submit" value="Iniciar sesión" name="login" class="btn boton px-1 d-block d-sm-block d-md-none"></li>
-            <?php
-            // }
-            ?>
-            <li class="opli nav-item p-3 fw-bold"><input class="op btn nav-link" type="submit" name="home" value="Inicio"></li>
-            <li class="opli nav-item p-3 fw-bold"><input class="op btn nav-link" type="submit" name="tienda" value="Tienda"></li>
-            <?php
-            // if (esAdmin() || esModerador()) {
-            //   echo '<li class="opli nav-item p-3 fw-bold"><input type="submit" name="almacen" value="Almacén" class="op btn nav-link"></li>';
-            //   echo '<li class="opli nav-item p-3 fw-bold"><input type="submit" name="albaran" value="Albarán" class="op btn nav-link"></li>';
-            //   echo '<li class="opli nav-item p-3 fw-bold"><input type="submit" name="ventas" value="Ventas" class="op btn nav-link"></li>';
-            // }
-            ?>
+  <header>
+    <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.php?home">Home</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">Features</a>
+                </li> -->
           </ul>
+          <form class="d-flex" action='./index.php' method='post'>
+            <?php
+            if (!estaValidado()) {
+              echo '<div class="container mt-3">';
+              echo '<input class="btn btn-primary" type="submit" name="login" value="Login">&nbsp;';
+              echo '<input class="btn btn-primary" type="submit" name="registro" value="Registro">';
+              echo '</div>';
+            } else {
+              echo '<div class="container mt-3">';
+              echo '<h2 class="text-muted">' . $_SESSION['user'] . '</h2>';
+              if (esAdmin()) {
+                echo '<input class="btn btn-primary" type="submit" name="admin" value="Administrar">&nbsp;';
+              }
+              echo '<input class="btn btn-primary" type="submit" name="miperfil" value="Mi perfil">&nbsp;';
+              echo '<input class="btn btn-primary" type="submit" name="logout" value="Logout">';
+            }
+            echo '</div>';
+            ?>
+          </form>
         </div>
       </div>
     </nav>
-  </form>
-
+  </header>
   <main>
     <? require_once($_SESSION['vista']) ?>
   </main>

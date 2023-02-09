@@ -18,6 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
+drop database examendwes;
 create database `examendwes`;
 use examendwes;
 --
@@ -30,7 +31,7 @@ use examendwes;
 
 CREATE TABLE `apuesta` (
   `id` int(11) NOT NULL,
-  `fecha` datetime DEFAULT current_timestamp(),
+  `fecha` date DEFAULT (CURRENT_DATE),
   `iduser` int(11) NOT NULL,
   `n1` int(11) NOT NULL,
   `n2` int(11) NOT NULL,
@@ -54,7 +55,7 @@ INSERT INTO `apuesta` (`id`, `fecha`, `iduser`, `n1`, `n2`, `n3`, `n4`, `n5`) VA
 
 CREATE TABLE `sorteo` (
   `id` int(11) NOT NULL,
-  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
+   `fecha` date DEFAULT (CURRENT_DATE),
   `n1` int(11) NOT NULL,
   `n2` int(11) NOT NULL,
   `n3` int(11) NOT NULL,

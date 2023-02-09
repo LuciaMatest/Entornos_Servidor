@@ -15,14 +15,12 @@
 
     //Controladores 
     $controladores=array(
-        'home'=>'./controller/homeController.php',
         'login'=>'./controller/loginController.php',
         
     );
 
     //Vistas
     $vistas=array(
-        'home'=>'./view/homeView.php',
         'login'=>'./view/loginView.php',
         
     );

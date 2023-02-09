@@ -1,27 +1,22 @@
-<div class="h-100 container-fluid">
-    <div class="h-100 row d-flex align-items-stretch">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-        <div class="col-12 col-md-7 col-lg-6 col-xl-5 d-flex align-items-start flex-column px-vw-5">
-
-            <div class="mb-auto col-12">
-                <h1>Iniciar sesión</h1>
-
-                <form class="row" action="./index.php" method="post">
-                    <div class="col-12">
-                        <div class="mb-3">
-                            <label for="user" class="form-label">Usuario</label>
-                            <input type="text" class="form-control form-control-lg bg-gray-800 border-dark" id="user" aria-describedby="user" name="user">
-
-                        </div>
-                        <div class="mb-3">
-                            <label for="pass" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control form-control-lg bg-gray-800 border-dark" id="pass" name="pass">
-                        </div>
-                        <input type="submit" class="btn btn-white btn-xl mb-4" name="enviar" value="Inciar sesión">
-                    </div>
-                </form>
-
-            </div>
-        </div>
+<div class="container mt-3">
+<?
+    if(isset($_SESSION['error'])){
+        echo $_SESSION['error'];
+        unset($_SESSION['error']);
+    }
+?>
+  <form action="">
+    <div class="mb-3 mt-3">
+      <label for="user">Usuario:</label>
+      <input type="text" class="form-control" id="inputName" placeholder="Usuario" name="user">
     </div>
+    <div class="mb-3">
+      <label for="pass">Contraseña:</label>
+      <input type="password" class="form-control" id="inputName" placeholder="Contraseña" name="pass">
+    </div>
+    <button type="submit" class="btn btn-primary" name="enviar">Iniciar Sesión</button>
+  </form>
 </div>
