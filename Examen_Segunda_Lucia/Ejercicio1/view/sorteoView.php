@@ -1,6 +1,6 @@
 <div class="px-5">
     <h1>Sorteo</h1>
-    <table class="table">
+    <table class="table text-center">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -20,7 +20,7 @@
                 <tr>
                     <td><? echo $apuesta->id ?></td>
                     <td><? echo $apuesta->fecha ?></td>
-                    <td><? echo $apuesta->idUser ?></td>
+                    <td><? echo $apuesta->id ?></td>
                     <td><? echo $apuesta->n1 ?></td>
                     <td><? echo $apuesta->n2 ?></td>
                     <td><? echo $apuesta->n3 ?></td>
