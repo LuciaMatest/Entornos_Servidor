@@ -157,13 +157,13 @@ function validarAlbaran()
 
 function subirImagenAlta()
 {
-    $ruta = './webroot/imagen' . $_FILES['imagen_alta']['name'];
+    $ruta = './webroot/imagen/producto/' . $_FILES['imagen_alta']['name'];
     move_uploaded_file($_FILES['imagen_alta']['tmp_name'], $ruta);
 }
 
 function subirImagenBaja()
 {
-    $ruta = './webroot/imagen' . $_FILES['imagen_baja']['name'];
+    $ruta = './webroot/imagen/producto/' . $_FILES['imagen_baja']['name'];
     move_uploaded_file($_FILES['imagen_baja']['tmp_name'], $ruta);
 }
 
@@ -175,8 +175,8 @@ function validarAñadir()
                 if (!vacio('descripcion')) {
                     if (!vacio('stock')) {
                         if (!vacio('imagen_alta') && patronImagenAlta()) {
-                            subirImagenAlta();
                             if (!vacio('imagen_baja') && patronImagenBaja()) {
+                                subirImagenAlta();
                                 subirImagenBaja();
                                 return true;
                             }
