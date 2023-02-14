@@ -12,16 +12,20 @@ if (isset($_REQUEST['albaran'])) {
     $_SESSION['vista'] = $vistas['modificarAlbaran'];
     $_SESSION['controlador'] = $controladores['albaran'];
 } elseif (isset($_REQUEST['modificar'])) {
-    $albaran = AlbaranDAO::findById($_REQUEST['id_albaran']);
-    $albaran->fecha_albaran = $_REQUEST['fecha_albaran'];
-    $albaran->cantidad = $_REQUEST['cantidad'];
-    $albaran->usuario_albaran = $_REQUEST['usuario_albaran'];
-    $albaran = AlbaranDAO::update($albaran);
-    $_SESSION['albaran'] = $_REQUEST['id_albaran'];
-    $_SESSION['vista'] = $vistas['albaran'];
-    $_SESSION['controlador'] = $controladores['albaran'];
-    $producto = ProductoDAO::findAll();
-    $albaran = AlbaranDAO::findAll();
+    if (validarAlbaran()) {
+        $albaran = AlbaranDAO::findById($_REQUEST['id_albaran']);
+        $albaran->fecha_albaran = $_REQUEST['fecha_albaran'];
+        $albaran->cantidad = $_REQUEST['cantidad'];
+        $albaran->usuario_albaran = $_REQUEST['usuario_albaran'];
+        if ($albaran = AlbaranDAO::update($albaran)) {
+            $_SESSION['vista'] = $vistas['albaran'];
+            $_SESSION['controlador'] = $controladores['albaran'];
+            $producto = ProductoDAO::findAll();
+            $albaran = AlbaranDAO::findAll();
+        }
+    } else {
+        $albaran = AlbaranDAO::findById($_REQUEST['id_albaran']);
+    }
 } else {
     $albaran = AlbaranDAO::findAll();
 }

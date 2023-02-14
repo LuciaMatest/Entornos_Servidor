@@ -42,6 +42,13 @@ function vacio($nombre)
     return false;
 }
 
+function existe($nombre)
+{
+    if (isset($_REQUEST[$nombre]))
+        return true;
+    return false;
+}
+
 function patronEmail()
 {
     $patron = '/^.{1,}@.{1,}\..{2,}/';
@@ -91,6 +98,7 @@ function patronImagenBaja()
     return false;
 }
 
+
 function validarUsuario()
 {
     if (isset($_REQUEST['guardar'])) {
@@ -116,7 +124,7 @@ function validarUsuario()
 function validarNuevoUsuario()
 {
     if (isset($_REQUEST['registrar'])) {
-        if (!vacio('user') && UsuarioDAO::findById($_REQUEST['user']) != null) {
+        if (!vacio('user')) {
             if (!vacio('contraseña') && !vacio('contraseña2') && patronContraseña() && $_REQUEST['contraseña'] == $_REQUEST['contraseña2']) {
                 if (!vacio('nombre')) {
                     if (!vacio('email') && patronEmail()) {
@@ -147,6 +155,18 @@ function validarAlbaran()
     }
 }
 
+function subirImagenAlta()
+{
+    $ruta = './webroot/imagen' . $_FILES['imagen_alta']['name'];
+    move_uploaded_file($_FILES['imagen_alta']['tmp_name'], $ruta);
+}
+
+function subirImagenBaja()
+{
+    $ruta = './webroot/imagen' . $_FILES['imagen_baja']['name'];
+    move_uploaded_file($_FILES['imagen_baja']['tmp_name'], $ruta);
+}
+
 function validarAñadir()
 {
     if (isset($_REQUEST['nuevo'])) {
@@ -154,15 +174,31 @@ function validarAñadir()
             if (!vacio('precio')) {
                 if (!vacio('descripcion')) {
                     if (!vacio('stock')) {
-                        if (file_exists($_FILES['imagen_alta']['tmp_name']) && patronImagenAlta()) {
-                            if (file_exists($_FILES['imagen_baja']['tmp_name']) && patronImagenBaja()) {
-                                $ubi1 = "./webroot/imagen" . $_FILES['imagen_alta']['name'];
-                                $ubi2 = "./webroot/imagen" . $_FILES['imagen_baja']['name'];
-                                move_uploaded_file($_FILES['imagen_alta']['tmp_name'], $ubi1);
-                                move_uploaded_file($_FILES['imagen_baja']['tmp_name'], $ubi2);
+                        if (!vacio('imagen_alta') && patronImagenAlta()) {
+                            subirImagenAlta();
+                            if (!vacio('imagen_baja') && patronImagenBaja()) {
+                                subirImagenBaja();
                                 return true;
                             }
                         }
+                    }
+                }
+            }
+        }
+    } else {
+        return false;
+    }
+}
+
+function validarModAl()
+{
+    if (isset($_REQUEST['modificar'])) {
+        if (!vacio('nombre')) {
+            if (!vacio('precio')) {
+                if (!vacio('descripcion')) {
+                    if (!vacio('stock')) {
+
+                        return true;
                     }
                 }
             }

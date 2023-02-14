@@ -59,12 +59,12 @@ class AlbaranDAO extends FactoryBD implements DAO
 
     public static function insert($objeto)
     {
-        $inserta = 'insert into albaran values (?,?,?,?,?)';
-        $objeto = (array)$objeto;
-        $datos = array();
-        foreach ($objeto as $att) {
-            array_push($datos, $att);
-        }
+        $inserta = 'insert into albaran values (null,current_date,?,?,?)';
+        $datos = array(
+            $objeto->cod_producto,
+            $objeto->cantidad,
+            $objeto->usuario_albaran
+        );
         $resultado = parent::ejecuta($inserta, $datos);
         if ($resultado->rowCount() == 0) {
             return false;

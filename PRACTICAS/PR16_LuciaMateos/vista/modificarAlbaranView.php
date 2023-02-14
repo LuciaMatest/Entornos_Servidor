@@ -23,6 +23,20 @@
                                                                                                                         if ($_SESSION['accion'] == 'editar') {
                                                                                                                             echo $albaran->fecha_albaran;
                                                                                                                         } ?>">
+                                <?
+                                //comprobar que no este vacio, que sea fecha correcta y si lo está pongo un error
+                                if (isset($_REQUEST['modificar'])) {
+                                    if (vacio("fecha")) {
+                                ?>
+                                        <span style="color:brown"> Introduce fecha</span>
+                                    <?
+                                    } elseif (!patronFecha()) {
+                                    ?>
+                                        <span style="color:brown"> Fecha no válida, revise</span>
+                                <?
+                                    }
+                                }
+                                ?>
                             </div>
                             <!-- Codigo -->
                             <div class="mb-4 px-2">
@@ -36,6 +50,16 @@
                                                                                                                 if ($_SESSION['accion'] == 'editar') {
                                                                                                                     echo $albaran->cantidad;
                                                                                                                 } ?>">
+                                <?
+                                //comprobar que no este vacio y que cumple los requisitos, si lo está pongo un error
+                                if (isset($_REQUEST['modificar'])) {
+                                    if (vacio("cantidad")) {
+                                ?>
+                                        <span style="color:brown"> Introduce cantidad</span>
+                                <?
+                                    }
+                                }
+                                ?>
                             </div>
                             <!-- Usuario -->
                             <div class="mb-4 px-2">

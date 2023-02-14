@@ -8,24 +8,27 @@ if (isset($_REQUEST['almacen'])) {
     $_SESSION['vista'] = $vistas['modificarProducto'];
     $_SESSION['controlador'] = $controladores['almacen'];
 } elseif (isset($_REQUEST['modificar'])) {
-    $almacen = ProductoDAO::findById($_REQUEST['cod_producto']);
-    $almacen->imagen_alta = $_REQUEST['imagen_alta'];
-    $almacen->imagen_baja = $_REQUEST['imagen_baja'];
-    $almacen->nombre = $_REQUEST['nombre'];
-    $almacen->descripcion = $_REQUEST['descripcion'];
-    $almacen->precio = $_REQUEST['precio'];
-    $almacen->stock = $_REQUEST['stock'];
-    $almacen = ProductoDAO::update($almacen);
-    $_SESSION['almacen'] = $_REQUEST['cod_producto'];
-    $_SESSION['vista'] = $vistas['almacen'];
-    $_SESSION['controlador'] = $controladores['almacen'];
-    $almacen = ProductoDAO::findAll();
+    if (validarModAl()) {
+        $almacen = ProductoDAO::findById($_REQUEST['cod_producto']);
+        $almacen->nombre = $_REQUEST['nombre'];
+        $almacen->descripcion = $_REQUEST['descripcion'];
+        $almacen->precio = $_REQUEST['precio'];
+        $almacen->stock = $_REQUEST['stock'];
+        if ($almacen = ProductoDAO::update($almacen)) {
+            $_SESSION['almacen'] = $_REQUEST['cod_producto'];
+            $_SESSION['vista'] = $vistas['almacen'];
+            $_SESSION['controlador'] = $controladores['almacen'];
+            $almacen = ProductoDAO::findAll();
+        }
+    } else {
+        $almacen = ProductoDAO::findById($_REQUEST['cod_producto']);
+    }
 } elseif (isset($_REQUEST['añadir'])) {
     $almacen = ProductoDAO::findById($_REQUEST['cod_producto']);
     $almacen->stock = ($almacen->stock) + (int)$_REQUEST['cantidad'];
     ProductoDAO::update($almacen);
-    $nuevostock = new Albaran(null, date('Y-m-d'), $_SESSION['producto'], $_REQUEST['cantidad'], $_SESSION['user']);
-    AlbaranDAO::insert($nuevostock);
+    $nStock = new Albaran(null, date('Y-m-d'), $_REQUEST['cod_producto'], $_REQUEST['cantidad'], $_SESSION['user']);
+    AlbaranDAO::insert($nStock);
     $_SESSION['vista'] = $vistas['albaran'];
     $_SESSION['controlador'] = $controladores['albaran'];
     $almacen = ProductoDAO::findAll();
@@ -34,11 +37,14 @@ if (isset($_REQUEST['almacen'])) {
     $_SESSION['vista'] = $vistas['modificarAñadir'];
     $_SESSION['controlador'] = $controladores['almacen'];
 } elseif (isset($_REQUEST['nuevo'])) {
-    $producto = new Producto($_REQUEST['cod_producto'], './webroot/imagen' . $_FILES['imagen_alta']['name'], './webroot/imagen' . $_FILES['imagen_baja']['name'], $_REQUEST['nombre'], $_REQUEST['descripcion'], (float)$_REQUEST['precio'], $_REQUEST['stock']);
-    $almacen = ProductoDAO::insert($producto);
-    $_SESSION['vista'] = $vistas['almacen'];
-    $_SESSION['controlador'] = $controladores['almacen'];
-    $almacen = ProductoDAO::findAll();
+    if (validarAñadir()) {
+        $producto = new Producto($_REQUEST['cod_producto'], './webroot/imagen' . $_FILES['imagen_alta']['name'], './webroot/imagen' . $_FILES['imagen_baja']['name'], $_REQUEST['nombre'], $_REQUEST['descripcion'], (float)$_REQUEST['precio'], $_REQUEST['stock']);
+        if ($almacen = ProductoDAO::insert($producto)) {
+            $_SESSION['vista'] = $vistas['almacen'];
+            $_SESSION['controlador'] = $controladores['almacen'];
+            $almacen = ProductoDAO::findAll();
+        }
+    }
 } else {
     $almacen = ProductoDAO::findAll();
 }
