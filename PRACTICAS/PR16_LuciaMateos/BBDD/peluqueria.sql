@@ -19,8 +19,8 @@ create table usuarios (
 
 CREATE TABLE productos (
     cod_producto INT PRIMARY KEY,
-    imagen_alta CHAR(30),
-    imagen_baja CHAR(30),
+    imagen_alta CHAR(100),
+    imagen_baja CHAR(100),
     nombre CHAR(30) NOT NULL,
     descripcion CHAR(140) NOT NULL,
     precio NUMERIC(5,2) NOT NULL,

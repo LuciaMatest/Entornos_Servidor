@@ -43,7 +43,7 @@ if (isset($_REQUEST['almacen'])) {
             $_SESSION['vista'] = $vistas['almacen'];
             $_SESSION['controlador'] = $controladores['almacen'];
             $almacen = ProductoDAO::findAll();
-            $albaran=AlbaranDAO::findAll();
+            $albaran = AlbaranDAO::findAll();
         }
     }
 } else {
