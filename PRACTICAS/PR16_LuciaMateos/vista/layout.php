@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -98,5 +97,4 @@
     </div>
     <script src="./webroot/js/disabled.js"></script>
 </body>
-
 </html>
