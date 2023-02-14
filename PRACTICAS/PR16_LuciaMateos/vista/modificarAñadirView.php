@@ -31,7 +31,7 @@
                                 <?
                                 //comprobar que no este vacio, que sea fecha correcta y si lo está pongo un error
                                 if (isset($_REQUEST['nuevo'])) {
-                                    if (vacio("imagen_alta")) {
+                                    if (!file_exists($_FILES['imagen_alta']['tmp_name'])) {
                                 ?>
                                         <span style="color:brown"> Introduce imagen</span>
                                     <?
@@ -50,7 +50,7 @@
                                 <?
                                 //comprobar que no este vacio, que sea fecha correcta y si lo está pongo un error
                                 if (isset($_REQUEST['nuevo'])) {
-                                    if (vacio("imagen_baja")) {
+                                    if (!file_exists($_FILES['imagen_baja']['tmp_name'])) {
                                 ?>
                                         <span style="color:brown"> Introduce imagen</span>
                                     <?

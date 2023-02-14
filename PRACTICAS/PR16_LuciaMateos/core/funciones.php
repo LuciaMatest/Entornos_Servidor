@@ -83,7 +83,7 @@ function patronFecha()
 function patronImagenAlta()
 {
     $patron = '/^[^.]+\.(jpg|png|bmp)$/';
-    if (preg_match($patron, $_FILES['imagen_alta']['name'])) {
+    if (preg_match($patron, $_FILES['imagen_alta']['name']) == 1) {
         return true;
     }
     return false;
@@ -92,12 +92,23 @@ function patronImagenAlta()
 function patronImagenBaja()
 {
     $patron = '/^[^.]+\.(jpg|png|bmp)$/';
-    if (preg_match($patron, $_FILES['imagen_baja']['name'])) {
+    if (preg_match($patron, $_FILES['imagen_baja']['name']) == 1) {
         return true;
     }
     return false;
 }
 
+function subirImagenAlta()
+{
+    $ruta = './webroot/imagen/producto/' . $_FILES['imagen_alta']['name'];
+    move_uploaded_file($_FILES['imagen_alta']['tmp_name'], $ruta);
+}
+
+function subirImagenBaja()
+{
+    $ruta = './webroot/imagen/producto/' . $_FILES['imagen_baja']['name'];
+    move_uploaded_file($_FILES['imagen_baja']['tmp_name'], $ruta);
+}
 
 function validarUsuario()
 {
@@ -155,18 +166,6 @@ function validarAlbaran()
     }
 }
 
-function subirImagenAlta()
-{
-    $ruta = './webroot/imagen/producto/' . $_FILES['imagen_alta']['name'];
-    move_uploaded_file($_FILES['imagen_alta']['tmp_name'], $ruta);
-}
-
-function subirImagenBaja()
-{
-    $ruta = './webroot/imagen/producto/' . $_FILES['imagen_baja']['name'];
-    move_uploaded_file($_FILES['imagen_baja']['tmp_name'], $ruta);
-}
-
 function validarAñadir()
 {
     if (isset($_REQUEST['nuevo'])) {
@@ -174,8 +173,8 @@ function validarAñadir()
             if (!vacio('precio')) {
                 if (!vacio('descripcion')) {
                     if (!vacio('stock')) {
-                        if (!vacio('imagen_alta') && patronImagenAlta()) {
-                            if (!vacio('imagen_baja') && patronImagenBaja()) {
+                        if (file_exists($_FILES['imagen_alta']['tmp_name']) && patronImagenAlta('imagen_alta')) {
+                            if (file_exists($_FILES['imagen_baja']['tmp_name']) && patronImagenBaja('imagen_baja')) {
                                 subirImagenAlta();
                                 subirImagenBaja();
                                 return true;
