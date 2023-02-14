@@ -38,7 +38,7 @@ if (isset($_REQUEST['almacen'])) {
     $_SESSION['controlador'] = $controladores['almacen'];
 } elseif (isset($_REQUEST['nuevo'])) {
     if (validarAñadir()) {
-        $producto = new Producto($_REQUEST['cod_producto'], './webroot/imagen' . $_FILES['imagen_alta']['name'], './webroot/imagen' . $_FILES['imagen_baja']['name'], $_REQUEST['nombre'], $_REQUEST['descripcion'], (float)$_REQUEST['precio'], $_REQUEST['stock']);
+        $producto = new Producto($_REQUEST['cod_producto'], $_FILES['imagen_alta']['name'], $_FILES['imagen_baja']['name'], $_REQUEST['nombre'], $_REQUEST['descripcion'], (float)$_REQUEST['precio'], $_REQUEST['stock']);
         if ($almacen = ProductoDAO::insert($producto)) {
             $_SESSION['vista'] = $vistas['almacen'];
             $_SESSION['controlador'] = $controladores['almacen'];

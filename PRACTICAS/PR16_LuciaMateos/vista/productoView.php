@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="row g-0 rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-4 d-block d-lg-block">
-                        <img class="my-5" src='./webroot/imagen<? echo $producto->imagen_alta ?>'>
+                        <img class="my-5" src='./webroot/imagen/producto/<? echo $producto->imagen_alta ?>'>
                     </div>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-8 p-4 d-flex flex-column position-static">
                         <h3 class="prod fw-bold my-1 w-100 mb-1"><? echo $producto->nombre ?></h3>
