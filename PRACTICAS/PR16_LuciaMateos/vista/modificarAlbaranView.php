@@ -1,3 +1,9 @@
+<?
+if (isset($_SESSION['error'])) {
+    echo $_SESSION['error'];
+    unset($_SESSION['error']);
+}
+?>
 <div class="pt-5">
     <div class="container mod_ventas">
         <div class="row justify-content-center mt-5">

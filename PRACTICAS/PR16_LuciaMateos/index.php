@@ -1,4 +1,3 @@
-<script src="./webroot/js/disabled.js"></script>
 <?
 require_once('./config/configuracion.php');
 session_start();

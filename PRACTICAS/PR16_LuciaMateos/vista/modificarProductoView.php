@@ -1,3 +1,9 @@
+<?
+if (isset($_SESSION['error'])) {
+    echo $_SESSION['error'];
+    unset($_SESSION['error']);
+}
+?>
 <div class="pt-5">
     <div class="container mod_ventas">
         <div class="row justify-content-center mt-5">
@@ -30,20 +36,6 @@
                                 <input type="file" class="form-control" name="imagen_alta" id="imagen_alta" <? if ($_SESSION['accion'] == 'editar') {
                                                                                                                 echo ' disabled';
                                                                                                             } ?>>
-                                <?
-                                //comprobar que no este vacio, que sea fecha correcta y si lo está pongo un error
-                                if (isset($_REQUEST['modificar'])) {
-                                    if (vacio("imagen_alta")) {
-                                ?>
-                                        <span style="color:brown"> Introduce imagen</span>
-                                    <?
-                                    } elseif (!patronImagenAlta()) {
-                                    ?>
-                                        <span style="color:brown"> Imagen no válida, revise</span>
-                                <?
-                                    }
-                                }
-                                ?>
                             </div>
                             <!-- Imagen -->
                             <div class="mb-4 px-2">
@@ -51,20 +43,6 @@
                                 <input type="file" class="form-control" name="imagen_baja" id="imagen_baja" <? if ($_SESSION['accion'] == 'editar') {
                                                                                                                 echo ' disabled';
                                                                                                             } ?>>
-                                <?
-                                //comprobar que no este vacio, que sea fecha correcta y si lo está pongo un error
-                                if (isset($_REQUEST['modificar'])) {
-                                    if (vacio("imagen_baja")) {
-                                ?>
-                                        <span style="color:brown"> Introduce imagen</span>
-                                    <?
-                                    } elseif (!patronImagenBaja()) {
-                                    ?>
-                                        <span style="color:brown"> Imagen no válida, revise</span>
-                                <?
-                                    }
-                                }
-                                ?>
                             </div>
                             <!-- Nombre -->
                             <div class="mb-4 px-2">
