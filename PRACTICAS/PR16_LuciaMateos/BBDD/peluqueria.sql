@@ -23,7 +23,7 @@ CREATE TABLE productos (
     imagen_baja CHAR(100),
     nombre CHAR(30) NOT NULL,
     descripcion CHAR(140) NOT NULL,
-    precio NUMERIC(5,2) NOT NULL,
+    precio FLOAT (10,2) NOT NULL,
     stock INT(3) NOT NULL
 ) engine=innodb;
 
