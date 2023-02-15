@@ -45,7 +45,7 @@ curl_close($conexion);
         </div>
     </header>
     <main class="border-top border-secondary">
-        <h2 class="text-center mt-4">Tiempo en <? echo $_REQUEST['ciudad'] ?></h2>
+        <h2 class="text-center mt-4">El tiempo en <? echo $_REQUEST['ciudad'] ?></h2>
         <table class="table table-success table-striped text-center mt-4">
             <thead>
                 <tr>
