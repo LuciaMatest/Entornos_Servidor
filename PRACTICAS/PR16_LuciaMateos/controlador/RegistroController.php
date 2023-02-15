@@ -11,10 +11,10 @@ if (isset($_REQUEST['registrar'])) {
             $_SESSION['nombre'] = $usuario->nombre;
             $_SESSION['rol'] = $usuario->rol;
         } else {
-            $_SESSION['error'] = '<script>alert("No se ha podido registrar");</script>';
+            $_SESSION['error'] = '<span style="color:brown"> No se ha podido registrar </span>';
         }
     } else {
-        $_SESSION['error'] = '<script>alert("No se ha validado, compruebe");</script>';
+        $_SESSION['error'] = '<span style="color:brown"> No se ha validado, compruebe </span>';
     }
 
 }

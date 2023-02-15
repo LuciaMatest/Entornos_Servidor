@@ -87,7 +87,7 @@ if (isset($_SESSION['error'])) {
                             <!-- Rol -->
                             <div class="mb-4 px-2">
                                 <label for="idOpcion" class="form-label">Rol</label>
-                                <select name="rol" id="idOpcion" class="w-100 d-inline-block bg-white" value="<? echo $usuario->rol ?>">
+                                <select name="rol" id="idOpcion" class="w-100 d-inline-block bg-white">
                                     <option value="0">Seleccione una opción</option>
                                     <option value="ADM01">Administrador</option>
                                     <option value="M0001">Moderador</option>

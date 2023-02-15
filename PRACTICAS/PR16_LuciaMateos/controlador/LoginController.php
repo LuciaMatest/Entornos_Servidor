@@ -10,10 +10,10 @@ if (isset($_REQUEST['nuevaCuenta'])) {
         $pass = $_REQUEST['contraseña'];
 
         if (empty($user)) {
-            $_SESSION['error'] = '<script>alert("Debe rellenar el nombre");</script>';
+            $_SESSION['error'] = '<span style="color:brown"> Debe rellenar el nombre</span>';
         }
         if (empty($pass)) {
-            $_SESSION['error'] = '<script>alert("Debe rellenar la contraseña");</script>';
+            $_SESSION['error'] = '<span style="color:brown"> Debe rellenar la contraseña</span>';
         } else {
             $usuario = UsuarioDAO::valida($user, $pass);
             if ($usuario != null) {

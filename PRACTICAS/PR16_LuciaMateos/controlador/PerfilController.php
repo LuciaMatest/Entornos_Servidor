@@ -12,7 +12,7 @@ if (isset($_REQUEST['editar'])) {
         $usuario->rol = $_REQUEST['rol'];
 
         if (!UsuarioDAO::update($usuario)) {
-            $_SESSION['error'] = '<script>alert("No se ha conseguido guardar los cambios");</script>';
+            $_SESSION['error'] = '<span style="color:brown"> No se ha conseguido guardar los cambios </span>';
             $_SESSION['accion'] = 'editar';
             $_SESSION['nombre'] = $usuario->nombre;
             $_SESSION['rol'] = $usuario->rol;

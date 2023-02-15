@@ -1,9 +1,3 @@
-<?
-if (isset($_SESSION['error'])) {
-    echo $_SESSION['error'];
-    unset($_SESSION['error']);
-}
-?>
 <div class="pt-5">
     <div class="container">
         <div class="row justify-content-center mt-5">
@@ -19,9 +13,17 @@ if (isset($_SESSION['error'])) {
                                 <label for="idUser" class="form-label">Nombre de usuario </label>
                                 <input type="text" class="form-control" name="user" id="user">
                             </div>
-                            <div class="mb-4 px-2">
-                                <label for="idContraseña" class="form-label">Contraseña </label>
+                            <div class="mb-2 px-2">
+                                <label for="idContraseña" class="form-label" required>Contraseña </label>
                                 <input type="password" class="form-control" name="contraseña" id="contraseña">
+                            </div>
+                            <div class="my-2  px-2">
+                                <?
+                                if (isset($_SESSION['error'])) {
+                                    echo $_SESSION['error'];
+                                    unset($_SESSION['error']);
+                                }
+                                ?>
                             </div>
                             <div class="text-center">
                                 <input type="submit" value="Acceder" name="enviar" class="botonG">

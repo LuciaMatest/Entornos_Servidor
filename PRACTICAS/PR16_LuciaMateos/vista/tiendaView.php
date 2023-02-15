@@ -1,7 +1,6 @@
 <div class="container py-3">
     <section class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 mb-4 text-center">
         <?
-        $array_productos = ProductoDAO::findAll();
         foreach ($array_productos as $producto) { ?>
             <article class="col">
                 <div class="card mb-4">

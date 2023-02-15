@@ -7,8 +7,8 @@ if (isset($_REQUEST['albaran'])) {
     $albaran = AlbaranDAO::findAll();
 } elseif (isset($_REQUEST['editar'])) {
     $_SESSION['accion'] = 'editar';
-    $albaran = AlbaranDAO::findById($_REQUEST['id_albaran']);
     $_SESSION['albaran'] = $_REQUEST['id_albaran'];
+    $albaran = AlbaranDAO::findById($_REQUEST['id_albaran']);
     $_SESSION['vista'] = $vistas['modificarAlbaran'];
     $_SESSION['controlador'] = $controladores['albaran'];
 } elseif (isset($_REQUEST['modificar'])) {
