@@ -1,3 +1,21 @@
+<?
+$conexion = curl_init();
+$url = 'http://dataservice.accuweather.com/locations/v1/cities/search?apikey=4epgPXZUKS8zBKAg2K3ozQx6O5vOAzOl&q=' . $_REQUEST['ciudad'] . '%20Castilla%20y%20Le%C3%B3n&language=es';
+curl_setopt($conexion, CURLOPT_URL, $url);
+curl_setopt($conexion, CURLOPT_RETURNTRANSFER, true);
+
+$resultado1 = curl_exec($conexion);
+$ciudad = json_decode($resultado1, true);
+
+$url2 = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/'.$ciudad[0]['Key'].'?apikey=4epgPXZUKS8zBKAg2K3ozQx6O5vOAzOl&language=es';
+curl_setopt($conexion, CURLOPT_URL, $url2);
+curl_setopt($conexion, CURLOPT_RETURNTRANSFER, true);
+
+$resultado2 = curl_exec($conexion);
+$tiempo = json_decode($resultado2, true);
+
+curl_close($conexion);
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,8 +23,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <title><? echo $_REQUEST['ciudad'] ?></title>
 </head>
@@ -39,17 +55,51 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
+                    <td>Máxima temperatura</td>
+                    <? foreach ($tiempo['DailyForecasts'] as $evento) {
+                        $temperatura = $evento['Temperature']['Maximum']['Value']; ?>
+                        <td><? $temperatura ?></td>
+                    <? }; ?>
+                </tr>
+                <tr>
+                    <td>Mínima temperatura</td>
+                    <? foreach ($tiempo['DailyForecasts'] as $evento) {
+                        $temperatura = $evento['Temperature']['Minimum']['Value']; ?>
+                        <td><? $temperatura ?></td>
+                    <? }; ?>
+                </tr>
+                <tr>
+                    <td>Precipitaciones Día</td>
+                    <? foreach ($tiempo['DailyForecasts'] as $evento) {
+                        $precipitaciones = $evento['Day']['HasPrecipitation'];
+                        if ($precipitaciones == null) {
+                            echo "<td>NO</td>";
+                        } else {
+                            echo "<td>YES</td>";
+                        }
+                    }; ?>
+                </tr>
+                <tr>
+                    <td>Precipitaciones Noche</td>
+                    <? foreach ($tiempo['DailyForecasts'] as $evento) {
+                        $precipitaciones = $evento['Night']['HasPrecipitation'];
+                        if ($precipitaciones == null) {
+                            echo "<td>NO</td>";
+                        } else {
+                            echo "<td>YES</td>";
+                        }
+                    }; ?>
                 </tr>
             </tbody>
         </table>
     </main>
+    <pre>
+        <?
+        print_r($tiempo);
+        ?>
+    </pre>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 </body>
 
 </html>
