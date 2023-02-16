@@ -18,7 +18,7 @@
                         <div class="form-check">
                             <!-- Mostramos todos los numeros del 1 al 50 -->
                             <? for ($i = 1; $i < 51; $i++) { ?>
-                                <!-- Si se han seleccionado los numeros se quedan marcados -->
+                                <!-- Si se han seleccionado los numeros se quedan marcados $numero = isset($_SESSION['numero'])-->
                                 <input class="oculto" type="checkbox" name="check[]" value="<? echo $i ?>" <? if (isset($_SESSION['numero'])) {
                                                                                                                 if (in_array($i, $_SESSION['numero'])) {
                                                                                                                     echo 'checked';

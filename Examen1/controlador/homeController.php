@@ -1,7 +1,7 @@
 <?
 if (isset($_REQUEST['user'])) {
     $user = $_REQUEST['user'];
-    $pass = $_REQUEST['contraseña'];
+    $pass = $_REQUEST['pass'];
 
     //Recuerdame
     if (isset($_REQUEST["recuerdame"])) {

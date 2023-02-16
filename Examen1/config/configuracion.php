@@ -26,7 +26,7 @@ $controladores = array(
 
 //VISTA
 $vistas = array(
-    'home' => './view/homeView.php',
-    'apuesta' => './view/apuestaView.php',
-    'sorteo' => './view/sorteoView.php',
+    'home' => './vista/homeView.php',
+    'apuesta' => './vista/apuestaView.php',
+    'sorteo' => './vista/sorteoView.php',
 );

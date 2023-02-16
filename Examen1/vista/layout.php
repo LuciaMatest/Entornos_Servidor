@@ -22,7 +22,7 @@
                             <a class="nav-link" href="./index.php?home">Home</a>
                         </li>
                     </ul>
-                    <div class="d-flex">
+                    <form class="d-flex" action='./index.php' method='post'>
                         <?php
                         if (estaValidado()) {
                             echo '<div class="container mt-3">';
@@ -31,7 +31,7 @@
                             echo '</div>';
                         }
                         ?>
-                    </div>
+                    </form>
                 </div>
             </div>
         </nav>

@@ -37,10 +37,10 @@
         <? } else { ?>
             <p>Los números premiados son:</p>
             <?
-            // for ($i = 0; $i < 6; $i++) {
-            //     $numero_aleatorio = rand(1, 50);
-            //     echo $numero_aleatorio;
-            // }
+            for ($i = 0; $i < 6; $i++) {
+                $numero_aleatorio = rand(1, 50);
+                echo $numero_aleatorio;
+            }
             ?>
         <? } ?>
     </div>
