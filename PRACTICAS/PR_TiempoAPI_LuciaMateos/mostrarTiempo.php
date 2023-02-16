@@ -9,7 +9,7 @@ $resultado1 = curl_exec($conexion);
 $ciudad = json_decode($resultado1, true);
 
 if ($ciudad['Code'] == "ServiceUnavailable") {
-    $_SESSION['error'] = '<span style="color:brown">Acceso no autorizado</span>';
+    $_SESSION['error'] = '<span style="color:brown">Acceso no autorizado, intentelo más tarde</span>';
 } else {
 
     $url2 = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/" . $ciudad[0]['Key'] . "?apikey=4epgPXZUKS8zBKAg2K3ozQx6O5vOAzOl&language=es";
@@ -20,7 +20,7 @@ if ($ciudad['Code'] == "ServiceUnavailable") {
     $tiempo = json_decode($resultado2, true);
 
     if ($tiempo['Code'] == "ServiceUnavailable") {
-        $_SESSION['error'] = '<span style="color:brown">Acceso no autorizado</span>';
+        $_SESSION['error'] = '<span style="color:brown">Acceso no autorizado  intentelo más tarde</span>';
     }
 }
 
