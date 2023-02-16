@@ -30,18 +30,15 @@
         </tbody>
     </table>
 
-    <div>
+    <form action="./index.php" method="post">
         <!-- Si no se ha realizado el sorteo -->
-        <? if (!$_SESSION['sorteo']) { ?>
+        <? if ($_SESSION["sorteo"] = false) { ?>
             <input type="submit" class="btn btn-dark" name="generar" value="Generar">
         <? } else { ?>
             <p>Los números premiados son:</p>
-            <?
-            for ($i = 0; $i < 6; $i++) {
-                $numero_aleatorio = rand(1, 50);
-                echo $numero_aleatorio;
-            }
-            ?>
-        <? } ?>
-    </div>
+            <? foreach ($random_array as $value) { ?>
+                <p><? echo $value ?></p>
+        <? }
+        } ?>
+    </form>
 </div>
