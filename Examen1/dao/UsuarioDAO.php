@@ -44,7 +44,7 @@ class UsuarioDAO extends FactoryBD implements DAO
         if ($devuelve->rowCount() == 0) {
             return 'No ha borrado';
         } else {
-            return 'Usuario borrado';
+            return 'Borrado';
         }
     }
     public static function insert($objeto)
