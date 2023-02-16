@@ -17,7 +17,6 @@ function vacio($dato)
     }
 }
 
-
 function selecciona($nombre)
 {
     if (isset($_REQUEST[$nombre]))

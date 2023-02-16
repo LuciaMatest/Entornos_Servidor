@@ -4,22 +4,36 @@
             <div class="mb-auto col-12">
                 <h1>Apuesta</h1>
                 <?
+                // Si realiza la apuesta aparece el mensaje
                 if (isset($_SESSION['acierto'])) {
                     echo 'Apuesta realizada';
+                    //Recogemos los errores que puedan ocurrir
                 } else if (isset($_SESSION['error'])) {
                     echo $_SESSION['error'];
                     unset($_SESSION['error']);
-                } 
+                }
                 ?>
                 <form class="row" action="./index.php" method="post">
                     <div class="col-12">
                         <div class="form-check">
+                            <!-- Mostramos todos los numeros del 1 al 50 -->
                             <? for ($i = 1; $i < 51; $i++) { ?>
-                                <input class="oculto" type="checkbox" name="check[]" value="<? echo $i ?>" id="<? echo $i ?>" <? if ($apuesta==$sorteo) { echo 'checked'; }?>>
-                                <label for="<? echo $i ?>" <? if ($apuesta==$sorteo) { echo 'class="rojo"'; }?>> <? echo $i ?> </label>
+                                <!-- Si se han seleccionado los numeros se quedan marcados -->
+                                <input class="oculto" type="checkbox" name="check[]" value="<? echo $i ?>" <? if (isset($_SESSION['numero'])) {
+                                                                                                                if (in_array($i, $_SESSION['numero'])) {
+                                                                                                                    echo 'checked';
+                                                                                                                }
+                                                                                                            } ?>>
+                                <!-- Si se ha realizado el sorteo poner los numeros en rojo -->
+                                <label for="<? echo $i ?>" class="<? if ($sorteo != null) {
+                                                                        echo 'rojo';
+                                                                    } ?>">
+                                    <? echo $i ?>
+                                </label>
                             <? } ?>
                         </div>
-                        <? if ($apuesta == null) { ?>
+                        <!-- Si no se han seleccionado todos los numeros -->
+                        <? if (isset($_SESSION['numero'])) { ?>
                             <input type="submit" class="btn btn-dark" name="insertar" value="Insertar">
                         <? } else { ?>
                             <input type="submit" class="btn btn-dark" name="modificar" value="Modificar">
