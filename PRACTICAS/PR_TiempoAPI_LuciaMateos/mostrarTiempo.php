@@ -6,6 +6,9 @@ curl_setopt($conexion, CURLOPT_RETURNTRANSFER, true);
 
 $resultado1 = curl_exec($conexion);
 $ciudad = json_decode($resultado1, true);
+if ($ciudad) {
+    $_SESSION['error'] = '<span style="color:brown">No se puede mostrar la información</span>';
+}
 
 $url2 = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/" . $ciudad[0]['Key'] . "?apikey=4epgPXZUKS8zBKAg2K3ozQx6O5vOAzOl&language=es";
 curl_setopt($conexion, CURLOPT_URL, $url2);
