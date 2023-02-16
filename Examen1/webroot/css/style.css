@@ -1,0 +1,25 @@
+/* El check se pondrá rojo con los numeros que salgan en el sorteo */
+.rojo {
+    background-color: red;
+}
+
+/* El check se pondra verde cuando el usuario seleccione su apuesta */
+input:checked+label {
+    background-color: green;
+}
+
+/* El check se pondra naranja cuando los numeros del sorteo y la apuesta coincidan */
+input:checked+.rojo {
+    background-color: orange;
+}
+
+/* Para que no se vean los check y solo los numeros */
+.oculto {
+    display: none;
+}
+
+/* Tamaño */
+input+label {
+    font-size: large;
+    padding: 5px;
+}
