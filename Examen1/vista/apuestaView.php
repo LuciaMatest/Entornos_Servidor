@@ -19,21 +19,15 @@
                             <!-- Mostramos todos los numeros del 1 al 50 -->
                             <? for ($i = 1; $i < 51; $i++) { ?>
                                 <!-- Si se han seleccionado los numeros se quedan marcados $numero = isset($_SESSION['numero'])-->
-                                <input class="oculto" type="checkbox" name="check[]" value="<? echo $i ?>" <? if (isset($_SESSION['numero'])) {
-                                                                                                                if (in_array($i, $_SESSION['numero'])) {
-                                                                                                                    echo 'checked';
-                                                                                                                }
-                                                                                                            } ?>>
+                                <input class="oculto" type="checkbox" name="check[]" value="<? echo $i ?>" id="<? echo $i ?>">
                                 <!-- Si se ha realizado el sorteo poner los numeros en rojo -->
-                                <label for="<? echo $i ?>" class="<? if ($sorteo != null) {
-                                                                        echo 'rojo';
-                                                                    } ?>">
+                                <label for="<? echo $i ?>">
                                     <? echo $i ?>
                                 </label>
                             <? } ?>
                         </div>
                         <!-- Si no se han seleccionado todos los numeros -->
-                        <? if (isset($_SESSION['numero'])) { ?>
+                        <? if (!isset($_SESSION['numero'])) { ?>
                             <input type="submit" class="btn btn-dark" name="insertar" value="Insertar">
                         <? } else { ?>
                             <input type="submit" class="btn btn-dark" name="modificar" value="Modificar">
@@ -45,3 +39,15 @@
         </div>
     </div>
 </div>
+
+<!-- class="<? // if ($sorteo != null) {
+            //  echo 'rojo';
+            //  } 
+            ?>" -->
+
+<? //if (isset($_SESSION['numero'])) {
+// if (in_array($i, $_SESSION['numero'])) {
+//     echo 'checked';
+//  }
+//  } 
+?>
