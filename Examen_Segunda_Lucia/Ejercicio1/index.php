@@ -44,7 +44,7 @@ if (isset($_REQUEST['home'])) {
             require_once $_SESSION['controlador'];
             //albaran
         } else {
-            require_once $_SESSION['controlador'];
+            //require_once $_SESSION['controlador'];
         }
     }
 }
