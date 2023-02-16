@@ -1,18 +1,13 @@
 <?
-function centigradosAFahrenheit($temperatura)
-{
-    return $temperatura * 9 / 5 + 32;
-}
-
 $conexion = curl_init();
-$url = 'http://dataservice.accuweather.com/locations/v1/cities/search?apikey=4epgPXZUKS8zBKAg2K3ozQx6O5vOAzOl&q=' . $_REQUEST['ciudad'] . '%20Castilla%20y%20Le%C3%B3n&language=es';
+$url = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=4epgPXZUKS8zBKAg2K3ozQx6O5vOAzOl&q=" . $_REQUEST['ciudad'] . "&language=es";
 curl_setopt($conexion, CURLOPT_URL, $url);
 curl_setopt($conexion, CURLOPT_RETURNTRANSFER, true);
 
 $resultado1 = curl_exec($conexion);
 $ciudad = json_decode($resultado1, true);
 
-$url2 = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/' . $ciudad[0]['Key'] . '?apikey=4epgPXZUKS8zBKAg2K3ozQx6O5vOAzOl&language=es';
+$url2 = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/" . $ciudad[0]['Key'] . "?apikey=4epgPXZUKS8zBKAg2K3ozQx6O5vOAzOl&language=es";
 curl_setopt($conexion, CURLOPT_URL, $url2);
 curl_setopt($conexion, CURLOPT_RETURNTRANSFER, true);
 
@@ -20,6 +15,12 @@ $resultado2 = curl_exec($conexion);
 $tiempo = json_decode($resultado2, true);
 
 curl_close($conexion);
+
+function centigradosAFahrenheit($temperatura)
+{
+    return $temperatura * 9 / 5 + 32;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -87,10 +88,10 @@ curl_close($conexion);
                         </svg></td>
                     <? foreach ($tiempo['DailyForecasts'] as $evento) {
                         $precipitaciones = $evento['Day']['HasPrecipitation'];
-                        if ($precipitaciones == null) {
-                            echo "<td>NO</td>";
+                        if ($precipitaciones != null) {
+                            echo "<td>si</td>";
                         } else {
-                            echo "<td>SI</td>";
+                            echo "<td>no</td>";
                         }
                     }; ?>
                 </tr>
@@ -100,10 +101,10 @@ curl_close($conexion);
                         </svg></td>
                     <? foreach ($tiempo['DailyForecasts'] as $evento) {
                         $precipitaciones = $evento['Night']['HasPrecipitation'];
-                        if ($precipitaciones == null) {
-                            echo "<td>NO</td>";
+                        if ($precipitaciones != null) {
+                            echo "<td>si</td>";
                         } else {
-                            echo "<td>SI</td>";
+                            echo "<td>no</td>";
                         }
                     }; ?>
                 </tr>
