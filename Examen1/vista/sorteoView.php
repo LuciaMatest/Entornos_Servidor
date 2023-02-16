@@ -15,23 +15,33 @@
         </thead>
         <tbody>
             <?
-            $apuestas = ApuestaDAO::findAll();
-            foreach ($apuestas as $apuesta) { ?>
+            foreach ($apuestas as $value) { ?>
                 <tr>
-                    <td><? echo $apuesta->id ?></td>
-                    <td><? echo $apuesta->fecha ?></td>
-                    <td><? echo $apuesta->id ?></td>
-                    <td><? echo $apuesta->n1 ?></td>
-                    <td><? echo $apuesta->n2 ?></td>
-                    <td><? echo $apuesta->n3 ?></td>
-                    <td><? echo $apuesta->n4 ?></td>
-                    <td><? echo $apuesta->n5 ?></td>
+                    <td><? echo $value->id ?></td>
+                    <td><? echo $value->fecha ?></td>
+                    <td><? echo $value->iduser ?></td>
+                    <td><? echo $value->n1 ?></td>
+                    <td><? echo $value->n2 ?></td>
+                    <td><? echo $value->n3 ?></td>
+                    <td><? echo $value->n4 ?></td>
+                    <td><? echo $value->n5 ?></td>
                 </tr>
             <? } ?>
         </tbody>
     </table>
 
-    <form action="./index.html">
-        <input type="submit" class="btn btn-dark" name="generar" value="Generar">
-    </form>
+    <div>
+        <!-- Si no se ha realizado el sorteo -->
+        <? if (!$_SESSION['sorteo']) { ?>
+            <input type="submit" class="btn btn-dark" name="generar" value="Generar">
+        <? } else { ?>
+            <p>Los números premiados son:</p>
+            <?
+            // for ($i = 0; $i < 6; $i++) {
+            //     $numero_aleatorio = rand(1, 50);
+            //     echo $numero_aleatorio;
+            // }
+            ?>
+        <? } ?>
+    </div>
 </div>
