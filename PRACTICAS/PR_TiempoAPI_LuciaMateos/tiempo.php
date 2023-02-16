@@ -23,7 +23,7 @@
       <form action="./mostrarTiempo.php">
         <div class="d-flex">
           <select class="form-select form-select-lg" name="ciudad" id="ciudad">
-            <option selected>Selecciona una ciudad</option>
+            <option value="0">Selecciona una ciudad</option>
             <option value="Ávila">Ávila</option>
             <option value="Burgos">Burgos</option>
             <option value="León">León</option>
@@ -34,6 +34,11 @@
             <option value="Valladolid">Valladolid</option>
             <option value="Zamora">Zamora</option>
           </select>
+          <?
+          // if(){
+
+          // }
+          ?>
           <button type="submit" class="btn btn-secondary ms-3 px-4" name="buscar">Buscar</button>
         </div>
       </form>
