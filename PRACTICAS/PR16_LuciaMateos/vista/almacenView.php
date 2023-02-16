@@ -36,8 +36,9 @@
                             </svg>
                             <input type="submit" name="editar" class="boton" value="Editar">
                         </td>
-                        </form>
+                        
                     <? } ?>
+                    </form>
                 </tr>
             <? } ?>
         </tbody>

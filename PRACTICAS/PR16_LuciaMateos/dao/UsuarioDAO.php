@@ -37,7 +37,7 @@ class UsuarioDAO extends FactoryBD implements DAO
                 $objeto->rol
             );
         } else {
-            return 'No existe el usuario';
+            $_SESSION['error'] = 'No existe el usuario';
         }
     }
 
