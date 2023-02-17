@@ -25,36 +25,9 @@ class ApuestaDAO extends FactoryBD implements DAO
     }
     public static function findById($id)
     {
-        $sql = 'select * from apuesta where id=?;';
-        $datos = array($id);
-        $devuelve = parent::ejecuta($sql, $datos);
-        $obj = $devuelve->fetchObject();
-        if ($obj) {
-            return $apuesta = new Apuesta(
-                $obj->id,
-                $obj->fecha,
-                $obj->iduser,
-                $obj->n1,
-                $obj->n2,
-                $obj->n3,
-                $obj->n4,
-                $obj->n5,
-            );
-        } else {
-            return 'No existe la apuesta';
-        }
     }
-    //BORRAR
     public static function delete($id)
     {
-        $sql = 'delete from apuesta where id=?;';
-        $datos = array($id);
-        $devuelve = parent::ejecuta($sql, $datos);
-        if ($devuelve->rowCount() == 0) {
-            return 'No se ha borrado';
-        } else {
-            return 'Borrado';
-        }
     }
     //INSERTAR
     public static function insert($objeto)

@@ -32,7 +32,11 @@ class SorteosControlador extends ControladorPadre
                 // Generar números aleatorios y agregarlos al array
                 for ($i = 0; $i < $tamano_array; $i++) {
                     $random_num = rand($min, $max);
-                    array_push($random_array, $random_num);
+                    if(in_array($random_num,$random_array))
+                        $i--;
+                    else
+                        array_push($random_array, $random_num);
+
                 }
 
                 $data = json_encode($random_array);
@@ -40,7 +44,18 @@ class SorteosControlador extends ControladorPadre
                     $data,
                     array('Content-Type: application/json', 'HTTP/1.1 200 OK')
                 );
+            }else{
+                self::respuesta(
+                    "",
+                    array('Content-Type: application/json', 'HTTP/1.1 400 Las valores de los filtros no son correctos')
+                );
             }
+        }
+        else{
+            self::respuesta(
+                "",
+                array('Content-Type: application/json', 'HTTP/1.1 400 La petición no es válida')
+            );
         }
     }
 }
