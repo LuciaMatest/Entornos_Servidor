@@ -32,12 +32,12 @@
 
     <form action="./index.php" method="post">
         <!-- Si no se ha realizado el sorteo -->
-        <? if (isset($_REQUEST['sorteo'])) { ?>
+        <? if (!$_SESSION["sorteo"]) { ?>
             <input type="submit" class="btn btn-dark" name="generar" value="Generar">
         <? } else { ?>
             <p>Los números premiados son:</p>
             <? foreach ($random_array as $value) { ?>
-                <p><? echo $value ?></p>
+                <p><? echo $numerosRandom ?></p>
         <? }
         } ?>
     </form>
