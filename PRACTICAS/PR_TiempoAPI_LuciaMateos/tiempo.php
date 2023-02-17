@@ -34,13 +34,13 @@
             <option value="Valladolid">Valladolid</option>
             <option value="Zamora">Zamora</option>
           </select>
-          <?
-          // if(){
-
-          // }
-          ?>
           <button type="submit" class="btn btn-secondary ms-3 px-4" name="buscar">Buscar</button>
         </div>
+        <?
+        if ($_REQUEST['ciudad'] == 0) {
+          echo '<span class="px-4" style="color:brown">Debe seleccionar una opción</span>';
+        }
+        ?>
       </form>
     </div>
   </main>

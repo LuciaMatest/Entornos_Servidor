@@ -8,7 +8,7 @@ curl_setopt($conexion, CURLOPT_RETURNTRANSFER, true);
 $resultado1 = curl_exec($conexion);
 $ciudad = json_decode($resultado1, true);
 
-if ($ciudad['Code'] == "ServiceUnavailable") {
+if (isset($ciudad['Code']) == "ServiceUnavailable") {
     $_SESSION['error'] = '<span class="px-4" style="color:brown">Acceso no autorizado, intentelo más tarde</span>';
 } else {
 
@@ -19,7 +19,7 @@ if ($ciudad['Code'] == "ServiceUnavailable") {
     $resultado2 = curl_exec($conexion);
     $tiempo = json_decode($resultado2, true);
 
-    if ($tiempo['Code'] == "ServiceUnavailable") {
+    if (isset($tiempo['Code']) == "ServiceUnavailable") {
         $_SESSION['error'] = '<span class="px-4" style="color:brown">Acceso no autorizado  intentelo más tarde</span>';
     }
 }
@@ -28,7 +28,7 @@ curl_close($conexion);
 
 function centigradosAFahrenheit($temperatura)
 {
-    return $temperatura * 9 / 5 + 32;
+    return ($temperatura - 32) * (5 / 9);
 }
 
 ?>
@@ -58,7 +58,7 @@ function centigradosAFahrenheit($temperatura)
     <main class="border-top border-secondary">
         <h2 class="text-center mt-4">El tiempo en <? echo $_REQUEST['ciudad'] ?></h2>
         <?
-        if ($_SESSION['error']) {
+        if (isset($_SESSION['error'])) {
             echo $_SESSION['error'];
             unset($_SESSION['error']);
         } else { ?>
