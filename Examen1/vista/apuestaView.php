@@ -27,11 +27,14 @@
                             <? } ?>
                         </div>
                         <!-- Si no se han seleccionado todos los numeros -->
-                        <? if (!isset($_SESSION['numero'])) { ?>
-                            <input type="submit" class="btn btn-dark" name="insertar" value="Insertar">
-                        <? } else { ?>
-                            <input type="submit" class="btn btn-dark" name="modificar" value="Modificar">
-                        <? } ?>
+                        <? //if () { 
+                        ?>
+                        <input type="submit" class="btn btn-dark" name="insertar" value="Insertar">
+                        <? // } else { 
+                        ?>
+                        <input type="submit" class="btn btn-dark" name="modificar" value="Modificar">
+                        <? //} 
+                        ?>
                     </div>
                 </form>
 

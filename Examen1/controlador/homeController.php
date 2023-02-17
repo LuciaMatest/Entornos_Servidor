@@ -7,9 +7,9 @@ if (isset($_REQUEST['user'])) {
     if (isset($_REQUEST["recuerdame"])) {
         setcookie("nombre_usuario", $user);
         setcookie("recuerdame", $user);
-    }else{
-        setcookie("nombre_usuario",$user,time()-1);
-        setcookie("recuerdame",$user,time()-1);
+    } else {
+        setcookie("nombre_usuario", $user, time() - 1);
+        setcookie("recuerdame", $user, time() - 1);
     }
 
     //Controlamos los errores posibles
@@ -23,7 +23,7 @@ if (isset($_REQUEST['user'])) {
         if ($usuario != null) {
             $_SESSION['validado'] = true;
             $_SESSION['user'] = $user;
-            $_SESSION['id'] = $usuario->id;
+            $_SESSION['iduser'] = $usuario->iduser;
             $_SESSION['nombre'] = $usuario->nombre;
             $_SESSION['perfil'] = $usuario->perfil;
             //Dependiendo de que usuario se loguee, accedera a una pagia u otra

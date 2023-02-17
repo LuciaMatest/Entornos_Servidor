@@ -88,13 +88,13 @@ class UsuarioDAO extends FactoryBD implements DAO
         $obj = $devuelve->fetchObject();
         if ($obj) {
             return $usuario = new Usuario(
-                $obj->id,
+                $obj->iduser,
                 $obj->nombre,
                 $obj->password,
                 $obj->perfil
             );
         } else {
-            $_SESSION['error']='No existe el usuario';
+            $_SESSION['error'] = 'No existe el usuario';
             return null;
         }
     }
