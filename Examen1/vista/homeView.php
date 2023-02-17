@@ -19,7 +19,9 @@
         </div>
         <div class="mb-3">
             <label for="recuerdame">Recuerdame</label>
-            <input type="checkbox" id="recuerdame" name="recuerdame" />
+            <input type="checkbox" id="recuerdame" name="recuerdame" <?php if (isset($_COOKIE['recuerdame'])) {
+                                                                            echo 'checked';
+                                                                        } ?> />
         </div>
         <button type="submit" class="btn btn-primary" name="enviar">Iniciar Sesión</button>
     </form>

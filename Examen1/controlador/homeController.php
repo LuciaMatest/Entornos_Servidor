@@ -6,7 +6,12 @@ if (isset($_REQUEST['user'])) {
     //Recuerdame
     if (isset($_REQUEST["recuerdame"])) {
         setcookie("nombre_usuario", $user);
+        setcookie("recuerdame", $user);
+    }else{
+        setcookie("nombre_usuario",$user,time()-1);
+        setcookie("recuerdame",$user,time()-1);
     }
+
     //Controlamos los errores posibles
     if (empty($user)) {
         $_SESSION['error'] = '<span style="color:brown"> Debe rellenar el nombre</span>';
