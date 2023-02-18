@@ -1,4 +1,10 @@
 <?
+function fahrenheitACentigrados($temperatura)
+{
+    $centigrados = ($temperatura - 32) * (5 / 9);
+    return number_format($centigrados, 2);
+}
+
 $conexion = curl_init();
 session_reset();
 $url = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=4epgPXZUKS8zBKAg2K3ozQx6O5vOAzOl&q=" . $_REQUEST['ciudad'] . "&language=es";
@@ -25,12 +31,6 @@ if (isset($ciudad['Code']) == "ServiceUnavailable") {
 }
 
 curl_close($conexion);
-
-function centigradosAFahrenheit($temperatura)
-{
-    return ($temperatura - 32) * (5 / 9);
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -83,7 +83,7 @@ function centigradosAFahrenheit($temperatura)
                             </svg></td>
                         <? foreach ($tiempo['DailyForecasts'] as $evento) {
                             $temperatura = $evento['Temperature']['Maximum']['Value'];
-                            echo "<td>" . centigradosAFahrenheit($temperatura) . "ºC</td>";
+                            echo "<td>" . fahrenheitACentigrados($temperatura) . "ºC</td>";
                         }; ?>
                     </tr>
                     <tr>
@@ -93,7 +93,7 @@ function centigradosAFahrenheit($temperatura)
                             </svg></td>
                         <? foreach ($tiempo['DailyForecasts'] as $evento) {
                             $temperatura = $evento['Temperature']['Minimum']['Value'];
-                            echo "<td>" . centigradosAFahrenheit($temperatura) . "ºC</td>";
+                            echo "<td>" . fahrenheitACentigrados($temperatura) . "ºC</td>";
                         }; ?>
                     </tr>
                     <tr>

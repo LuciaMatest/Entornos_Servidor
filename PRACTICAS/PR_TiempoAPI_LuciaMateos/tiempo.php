@@ -23,7 +23,7 @@
       <form action="./mostrarTiempo.php">
         <div class="d-flex">
           <select class="form-select form-select-lg" name="ciudad" id="ciudad">
-            <option value="0">Selecciona una ciudad</option>
+            <option value="">Selecciona una ciudad</option>
             <option value="Ávila">Ávila</option>
             <option value="Burgos">Burgos</option>
             <option value="León">León</option>
@@ -36,10 +36,9 @@
           </select>
           <button type="submit" class="btn btn-secondary ms-3 px-4" name="buscar">Buscar</button>
         </div>
-        <?
-        if ($_REQUEST['ciudad'] == 0) {
-          echo '<span class="px-4" style="color:brown">Debe seleccionar una opción</span>';
-        }
+        <? //if (empty($_REQUEST['ciudad'])) {
+        //  $_SESSION['error'] =  '<span class="px-4" style="color:brown">Debe seleccionar una opción</span>';
+        //}
         ?>
       </form>
     </div>
