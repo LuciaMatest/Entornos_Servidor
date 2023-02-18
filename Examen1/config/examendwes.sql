@@ -77,7 +77,7 @@ INSERT INTO `sorteo` (`id`, `fecha`, `n1`, `n2`, `n3`, `n4`, `n5`) VALUES
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
+  `iduser` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `password` varchar(250) NOT NULL,
   `perfil` enum('user','admin') NOT NULL
@@ -87,7 +87,7 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `password`, `perfil`) VALUES
+INSERT INTO `usuarios` (`iduser`, `nombre`, `password`, `perfil`) VALUES
 (1, 'maria', 'maria', 'admin'),
 (2, 'pepe', 'pepe', 'user'),
 (3, 'lolo', 'lolo', 'user');

@@ -6,7 +6,7 @@
                 <?
                 // Si realiza la apuesta aparece el mensaje
                 if (isset($_SESSION['acierto'])) {
-                    echo $_SESSION['acierto'];
+                    echo "<span style='color:brown'>Apuesta realizada</span>";
                     //Recogemos los errores que puedan ocurrir
                 } else if (isset($_SESSION['error'])) {
                     echo $_SESSION['error'];
@@ -19,7 +19,7 @@
                             <!-- Mostramos todos los numeros del 1 al 50 -->
                             <? for ($i = 1; $i < 51; $i++) { ?>
                                 <!-- Si se han seleccionado los numeros se quedan marcados $numero = isset($_SESSION['numero'])-->
-                                <input class="oculto" type="checkbox" name="check[]" value="<? echo $i ?>" id="<? echo $i ?>" <? if (isset($arrayCheck)) {
+                                <input class="oculto" type="checkbox" name="check[]" value="<? echo $i ?>" id="<? echo $i ?>" <? if (isset($arrayCheck) && isset($_REQUEST['insertar'])) {
                                                                                                                                     if (in_array($i, $arrayCheck)) {
                                                                                                                                         echo "checked";
                                                                                                                                     }
@@ -48,8 +48,3 @@
         </div>
     </div>
 </div>
-
-<!-- class="<? // if ($sorteo != null) {
-            //  echo 'rojo';
-            //  } 
-            ?>" -->

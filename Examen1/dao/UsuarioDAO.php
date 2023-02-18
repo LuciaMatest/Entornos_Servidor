@@ -10,7 +10,7 @@ class UsuarioDAO extends FactoryBD implements DAO
         $arrayUsuario = array();
         while ($obj = $devuelve->fetchObject()) {
             $usuario = new Usuario(
-                $obj->id,
+                $obj->iduser,
                 $obj->nombre,
                 $obj->password,
                 $obj->perfil
@@ -27,7 +27,7 @@ class UsuarioDAO extends FactoryBD implements DAO
         $obj = $devuelve->fetchObject();
         if ($obj) {
             return $usuario = new Usuario(
-                $obj->id,
+                $obj->iduser,
                 $obj->nombre,
                 $obj->password,
                 $obj->perfil
@@ -70,7 +70,7 @@ class UsuarioDAO extends FactoryBD implements DAO
             $objeto->nombre,
             $objeto->password,
             $objeto->perfil,
-            $objeto->id
+            $objeto->iduser
         );
         $devuelve = parent::ejecuta($sql, $datos);
         if ($devuelve->rowCount() == 0) {

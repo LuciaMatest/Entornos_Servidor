@@ -24,30 +24,26 @@ class ApuestaDAO extends FactoryBD implements DAO
         return $arrayApuesta;
     }
 
-    public static function findByIdFecha($id, $fecha)
-    {
-        $sql = 'select * from apuesta where iduser=? and fecha=?;';
-        $datos = array($id, $fecha);
-        $devuelve = parent::ejecuta($sql, $datos);
-        $obj = $devuelve->fetchObject();
-        if ($obj) {
-            return $apuesta = new Apuesta(
-                $obj->id,
-                $obj->fecha,
-                $obj->iduser,
-                $obj->n1,
-                $obj->n2,
-                $obj->n3,
-                $obj->n4,
-                $obj->n5,
-            );
-        } else {
-            return 'No existe el usuario';
-        }
-    }
-
     public static function findById($id)
     {
+        $sql = 'select * from apuesta where id=?;';
+        $datos = array($id);
+        $resultado = parent::ejecuta($sql, $datos);
+        $objeto = $resultado->fetchObject();
+        if ($objeto) {
+            return $apuesta = new Apuesta(
+                $objeto->id,
+                $objeto->fecha,
+                $objeto->iduser,
+                $objeto->n1,
+                $objeto->n2,
+                $objeto->n3,
+                $objeto->n4,
+                $objeto->n5
+            );
+        } else {
+            return 'No existe el albaran';
+        }
     }
     public static function delete($id)
     {
@@ -55,15 +51,12 @@ class ApuestaDAO extends FactoryBD implements DAO
     //INSERTAR
     public static function insert($objeto)
     {
-        $sql = 'insert into apuesta values (null,current_date,?,?,?,?,?,?)';
-        $datos = array(
-            $objeto->iduser,
-            $objeto->n1,
-            $objeto->n2,
-            $objeto->n3,
-            $objeto->n4,
-            $objeto->n5
-        );
+        $sql = 'insert into apuesta values (?,?,?,?,?,?,?,?)';
+        $objeto = (array)$objeto;
+        $datos = array();
+        foreach ($objeto as $obj) {
+            array_push($datos, $obj);
+        }
         $devuelve = parent::ejecuta($sql, $datos);
         if ($devuelve->rowCount() == 0) {
             return false;
@@ -74,10 +67,8 @@ class ApuestaDAO extends FactoryBD implements DAO
     //MODIFICAR
     public static function update($objeto)
     {
-        $sql = 'update apuesta set fecha=?,iduser=?,n1=?,n2=?,n3=?,n4=?,n5=? where id=?';
+        $sql = 'update apuesta set n1=?,n2=?,n3=?,n4=?,n5=? where id=?';
         $datos = array(
-            $objeto->fecha,
-            $objeto->iduser,
             $objeto->n1,
             $objeto->n2,
             $objeto->n3,
