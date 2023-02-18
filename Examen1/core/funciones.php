@@ -45,6 +45,14 @@ function esUsuario()
     }
 }
 //----------------------------------------------
+function sorteo(){
+    if(SorteoDAO::findByFecha(date('Y-m-d'))){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 function getApi(){
     $ch = curl_init();
     $url = 'http://192.168.2.204/Entornos_Servidor/Examen2/Api.php/numeros?min=1&max=50';

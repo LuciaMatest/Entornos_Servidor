@@ -22,6 +22,28 @@ class SorteoDAO extends FactoryBD implements DAO
         }
         return $arraySorteo;
     }
+
+    public static function findByFecha($objeto)
+    {
+        $sql = 'select * from sorteo where fecha=?;';
+        $datos = array($objeto);
+        $devuelve = parent::ejecuta($sql, $datos);
+        $obj = $devuelve->fetchObject();
+        if ($obj) {
+            return $sorteo = new Sorteo(
+                $obj->id,
+                $obj->fecha,
+                $obj->n1,
+                $obj->n2,
+                $obj->n3,
+                $obj->n4,
+                $obj->n5,
+            );
+        } else {
+            return false;
+        }
+    }
+
     public static function findById($id)
     {
     }
@@ -64,6 +86,4 @@ class SorteoDAO extends FactoryBD implements DAO
             return true;
         }
     }
-
-    
 }

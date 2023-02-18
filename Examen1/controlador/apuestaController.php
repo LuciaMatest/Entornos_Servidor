@@ -1,16 +1,13 @@
 <?
-// if (isset($_REQUEST['numero'])) {
-//     $_SESSION["numero"] = true;
-// } else {
 if (isset($_REQUEST['modificar'])) {
     if (selecciona('check')) {
         $arrayCheck = $_REQUEST['check'];
-        $arrayApuestas = array($_SESSION["id"], $arrayCheck[0], $arrayCheck[1], $arrayCheck[2], $arrayCheck[3], $arrayCheck[4]);
-        if (ApuestaDAO::update($arrayApuestas)) {
-            // $_SESSION["acierto"] = "<span style='color:brown'>Se han modificado los datos</span>";
+        $apuesta=new Apuesta(null, null, $_SESSION["iduser"], $arrayCheck[0], $arrayCheck[1], $arrayCheck[2], $arrayCheck[3], $arrayCheck[4]);
+        if (ApuestaDAO::update($apuesta)) {
+            $apuesta= ApuestaDAO::findByIdFecha($_SESSION['id'],date('Y-m-d'));
             $_SESSION['controlador'] = $controladores['apuesta'];
             $_SESSION['vista'] = $vistas['apuesta'];
-            $apuesta = ApuestaDAO::findAll();
+            $_SESSION['pagina'] = 'Apuesta';
         }
     } else {
         $_SESSION["error"] = "<span style='color:brown'>No has seleccionado 5 números.</span>";
@@ -29,7 +26,3 @@ if (isset($_REQUEST['modificar'])) {
         $_SESSION["error"] = "<span style='color:brown'>No has seleccionado 5 números.</span>";
     }
 }
-    // } else {
-    //     $apuesta = ApuestaDAO::findAll();
-    // }
-// }
