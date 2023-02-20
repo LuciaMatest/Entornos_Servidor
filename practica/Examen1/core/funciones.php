@@ -53,7 +53,7 @@ function sorteo(){
     }
 }
 
-function get(){
+function getApi(){
     $ch = curl_init();
     $url = 'http://192.168.2.204/Entornos_Servidor/Examen2/Api.php/numeros?min=1&max=50';
     curl_setopt($ch,CURLOPT_URL,$url);
