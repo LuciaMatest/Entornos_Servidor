@@ -18,14 +18,16 @@
                         <div class="form-check">
                             <!-- Mostramos todos los numeros del 1 al 50 -->
                             <? for ($i = 1; $i < 51; $i++) { ?>
-                                <!-- Si se han seleccionado los numeros se quedan marcados $numero = isset($_SESSION['numero'])-->
+                                <!-- Si se han seleccionado los numeros se quedan marcados-->
                                 <input class="oculto" type="checkbox" name="check[]" value="<? echo $i ?>" id="<? echo $i ?>" <? if (isset($arrayCheck) && isset($_REQUEST['insertar'])) {
                                                                                                                                     if (in_array($i, $arrayCheck)) {
                                                                                                                                         echo "checked";
                                                                                                                                     }
                                                                                                                                 } ?>>
                                 <!-- Si se ha realizado el sorteo poner los numeros en rojo -->
-                                <label for="<? echo $i ?>" class="<??>">
+                                <label for="<? echo $i ?>" class="<?if ((isset($arrayCheck))==$numerosRandom) {
+                                    echo "rojo";
+                                }?>">
                                     <? echo $i ?>
                                 </label>
                             <? } ?>
