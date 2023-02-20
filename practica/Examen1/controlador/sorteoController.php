@@ -1,13 +1,15 @@
 <?
 $apuestas = ApuestaDAO::findAll();
-if (!sorteo()){
+if (!sorteo()) {
     if (isset($_REQUEST['generar'])) {
-        $numerosRandom = getApi();
-        $random_array = explode('-', $numerosRandom);
-        $sorteosTotal = sorteoDAO::findAll();
-        $sorteo = new Sorteo(count($sorteosTotal) + 1, date('Y-m-d'), $random_array[0], $random_array[1], $random_array[2], $random_array[3], $random_array[4]);
-        if (SorteoDAO::insert($sorteo)) {
-            $_SESSION["sorteoID"] = $sorteo->id;
+        $numerosRandom = get();
+        $numerosRandom = json_decode($numerosRandom, true);
+        foreach ($numerosRandom as $value) {
+            echo "<li>$value</li>" ;
         }
+        // $sorteo = new Sorteo(null, date('Y-m-d'), $numerosRandom[0], $numerosRandom[1], $numerosRandom[2], $numerosRandom[3], $numerosRandom[4]);
+        // if (SorteoDAO::insert($sorteo)) {
+        //     $_SESSION["sorteoID"] = $sorteo->id;
+        // }
     }
 }

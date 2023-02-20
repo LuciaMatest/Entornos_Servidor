@@ -53,12 +53,14 @@ class SorteoDAO extends FactoryBD implements DAO
     //INSERTAR
     public static function insert($objeto)
     {
-        $sql = 'insert into sorteo values (?,?,?,?,?,?,?)';
-        $objeto = (array)$objeto;
-        $datos = array();
-        foreach ($objeto as $att) {
-            array_push($datos, $att);
-        }
+        $sql = 'insert into sorteo values (null,current_date,?,?,?,?,?)';
+        $datos = array(
+            $objeto->n1,
+            $objeto->n2,
+            $objeto->n3,
+            $objeto->n4,
+            $objeto->n5
+        );
         $devuelve = parent::ejecuta($sql, $datos);
         if ($devuelve->rowCount() == 0) {
             return false;

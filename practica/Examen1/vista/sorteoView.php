@@ -32,13 +32,8 @@
 
     <form action="./index.php" method="post">
         <!-- Si no se ha realizado el sorteo -->
-        <? if (!sorteo()) { ?>
+        <? do { ?>
             <input type="submit" class="btn btn-dark" name="generar" value="generar">
-        <? } else{ ?>
-            <p>Los números premiados son:</p>
-            <? foreach ($random_array as $value) { ?>
-                <p><? echo $numerosRandom ?></p>
-        <? }
-        } ?>
+        <? } while (!sorteo()); ?>
     </form>
 </div>
