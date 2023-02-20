@@ -20,7 +20,6 @@ class SorteosControlador extends ControladorPadre
         $recurso = self::recurso();
         if (count($recurso) == 2) {
             if (isset($_GET['min']) && isset($_GET['max']) && count($parametros) == 2) {
-                // if (count($parametros) == 2) {
                 // Definimos el tamaño del array y el rango de valores aleatorios
                 $tamano_array = 5;
                 $min = $_GET['min'];
