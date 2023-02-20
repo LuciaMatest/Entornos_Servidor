@@ -45,19 +45,21 @@ function esUsuario()
     }
 }
 //----------------------------------------------
-function sorteo(){
-    if(SorteoDAO::findByFecha(date('Y-m-d'))){
+function sorteo()
+{
+    if (SorteoDAO::findByFecha(date('Y-m-d'))) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
 
-function getApi(){
+function getApi()
+{
     $ch = curl_init();
     $url = 'http://192.168.2.204/Entornos_Servidor/Examen2/Api.php/numeros?min=1&max=50';
-    curl_setopt($ch,CURLOPT_URL,$url);
-    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $resultado = curl_exec($ch);
     curl_close($ch);
     return $resultado;
