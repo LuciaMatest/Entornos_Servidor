@@ -33,7 +33,7 @@ CREATE TABLE `sorteo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `sorteo` (`id`, `fecha`, `n1`, `n2`, `n3`, `n4`, `n5`) VALUES
-(3, '2023-02-08', 2, 29, 12, 23, 45);
+(3, '2023-02-20', 3, 47, 35, 23, 45);
 
 -- --------------------------------------------------------
 CREATE TABLE `usuarios` (
