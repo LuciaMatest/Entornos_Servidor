@@ -1,9 +1,9 @@
 <?
 if (isset($_REQUEST['modificar'])) {
     if (selecciona('check')) {
-        $apuesta = ApuestaDAO::findById($_REQUEST['id']);
         $arrayCheck = $_REQUEST['check'];
-        if (ApuestaDAO::update($arrayCheck)) {
+        $arrayDatos = array($arrayCheck[0], $arrayCheck[1], $arrayCheck[2], $arrayCheck[3], $arrayCheck[4], $_SESSION["id"]);
+        if (ApuestaDAO::update($arrayDatos)) {
             $_SESSION['controlador'] = $controladores['apuesta'];
             $_SESSION['vista'] = $vistas['apuesta'];
             $_SESSION['pagina'] = 'Apuesta';
