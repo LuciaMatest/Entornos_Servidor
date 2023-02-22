@@ -17,11 +17,33 @@ class ApuestaDAO extends FactoryBD implements DAO
                 $obj->n2,
                 $obj->n3,
                 $obj->n4,
-                $obj->n5,
+                $obj->n5
             );
             array_push($arrayApuesta, $apuesta);
         }
         return $arrayApuesta;
+    }
+
+    public static function findByUserFecha($iduser, $fecha)
+    {
+        $sql = 'select * from apuesta where iduser=? and fecha= ?;';
+        $datos = array($iduser, $fecha);
+        $devuelve = parent::ejecuta($sql, $datos);
+        $obj = $devuelve->fetchObject();
+        if ($obj) {
+            return $apuesta = new Apuesta(
+                $obj->id,
+                $obj->fecha,
+                $obj->iduser,
+                $obj->n1,
+                $obj->n2,
+                $obj->n3,
+                $obj->n4,
+                $obj->n5
+            );
+        } else {
+            return false;
+        }
     }
 
     public static function findById($id)
