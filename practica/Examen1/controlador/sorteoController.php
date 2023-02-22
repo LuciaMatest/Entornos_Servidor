@@ -1,6 +1,6 @@
 <?
-$apuestas = ApuestaDAO::findAll();
 if (!sorteo()) {
+    $apuestas = ApuestaDAO::findAll();
     if (isset($_REQUEST['generar'])) {
         $values = get();
         $random_array = json_decode($values, true);
@@ -12,4 +12,6 @@ if (!sorteo()) {
     } else {
         $_SESSION['error'] = 'No se puede generar los números';
     }
+} else {
+    $apuestas = ApuestaDAO::findAll();
 }

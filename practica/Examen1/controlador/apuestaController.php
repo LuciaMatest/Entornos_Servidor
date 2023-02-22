@@ -1,6 +1,6 @@
 <?
 if (!sorteo()) {
-    //apuesta
+    //visualizar la apuesta
     if (ApuestaDAO::findByUserFecha($_SESSION['iduser'], date('Y-m-d'))) {
         $apuesta = ApuestaDAO::findByUserFecha($_SESSION['iduser'], date('Y-m-d'));
         $arrayCheck = array($apuesta->n1, $apuesta->n2, $apuesta->n3, $apuesta->n4, $apuesta->n5);
