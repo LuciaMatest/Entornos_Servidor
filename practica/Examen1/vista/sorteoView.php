@@ -37,11 +37,15 @@
         <? } else { ?>
             <p>Los números premiados son:</p>
             <ul class="list-group list-group-light">
-                <?
-                foreach ($random_array as $values) { ?>
-                    <li class="list-group-item"><? echo $values ?></li>
-                <? } ?>
-
+                <? if (isset($sorteo)) {
+                    foreach ($sorteo as $random_array) { ?>
+                        <li class="list-group-item"><? echo $random_array ?></li>
+                    <? }
+                } else {
+                    foreach ($random_array as $values) { ?>
+                        <li class="list-group-item"><? echo $values ?></li>
+                <? }
+                } ?>
             </ul>
         <? } ?>
     </form>
