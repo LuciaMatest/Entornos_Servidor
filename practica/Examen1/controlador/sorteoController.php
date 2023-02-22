@@ -3,7 +3,7 @@ $apuestas = ApuestaDAO::findAll();
 if (!sorteo()) {
     if (isset($_REQUEST['generar'])) {
         $values = getApi();
-        $sorteo = new Sorteo(null, date('Y-m-d'), $random_array[0], $random_array[1], $random_array[2], $random_array[3], $random_array[4]);
+        $sorteo = new Sorteo(null, date('Y-m-d'), $values[0], $values[1], $values[2], $values[3], $values[4]);
         if (SorteoDAO::insert($sorteo)) {
             //guardo la id de la apuesta para cuando quiera modificarla
             $_SESSION["idSorteo"] = $sorteo->id;
