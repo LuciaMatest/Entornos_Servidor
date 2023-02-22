@@ -41,7 +41,6 @@
                     <li class="list-group-item"><? echo $values ?></li>
                 <? } ?>
             </ul>
-            <? //print_r($lista) ?>
         <? } ?>
     </form>
 </div>
