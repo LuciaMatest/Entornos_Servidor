@@ -64,3 +64,12 @@ function getApi()
     curl_close($ch);
     return $resultado;
 }
+
+// function recuperarSeleccion($objeto)
+// {
+//     if (ApuestaDAO::findById($objeto)) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }

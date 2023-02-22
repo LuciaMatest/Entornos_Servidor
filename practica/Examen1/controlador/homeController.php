@@ -30,6 +30,7 @@ if (isset($_REQUEST['user'])) {
             if (esAdmin()) {
                 $_SESSION['vista'] = $vistas['sorteo'];
                 $_SESSION['controlador'] = $controladores['sorteo'];
+                // recuperarSeleccion($usuario);
                 header('Location: ./index.php');
             } else {
                 $_SESSION['vista'] = $vistas['apuesta'];

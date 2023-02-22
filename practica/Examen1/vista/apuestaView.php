@@ -6,7 +6,12 @@
                 <?
                 // Si realiza la apuesta aparece el mensaje
                 if (isset($_SESSION['acierto'])) {
-                    echo "<span style='color:brown'>Apuesta realizada</span>";
+                    echo $_SESSION['acierto'];
+                    unset($_SESSION['acierto']);
+                } else if (isset($_SESSION['modificado'])) {
+                    //Recogemos los errores que puedan ocurrir
+                    echo $_SESSION['modificado'];
+                    unset($_SESSION['modificado']);
                 } else if (isset($_SESSION['error'])) {
                     //Recogemos los errores que puedan ocurrir
                     echo $_SESSION['error'];

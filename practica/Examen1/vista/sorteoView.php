@@ -34,6 +34,13 @@
         <!-- Si no se ha realizado el sorteo -->
         <? if (!sorteo()) { ?>
             <input type="submit" class="btn btn-dark" name="generar" value="generar">
+        <? } else { ?>
+            <p>Los números premiados son:</p>
+            <ul class="list-group list-group-light">
+                <? foreach ($random_array as $values) { ?>
+                    <li class="list-group-item"><? echo $values ?></li>
+                <? } ?>
+            </ul>
         <? } ?>
     </form>
 </div>
