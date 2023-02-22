@@ -5,11 +5,6 @@ if (!sorteo()) {
         $apuesta = ApuestaDAO::findByUserFecha($_SESSION['iduser'], date('Y-m-d'));
         $arrayCheck = array($apuesta->n1, $apuesta->n2, $apuesta->n3, $apuesta->n4, $apuesta->n5);
     }
-    //sorteo
-    if (SorteoDAO::findByFecha(date('Y-m-d'))) {
-        $sorteo = SorteoDAO::findByFecha(date('Y-m-d'));
-        $arrayCheck = array($sorteo->n1, $sorteo->n2, $sorteo->n3, $sorteo->n4, $sorteo->n5);
-    }
     if (isset($_REQUEST['modificar'])) {
         if (selecciona('check')) {
             $arrayCheck = $_REQUEST['check'];
@@ -35,8 +30,14 @@ if (!sorteo()) {
         }
     }
 } else {
+    //apuesta
     if (ApuestaDAO::findByUserFecha($_SESSION['iduser'], date('Y-m-d'))) {
         $apuesta = ApuestaDAO::findByUserFecha($_SESSION['iduser'], date('Y-m-d'));
         $arrayCheck = array($apuesta->n1, $apuesta->n2, $apuesta->n3, $apuesta->n4, $apuesta->n5);
+    }
+    //sorteo
+    if (SorteoDAO::findByFecha(date('Y-m-d'))) {
+        $sorteo = SorteoDAO::findByFecha(date('Y-m-d'));
+        $arraySorteo = array($sorteo->n1, $sorteo->n2, $sorteo->n3, $sorteo->n4, $sorteo->n5);
     }
 }
