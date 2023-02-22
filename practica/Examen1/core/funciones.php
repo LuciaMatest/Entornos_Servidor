@@ -54,10 +54,10 @@ function sorteo()
     }
 }
 
-function getApi()
+function get()
 {
     $ch = curl_init();
-    $url = 'http://192.168.2.204/Entornos_Servidor/practica/Examen2/Api.php/numeros?min=1&max=50';
+    $url = 'http://192.168.2.214/Entornos_Servidor/practica/Examen2/Api.php/numeros?min=1&max=50';
     curl_setopt($ch,CURLOPT_URL,$url);
     curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
     $resultado = curl_exec($ch);
@@ -71,5 +71,5 @@ function getApi()
 //         return true;
 //     } else {
 //         return false;
-//     }
+//     }http://192.168.2.214/Entornos_Servidor/practica/Examen2/Api.php/numeros?min=1&max=50
 // }
