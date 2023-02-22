@@ -30,7 +30,7 @@
                                                                                                                                     }
                                                                                                                                 } ?>>
                                 <!-- Si se ha realizado el sorteo poner los numeros en rojo -->
-                                <label for="<? echo $i ?>" class="<? if (isset($arraySorteo)) {
+                                <label for="<? echo $i ?>" class="<? if (isset($sorteo)) {
                                                                         if (in_array($i, $arraySorteo)) {
                                                                             echo "rojo";
                                                                         }
