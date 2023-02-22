@@ -31,16 +31,11 @@
                             <? } ?>
                         </div>
                         <!-- Si no se han seleccionado todos los numeros -->
-                        <? if (!sorteo()) {
-                            if (!isset($arrayCheck)) {
-                        ?>
-                                <input type="submit" class="btn btn-dark" name="insertar" value="Insertar">
-                            <? } else {
-                            ?>
-                                <input type="submit" class="btn btn-dark" name="modificar" value="Modificar">
-                        <? }
-                        }
-                        ?>
+                        <? if (!sorteo() && !isset($arrayCheck)) { ?>
+                            <input type="submit" class="btn btn-dark" name="insertar" value="Insertar">
+                        <? } else { ?>
+                            <input type="submit" class="btn btn-dark" name="modificar" value="Modificar">
+                        <? } ?>
                     </div>
                 </form>
 
