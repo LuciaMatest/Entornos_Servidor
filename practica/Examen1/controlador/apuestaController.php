@@ -8,7 +8,7 @@ if (!sorteo()) {
     //sorteo
     if (SorteoDAO::findByFecha(date('Y-m-d'))) {
         $sorteo = SorteoDAO::findByFecha(date('Y-m-d'));
-        $arraySorteo = array($sorteo->n1, $sorteo->n2, $sorteo->n3, $sorteo->n4, $sorteo->n5);
+        $arrayCheck = array($sorteo->n1, $sorteo->n2, $sorteo->n3, $sorteo->n4, $sorteo->n5);
     }
     if (isset($_REQUEST['modificar'])) {
         if (selecciona('check')) {
