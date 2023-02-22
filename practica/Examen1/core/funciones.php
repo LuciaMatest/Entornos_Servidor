@@ -64,12 +64,3 @@ function get()
     curl_close($ch);
     return $resultado;
 }
-
-// function recuperarSeleccion($objeto)
-// {
-//     if (ApuestaDAO::findById($objeto)) {
-//         return true;
-//     } else {
-//         return false;
-//     }http://192.168.2.214/Entornos_Servidor/practica/Examen2/Api.php/numeros?min=1&max=50
-// }
