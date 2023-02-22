@@ -24,7 +24,7 @@
                             <!-- Mostramos todos los numeros del 1 al 50 -->
                             <? for ($i = 1; $i < 51; $i++) { ?>
                                 <!-- Si se han seleccionado los numeros se quedan marcados-->
-                                <input class="oculto" type="checkbox" name="check[]" value="<? echo $i ?>" id="<? echo $i ?>" <? if (isset($arrayCheck)) {
+                                <input class="oculto" type="checkbox" name="check[]" value="<? echo $i ?>" id="<? echo $i ?>" <? if (isset($apuesta)) {
                                                                                                                                     if (in_array($i, $arrayCheck)) {
                                                                                                                                         echo "checked";
                                                                                                                                     }
