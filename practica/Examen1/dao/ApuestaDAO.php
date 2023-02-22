@@ -68,15 +68,7 @@ class ApuestaDAO extends FactoryBD implements DAO
     public static function update($objeto)
     {
         $sql = 'update apuesta set n1=?,n2=?,n3=?,n4=?,n5=? where id=?';
-        $datos = array(
-            $objeto->n1,
-            $objeto->n2,
-            $objeto->n3,
-            $objeto->n4,
-            $objeto->n5,
-            $objeto->id
-        );
-        $devuelve = parent::ejecuta($sql, $datos);
+        $devuelve = parent::ejecuta($sql, $objeto);
         if ($devuelve->rowCount() == 0) {
             return false;
         } else {

@@ -7,8 +7,8 @@
                 // Si realiza la apuesta aparece el mensaje
                 if (isset($_SESSION['acierto'])) {
                     echo "<span style='color:brown'>Apuesta realizada</span>";
-                    //Recogemos los errores que puedan ocurrir
                 } else if (isset($_SESSION['error'])) {
+                    //Recogemos los errores que puedan ocurrir
                     echo $_SESSION['error'];
                     unset($_SESSION['error']);
                 }
@@ -19,13 +19,13 @@
                             <!-- Mostramos todos los numeros del 1 al 50 -->
                             <? for ($i = 1; $i < 51; $i++) { ?>
                                 <!-- Si se han seleccionado los numeros se quedan marcados-->
-                                <input class="oculto" type="checkbox" name="check[]" value="<? echo $i ?>" id="<? echo $i ?>" <? if (isset($arrayCheck) && isset($_REQUEST['insertar'])) {
+                                <input class="oculto" type="checkbox" name="check[]" value="<? echo $i ?>" id="<? echo $i ?>" <? if (isset($arrayCheck)) {
                                                                                                                                     if (in_array($i, $arrayCheck)) {
                                                                                                                                         echo "checked";
                                                                                                                                     }
                                                                                                                                 } ?>>
                                 <!-- Si se ha realizado el sorteo poner los numeros en rojo -->
-                                <label for="<? echo $i ?>" class="<??>">
+                                <label for="<? echo $i ?>" class="<? ?>">
                                     <? echo $i ?>
                                 </label>
                             <? } ?>
