@@ -1,11 +1,17 @@
 <?
 if (isset($_REQUEST['borrar'])) {
     $_SESSION['partido'] = $_REQUEST['id'];
-    $partidoBorrado = deletePartido($_REQUEST['id']);
+    if (deletePartido($_REQUEST['id'])) {
+        $value = get();
+        $partido = json_decode($value, true);
+        $_SESSION['vista'] = $vistas['admin'];
+    }
 } elseif (isset($_REQUEST['insertar'])) {
-    $partidoNuevo = postPartido($_REQUEST['jug1'], $_REQUEST['jug2'], $_REQUEST['fecha'], $_REQUEST['resultado']);
-    $_SESSION['vista'] = $vistas['insertar'];
-    $_SESSION['controlador'] = $controladores['admin'];
+    if (postPartido($_REQUEST['jug1'], $_REQUEST['jug2'], $_REQUEST['fecha'], $_REQUEST['resultado'])) {
+        $value = get();
+        $partido = json_decode($value, true);
+        $_SESSION['vista'] = $vistas['insertar'];
+    }
 } elseif (isset($_REQUEST['modificar'])) {
 
     $partidoModificado = putPartido($_REQUEST['id'], $_REQUEST['jug1'], $_REQUEST['jug2'], $_REQUEST['fecha'], $_REQUEST['resultado']);

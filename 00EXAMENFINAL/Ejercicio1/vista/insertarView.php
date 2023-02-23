@@ -18,7 +18,7 @@ if (isset($_SESSION['error'])) {
                             <!-- Jugador 1 -->
                             <div class="mb-4 px-2">
                                 <label for="jug1" class="form-label">Jugador 1</label>
-                                <input type="number" class="form-control" name="jug1" id="jug1" value="<? echo $partido->jug1 ?>">
+                                <input type="number" class="form-control" name="jug1" id="jug1">
                                 <?
                                 //comprobar que no este vacio
                                 if (isset($_REQUEST['insertar'])) {
@@ -33,7 +33,7 @@ if (isset($_SESSION['error'])) {
                             <!-- Jugador 2 -->
                             <div class="mb-4 px-2">
                                 <label for="jug2" class="form-label">Jugador 2</label>
-                                <input type="number" class="form-control" name="jug2" id="jug2" value="<? echo $partido->jug2 ?>">
+                                <input type="number" class="form-control" name="jug2" id="jug2">
                                 <?
                                 //comprobar que no este vacio
                                 if (isset($_REQUEST['insertar'])) {
@@ -48,7 +48,7 @@ if (isset($_SESSION['error'])) {
                             <!-- Fecha -->
                             <div class="mb-4 px-2">
                                 <label for="fecha" class="form-label">Fecha</label>
-                                <input type="text" class="form-control" name="fecha" id="fecha" value="<? echo $partido->fecha; ?>">
+                                <input type="text" class="form-control" name="fecha" id="fecha">
                                 <?
                                 //comprobar que no este vacio
                                 if (isset($_REQUEST['insertar'])) {
@@ -63,7 +63,7 @@ if (isset($_SESSION['error'])) {
                             <!-- Resultado -->
                             <div class="mb-4 px-2">
                                 <label for="resultado" class="form-label">Resultado</label>
-                                <input type="text" class="form-control" name="resultado" id="resultado" value="<? echo $partido->resultado ?>">
+                                <input type="text" class="form-control" name="resultado" id="resultado">
                                 <?
                                 //comprobar que no este vacio
                                 if (isset($_REQUEST['insertar'])) {
