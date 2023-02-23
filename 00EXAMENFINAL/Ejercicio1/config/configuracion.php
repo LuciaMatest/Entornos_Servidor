@@ -6,13 +6,10 @@ require_once('./config/conexion.php');
 require_once('./dao/FactoryBD.php');
 require_once('./dao/DAO.php');
 require_once('./dao/UsuarioDAO.php');
-require_once('./dao/ApuestaDAO.php');
-require_once('./dao/SorteoDAO.php');
 
 //MODELO
 require_once('./modelo/Usuario.php');
-require_once('./modelo/Apuesta.php');
-require_once('./modelo/Sorteo.php');
+require_once('./modelo/Partido.php');
 
 //CORE
 require_once('./core/funciones.php');
@@ -20,13 +17,15 @@ require_once('./core/funciones.php');
 //CONTROLADOR
 $controladores = array(
     'home' => './controlador/homeController.php',
-    'apuesta' => './controlador/apuestaController.php',
-    'sorteo' => './controlador/sorteoController.php'
+    'usuario' => './controlador/userController.php',
+    'admin' => './controlador/adminController.php'
 );
 
 //VISTA
 $vistas = array(
     'home' => './vista/homeView.php',
-    'apuesta' => './vista/apuestaView.php',
-    'sorteo' => './vista/sorteoView.php',
+    'usuario' => './vista/userView.php',
+    'admin' => './vista/adminView.php',
+    'insertar' => './vista/insertarView.php',
+    'modificar' => './vista/modificarView.php'
 );

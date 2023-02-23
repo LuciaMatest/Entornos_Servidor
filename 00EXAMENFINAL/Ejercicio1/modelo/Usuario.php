@@ -1,13 +1,13 @@
 <?
     class Usuario{
-        private $iduser;
+        private $id;
         private $nombre;
         private $password;
         private $perfil;
 
-        public function __construct($iduser,$nombre,$password,$perfil)
+        public function __construct($id,$nombre,$password,$perfil)
         {
-            $this->iduser=$iduser;
+            $this->id=$id;
             $this->nombre=$nombre;
             $this->password=$password;
             $this->perfil=$perfil;

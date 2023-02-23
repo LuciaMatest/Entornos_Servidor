@@ -18,11 +18,13 @@
             <input type="password" class="form-control" id="inputName" placeholder="Contraseña" name="pass">
         </div>
         <div class="mb-3">
+            <!-- Al loguearse el usuario puede seleccionar recuerdame para que cuando cierre sesion se mantenga su nombre de usuario y solo tenga que escribir de nuevo la contraseña -->
             <label for="recuerdame">Recuerdame</label>
             <input type="checkbox" id="recuerdame" name="recuerdame" <?php if (isset($_COOKIE['recuerdame'])) {
                                                                             echo 'checked';
                                                                         } ?> />
         </div>
+        <!-- Acceso a las paginas-->
         <button type="submit" class="btn btn-primary" name="enviar">Iniciar Sesión</button>
     </form>
 </div>

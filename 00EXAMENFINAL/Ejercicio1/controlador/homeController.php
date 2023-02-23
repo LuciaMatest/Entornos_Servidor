@@ -8,6 +8,7 @@ if (isset($_REQUEST['user'])) {
         setcookie("nombre_usuario", $user);
         setcookie("recuerdame", $user);
     } else {
+        // Si no queremos seguir recordando
         setcookie("nombre_usuario", $user, time() - 1);
         setcookie("recuerdame", $user, time() - 1);
     }
@@ -23,18 +24,17 @@ if (isset($_REQUEST['user'])) {
         if ($usuario != null) {
             $_SESSION['validado'] = true;
             $_SESSION['user'] = $user;
-            $_SESSION['iduser'] = $usuario->iduser;
+            $_SESSION['id'] = $usuario->id;
             $_SESSION['nombre'] = $usuario->nombre;
             $_SESSION['perfil'] = $usuario->perfil;
             //Dependiendo de que usuario se loguee, accedera a una pagia u otra
             if (esAdmin()) {
-                $_SESSION['vista'] = $vistas['sorteo'];
-                $_SESSION['controlador'] = $controladores['sorteo'];
-                // recuperarSeleccion($usuario);
+                $_SESSION['vista'] = $vistas['admin'];
+                $_SESSION['controlador'] = $controladores['admin'];
                 header('Location: ./index.php');
             } else {
-                $_SESSION['vista'] = $vistas['apuesta'];
-                $_SESSION['controlador'] = $controladores['apuesta'];
+                $_SESSION['vista'] = $vistas['usuario'];
+                $_SESSION['controlador'] = $controladores['usuario'];
                 header('Location: ./index.php');
             }
         }

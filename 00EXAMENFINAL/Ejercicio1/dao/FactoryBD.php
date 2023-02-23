@@ -1,4 +1,6 @@
-<?   
+<?  
+    require_once './config/conexion.php';
+
     class FactoryBD{
 
         public static function ejecuta($sql,$datos){
@@ -9,16 +11,16 @@
                 $preparada->execute($datos);
 
             } catch (Exception $ex) {
-                //Si falla en la consulta devuelve nulo
                 $preparada=null;
-                echo $ex;
+                if ($ex->getCode()==2002 || $ex->getCode()==1049){
+                    ControladorPadre::respuesta('',array('HTTP/1.1 500 Server Error'));
+                }else{
+                    ControladorPadre::respuesta('',array('HTTP/1.1 400 Algun parametro esta mal: ' . $ex->getMessage()));
+                    
+                }  
             }finally{
-                //Cerramos la conexión
                 unset($con);
-                //Devolvemos la consulta
                 return $preparada;
             }
         }
-
     }
-?>

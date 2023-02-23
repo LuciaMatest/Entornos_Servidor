@@ -26,17 +26,17 @@ if (isset($_REQUEST['home'])) {
         require_once $_SESSION['controlador'];
     } elseif (isset($_SESSION['pagina'])) {
         ///Páginas por donde podemos movernos
-        if (isset($_SESSION['apuesta'])) {
-            //Pagina de apuestas donde el usuario elige los numeros
-            $_SESSION['controlador'] = $controladores['apuesta'];
-            $_SESSION['vista'] = $vistas['apuesta'];
-            $_SESSION['pagina'] = 'Apuesta';
+        if (isset($_SESSION['admin'])) {
+            //Pagina de admin donde se pueden ver todos los partidos con los que podemos realizar acciones
+            $_SESSION['controlador'] = $controladores['admin'];
+            $_SESSION['vista'] = $vistas['admin'];
+            $_SESSION['pagina'] = 'Admin';
             require_once $_SESSION['controlador'];
-        } elseif (isset($_SESSION['sorteo'])) {
-            //Pagina de sorteo donde el admin generar los numeros y ve el registro de apuestas de los usuarios
-            $_SESSION['controlador'] = $controladores['sorteo'];
-            $_SESSION['vista'] = $vistas['sorteo'];
-            $_SESSION['pagina'] = 'Sorteo';
+        } elseif (isset($_SESSION['usuario'])) {
+            //Pagina de partidos del usuario donde puede ver los que ha jugado
+            $_SESSION['controlador'] = $controladores['usuario'];
+            $_SESSION['vista'] = $vistas['usuario'];
+            $_SESSION['pagina'] = 'Usuario';
             require_once $_SESSION['controlador'];
         } else {
             require_once $_SESSION['controlador'];

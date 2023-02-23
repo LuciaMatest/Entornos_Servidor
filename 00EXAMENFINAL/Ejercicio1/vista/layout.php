@@ -22,6 +22,7 @@
                         </li>
                     </ul>
                     <form class="d-flex" action='./index.php' method='post'>
+                        <!-- Si el usuario esta logueado el header mostrara un texto de bienvenida con un boton para desloguearse -->
                         <?php
                         if (estaValidado()) {
                             echo '<div class="container mt-3">';
