@@ -6,8 +6,8 @@ require_once './dao/PartidoDAO.php';
 
 $recurso = ControladorPadre::recurso();
 
-if($recurso){
-    if($recurso[1]=='partidos'){
+if ($recurso) {
+    if ($recurso[1] == 'partidos') {
         $controlador = new PartidosControlador();
         $controlador->controlar();
     }
