@@ -25,6 +25,7 @@ class PartidosControlador extends ControladorPadre
     }
 
     //Una funcion por cada una de las acciones que podemos realizar
+    //Buscar todos los partidos/ por id de partido/ por jugador
     public function buscar()
     {
         $parametros = $this->parametros();
@@ -61,6 +62,7 @@ class PartidosControlador extends ControladorPadre
             );
         }
     }
+    //Añadir nuevo partido
     public function insertar()
     {
         $body = file_get_contents('php://input');
@@ -78,6 +80,7 @@ class PartidosControlador extends ControladorPadre
             self::respuesta('', array('HTTP/1.1 400 No se ha insertado correctamente'));
         }
     }
+    //Modificar partido ya existente
     public function modificar()
     {
         $recurso = self::recurso();
@@ -103,6 +106,7 @@ class PartidosControlador extends ControladorPadre
             self::respuesta('', array('HTTP/1.1 400 El recurso esta mal formado /conciertos/{id}'));
         }
     }
+    //Borrar partido
     public function borrar()
     {
         $recurso = self::recurso();
