@@ -6,4 +6,3 @@
         public static function insert($objeto);
         public static function update($objeto);
     }
-?>
