@@ -7,9 +7,8 @@ class Partido
     private $fecha;
     private $resultado;
 
-    public function __construct($id, $jug1, $jug2, $fecha, $resultado)
+    public function __construct($jug1, $jug2, $fecha, $resultado)
     {
-        $this->id = $id;
         $this->jug1 = $jug1;
         $this->jug2 = $jug2;
         $this->fecha = $fecha;

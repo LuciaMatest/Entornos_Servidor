@@ -40,8 +40,9 @@ class PartidosControlador extends ControladorPadre
                     array('Content-Type: application/json', 'HTTP/1.1 200 OK')
                 );
             } else {
-                if ((isset($_GET['jug1'])) || (isset($_GET['jug2']))) {
-                    $partido = PartidoDAO::findByIdUser($_GET['jug1'], $_GET['jug2']);
+                //Listar partidos por jugadores
+                if (isset($_GET['jugador'])) {
+                    $partido = PartidoDAO::findByIdUser($_GET['jugador']);
                     $data = json_encode($partido);
                     self::respuesta(
                         $data,
@@ -62,11 +63,63 @@ class PartidosControlador extends ControladorPadre
     }
     public function insertar()
     {
+        $body = file_get_contents('php://input');
+        $dato = json_decode($body, true);
+        //propiedades
+        if (isset($dato['jug1']) && isset($dato['jug2']) && isset($dato['fecha']) && isset($dato['resultado'])) {
+            $partido = new Partido(null, $dato['jug1'], $dato['jug2'], $dato['fecha'], $dato['resultado']);
+            if (PartidoDAO::insert($partido)) {
+                self::respuesta(
+                    '',
+                    array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+                );
+            };
+        } else {
+            self::respuesta('', array('HTTP/1.1 400 No se ha insertado correctamente'));
+        }
     }
     public function modificar()
     {
+        $recurso = self::recurso();
+        if (count($recurso) == 3) {
+            $body = file_get_contents('php://input');
+            $dato = json_decode($body, true);
+            if (isset($dato['jug1']) && isset($dato['jug2']) && isset($dato['fecha']) && isset($dato['resultado'])) {
+                $partido = new Partido($dato['jug1'], $dato['jug2'], $dato['fecha'], $dato['resultado']);
+                $partido->id = $recurso[2];
+                if (ConciertoDAO::update($partido)) {
+                    self::respuesta(
+                        '',
+                        array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+                    );
+                } else {
+                    self::respuesta(
+                        '',
+                        array('Content-Type: application/json', 'HTTP/1.1 200 Ya no existe, no se ha modificado')
+                    );
+                }
+            }
+        } else {
+            self::respuesta('', array('HTTP/1.1 400 El recurso esta mal formado /conciertos/{id}'));
+        }
     }
     public function borrar()
     {
+        $recurso = self::recurso();
+        if (count($recurso) == 3) {
+            if (ConciertoDAO::delete($recurso[2])) {
+                self::respuesta(
+                    '',
+                    array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+                );
+            } else {
+                self::respuesta(
+                    '',
+                    array('Content-Type: application/json', 'HTTP/1.1 200 Ya no existe, no se ha borrado')
+                );
+            }
+        } else {
+            self::respuesta('', array('HTTP/1.1 400 No se ha podido eliminar correctamente'));
+        }
     }
 }
