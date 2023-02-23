@@ -71,7 +71,7 @@ function getById($id)
     return $resultado;
 }
 // Insertar nuevo partido
-function post($jug1, $jug2, $fecha, $resultado)
+function postPartido($jug1, $jug2, $fecha, $resultado)
 {
     $json = '{
         "jug1": "' . $jug1 . '",
@@ -95,7 +95,7 @@ function post($jug1, $jug2, $fecha, $resultado)
     return 1;
 }
 // Modificar partido
-function put($id, $jug1, $jug2, $fecha, $resultado)
+function putPartido($id, $jug1, $jug2, $fecha, $resultado)
 {
     $json = '{
         "jug1": "' . $jug1 . '",
@@ -120,7 +120,7 @@ function put($id, $jug1, $jug2, $fecha, $resultado)
     return 1;
 }
 // Eliminar partido
-function delete($id)
+function deletePartido($id)
 {
     $ch = curl_init();
     $url = 'http://192.168.2.204/Entornos_Servidor/00EXAMENFINAL/Ejercicio2/partidos.php/partidos/' . $id;
