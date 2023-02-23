@@ -67,7 +67,7 @@ class PartidosControlador extends ControladorPadre
         $dato = json_decode($body, true);
         //propiedades
         if (isset($dato['jug1']) && isset($dato['jug2']) && isset($dato['fecha']) && isset($dato['resultado'])) {
-            $partido = new Partido(null, $dato['jug1'], $dato['jug2'], $dato['fecha'], $dato['resultado']);
+            $partido = new Partido($dato['jug1'], $dato['jug2'], $dato['fecha'], $dato['resultado']);
             if (PartidoDAO::insert($partido)) {
                 self::respuesta(
                     '',
@@ -87,7 +87,7 @@ class PartidosControlador extends ControladorPadre
             if (isset($dato['jug1']) && isset($dato['jug2']) && isset($dato['fecha']) && isset($dato['resultado'])) {
                 $partido = new Partido($dato['jug1'], $dato['jug2'], $dato['fecha'], $dato['resultado']);
                 $partido->id = $recurso[2];
-                if (ConciertoDAO::update($partido)) {
+                if (PartidoDAO::update($partido)) {
                     self::respuesta(
                         '',
                         array('Content-Type: application/json', 'HTTP/1.1 200 OK')
@@ -107,7 +107,7 @@ class PartidosControlador extends ControladorPadre
     {
         $recurso = self::recurso();
         if (count($recurso) == 3) {
-            if (ConciertoDAO::delete($recurso[2])) {
+            if (PartidoDAO::delete($recurso[2])) {
                 self::respuesta(
                     '',
                     array('Content-Type: application/json', 'HTTP/1.1 200 OK')
