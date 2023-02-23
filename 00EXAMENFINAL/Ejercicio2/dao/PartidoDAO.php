@@ -26,6 +26,19 @@ class PartidoDAO extends FactoryBD implements DAO
         }
     }
 
+    public static function findByIdUser($jug1, $jug2)
+    {
+        $sql = 'select * from partido where jug1=? or jug2=?';
+        $datos = array($jug1, $jug2);
+        $devuelve = parent::ejecuta($sql, $datos);
+        $obj = $devuelve->fetch(PDO::FETCH_ASSOC);
+        if ($obj) {
+            return $obj;
+        } else {
+            return 'No existe el producto';
+        }
+    }
+
     public static function insert($objeto)
     {
         $sql = 'insert into partido values (?,?,?,?,?)';
