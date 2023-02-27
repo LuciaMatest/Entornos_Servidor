@@ -67,11 +67,10 @@ curl_close($conexion);
                     <tr>
                         <th></th>
                         <th scope="col">#</th>
-                        <th scope="col">Lunes</th>
-                        <th scope="col">Martes</th>
-                        <th scope="col">Miercoles</th>
-                        <th scope="col">Jueves</th>
-                        <th scope="col">Viernes</th>
+                        <? foreach ($tiempo['DailyForecasts'] as $evento) {
+                            $fecha = $evento['Date'];
+                            echo '<th scope="col">' . $fecha . '</th>';
+                        }; ?>
                     </tr>
                 </thead>
                 <tbody>
